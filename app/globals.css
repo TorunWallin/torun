@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    background: theme('colors.cream.DEFAULT');
+    color: theme('colors.ink.DEFAULT');
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-display), Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Pill-shaped CTA buttons — soft & rounded, Inter mixed case */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-7 py-3 rounded-full;
+    @apply font-sans text-[15px] font-semibold tracking-tight;
+    @apply border-[1.5px] border-ink;
+    @apply transition-all duration-200;
+    @apply cursor-pointer;
+  }
+  .btn-lime {
+    @apply btn-pill bg-lime text-ink;
+  }
+  .btn-lime:hover {
+    @apply bg-pink-hot text-white -translate-y-px;
+  }
+  .btn-pink {
+    @apply btn-pill bg-pink-hot text-white;
+  }
+  .btn-pink:hover {
+    @apply bg-lime text-ink -translate-y-px;
+  }
+  .btn-teal {
+    @apply btn-pill bg-teal text-cream;
+  }
+  .btn-teal:hover {
+    @apply bg-lime text-ink -translate-y-px;
+  }
+
+  /* Soft nav link — Inter medium, mixed case */
+  .nav-link {
+    @apply font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors;
+  }
+
+  /* Display headline — Lora bold italic, warm & humanist */
+  .display-italic {
+    @apply font-display italic font-bold;
+  }
+
+  /* Small mono accent (eyebrows on sections) — mixed case, calm */
+  .mono-eyebrow {
+    @apply font-mono text-[12px] font-medium tracking-[0.05em];
+  }
+}
