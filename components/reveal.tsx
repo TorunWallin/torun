@@ -11,7 +11,6 @@ type Props = {
   duration?: number;
   direction?: Direction;
   threshold?: number;
-  as?: keyof React.JSX.IntrinsicElements;
 };
 
 const TRANSFORMS: Record<Direction, string> = {
@@ -30,9 +29,8 @@ export function Reveal({
   duration = 800,
   direction = "up",
   threshold = 0.12,
-  as = "div",
 }: Props) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -61,11 +59,8 @@ export function Reveal({
     return () => observer.disconnect();
   }, [threshold]);
 
-  const Tag = as as keyof React.JSX.IntrinsicElements;
-
   return (
-    <Tag
-      // @ts-expect-error - dynamic ref typing
+    <div
       ref={ref}
       className={className}
       style={{
@@ -76,6 +71,6 @@ export function Reveal({
       }}
     >
       {children}
-    </Tag>
+    </div>
   );
 }
