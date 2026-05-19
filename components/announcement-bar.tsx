@@ -1,12 +1,13 @@
 export function AnnouncementBar() {
   return (
-    <div className="bg-pink-hot text-white text-center py-2.5 px-4 font-sans text-[14px] font-medium">
-      Gratis 7-dagars startguide för dig som är ny här
+    <div className="bg-pink-light text-teal text-center py-3 px-4 font-sans text-[14px] font-semibold border-b border-pink/30">
+      Gratis 7-dagars startguide
+      <span className="mx-2">→</span>
       <a
         href="#guide"
-        className="font-script text-lime text-[20px] ml-2 align-middle no-underline"
+        className="font-pacifico text-[20px] md:text-[22px] text-pink-hot align-middle no-underline ml-1"
       >
-        ladda ner →
+        ladda ner här
       </a>
     </div>
   );

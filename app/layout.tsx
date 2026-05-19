@@ -1,13 +1,34 @@
 import type { Metadata } from "next";
-import { Lora, Inter, JetBrains_Mono, Lobster } from "next/font/google";
+import {
+  Lora,
+  Inter,
+  JetBrains_Mono,
+  Pacifico,
+  Playwrite_HR,
+} from "next/font/google";
 import "./globals.css";
 
+// Body & paragraphs — warm humanist serif
 const lora = Lora({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-lora",
   display: "swap",
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
+});
+
+// Headlines & big display — Pacifico cursive (matches Toruns Canva)
+const pacifico = Pacifico({
+  subsets: ["latin"],
+  variable: "--font-pacifico",
+  display: "swap",
+  weight: ["400"],
+});
+
+// Handwritten body accent (Playwrite — Slovakia/Croatia variants similar)
+const playwrite = Playwrite_HR({
+  variable: "--font-playwrite",
+  display: "swap",
 });
 
 const inter = Inter({
@@ -22,20 +43,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const lobster = Lobster({
-  subsets: ["latin"],
-  variable: "--font-script",
-  display: "swap",
-  weight: ["400"],
-});
-
 export const metadata: Metadata = {
-  title: "TORUN. — Hälsa som verktyg, inte ett mål.",
+  title: "TORUN Coach — Träning som får dig att må bra",
   description:
     "Träning, mat och välmående utan diet-tjat, vågen som coach eller skam. Ett annat samtal om hälsa — varmt, ärligt, gjort för verkliga liv.",
   metadataBase: new URL("https://torun.se"),
   openGraph: {
-    title: "TORUN. — Hälsa som verktyg, inte ett mål.",
+    title: "TORUN Coach — Träning som får dig att må bra",
     description:
       "Träning, mat och välmående utan diet-tjat, vågen som coach eller skam.",
     locale: "sv_SE",
@@ -49,7 +63,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="sv" className={`${lora.variable} ${inter.variable} ${jetbrainsMono.variable} ${lobster.variable}`}>
+    <html
+      lang="sv"
+      className={`${lora.variable} ${pacifico.variable} ${playwrite.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="font-serif">{children}</body>
     </html>
   );

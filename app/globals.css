@@ -7,7 +7,7 @@
     background: theme('colors.cream.DEFAULT');
     color: theme('colors.ink.DEFAULT');
     -webkit-font-smoothing: antialiased;
-    font-family: var(--font-display), Georgia, serif;
+    font-family: var(--font-lora), Georgia, serif;
   }
 }
 
@@ -45,9 +45,19 @@
     @apply font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors;
   }
 
-  /* Display headline — Lora bold italic, warm & humanist */
+  /* Display headline — Pacifico cursive, warm & confident */
   .display-italic {
-    @apply font-display italic font-bold;
+    @apply font-display;
+  }
+
+  /* Dark teal pill button — borderless, premium feel */
+  .btn-teal-deep {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply px-7 py-3 rounded-full;
+    @apply font-sans text-[15px] font-semibold tracking-tight;
+    @apply bg-teal text-white;
+    @apply transition-all duration-200;
+    @apply cursor-pointer hover:bg-teal-deep hover:-translate-y-px;
   }
 
   /* Small mono accent (eyebrows on sections) — mixed case, calm */
