@@ -9,15 +9,20 @@ const stats = [
 
 export function StatsStrip() {
   return (
-    <div className="relative -mt-20 md:-mt-24 z-20 px-6 md:px-12 mb-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-[1100px] mx-auto">
+    <div 
+      className="relative -mt-28 md:-mt-36 z-30 px-6 md:px-12 mb-20 py-16"
+      style={{
+        background: "repeating-linear-gradient(90deg, #fce7f3 0px, #fce7f3 12px, #ffffff 12px, #ffffff 28px)"
+      }}
+    >
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[1100px] mx-auto">
         {stats.map((s, i) => (
-          <Reveal key={s.label} direction="up" delay={i * 100}>
-            <div className="bg-white rounded-2xl py-7 md:py-8 px-5 text-center border-[1.5px] border-ink shadow-[0_10px_30px_rgba(0,0,0,0.08)] h-full flex flex-col justify-center">
-              <div className="font-pacifico text-[38px] md:text-[44px] text-pink-hot leading-none mb-3">
+          <Reveal key={s.label} direction="up" delay={i * 80}>
+            <div className="bg-white rounded-3xl py-9 md:py-10 px-7 text-center border border-[#f8d0e0] shadow-[0_8px_25px_rgba(236,77,156,0.08)] h-full flex flex-col justify-center hover:shadow-[0_12px_35px_rgba(236,77,156,0.12)] transition-all duration-300">
+              <div className="font-playwrite text-[44px] md:text-[52px] text-[#ec4d9c] leading-none mb-5">
                 {s.num}
               </div>
-              <div className="font-sans text-[12px] md:text-[13px] text-ink-charcoal leading-tight">
+              <div className="font-mono text-[13px] text-[#2f4a3a] leading-snug max-w-[160px] mx-auto">
                 {s.label}
               </div>
             </div>

@@ -2,7 +2,6 @@ import { AnnouncementBar } from "@/components/announcement-bar";
 import { SiteNav } from "@/components/site-nav";
 import { Hero } from "@/components/hero";
 import { StatsStrip } from "@/components/stats-strip";
-import { WelcomeStrip } from "@/components/welcome-strip";
 import { Pillars } from "@/components/pillars";
 import { Kvinnokroppen } from "@/components/kvinnokroppen";
 import { Programs } from "@/components/programs";
@@ -18,7 +17,6 @@ export default function Home() {
       <SiteNav />
       <Hero />
       <StatsStrip />
-      <WelcomeStrip />
       <Pillars />
       <Kvinnokroppen />
       <Programs />
