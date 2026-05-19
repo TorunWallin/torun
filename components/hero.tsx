@@ -13,16 +13,16 @@ export function Hero() {
     >
       <div className="relative z-10 max-w-[760px] text-white">
         
-        {/* Ny grön ERBJUDANDE-badge som i bilden */}
+        {/* Badge – exakt som i din bild */}
         <Reveal delay={0}>
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-lime to-emerald-400 text-ink py-3 px-8 rounded-full font-semibold text-[15px] tracking-wider mb-10 shadow-lg shadow-lime/30 border border-white/30">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-lime-400 to-emerald-400 text-ink py-3 px-8 rounded-full font-semibold text-[15px] tracking-wider mb-10 shadow-lg shadow-lime/30 border border-white/30">
             ERBJUDANDE
             <span className="text-ink/70">•</span>
             Founding Members · 20% rabatt · 10 platser kvar →
           </div>
         </Reveal>
 
-        {/* Rubrik – mer som i bilden */}
+        {/* Rubrik */}
         <Reveal delay={140}>
           <h1 className="font-pacifico text-[56px] md:text-[82px] lg:text-[92px] leading-[1.02] mb-6 tracking-[-0.02em]">
             Träning som får dig att må bra
@@ -43,18 +43,19 @@ export function Hero() {
           </p>
         </Reveal>
 
-        {/* NY HÄFTIG KNAPP – "NU"-känsla */}
+        {/* NY GENOMSKINLIG ROSA KNAPP */}
         <Reveal delay={520}>
           <a
             href="#program"
-            className="group relative inline-flex items-center gap-4 bg-white text-ink font-semibold text-xl px-12 py-6 rounded-2xl overflow-hidden transition-all hover:scale-[1.03] active:scale-95 shadow-2xl shadow-lime/30"
+            className="group relative inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-xl border border-white/30 hover:border-pink/50 text-white font-semibold text-xl px-14 py-7 rounded-full overflow-hidden transition-all hover:scale-[1.03] active:scale-95 shadow-2xl shadow-black/30"
           >
-            <span className="relative z-10">Ta del av erbjudandet nu →</span>
+            <span className="relative z-10 flex items-center gap-3">
+              Ta del av erbjudandet nu
+              <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
+            </span>
             
-            {/* Glow-effekt */}
-            <div className="absolute inset-0 bg-gradient-to-r from-lime via-emerald-300 to-lime opacity-0 group-hover:opacity-20 transition-opacity" />
-            
-            <span className="text-3xl group-hover:translate-x-2 transition-transform">✦</span>
+            {/* Rosa glow vid hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-pink/20 to-rose-400/20 opacity-0 group-hover:opacity-100 transition-all duration-300" />
           </a>
         </Reveal>
       </div>
