@@ -7,7 +7,7 @@ export function AnnouncementBar() {
         href="#guide"
         className="font-pacifico text-[20px] md:text-[22px] text-pink-hot align-middle no-underline ml-1"
       >
-        ladda ner här
+        ladda ner
       </a>
     </div>
   );

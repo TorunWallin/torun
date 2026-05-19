@@ -2,20 +2,20 @@ import Link from "next/link";
 
 export function SiteNav() {
   return (
-    <nav className="bg-cream-warm py-5 px-6 md:px-12 flex items-center justify-between border-b border-cream-warm">
+    <nav className="bg-cream-warm py-6 md:py-7 px-6 md:px-12 flex items-center justify-between border-b border-cream-warm">
       <Link href="/" className="block group">
-        <span className="font-pacifico text-[36px] md:text-[44px] text-ink block leading-none">
+        <span className="font-playwrite text-[28px] md:text-[40px] text-ink-charcoal block leading-[1.1]">
           Torun Coach
         </span>
-        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-ink-charcoal block mt-1.5">
+        <span className="font-serif italic text-[14px] md:text-[16px] text-ink-charcoal/85 block mt-1">
           hälsa · styrka · vardag
         </span>
       </Link>
-      <ul className="hidden md:flex gap-10 list-none">
+      <ul className="hidden md:flex gap-9 list-none">
         <li>
           <Link
             href="#program"
-            className="font-sans text-[14px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-pink-hot transition-colors"
+            className="font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors"
           >
             Program
           </Link>
@@ -23,7 +23,7 @@ export function SiteNav() {
         <li>
           <Link
             href="#filosofi"
-            className="font-sans text-[14px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-pink-hot transition-colors"
+            className="font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors"
           >
             Filosofi
           </Link>
@@ -31,7 +31,7 @@ export function SiteNav() {
         <li>
           <Link
             href="#om"
-            className="font-sans text-[14px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-pink-hot transition-colors"
+            className="font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors"
           >
             Om mig
           </Link>
@@ -41,14 +41,14 @@ export function SiteNav() {
             href="https://app.everfit.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-sans text-[14px] font-semibold uppercase tracking-[0.15em] text-ink hover:text-pink-hot transition-colors"
+            className="font-sans text-[15px] font-medium text-ink hover:text-pink-hot transition-colors"
           >
             Logga in
           </a>
         </li>
       </ul>
       <Link href="#program" className="btn-teal-deep">
-        Börja Här ♡
+        Börja här ♡
       </Link>
     </nav>
   );

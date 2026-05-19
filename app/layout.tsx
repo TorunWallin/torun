@@ -4,7 +4,7 @@ import {
   Inter,
   JetBrains_Mono,
   Pacifico,
-  Playwrite_HR,
+  Playwrite_SK,
 } from "next/font/google";
 import "./globals.css";
 
@@ -25,10 +25,11 @@ const pacifico = Pacifico({
   weight: ["400"],
 });
 
-// Handwritten body accent (Playwrite — Slovakia/Croatia variants similar)
-const playwrite = Playwrite_HR({
+// Handwritten body accent — Playwrite SK weight 400 (Toruns logo font)
+const playwrite = Playwrite_SK({
   variable: "--font-playwrite",
   display: "swap",
+  weight: ["400"],
 });
 
 const inter = Inter({

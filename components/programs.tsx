@@ -4,9 +4,10 @@ type Program = {
   badge?: string;
   name: string;
   tagline: string;
+  description: string;
   price: string;
   priceNote?: string;
-  features: string[];
+  features?: string[];
   cta: string;
   variant: "cream" | "pink" | "teal";
   featured?: boolean;
@@ -14,56 +15,49 @@ type Program = {
 
 const programs: Program[] = [
   {
+    badge: "Kickstart-produkten",
     name: "Kickstart med Torun",
     tagline:
-      "Färdigt 4-veckors program — gym eller hemma. Lågt instegspris för dig som vill testa min metod.",
+      "För dig som vill komma igång på ett tryggt och hållbart sätt — utan att behöva göra allt perfekt.",
+    description:
+      "Ett färdigt 4-veckors program för gym eller hemma, med fokus på styrka, energi och rutiner som faktiskt håller.",
     price: "795 kr",
     priceNote: "engångsköp",
-    features: [
-      "4 veckors program (gym ELLER hemma — du väljer)",
-      "Tillgång via Everfit-appen",
-      "Videoinstruktioner till varje övning",
-      "PDF: Sunda träningsvanor (15-20 sidor)",
-      "Mailsupport vid frågor",
-    ],
     cta: "Kom igång — 795 kr",
     variant: "cream",
   },
   {
-    badge: "Hjärtprodukten",
+    badge: "Signaturcoachning",
     name: "Stark med Torun",
     tagline:
-      "3 eller 6 månaders online coaching. Helt anpassat program som uppdateras varannan vecka.",
+      "Min signaturcoachning för dig som vill bygga styrka, trygghet och hållbara vanor med stöd hela vägen.",
+    description:
+      "Vi jobbar tillsammans utifrån din kropp, din vardag och dina mål — utan extrema upplägg eller stress kring mat och träning. För dig som vill känna dig starkare både fysiskt och mentalt.",
     price: "fr. 1 795 kr",
     priceNote: "/månad — 6 mån bindning",
-    features: [
-      "Helt anpassat program i Everfit",
-      "Veckovis check-in via chatten",
-      "Formcheck på videos (svar inom 24h)",
-      "Onboarding-samtal 30 min via Zoom",
-      "Tillgång till hela övningsbiblioteket",
-      "Enkla kostprinciper — utan kalorier",
-    ],
     cta: "Boka — fr. 1 795 kr/mån",
     variant: "pink",
     featured: true,
   },
   {
     badge: "Max 5 platser",
-    name: "Powerhouse",
+    name: "Torun 1:1",
     tagline:
-      "6 månaders 1:1 coaching. Daglig kontakt, individuellt kostupplägg och månadssamtal.",
+      "Min mest personliga coachning — för dig som vill ha nära stöd, djupare guidning och hjälp att skapa hållbara förändringar på riktigt.",
+    description:
+      "Vi jobbar tillsammans med träning, vanor, återhämtning, kost och mental hälsa utifrån dig, din kropp och ditt liv. För dig som vill känna dig stark, trygg och mer hemma i dig själv — med stöd hela vägen.",
     price: "3 495 kr",
-    priceNote: "/månad — 6 mån",
+    priceNote: "/månad · 6 månader",
     features: [
-      "Allt i Stark med Torun, plus:",
-      "Daglig chatt-support (mån-fre)",
-      "Månadssamtal 45 min via Zoom",
+      "Allt i Stark med Torun",
+      "Daglig kontakt via chat (mån–fre)",
       "Individuellt kostupplägg",
-      "Vanetracking & mental hälsa-incheckningar",
-      "Programuppdatering varje vecka",
+      "Veckovis programuppdatering",
+      "Månadssamtal 45 min via Zoom",
+      "Vanecoachning & mental hälsa-check-ins",
+      "Extra stöd kring stress, återhämtning & balans",
     ],
-    cta: "Ansök om plats",
+    cta: "Ansök om plats ♡",
     variant: "teal",
   },
 ];
@@ -96,26 +90,27 @@ export function Programs() {
   return (
     <section
       id="program"
-      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream overflow-hidden"
+      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream-warm overflow-hidden"
     >
       <div className="relative max-w-[1200px] mx-auto text-center mb-20">
         <Reveal delay={0}>
           <div className="mono-eyebrow text-pink-hot mb-4">välj din väg</div>
         </Reveal>
         <Reveal delay={120}>
-          <h2 className="display-italic text-[52px] md:text-[80px] text-teal leading-[1.0] mb-4 tracking-tight">
+          <h2 className="font-pacifico text-[52px] md:text-[80px] text-teal leading-[1.0] mb-6">
             Tre sätt att börja
           </h2>
         </Reveal>
-        <Reveal delay={240}>
-          <div className="font-script text-pink-hot text-[28px] md:text-[36px] -rotate-2 inline-block mb-8">
-            för dig, av mig
-          </div>
+        <Reveal delay={260}>
+          <p className="max-w-[640px] mx-auto text-[17px] leading-[1.75] text-ink-charcoal font-serif mb-3">
+            Oavsett om du är helt ny till gymmet eller bara vill hitta tillbaka
+            till dig själv igen — det finns en plats att börja här.
+          </p>
         </Reveal>
         <Reveal delay={360}>
-          <p className="max-w-[600px] mx-auto text-[17px] leading-[1.7] text-ink-charcoal">
-            Oavsett var du är idag — vi tar nästa steg tillsammans. Alla program
-            körs i Everfit-appen, med min coachning i ryggen.
+          <p className="max-w-[640px] mx-auto text-[15px] leading-[1.7] text-ink-gray font-serif italic">
+            Alla program sker online via Everfit, med coachning, struktur och
+            stöd längs vägen.
           </p>
         </Reveal>
       </div>
@@ -141,23 +136,30 @@ export function Programs() {
                   </span>
                 </div>
               )}
-              <h3 className="display-italic text-[32px] md:text-[36px] leading-[1.05] mb-4">
+              <h3 className="font-pacifico text-[34px] md:text-[40px] leading-[1.05] mb-5">
                 {p.name}
               </h3>
               <p
-                className={`text-[15.5px] leading-[1.65] mb-8 ${
+                className={`text-[15.5px] leading-[1.7] mb-4 font-serif ${
                   p.variant === "teal" ? "text-pink-light opacity-95" : "text-ink-charcoal"
                 }`}
               >
                 {p.tagline}
               </p>
-              <div className="mb-8">
-                <span className={`display-italic text-[44px] md:text-[48px] ${priceColor[p.variant]}`}>
+              <p
+                className={`text-[14.5px] leading-[1.65] mb-7 font-serif ${
+                  p.variant === "teal" ? "text-pink-light opacity-85" : "text-ink-charcoal opacity-85"
+                }`}
+              >
+                {p.description}
+              </p>
+              <div className="mb-7">
+                <span className={`font-pacifico text-[44px] md:text-[48px] ${priceColor[p.variant]}`}>
                   {p.price}
                 </span>
                 {p.priceNote && (
                   <span
-                    className={`block mt-1 font-mono text-[11px] tracking-[0.1em] ${
+                    className={`block mt-1 font-sans text-[12px] ${
                       p.variant === "teal" ? "text-pink-light opacity-80" : "text-ink-gray"
                     }`}
                   >
@@ -165,19 +167,24 @@ export function Programs() {
                   </span>
                 )}
               </div>
-              <ul className="flex flex-col gap-3.5 mb-10 flex-grow">
-                {p.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-3 text-[14.5px] leading-[1.55]"
-                  >
-                    <span className={`${checkColor[p.variant]} font-bold mt-0.5 flex-shrink-0`}>
-                      ✓
-                    </span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
+              {p.features && p.features.length > 0 && (
+                <ul className="flex flex-col gap-3 mb-9 flex-grow">
+                  {p.features.map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-3 text-[14px] leading-[1.55] font-serif"
+                    >
+                      <span className={`${checkColor[p.variant]} font-bold mt-0.5 flex-shrink-0`}>
+                        ✓
+                      </span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {(!p.features || p.features.length === 0) && (
+                <div className="flex-grow" />
+              )}
               <a href="#kontakt" className={`${ctaClass[p.variant]} w-full justify-center`}>
                 {p.cta}
               </a>

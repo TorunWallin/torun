@@ -3,20 +3,20 @@ import { Reveal } from "./reveal";
 const pillars = [
   {
     num: "01",
-    title: "Hälsa = må bra",
-    body: "Hälsa mäts inte på vågen, i mått eller i utseende. Det mäts i hur du sover, hur du orkar, hur du mår med dig själv.",
+    title: "Hälsa ska hjälpa dig att leva",
+    body: "Jag tror inte hälsa handlar om att kontrollera kroppen hela tiden. Jag tror det handlar om att sova bättre, ha energi, känna sig stark och kunna leva sitt liv fullt ut.",
     variant: "pink",
   },
   {
     num: "02",
-    title: "Styrka är en superkraft",
-    body: "Att lyfta tungt, klara av en vardag, säga ifrån, vila när det behövs. Det är samma muskel — och vi tränar den tillsammans.",
+    title: "Styrka förändrar mer än kroppen",
+    body: "Att bli stark handlar inte bara om muskler. Det handlar om självkänsla, trygghet och att våga ta plats utan att behöva be om ursäkt för det.",
     variant: "teal",
   },
   {
     num: "03",
-    title: "Mat utan dietkultur",
-    body: 'Inga regler om "förbjudet". Ingen viktnedgång som mål. Mat är energi, glädje och näring — så pratar vi om den.',
+    title: "Mat ska inte skapa skuld",
+    body: 'Här jobbar vi inte med "förbjudet", straff eller perfektion. Mat är energi, näring, njutning och en del av livet — inte något du måste förtjäna.',
     variant: "lime",
   },
 ] as const;
@@ -51,16 +51,13 @@ export function Pillars() {
       id="filosofi"
       className="relative px-6 md:px-16 py-28 md:py-40 text-center bg-cream-warm overflow-hidden"
     >
-      <Reveal delay={0}>
-        <div className="mono-eyebrow text-pink-hot mb-4">vad du hittar här</div>
-      </Reveal>
       <Reveal delay={120}>
-        <h2 className="display-italic text-[52px] md:text-[80px] text-teal leading-[1.0] mb-4 tracking-tight">
+        <h2 className="font-pacifico text-[52px] md:text-[80px] text-teal leading-[1.0] mb-4">
           Stark · Trygg · Hel
         </h2>
       </Reveal>
       <Reveal delay={240}>
-        <div className="font-script text-pink-hot text-[28px] md:text-[36px] mb-20 -rotate-1 inline-block">
+        <div className="font-playwrite text-pink-hot text-[20px] md:text-[24px] mb-20 inline-block">
           så här tänker jag
         </div>
       </Reveal>
@@ -77,11 +74,11 @@ export function Pillars() {
                 {p.num}
               </div>
               <h3
-                className={`display-italic text-[34px] md:text-[40px] leading-[1.05] mb-5 ${variantTitleColor[p.variant]}`}
+                className={`font-pacifico text-[30px] md:text-[36px] leading-[1.1] mb-5 ${variantTitleColor[p.variant]}`}
               >
                 {p.title}
               </h3>
-              <p className={`text-[16px] leading-[1.7] ${variantBodyColor[p.variant]}`}>
+              <p className={`text-[16px] leading-[1.7] font-serif ${variantBodyColor[p.variant]}`}>
                 {p.body}
               </p>
             </div>

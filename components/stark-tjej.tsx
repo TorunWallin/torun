@@ -8,27 +8,33 @@ export function StarkTjej() {
           <div className="mono-eyebrow text-lime mb-6">en plats per kvartal</div>
         </Reveal>
         <Reveal delay={120}>
-          <h2 className="display-italic text-[44px] md:text-[64px] text-white mb-8 leading-[1.0] tracking-tight">
-            Stark Tjej — för dig som behöver det mest
+          <h2 className="font-pacifico text-[48px] md:text-[72px] text-white mb-10 leading-[1.05]">
+            Stark Tjej <span className="text-pink-light">♡</span>
           </h2>
         </Reveal>
         <Reveal delay={260}>
-          <p className="text-[18px] leading-[1.75] text-pink-light max-w-[720px] mx-auto mb-8 opacity-95">
-            En gång per kvartal går en plats i <em className="italic text-lime">Stark med Torun</em> till
-            en ung tjej som behöver hitta tillbaka till sin styrka. Ingen kostnad. Inga
-            krav på prestation. Bara ett varmt rum att börja om i.
+          <p className="text-[18px] leading-[1.8] text-pink-light max-w-[720px] mx-auto mb-6 opacity-95 font-serif">
+            En gång per kvartal ger jag bort en plats i{" "}
+            <em className="italic text-lime">Stark med Torun</em> till en ung
+            tjej som behöver stöd, trygghet och en ny start i sin relation till
+            träning och sig själv.
           </p>
         </Reveal>
-        <Reveal delay={380}>
-          <p className="text-[16px] leading-[1.75] text-pink-light max-w-[680px] mx-auto mb-12 opacity-90">
-            Träning är ett verktyg för att må bra — aldrig för att straffa. För dig
-            som är 16-22 år och vill bygga en sund relation till din kropp, finns
-            den här platsen. Skicka ett mejl, skriv lite om dig, så pratar vi.
+        <Reveal delay={360}>
+          <p className="text-[16px] leading-[1.75] text-pink-light max-w-[680px] mx-auto mb-6 opacity-90 font-serif">
+            Ingen prestation. Ingen press att vara duktig. Bara ett varmt rum
+            att börja om i.
           </p>
         </Reveal>
-        <Reveal delay={500}>
+        <Reveal delay={460}>
+          <p className="text-[16px] leading-[1.75] text-pink-light max-w-[680px] mx-auto mb-12 opacity-90 font-serif italic">
+            För dig mellan 16–22 år som vill bygga styrka, självkänsla och en
+            snällare relation till kroppen.
+          </p>
+        </Reveal>
+        <Reveal delay={560}>
           <a href="#kontakt" className="btn-lime">
-            Ansök om en Stark Tjej-plats
+            Skicka ett mejl ♡
           </a>
         </Reveal>
       </div>
