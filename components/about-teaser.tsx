@@ -1,27 +1,17 @@
-import { ImgSticker } from "./img-sticker";
 import { Reveal } from "./reveal";
 
 export function AboutTeaser() {
   return (
     <section
       id="om"
-      className="relative px-6 md:px-12 py-24 md:py-32 bg-cream overflow-hidden"
+      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream-warm overflow-hidden"
     >
-      {/* gymkit collection — sits next to the bio header */}
-      <Reveal direction="scale" delay={300}>
-        <ImgSticker
-          src="/gymkit.png"
-          size={220}
-          className="hidden md:block absolute top-16 right-[4%] animate-float -rotate-3"
-        />
-      </Reveal>
-
-      <div className="relative max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-        {/* Left: photo */}
-        <Reveal direction="right" delay={0}>
+      <div className="relative max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
+        {/* Left: photo (5 cols on md) */}
+        <Reveal direction="right" delay={0} className="md:col-span-5">
           <div className="relative">
             <div
-              className="rounded-2xl border-[1.5px] border-ink min-h-[420px] aspect-[4/5] md:aspect-auto md:h-[560px] bg-pink-light"
+              className="rounded-3xl border-[1.5px] border-ink min-h-[480px] aspect-[4/5] md:aspect-auto md:h-[620px] bg-pink-light"
               style={{
                 backgroundImage: "url('/torun-portrait.png')",
                 backgroundSize: "cover",
@@ -29,51 +19,46 @@ export function AboutTeaser() {
               }}
               aria-label="Torun"
             />
-            <ImgSticker
-              src="/Strawberry.png"
-              size={70}
-              className="absolute -top-6 -left-4 animate-twinkle -rotate-12 drop-shadow-[0_6px_14px_rgba(0,0,0,0.15)]"
-            />
           </div>
         </Reveal>
 
-        {/* Right: copy */}
-        <div>
+        {/* Right: copy (7 cols on md) */}
+        <div className="md:col-span-7">
           <Reveal delay={150}>
-            <div className="font-script text-pink-hot text-[36px] md:text-[44px] leading-none mb-1 -rotate-2 inline-block">
+            <div className="font-script text-pink-hot text-[40px] md:text-[52px] leading-none mb-3 -rotate-2 inline-block">
               Hej, jag är Torun
             </div>
           </Reveal>
-          <Reveal delay={230}>
-            <div className="mono-eyebrow text-pink-hot mt-4 mb-4">
+          <Reveal delay={260}>
+            <div className="mono-eyebrow text-pink-hot mt-5 mb-6">
               coach · pt · kostrådgivare
             </div>
           </Reveal>
-          <Reveal delay={310}>
-            <h2 className="display-italic text-display-sm text-teal mb-7 leading-[0.98]">
+          <Reveal delay={360}>
+            <h2 className="display-italic text-[40px] md:text-[56px] text-teal mb-9 leading-[0.98] tracking-tight">
               Träning ska kännas bra <em className="italic text-pink-hot">— inte vara ett straff.</em>
             </h2>
           </Reveal>
-          <Reveal delay={400}>
-            <p className="text-[16px] leading-[1.75] text-ink-charcoal mb-5">
+          <Reveal delay={460}>
+            <p className="text-[17px] leading-[1.8] text-ink-charcoal mb-5">
               Jag är personlig tränare och kostrådgivare, baserad i Mälardalen
               och jobbar 100% online via Everfit. Jag startar det här för att jag
               tror att tjejer och kvinnor förtjänar ett annat samtal om hälsa
               än det vi vuxit upp med.
             </p>
           </Reveal>
-          <Reveal delay={470}>
-            <p className="text-[16px] leading-[1.75] text-ink-charcoal mb-5">
+          <Reveal delay={540}>
+            <p className="text-[17px] leading-[1.8] text-ink-charcoal mb-5">
               Inget diet-tjat. Ingen våg som coach. Inga regler om förbjudet.
               Bara styrka, värme och en plan som faktiskt fungerar i din vardag.
             </p>
           </Reveal>
-          <Reveal delay={540}>
-            <p className="text-[16px] leading-[1.75] text-ink-charcoal mb-9">
+          <Reveal delay={620}>
+            <p className="text-[17px] leading-[1.8] text-ink-charcoal mb-10">
               Jag pratar med dig som med en kompis. För det är så det ska kännas.
             </p>
           </Reveal>
-          <Reveal delay={620}>
+          <Reveal delay={720}>
             <div className="flex gap-3 flex-wrap">
               <a href="#program" className="btn-pink">
                 Se programmen
@@ -91,17 +76,12 @@ export function AboutTeaser() {
         </div>
       </div>
 
-      {/* Personal callout — elephant photo */}
+      {/* Personal callout — elephant photo, calmer styling */}
       <Reveal delay={0}>
-        <div className="relative max-w-[1100px] mx-auto mt-24 md:mt-28 grid grid-cols-1 md:grid-cols-3 gap-8 items-center bg-pink-stripes-narrow border-[1.5px] border-ink rounded-2xl p-7 md:p-10">
-          <ImgSticker
-            src="/pinkgirl.png"
-            size={70}
-            className="hidden md:block absolute -top-8 -right-4 animate-float rotate-6 drop-shadow-[0_6px_14px_rgba(0,0,0,0.15)]"
-          />
+        <div className="relative max-w-[1100px] mx-auto mt-28 md:mt-32 grid grid-cols-1 md:grid-cols-3 gap-10 items-center bg-cream border-[1.5px] border-ink rounded-3xl p-9 md:p-12">
           <div className="md:col-span-1">
             <div
-              className="rounded-xl border-[1.5px] border-ink aspect-[3/4] bg-pink-light"
+              className="rounded-2xl border-[1.5px] border-ink aspect-[3/4] bg-pink-light"
               style={{
                 backgroundImage: "url('/torun-elephant.jpg')",
                 backgroundSize: "cover",
@@ -111,15 +91,16 @@ export function AboutTeaser() {
             />
           </div>
           <div className="md:col-span-2">
-            <div className="font-script text-teal text-[30px] md:text-[36px] leading-none mb-4 -rotate-1 inline-block">
-              Lite om mig utanför gymmet
+            <div className="mono-eyebrow text-pink-hot mb-3">utanför gymmet</div>
+            <div className="font-script text-teal text-[32px] md:text-[40px] leading-none mb-6 -rotate-1 inline-block">
+              Lite om mig
             </div>
-            <p className="text-[15px] md:text-[16px] leading-[1.75] text-ink-charcoal mb-3">
-              När jag inte coachar älskar jag att resa, vara nära djur och natur, och bara *vara*.
+            <p className="text-[16px] md:text-[17px] leading-[1.8] text-ink-charcoal mb-4">
+              När jag inte coachar älskar jag att resa, vara nära djur och natur, och bara <em className="italic text-teal">vara</em>.
               Jag tror att hälsa också är det här — att hinna leva, att känna sig
               liten ibland, att fyllas på.
             </p>
-            <p className="text-[15px] md:text-[16px] leading-[1.75] text-ink-charcoal italic">
+            <p className="text-[15.5px] md:text-[16px] leading-[1.8] text-ink-charcoal italic">
               Det är samma muskel vi tränar — att ta plats utan att behöva förklara sig.
             </p>
           </div>

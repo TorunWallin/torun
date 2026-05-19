@@ -1,4 +1,3 @@
-import { ImgSticker } from "./img-sticker";
 import { Reveal } from "./reveal";
 
 type Program = {
@@ -97,86 +96,42 @@ export function Programs() {
   return (
     <section
       id="program"
-      className="relative px-6 md:px-12 py-24 md:py-32 bg-cream-warm overflow-hidden"
+      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream overflow-hidden"
     >
-      {/* Section-level lifestyle stickers in margins (no per-card stickers) */}
-      <Reveal direction="scale" delay={300}>
-        <ImgSticker
-          src="/PinkEar.png"
-          size={75}
-          className="hidden md:block absolute top-16 left-[6%] animate-float -rotate-6"
-        />
-      </Reveal>
-      <Reveal direction="scale" delay={400}>
-        <ImgSticker
-          src="/StanleyCup.png"
-          size={70}
-          className="hidden md:block absolute top-20 right-[8%] animate-twinkle rotate-6"
-        />
-      </Reveal>
-      <Reveal direction="scale" delay={500}>
-        <ImgSticker
-          src="/Namnlöst.png"
-          size={85}
-          className="hidden md:block absolute top-1/2 left-[3%] animate-float rotate-3"
-        />
-      </Reveal>
-      <Reveal direction="scale" delay={550}>
-        <ImgSticker
-          src="/GymBottle.png"
-          size={56}
-          className="hidden md:block absolute top-1/2 right-[4%] animate-twinkle -rotate-12"
-        />
-      </Reveal>
-      <Reveal direction="scale" delay={600}>
-        <ImgSticker
-          src="/GymMat.png"
-          size={75}
-          className="hidden md:block absolute bottom-20 left-[5%] animate-float -rotate-6"
-        />
-      </Reveal>
-      <Reveal direction="scale" delay={650}>
-        <ImgSticker
-          src="/gymshoes.png"
-          size={80}
-          className="hidden md:block absolute bottom-24 right-[6%] animate-twinkle rotate-6"
-        />
-      </Reveal>
-
-      <div className="relative max-w-[1200px] mx-auto text-center mb-16">
+      <div className="relative max-w-[1200px] mx-auto text-center mb-20">
         <Reveal delay={0}>
-          <div className="mono-eyebrow text-pink-hot mb-3">välj din väg</div>
+          <div className="mono-eyebrow text-pink-hot mb-4">välj din väg</div>
         </Reveal>
-        <Reveal delay={100}>
-          <h2 className="display-italic text-[44px] md:text-[64px] text-teal leading-[1] mb-4">
+        <Reveal delay={120}>
+          <h2 className="display-italic text-[52px] md:text-[80px] text-teal leading-[1.0] mb-4 tracking-tight">
             Tre sätt att börja
           </h2>
         </Reveal>
-        <Reveal delay={200}>
-          <div className="font-script text-pink-hot text-[28px] md:text-[34px] -rotate-2 inline-block mb-6">
+        <Reveal delay={240}>
+          <div className="font-script text-pink-hot text-[28px] md:text-[36px] -rotate-2 inline-block mb-8">
             för dig, av mig
           </div>
         </Reveal>
-        <Reveal delay={280}>
-          <p className="max-w-[620px] mx-auto text-[16px] leading-[1.7] text-ink-charcoal">
+        <Reveal delay={360}>
+          <p className="max-w-[600px] mx-auto text-[17px] leading-[1.7] text-ink-charcoal">
             Oavsett var du är idag — vi tar nästa steg tillsammans. Alla program
             körs i Everfit-appen, med min coachning i ryggen.
           </p>
         </Reveal>
       </div>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5 max-w-[1200px] mx-auto items-stretch">
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto items-stretch">
         {programs.map((p, i) => (
-          <Reveal key={p.name} delay={400 + i * 130}>
+          <Reveal key={p.name} delay={300 + i * 140}>
             <article
-              className={`${cardClasses[p.variant]} relative rounded-2xl border-[1.5px] p-8 md:p-9 flex flex-col h-full ${
-                p.featured ? "md:scale-[1.03] shadow-[0_10px_40px_rgba(0,0,0,0.08)]" : ""
+              className={`${cardClasses[p.variant]} relative rounded-3xl border-[1.5px] p-9 md:p-10 flex flex-col h-full ${
+                p.featured ? "md:scale-[1.04] shadow-[0_18px_60px_rgba(0,0,0,0.10)]" : ""
               }`}
             >
               {p.badge && (
-                <div className="mb-4">
+                <div className="mb-5">
                   <span
-                    className={`inline-block font-sans text-[12px] font-semibold px-3 py-1 rounded-full border-[1.5px] ${
+                    className={`inline-block font-sans text-[12px] font-semibold px-3.5 py-1.5 rounded-full border-[1.5px] tracking-wide ${
                       p.variant === "teal"
                         ? "bg-lime text-ink border-lime"
                         : "bg-pink-hot text-white border-pink-hot"
@@ -186,37 +141,37 @@ export function Programs() {
                   </span>
                 </div>
               )}
-              <h3 className="display-italic text-[28px] md:text-[32px] leading-tight mb-3">
+              <h3 className="display-italic text-[32px] md:text-[36px] leading-[1.05] mb-4">
                 {p.name}
               </h3>
               <p
-                className={`text-[15px] leading-[1.55] mb-6 ${
+                className={`text-[15.5px] leading-[1.65] mb-8 ${
                   p.variant === "teal" ? "text-pink-light opacity-95" : "text-ink-charcoal"
                 }`}
               >
                 {p.tagline}
               </p>
-              <div className="mb-6">
-                <span className={`display-italic text-[40px] ${priceColor[p.variant]}`}>
+              <div className="mb-8">
+                <span className={`display-italic text-[44px] md:text-[48px] ${priceColor[p.variant]}`}>
                   {p.price}
                 </span>
                 {p.priceNote && (
                   <span
-                    className={`font-mono text-[12px] tracking-wider ml-2 ${
-                      p.variant === "teal" ? "text-pink-light opacity-90" : "text-ink-gray"
+                    className={`block mt-1 font-mono text-[11px] tracking-[0.1em] ${
+                      p.variant === "teal" ? "text-pink-light opacity-80" : "text-ink-gray"
                     }`}
                   >
                     {p.priceNote}
                   </span>
                 )}
               </div>
-              <ul className="flex flex-col gap-3 mb-8 flex-grow">
+              <ul className="flex flex-col gap-3.5 mb-10 flex-grow">
                 {p.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-start gap-2.5 text-[14.5px] leading-[1.5]"
+                    className="flex items-start gap-3 text-[14.5px] leading-[1.55]"
                   >
-                    <span className={`${checkColor[p.variant]} font-bold mt-0.5`}>
+                    <span className={`${checkColor[p.variant]} font-bold mt-0.5 flex-shrink-0`}>
                       ✓
                     </span>
                     <span>{f}</span>
@@ -232,8 +187,8 @@ export function Programs() {
       </div>
 
       <Reveal delay={800}>
-        <div className="max-w-[700px] mx-auto text-center mt-16">
-          <p className="font-mono text-[12px] tracking-[0.1em] text-ink-gray">
+        <div className="max-w-[700px] mx-auto text-center mt-20">
+          <p className="mono-eyebrow text-ink-gray">
             Founding Members · 20% rabatt på Stark med Torun · 10 platser
           </p>
         </div>
