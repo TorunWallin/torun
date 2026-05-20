@@ -39,6 +39,8 @@ const config: Config = {
         serif: ["var(--font-lora)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        "ibm-mono": ["var(--font-ibm-mono)", "monospace"],
+        merriweather: ["var(--font-merriweather)", "Georgia", "serif"],
         script: ["var(--font-playwrite)", "cursive"],
         pacifico: ["var(--font-pacifico)", "cursive"],
         playwrite: ["var(--font-playwrite)", "cursive"],

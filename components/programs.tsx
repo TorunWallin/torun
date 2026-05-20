@@ -130,20 +130,20 @@ export function Programs() {
         </Reveal>
 
         <Reveal delay={120}>
-          <h2 className="font-pacifico text-[52px] md:text-[64px] leading-none text-black mt-6">
+          <h2 className="font-pacifico text-[52px] md:text-[60px] leading-none text-black mt-6">
             Vilken resa vill du påbörja?
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="font-merriweather text-[18px] md:text-[19px] leading-relaxed text-black mt-8 max-w-[620px] mx-auto">
+          <p className="font-merriweather font- text-[22px] md:text-[18px] leading-relaxed text-black mt-8 max-w-[620px] mx-auto">
             Oavsett var du börjar handlar det om att bygga en stark, hållbar och trygg relation 
             till din kropp och din vardag.
           </p>
         </Reveal>
       </div>
 
-      {/* BREDare Program Cards */}
+      {/* Bredare Program Cards */}
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
         {programs.map((p, i) => (
@@ -174,13 +174,13 @@ export function Programs() {
 )}
 
               {/* Namn */}
-              <h3 className={`font-pacifico text-4xl md:text-5xl mb-3 transition-colors
+              <h3 className={`font-pacifico text-3xl md:text-4xl mb-3 transition-colors
                 ${p.featured ? "text-white" : "text-[#ec4d9c]"}`}>
                 {p.name}
               </h3>
 
               {/* Merriweather brödtext */}
-              <p className={`font-merriweather text-[15px] leading-relaxed mb-2 font-medium ${p.featured ? "text-white" : "text-black"}`}>
+              <p className={`font-merriweather font-black-[15px] leading-relaxed mb-2 font-medium ${p.featured ? "text-white" : "text-black"}`}>
                 {p.tagline}
               </p>
               <p className={`font-merriweather text-[15px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#444]"}`}>

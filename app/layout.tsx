@@ -3,6 +3,8 @@ import {
   Lora,
   Inter,
   JetBrains_Mono,
+  IBM_Plex_Mono,
+  Merriweather,
   Pacifico,
   Playwrite_SK,
 } from "next/font/google";
@@ -44,6 +46,22 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+  display: "swap",
+  weight: ["300", "400", "700", "900"],
+  style: ["normal", "italic"],
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-ibm-mono",
+  display: "swap",
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "TORUN Coach — Träning som får dig att må bra",
   description:
@@ -66,7 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="sv"
-      className={`${lora.variable} ${pacifico.variable} ${playwrite.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${lora.variable} ${pacifico.variable} ${playwrite.variable} ${inter.variable} ${jetbrainsMono.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
     >
       <body className="font-serif">{children}</body>
     </html>
