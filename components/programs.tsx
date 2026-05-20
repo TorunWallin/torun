@@ -5,201 +5,235 @@ type Program = {
   name: string;
   tagline: string;
   description: string;
+  outcome: string;
   price: string;
   priceNote?: string;
-  features?: string[];
+  features: string[];
   cta: string;
-  variant: "cream" | "pink" | "teal";
+  variant: "basic" | "core" | "premium";
   featured?: boolean;
 };
 
+
 const programs: Program[] = [
   {
-    badge: "Kickstart-produkten",
-    name: "Kickstart med Torun",
-    tagline:
-      "För dig som vill komma igång på ett tryggt och hållbart sätt — utan att behöva göra allt perfekt.",
+    badge: "Perfekt för start",
+    name: "Kickstart",
+    tagline: "För dig som vill börja enkelt men på riktigt.",
     description:
-      "Ett färdigt 4-veckors program för gym eller hemma, med fokus på styrka, energi och rutiner som faktiskt håller.",
+      "Du får en tydlig 4-veckors plan som tar bort kaoset och gör det lätt att komma igång — utan att överväldigas.",
+    outcome: "Du vet exakt vad du ska göra varje vecka och bygger momentum direkt.",
     price: "795 kr",
-    priceNote: "engångsköp",
-    cta: "Kom igång — 795 kr",
-    variant: "cream",
+    priceNote: "engångsbetalning",
+    cta: "Starta Kickstart",
+    variant: "basic",
+    features: [
+      "4 veckors träningsplan",
+      "Enkla rutiner att följa",
+      "Gym eller hemma",
+      "Ingen stress, bara struktur",
+    ],
   },
   {
-    badge: "Signaturcoachning",
+    badge: "Mest populär",
     name: "Stark med Torun",
-    tagline:
-      "Min signaturcoachning för dig som vill bygga styrka, trygghet och hållbara vanor med stöd hela vägen.",
+    tagline: "Coaching som bygger styrka, trygghet och balans.",
     description:
-      "Vi jobbar tillsammans utifrån din kropp, din vardag och dina mål — utan extrema upplägg eller stress kring mat och träning. För dig som vill känna dig starkare både fysiskt och mentalt.",
-    price: "fr. 1 795 kr",
-    priceNote: "/månad — 6 mån bindning",
-    cta: "Boka — fr. 1 795 kr/mån",
-    variant: "pink",
+      "Vi jobbar tillsammans med träning, kost och vanor som faktiskt funkar i din vardag — inte perfektion.",
+    outcome:
+      "Du blir starkare, mer stabil och får en kropp och vardag som känns hållbar.",
+    price: "1 795 kr",
+    priceNote: "/månad · 6 mån",
+    cta: "Börja coaching",
+    variant: "core",
     featured: true,
+    features: [
+      "Personligt anpassat upplägg",
+      "Veckovis justering av träning",
+      "Stöd i vardagsrutiner",
+      "Balans mellan resultat & liv",
+    ],
   },
   {
     badge: "Max 5 platser",
-    name: "Torun 1:1",
-    tagline:
-      "Min mest personliga coachning — för dig som vill ha nära stöd, djupare guidning och hjälp att skapa hållbara förändringar på riktigt.",
+    name: "1:1 Coaching",
+    tagline: "Fullt stöd. Full transformation. Fullt fokus på dig.",
     description:
-      "Vi jobbar tillsammans med träning, vanor, återhämtning, kost och mental hälsa utifrån dig, din kropp och ditt liv. För dig som vill känna dig stark, trygg och mer hemma i dig själv — med stöd hela vägen.",
+      "Det här är för dig som vill gå all in med nära coachning, struktur och dagligt stöd i allt som påverkar din hälsa.",
+    outcome:
+      "Du bygger en helt ny nivå av disciplin, trygghet och självkänsla.",
     price: "3 495 kr",
-    priceNote: "/månad · 6 månader",
+    priceNote: "/månad",
+    cta: "Ansök nu",
+    variant: "premium",
     features: [
-      "Allt i Stark med Torun",
-      "Daglig kontakt via chat (mån–fre)",
+      "Daglig chat med coach",
       "Individuellt kostupplägg",
-      "Veckovis programuppdatering",
-      "Månadssamtal 45 min via Zoom",
-      "Vanecoachning & mental hälsa-check-ins",
-      "Extra stöd kring stress, återhämtning & balans",
+      "Veckoplanering & justering",
+      "Mental coaching & stöd",
     ],
-    cta: "Ansök om plats ♡",
-    variant: "teal",
   },
 ];
 
-const cardClasses = {
-  cream: "bg-white border-ink",
-  pink: "bg-pink-light border-ink",
-  teal: "bg-teal text-cream border-ink",
-};
+function cardStyle(featured?: boolean, variant?: string) {
+  const base =
+    "relative rounded-3xl p-8 md:p-10 flex flex-col transition-all duration-300 border backdrop-blur-sm";
 
-const priceColor = {
-  cream: "text-pink-hot",
-  pink: "text-pink-hot",
-  teal: "text-lime",
-};
+  if (featured) {
+    return `${base} bg-black text-white border-black shadow-2xl scale-[1.04] hover:scale-[1.06]`;
+  }
 
-const ctaClass = {
-  cream: "btn-pink",
-  pink: "btn-teal",
-  teal: "btn-lime",
-};
+  switch (variant) {
+    case "basic":
+      return `${base} bg-white border-neutral-200 hover:shadow-xl hover:-translate-y-1`;
+    case "core":
+      return `${base} bg-neutral-50 border-neutral-200 hover:shadow-2xl hover:-translate-y-2`;
+    case "premium":
+      return `${base} bg-gradient-to-b from-black to-neutral-900 text-white border-black hover:scale-[1.02]`;
+  }
+}
 
-const checkColor = {
-  cream: "text-pink-hot",
-  pink: "text-teal",
-  teal: "text-lime",
-};
+function buttonStyle(featured?: boolean, variant?: string) {
+  if (featured) return "bg-white text-black hover:opacity-90";
+
+  switch (variant) {
+    case "basic":
+      return "bg-black text-white hover:opacity-90";
+    case "core":
+      return "bg-black text-white hover:opacity-90";
+    case "premium":
+      return "bg-white text-black hover:opacity-90";
+  }
+}
 
 export function Programs() {
   return (
-    <section
-      id="program"
-      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream-warm overflow-hidden"
-    >
-      <div className="relative max-w-[1200px] mx-auto text-center mb-20">
-        <Reveal delay={0}>
-          <div className="mono-eyebrow text-pink-hot mb-4">välj din väg</div>
+    <section className="px-6 md:px-16 py-28 md:py-40 
+      bg-gradient-to-br from-[#fff9f5] via-[#fdf5f8] to-[#f8f4eb]
+      relative overflow-hidden">
+
+      {/* Bakgrundsmönster */}
+      <div className="absolute inset-0 bg-[radial-gradient(#fcc6e8_1.2px,transparent_1px)] 
+                      [background-size:45px_45px] opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#ffe4f0]/40 via-transparent to-[#f0f7e8]/30 pointer-events-none" />
+
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center mb-20">
+        <Reveal>
+          <div className="mb-10">
+            <div className="inline bg-[#fdeaf8] text-[#ffa3f0] font-mono font-extrabold uppercase 
+                          text-[13px] md:text-[15px] leading-[1.7] px-8 py-3 rounded-[22px] 
+                          decoration-clone box-decoration-clone">
+              VÄLJ DIN VÄG
+            </div>
+          </div>
         </Reveal>
+
         <Reveal delay={120}>
-          <h2 className="font-pacifico text-[52px] md:text-[80px] text-teal leading-[1.0] mb-6">
-            Tre sätt att börja
+          <h2 className="font-pacifico text-[52px] md:text-[64px] leading-none text-black mt-6">
+            Vilken resa vill du påbörja?
           </h2>
         </Reveal>
-        <Reveal delay={260}>
-          <p className="max-w-[640px] mx-auto text-[17px] leading-[1.75] text-ink-charcoal font-serif mb-3">
-            Oavsett om du är helt ny till gymmet eller bara vill hitta tillbaka
-            till dig själv igen — det finns en plats att börja här.
-          </p>
-        </Reveal>
-        <Reveal delay={360}>
-          <p className="max-w-[640px] mx-auto text-[15px] leading-[1.7] text-ink-gray font-serif italic">
-            Alla program sker online via Everfit, med coachning, struktur och
-            stöd längs vägen.
+
+        <Reveal delay={220}>
+          <p className="font-merriweather text-[18px] md:text-[19px] leading-relaxed text-black mt-8 max-w-[620px] mx-auto">
+            Oavsett var du börjar handlar det om att bygga en stark, hållbar och trygg relation 
+            till din kropp och din vardag.
           </p>
         </Reveal>
       </div>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1200px] mx-auto items-stretch">
+      {/* BREDare Program Cards */}
+
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
         {programs.map((p, i) => (
-          <Reveal key={p.name} delay={300 + i * 140}>
-            <article
-              className={`${cardClasses[p.variant]} relative rounded-3xl border-[1.5px] p-9 md:p-10 flex flex-col h-full ${
-                p.featured ? "md:scale-[1.04] shadow-[0_18px_60px_rgba(0,0,0,0.10)]" : ""
-              }`}
-            >
-              {p.badge && (
-                <div className="mb-5">
-                  <span
-                    className={`inline-block font-sans text-[12px] font-semibold px-3.5 py-1.5 rounded-full border-[1.5px] tracking-wide ${
-                      p.variant === "teal"
-                        ? "bg-lime text-ink border-lime"
-                        : "bg-pink-hot text-white border-pink-hot"
-                    }`}
-                  >
-                    {p.badge}
-                  </span>
-                </div>
-              )}
-              <h3 className="font-pacifico text-[34px] md:text-[40px] leading-[1.05] mb-5">
+          <Reveal key={p.name} delay={200 + i * 100}>
+            {/* Inne i programs.map */}
+<div
+  className={`
+    group relative h-full rounded-3xl p-8 md:p-10 flex flex-col
+    transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl overflow-hidden
+    ${p.featured
+      ? "bg-[#0a594c] text-white shadow-2xl border-2 border-[#97a9aa] scale-[1.02]" 
+      : "bg-white border border-[#f5e8d3] hover:border-[#f8d4e6]"
+    }
+  `}
+>
+              {/* Badge */}
+            {/* Badge */}
+{p.badge && (
+  <div className="mb-6">
+    <span className={`inline-block text-xs font-mono tracking-widest px-5 py-2 rounded-2xl font-medium
+      ${p.featured 
+        ? "bg-[#97a9aa] text-white" 
+        : "bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c]"
+      }`}>
+      {p.badge}
+    </span>
+  </div>
+)}
+
+              {/* Namn */}
+              <h3 className={`font-pacifico text-4xl md:text-5xl mb-3 transition-colors
+                ${p.featured ? "text-white" : "text-[#ec4d9c]"}`}>
                 {p.name}
               </h3>
-              <p
-                className={`text-[15.5px] leading-[1.7] mb-4 font-serif ${
-                  p.variant === "teal" ? "text-pink-light opacity-95" : "text-ink-charcoal"
-                }`}
-              >
+
+              {/* Merriweather brödtext */}
+              <p className={`font-merriweather text-[15px] leading-relaxed mb-2 font-medium ${p.featured ? "text-white" : "text-black"}`}>
                 {p.tagline}
               </p>
-              <p
-                className={`text-[14.5px] leading-[1.65] mb-7 font-serif ${
-                  p.variant === "teal" ? "text-pink-light opacity-85" : "text-ink-charcoal opacity-85"
-                }`}
-              >
+              <p className={`font-merriweather text-[15px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#444]"}`}>
                 {p.description}
               </p>
-              <div className="mb-7">
-                <span className={`font-pacifico text-[44px] md:text-[48px] ${priceColor[p.variant]}`}>
-                  {p.price}
-                </span>
-                {p.priceNote && (
-                  <span
-                    className={`block mt-1 font-sans text-[12px] ${
-                      p.variant === "teal" ? "text-pink-light opacity-80" : "text-ink-gray"
-                    }`}
-                  >
-                    {p.priceNote}
-                  </span>
-                )}
+
+              {/* Du kommer få – IBM Mono */}
+              <div className={`p-5 rounded-2xl mb-8 text-[15px] leading-relaxed font-ibm-mono
+                ${p.featured 
+                  ? "bg-white/10 border border-white/20 text-white" 
+                  : "bg-gradient-to-br from-[#fff7fb] to-[#fdf0f7] border border-[#fce7f3] text-black"
+                }`}>
+                <span className="font-medium">Du kommer få:</span> {p.outcome}
               </div>
-              {p.features && p.features.length > 0 && (
-                <ul className="flex flex-col gap-3 mb-9 flex-grow">
-                  {p.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-3 text-[14px] leading-[1.55] font-serif"
-                    >
-                      <span className={`${checkColor[p.variant]} font-bold mt-0.5 flex-shrink-0`}>
-                        ✓
-                      </span>
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {(!p.features || p.features.length === 0) && (
-                <div className="flex-grow" />
-              )}
-              <a href="#kontakt" className={`${ctaClass[p.variant]} w-full justify-center`}>
-                {p.cta}
-              </a>
-            </article>
+
+              {/* Features – IBM Mono */}
+              <ul className="space-y-3.5 mb-10 text-[15px] flex-1 font-ibm-mono">
+                {p.features.map((f, idx) => (
+                  <li key={idx} className="flex gap-3 items-start">
+                    <span className="text-[#ec4d9c] text-xl leading-none mt-0.5">✦</span>
+                    <span className={p.featured ? "text-white/90" : "text-black"}>{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Price + CTA */}
+              <div className="mt-auto pt-8 border-t border-white/20">
+                <div className={`text-4xl font-semibold tracking-tight ${p.featured ? "text-white" : "text-[#2f4a3a]"}`}>
+                  {p.price}
+                </div>
+                
+                {p.priceNote && (
+                  <div className="font-ibm-mono italic text-sm opacity-75 mt-1">
+                    {p.priceNote}
+                  </div>
+                )}
+
+                <a
+  href="#kontakt"
+  className={`block w-full text-center py-5 rounded-2xl font-medium text-base mt-8 
+              transition-all duration-300 active:scale-95
+    ${p.featured
+      ? "bg-white text-[#0a594c] hover:bg-[#97a9aa] hover:text-white hover:shadow-xl"
+      : "bg-gradient-to-r from-[#ec4d9c] to-[#d63a85] text-white hover:brightness-110 hover:shadow-xl"
+    }`}
+>
+  {p.cta}
+</a>
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>
-
-      <Reveal delay={800}>
-        <div className="max-w-[700px] mx-auto text-center mt-20">
-          <p className="mono-eyebrow text-ink-gray">
-            Founding Members · 20% rabatt på Stark med Torun · 10 platser
-          </p>
-        </div>
-      </Reveal>
     </section>
   );
 }
