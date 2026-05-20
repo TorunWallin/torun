@@ -33,10 +33,10 @@ className={`bg-[#fdfaf5] backdrop-blur-xl py-6 md:py-7 px-6 md:px-12 flex items-
   }`}
 >
         <Link href="/" className="block group">
-          <span className="font-playwrite text-[28px] md:text-[40px] text-ink-charcoal block leading-[1.1]">
+          <span className="font-playwrite text-[px] md:text-[25px] text-ink-charcoal block leading-[1.1]">
             Torun Coach
           </span>
-     <span className="font-mono italic text-[13px] md:text-[15px] text-ink-charcoal/85 block mt-1 tracking-[1px]">
+    <span className="font-mono italic text-[13px] md:text-[13px] text-ink-charcoal/85 block mt-1 tracking-tight">
   hälsa · styrka · vardag
 </span>
         </Link>
