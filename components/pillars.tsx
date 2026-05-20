@@ -2,148 +2,102 @@ import { Reveal } from "./reveal";
 
 const pillars = [
   {
-    num: "01",
+    num: "01.",
     title: "Hälsa ska hjälpa dig leva",
     body: "Hälsa handlar inte om kontroll. Det handlar om energi, styrka, återhämtning och att kunna leva livet fullt ut.",
-    variant: "pink",
   },
   {
-    num: "02",
+    num: "02.",
     title: "Styrka förändrar allt",
     body: "Styrka handlar om så mycket mer än kroppen. Det bygger självkänsla, trygghet och modet att ta plats.",
-    variant: "teal",
   },
   {
-    num: "03",
+    num: "03.",
     title: "Mat ska kännas tryggt",
     body: "Här finns inga förbud eller perfekta dagar. Mat är näring, njutning och en naturlig del av livet.",
-    variant: "lime",
   },
-] as const;
-
-const variantClasses = {
-  pink: "bg-[#ffeaf3]",
-  teal: "bg-[#2f4a3a]",
-  lime: "bg-[#eef7b2]",
-};
-
-const variantNumColor = {
-  pink: "text-[#ec4d9c]",
-  teal: "text-[#d8ff72]",
-  lime: "text-[#d94b91]",
-};
-
-const variantTitleColor = {
-  pink: "text-[#2f4a3a]",
-  teal: "text-white",
-  lime: "text-[#2f4a3a]",
-};
-
-const variantBodyColor = {
-  pink: "text-[#3f3f3f]",
-  teal: "text-[#fff6fa]/90",
-  lime: "text-[#3f3f3f]",
-};
+];
 
 export function Pillars() {
   return (
-    <section
-      id="filosofi"
-      className="relative overflow-hidden px-6 md:px-16 py-28 md:py-40 bg-[#fdfaf7]"
-    >
-      {/* subtle background glow */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-pink-200 rounded-full blur-3xl opacity-20" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-lime-200 rounded-full blur-3xl opacity-20" />
-      </div>
+    <section className="relative overflow-hidden px-6 md:px-16 py-28 md:py-40">
+      
+      {/* Background image - subtil */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/cute_background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          opacity: 1.12
+        }}
+      />
+      
+      {/* Vit overlay */}
+      <div className="absolute inset-0 bg-white/70" />
 
-      <div className="relative max-w-[1200px] mx-auto">
-        {/* heading */}
-        <div className="text-center mb-20 md:mb-24">
-          <Reveal delay={120}>
-            <h2 className="font-serif text-[52px] md:text-[82px] leading-[0.95] tracking-[-0.04em] text-[#2f4a3a]">
-              Stark · Trygg · Hel
-            </h2>
-          </Reveal>
+      <div className="relative max-w-[1120px] mx-auto text-center">
+        
+        {/* Badge */}
+        <Reveal delay={60}>
+          <div className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-[#ec4d9c]/30 bg-white/60 backdrop-blur-sm mb-6 shadow-sm">
+            <span className="font-mono text-[12px] tracking-[0.28em] text-[#ec4d9c] uppercase">
+              Min filosofi
+            </span>
+          </div>
+        </Reveal>
 
-          <Reveal delay={240}>
-            <div className="font-playwrite text-[#ec4d9c] text-[18px] md:text-[24px] mt-6 inline-block">
-              så här tänker jag
-            </div>
-          </Reveal>
-        </div>
+        {/* Rubrik - MERRIWEATHER */}
+        <Reveal delay={140}>
+          <h2 className="font-serif text-[54px] md:text-[82px] tracking-[-0.05em] text-[#111] leading-[0.92] mb-4">
+            Stark · Trygg · Hel
+          </h2>
+        </Reveal>
 
-        {/* cards */}
+        {/* Subheading - PACIFICO */}
+        <Reveal delay={220}>
+          <div className="font-pacifico text-[18px] md:text-[24px] text-black mb-16">
+            så här tänker jag
+          </div>
+        </Reveal>
+
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {pillars.map((p, i) => (
-            <Reveal key={p.num} delay={300 + i * 120}>
+            <Reveal key={i} delay={300 + i * 100}>
               <div
                 className={`
-                  ${variantClasses[p.variant]}
-                  relative
-                  overflow-hidden
-                  rounded-[36px]
-                  px-8 py-10 md:px-10 md:py-12
-                  border border-black/5
-                  shadow-[0_15px_45px_rgba(0,0,0,0.05)]
-                  backdrop-blur-sm
+                  relative overflow-hidden
+                  bg-white/75 backdrop-blur-md
+                  border-[2px] border-[#ffa3f0]
+                  rounded-[32px] px-9 py-11 md:px-10 md:py-12
+                  text-left h-full flex flex-col
+                  shadow-[0_10px_40px_rgba(236,77,156,0.10)]
+                  hover:-translate-y-2 hover:scale-[1.01]
+                  hover:shadow-[0_20px_60px_rgba(236,77,156,0.16)]
                   transition-all duration-500
-                  hover:-translate-y-2
-                  hover:shadow-[0_25px_60px_rgba(0,0,0,0.08)]
-                  h-full
-                  flex flex-col
-                  ${i === 1 ? "md:-translate-y-6" : ""}
+                  ${i === 1 ? "md:-translate-y-5 scale-[1.02]" : ""}
                 `}
+                style={{
+                  animation: `breathe 7s ease-in-out infinite ${i * 0.8}s`,
+                }}
               >
-                {/* subtle card glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_45%)] pointer-events-none" />
+                {/* Inner glow */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_50%)] pointer-events-none" />
 
-                {/* number */}
-                <div
-                  className={`
-                    ${variantNumColor[p.variant]}
-                    text-[13px]
-                    font-medium
-                    tracking-[0.28em]
-                    uppercase
-                    mb-8
-                    relative
-                    z-10
-                  `}
-                >
+                {/* Number */}
+                <div className="relative z-10 inline-flex items-center justify-center bg-[#fdeaf8] text-[#ffa3f0] text-[16px] font-mono font-bold px-6 py-2 rounded-2xl mb-7 w-fit">
                   {p.num}
                 </div>
 
-                {/* title */}
-                <h3
-                  className={`
-                    ${variantTitleColor[p.variant]}
-                    font-serif
-                    text-[30px]
-                    md:text-[42px]
-                    leading-[1.02]
-                    tracking-[-0.03em]
-                    mb-6
-                    relative
-                    z-10
-                  `}
-                >
+                {/* Title - PACIFICO */}
+                <h3 className="relative z-10 font-pacifico text-[30px] md:text-[38px] tracking-[-0.04em] text-[#111] leading-[1.02] mb-6">
                   {p.title}
                 </h3>
 
-                {/* body */}
-                <p
-                  className={`
-                    ${variantBodyColor[p.variant]}
-                    text-[15px]
-                    md:text-[16px]
-                    leading-[1.9]
-                    font-light
-                    relative
-                    z-10
-                    max-w-[32ch]
-                  `}
-                >
+                {/* Body - IBM PLEX MONO */}
+                <p className="relative z-10 font-mono text-[16px] text-black/75 leading-[1.9] mt-auto">
                   {p.body}
                 </p>
               </div>
