@@ -43,22 +43,22 @@ className={`bg-[#fdfaf5] backdrop-blur-xl py-6 md:py-7 px-6 md:px-12 flex items-
 
         <ul className="hidden md:flex gap-10 list-none absolute left-1/2 -translate-x-1/2">
           <li>
-            <Link href="#program" className="font-mono text-[14px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Program</Link>
+            <Link href="#program" className="font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Program</Link>
           </li>
           <li>
-            <Link href="#filosofi" className="font-mono text-[14px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Filosofi</Link>
+            <Link href="#filosofi" className="font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Filosofi</Link>
           </li>
           <li>
-            <Link href="#om" className="font-mono text-[14px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Om mig</Link>
+            <Link href="#om" className="font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Om mig</Link>
           </li>
           <li>
-            <a href="https://app.everfit.io" target="_blank" rel="noopener noreferrer" className="font-mono text-[14px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Logga in</a>
+            <a href="https://app.everfit.io" target="_blank" rel="noopener noreferrer" className="font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase">Logga in</a>
           </li>
         </ul>
 
        <Link
   href="#program"
-  className="group relative inline-flex items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-serif font-semibold text-[16px] pl-9 pr-12 py-3 rounded-full transition-all duration-300 hover:scale-[1.05]"
+  className="group relative inline-flex items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-serif font-semibold text-[18px] pl-9 pr-12 py-3 rounded-full transition-all duration-300 hover:scale-[1.05]"
 >
   Börja här
   <img

@@ -50,7 +50,7 @@ export function Pillars() {
 
         {/* Rubrik - MERRIWEATHER */}
         <Reveal delay={140}>
-          <h2 className="font-serif text-[54px] md:text-[82px] tracking-[-0.05em] text-[#111] leading-[0.92] mb-4">
+          <h2 className="font-serif text-[54px] md:text-[62px] tracking-[-0.05em] text-[#111] leading-[0.92] mb-4">
             Stark · Trygg · Hel
           </h2>
         </Reveal>
@@ -92,7 +92,7 @@ export function Pillars() {
                 </div>
 
                 {/* Title - PACIFICO */}
-                <h3 className="relative z-10 font-pacifico text-[30px] md:text-[38px] tracking-[-0.04em] text-[#111] leading-[1.02] mb-6">
+                <h3 className="relative z-10 font-pacifico text-[30px] md:text-[28px] tracking-[-0.04em] text-[#111] leading-[1.02] mb-6">
                   {p.title}
                 </h3>
 
