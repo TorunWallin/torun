@@ -14,11 +14,19 @@ export function Hero() {
     >
       <div className="relative z-10 max-w-[820px] text-white">
         <Reveal delay={0}>
-          <div className="inline-flex items-center gap-2 md:gap-3 bg-white/15 backdrop-blur-3xl border border-white/40 hover:border-[#f4c1f0]/60 px-5 py-3 md:px-9 md:py-4 rounded-full font-mono text-[12px] md:text-[15px] tracking-wide md:tracking-wider mb-8 md:mb-10 shadow-xl shadow-black/40 transition-all max-w-full flex-wrap">
-            <span className="text-[#f4c1f0] text-xl">{"✦"}</span>
-            <span className="text-[#f4c1f0] font-extrabold">ERBJUDANDE</span>
-            <span className="text-white/60"></span>
-            <span className="text-white/90">Founding Members • 20% rabatt | 10 platser kvar</span>
+          <div className="inline-flex flex-col md:flex-row md:items-center gap-1 md:gap-3 bg-white/15 backdrop-blur-3xl border border-white/40 hover:border-[#f4c1f0]/60 px-5 py-3 md:px-9 md:py-4 rounded-2xl md:rounded-full font-mono text-[12px] md:text-[15px] tracking-wide md:tracking-wider mb-8 md:mb-10 shadow-xl shadow-black/40 transition-all">
+            <div className="flex items-center gap-2">
+              <span className="text-[#f4c1f0]">✦</span>
+              <span className="text-[#f4c1f0] font-extrabold">ERBJUDANDE</span>
+              <span className="text-white/60 hidden md:inline">·</span>
+              <span className="text-white/90 hidden md:inline">Founding Members</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/80 md:hidden">
+              <span>Founding Members</span>
+            </div>
+            <div className="text-white/70 md:hidden">20% rabatt · 10 platser kvar</div>
+            <div className="hidden md:block text-white/60">·</div>
+            <div className="hidden md:block text-white/90">20% rabatt · 10 platser kvar</div>
           </div>
         </Reveal>
 

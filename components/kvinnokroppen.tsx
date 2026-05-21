@@ -43,7 +43,7 @@ export function Kvinnokroppen() {
 
               {/* Main heading */}
               <h2
-                className="font-serif text-[58px] md:text-[54px] leading-[1.2] tracking-[-0.06em] text-[#ffccf7] mb-1"
+                className="font-serif text-[34px] sm:text-[42px] md:text-[54px] leading-[1.2] tracking-[-0.06em] text-[#ffccf7] mb-1"
                 style={{
                   textShadow: "0px 1px 0px #e5a8d7, 0px 1px 0px rgba(236,77,156,0.18)",
                 }}

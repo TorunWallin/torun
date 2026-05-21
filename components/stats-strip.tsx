@@ -38,12 +38,12 @@ export function StatsStrip() {
             <div className="group relative h-full text-center rounded-[36px] bg-white/60 backdrop-blur-xl border border-white/40 px-6 py-10 md:py-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-all duration-700 ease-out hover:-translate-y-3 hover:shadow-[0_45px_120px_rgba(236,77,156,0.18)] hover:bg-white/70">
               
               {/* Number - PLAYWRITE */}
-              <div className="font-playwrite text-[58px] md:text-[52px] leading-none text-[#ec4d9c] mb-4 transition-all group-hover:scale-105">
+              <div className="font-playwrite text-[36px] md:text-[52px] leading-none text-[#ec4d9c] mb-4 transition-all group-hover:scale-105">
                 {s.num}
               </div>
 
               {/* Label - IBM Mono, större, kursiv, svart */}
-              <p className="font-mono text-[15px] md:text-[16px] leading-tight text-black italic tracking-wide">
+              <p className="font-mono text-[12px] md:text-[16px] leading-tight text-black italic tracking-wide">
                 {s.label}
               </p>
             </div>
