@@ -4,77 +4,130 @@ export function AboutTeaser() {
   return (
     <section
       id="om"
-      className="relative px-6 md:px-16 py-28 md:py-40 bg-cream overflow-hidden"
+      className="relative overflow-hidden bg-[#fdeaf8] px-6 py-28 md:px-16 md:py-40"
     >
-      <div className="relative max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
-        {/* Left: photo */}
-        <Reveal direction="right" delay={0} className="md:col-span-5">
+      {/* Glow */}
+      <div className="absolute left-[-120px] top-[10%] h-[420px] w-[420px] rounded-full bg-[#ffb7e6]/40 blur-[120px]" />
+      <div className="absolute bottom-[-120px] right-[-100px] h-[380px] w-[380px] rounded-full bg-[#ffffff]/50 blur-[120px]" />
+
+      {/* Background words */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-[-60px] top-[100px] rotate-[-90deg] text-[120px] font-black uppercase tracking-[0.3em] text-black/[0.03]">
+          Soft Strength
+        </div>
+
+        <div className="absolute bottom-[80px] right-[-70px] text-[120px] font-black uppercase tracking-[0.3em] text-black/[0.03]">
+          Womanhood
+        </div>
+      </div>
+
+      <div className="relative mx-auto grid max-w-[1300px] grid-cols-1 items-center gap-16 md:grid-cols-12 lg:gap-24">
+        {/* IMAGE */}
+        <Reveal direction="right" className="relative md:col-span-5">
           <div className="relative">
+            {/* outline */}
+            <div className="absolute -left-6 -top-6 h-full w-full rounded-[40px] border border-black/10" />
+
+            {/* portrait */}
             <div
-              className="rounded-3xl border-[1.5px] border-ink min-h-[480px] aspect-[4/5] md:aspect-auto md:h-[620px] bg-pink-light"
+              className="relative h-[620px] overflow-hidden rounded-[38px] shadow-[0_30px_90px_rgba(0,0,0,0.12)]"
               style={{
                 backgroundImage: "url('/torun-portrait.png')",
                 backgroundSize: "cover",
-                backgroundPosition: "center 30%",
+                backgroundPosition: "center",
               }}
-              aria-label="Torun"
+              aria-label="Torun portrait"
             />
+
+            {/* floating label */}
+            <div className="absolute -bottom-7 -right-7 rounded-full border border-black/10 bg-white/80 px-6 py-3 backdrop-blur-xl shadow-xl">
+              <div className="font-mono text-[11px] font-bold uppercase tracking-[0.28em] text-[#ff4fc4]">
+                COACH • PT • WOMEN’S HEALTH
+              </div>
+            </div>
           </div>
         </Reveal>
 
-        {/* Right: copy */}
-        <div className="md:col-span-7">
-          <Reveal delay={150}>
-            <h2 className="font-pacifico text-[44px] md:text-[60px] text-teal leading-[1.05] mb-3 inline-block">
-              Hej, jag är Torun <span className="text-pink-hot">♡</span>
-            </h2>
-          </Reveal>
-          <Reveal delay={260}>
-            <div className="mono-eyebrow text-pink-hot mt-2 mb-8">
-              pt · coach · kostrådgivare
+        {/* TEXT */}
+        <div className="relative md:col-span-7">
+          {/* eyebrow */}
+          <Reveal delay={100}>
+            <div className="mb-5 inline-flex items-center gap-3">
+              <div className="h-[1px] w-14 bg-[#ff4fc4]" />
+
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.35em] text-[#ff4fc4]">
+                FÖR KVINNOR SOM VILL MÅ BRA PÅ RIKTIGT
+              </span>
             </div>
           </Reveal>
 
-          <Reveal delay={360}>
-            <p className="text-[17px] leading-[1.8] text-ink-charcoal font-serif mb-5">
-              Jag vet hur lätt det är att känna att man måste göra allt perfekt
-              för att vara &ldquo;hälsosam&rdquo;.{" "}
-              <em className="italic text-teal">
-                Träna hårdare. Äta renare. Ta mindre plats.
-              </em>{" "}
-              Men jag tror inte att hälsa ska kännas som ett heltidsjobb.
+          {/* heading */}
+          <Reveal delay={180}>
+            <h2 className="font-pacifico text-[60px] leading-[0.92] tracking-[-0.03em] text-[#111] md:text-[80px]">
+              Hälsa utan
+              <span className="block text-[#ff4fc4]">
+                skuld.
+              </span>
+            </h2>
+          </Reveal>
+
+          {/* intro */}
+          <Reveal delay={280}>
+            <p className="mt-10 max-w-[650px] font-serif text-[23px] leading-[1.8] text-black/100 md:text-[20px]">
+             <b> Jag hjälper tjejer och kvinnor </b> bygga styrka, 
+              balans och självkänsla — utan att fastna i
+              kontroll, prestation eller allt-eller-inget.
             </p>
           </Reveal>
-          <Reveal delay={450}>
-            <p className="text-[17px] leading-[1.8] text-ink-charcoal font-serif mb-5">
-              Jag startade Torun för att skapa ett tryggare sätt att prata om
-              träning, mat och kroppen — särskilt för tjejer och kvinnor som är
-              trötta på skuld, press och allt-eller-inget-tänk.
-            </p>
+
+          {/* quote */}
+          <Reveal delay={380}>
+            <div className="mt-14 border-l border-[#ff4fc4]/40 pl-6">
+              <p className="font-mono text-[22px] italic leading-[1.7] text-[#111] md:text-[26px]">
+                “Jag tror inte att hälsa ska kännas som ett
+                straff eller ett heltidsjobb.”
+              </p>
+            </div>
           </Reveal>
-          <Reveal delay={540}>
-            <p className="text-[17px] leading-[1.8] text-ink-charcoal font-serif mb-5">
-              Här handlar styrka inte om att straffa kroppen. Det handlar om att
-              bygga en relation till sig själv som känns hållbar, varm och stark
-              över tid.
-            </p>
+
+          {/* body */}
+          <Reveal delay={500}>
+            <div className="mt-14 grid gap-8 font-mono text-[14px] -[2] tracking-[0.08em] text-black/100 md:grid-cols-2">
+              <p>
+                Jag skapade Toruncoach för kvinnor som är trötta på
+                skuld, extrema regler och känslan av att aldrig
+                vara tillräckliga.
+              </p>
+
+              <p>
+                Här handlar träning om energi, trygghet,
+                hormoner, styrka och att bygga ett liv som
+                <i> faktiskt känns hållbart över tid.</i>
+              </p>
+            </div>
           </Reveal>
+
+          {/* buttons */}
           <Reveal delay={620}>
-            <p className="text-[17px] leading-[1.8] text-ink-charcoal font-serif italic mb-10">
-              Jag coachar dig som jag själv hade velat bli coachad — med
-              ärlighet, trygghet och mycket hjärta.
-            </p>
-          </Reveal>
-          <Reveal delay={720}>
-            <div className="flex gap-3 flex-wrap">
-              <a href="#program" className="btn-pink">
-                Se programmen
+            <div className="mt-16 flex flex-wrap gap-4">
+              {/* primary */}
+              <a
+                href="#program"
+                className="group relative overflow-hidden rounded-full bg-[#111] px-9 py-4 font-serif text-[16px] tracking-[0.02em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_18px_40px_rgba(0,0,0,0.18)]"
+              >
+                <span className="relative z-10">
+                  Se programmen
+                </span>
+
+                <div className="absolute inset-0 translate-y-full bg-[#ff4fc4] transition-transform duration-500 group-hover:translate-y-0" />
               </a>
+
+              {/* secondary */}
               <a
                 href="https://www.tiktok.com/@toruncoach"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-teal"
+                className="rounded-full border border-black/10 bg-white/70 px-9 py-4 font-serif text-[16px] tracking-[0.02em] text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:bg-white hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]"
               >
                 Följ på TikTok
               </a>
@@ -82,38 +135,6 @@ export function AboutTeaser() {
           </Reveal>
         </div>
       </div>
-
-      {/* Personal callout — utanför gymmet */}
-      <Reveal delay={0}>
-        <div className="relative max-w-[1100px] mx-auto mt-28 md:mt-32 grid grid-cols-1 md:grid-cols-3 gap-10 items-center bg-cream-warm border-[1.5px] border-ink rounded-3xl p-9 md:p-12">
-          <div className="md:col-span-1">
-            <div
-              className="rounded-2xl border-[1.5px] border-ink aspect-[3/4] bg-pink-light"
-              style={{
-                backgroundImage: "url('/torun-elephant.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              aria-label="Torun ute i världen"
-            />
-          </div>
-          <div className="md:col-span-2">
-            <div className="mono-eyebrow text-pink-hot mb-3">utanför gymmet</div>
-            <div className="font-pacifico text-teal text-[36px] md:text-[44px] leading-[1.05] mb-6 inline-block">
-              När jag inte coachar
-            </div>
-            <p className="text-[16px] md:text-[17px] leading-[1.8] text-ink-charcoal font-serif mb-4">
-              När jag inte coachar älskar jag lugna morgnar, naturen, djur, att
-              resa och allt som får livet att kännas lite mjukare.
-            </p>
-            <p className="text-[15.5px] md:text-[16px] leading-[1.8] text-ink-charcoal font-serif italic">
-              För mig är hälsa också det där: att skratta mycket, vila utan
-              skuld, ha energi till människor man älskar och känna att livet får
-              vara mer än prestation hela tiden.
-            </p>
-          </div>
-        </div>
-      </Reveal>
     </section>
   );
 }
