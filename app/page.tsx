@@ -6,7 +6,6 @@ import { Pillars } from "@/components/pillars";
 import { Kvinnokroppen } from "@/components/kvinnokroppen";
 import { Programs } from "@/components/programs";
 import { AboutTeaser } from "@/components/about-teaser";
-import { StarkTjej } from "@/components/stark-tjej";
 import { CtaStrip } from "@/components/cta-strip";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Kvinnokroppen />
       <Programs />
       <AboutTeaser />
-      <StarkTjej />
       <CtaStrip />
       <SiteFooter />
     </main>

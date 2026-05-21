@@ -3,7 +3,7 @@ import { Reveal } from "./reveal";
 export function Hero() {
   return (
     <section
-      className="hero-section relative min-h-[1100px] md:min-h-[1200px] lg:min-h-[1280px] flex items-start px-6 md:px-16 lg:px-20 pt-28 md:pt-40 lg:pt-48 pb-56 md:pb-72 overflow-hidden"
+      className="hero-section relative min-h-[100svh] md:min-h-[1200px] lg:min-h-[1280px] flex items-start px-6 md:px-16 lg:px-20 pt-24 md:pt-40 lg:pt-48 pb-32 md:pb-72 overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.85) 100%), linear-gradient(to right, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.42) 50%, rgba(10,10,10,0.15) 80%), url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1920&q=85&auto=format&fit=crop')",
@@ -14,7 +14,7 @@ export function Hero() {
     >
       <div className="relative z-10 max-w-[820px] text-white">
         <Reveal delay={0}>
-          <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-3xl border border-white/40 hover:border-[#f4c1f0]/60 px-9 py-4 rounded-full font-mono text-[15px] tracking-wider mb-10 shadow-xl shadow-black/40 transition-all">
+          <div className="inline-flex items-center gap-2 md:gap-3 bg-white/15 backdrop-blur-3xl border border-white/40 hover:border-[#f4c1f0]/60 px-5 py-3 md:px-9 md:py-4 rounded-full font-mono text-[12px] md:text-[15px] tracking-wide md:tracking-wider mb-8 md:mb-10 shadow-xl shadow-black/40 transition-all max-w-full flex-wrap">
             <span className="text-[#f4c1f0] text-xl">{"✦"}</span>
             <span className="text-[#f4c1f0] font-extrabold">ERBJUDANDE</span>
             <span className="text-white/60"></span>
@@ -23,7 +23,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={100}>
-          <h1 className="font-pacifico text-[52px] md:text-[64px] lg:text-[64px] leading-[1.06] tracking-[-0.03em] font-light mb-6">
+          <h1 className="font-pacifico text-[38px] sm:text-[48px] md:text-[64px] lg:text-[64px] leading-[1.06] tracking-[-0.03em] font-light mb-6">
             Träning som får dig att må bra
             <span className="block text-[#f4c1f0] text-[0.93em]">— på riktigt & helhjärtat</span>
           </h1>

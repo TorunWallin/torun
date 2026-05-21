@@ -151,10 +151,10 @@ export function Programs() {
             {/* Inne i programs.map */}
 <div
   className={`
-    group relative h-full rounded-3xl p-8 md:p-10 flex flex-col
-    transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl overflow-hidden
+    group relative h-full rounded-3xl p-7 md:p-10 flex flex-col
+    transition-all duration-500 md:hover:scale-[1.03] hover:shadow-2xl overflow-hidden
     ${p.featured
-      ? "bg-[#0a594c] text-white shadow-2xl border-2 border-[#97a9aa] scale-[1.02]" 
+      ? "bg-[#0a594c] text-white shadow-2xl border-2 border-[#97a9aa] md:scale-[1.02]"
       : "bg-white border border-[#f5e8d3] hover:border-[#f8d4e6]"
     }
   `}
