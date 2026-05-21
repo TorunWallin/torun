@@ -5,7 +5,7 @@ export function CtaStrip() {
   return (
     <section
       id="guide"
-      className="relative overflow-hidden bg-[#fdeaf8] px-6 py-24 md:px-16 md:py-32"
+      className="relative overflow-hidden bg-[#fdeaf8] px-6 py-24 md:px-16 md:py-36 text-center"
     >
       {/* Glows — rosa + grön */}
       <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#ff8fd4]/25 blur-[130px]" />
@@ -13,63 +13,63 @@ export function CtaStrip() {
       <div className="pointer-events-none absolute -left-20 bottom-0 h-[350px] w-[350px] rounded-full bg-[#0F4C3A]/15 blur-[100px]" />
       <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-[#ffccf7]/40 blur-[100px]" />
 
-      <div className="relative mx-auto max-w-[820px]">
+      <div className="relative mx-auto max-w-[720px]">
+
+        {/* Eyebrow */}
         <Reveal delay={0}>
-          <div
-            className="relative rounded-[42px] border-[1.5px] border-[#f6c9ea] bg-white/100 px-10 py-12 md:px-16 md:py-16"
-            style={{ animation: "scaleIn 1.2s ease-out forwards" }}
-          >
-
-            {/* Eyebrow */}
-            <div className="mb-3 font-mono text-[16px] font-bold uppercase tracking-[0.18em] text-[#f09ad6] md:text-[18px]">
-              nyhetsbrevet
-            </div>
-
-            {/* Stor rubrik */}
-            <h2
-              className="font-serif text-[54px] leading-[1.2] tracking-[-0.06em] text-[#ffccf7] md:text-[64px]"
-              style={{
-                textShadow: "0px 1px 0px #e5a8d7, 0px 1px 0px rgba(236,77,156,0.18)",
-              }}
-            >
-              Stanna kvar
-            </h2>
-
-            {/* Script-rad */}
-            <div className="font-playwrite -mt-1 mb-10 text-[26px] leading-none text-[#245648] md:text-[30px]">
-              direkt i inkorgen ♡
-            </div>
-
-            {/* Blob-piller */}
-            <div className="mb-10">
-              <span className="box-decoration-clone inline rounded-[22px] bg-[#fdeaf8] px-4 py-2 font-mono text-[13px] font-extrabold uppercase leading-[1.7] text-[#ffa3f0] decoration-clone md:text-[15px]">
-                FÅ MIN GRATIS 7-DAGARS STARTGUIDE
-              </span>
-            </div>
-
-            {/* Brödtext */}
-            <div className="mb-12 max-w-[560px] space-y-5">
-              <p className="font-mono text-[16px] leading-[1.65] tracking-[-0.01em] text-black md:text-[17px]">
-                Små steg, träningstips, tankar kring kvinnlig hälsa och
-                påminnelser om att du inte behöver göra allt perfekt för att
-                må bra.
-              </p>
-              <p className="font-mono text-[16px] italic leading-[1.4] text-black md:text-[17px]">
-                Bara ett mjukare sätt att börja.
-              </p>
-            </div>
-
-            {/* Formulär */}
-            <SubscribeForm variant="cream" />
-
-            {/* Disclaimer */}
-            <p className="mt-6 max-w-[420px] font-mono text-[12px] text-black/50">
-              Du får också mina nyhetsbrev då och då. Avregistrera dig när du
-              vill.
-            </p>
-
+          <div className="mb-4 font-mono text-[13px] font-bold uppercase tracking-[0.28em] text-[#ff4fc4]">
+            nyhetsbrevet
           </div>
         </Reveal>
+
+        {/* Rubrik */}
+        <Reveal delay={80}>
+          <h2 className="font-serif text-[48px] leading-[1.15] tracking-[-0.05em] text-[#111] md:text-[72px]">
+            Stanna kvar
+          </h2>
+        </Reveal>
+
+        {/* Script-rad */}
+        <Reveal delay={160}>
+          <div className="font-playwrite mt-1 mb-10 text-[22px] leading-none text-[#245648] md:text-[28px]">
+            direkt i inkorgen ♡
+          </div>
+        </Reveal>
+
+        {/* Blob-piller */}
+        <Reveal delay={240}>
+          <div className="mb-10 flex justify-center">
+            <span className="rounded-[22px] bg-white/70 px-5 py-2 font-mono text-[12px] font-extrabold uppercase tracking-[0.15em] text-[#ff4fc4] shadow-sm md:text-[14px]">
+              FÅ MIN GRATIS 7-DAGARS STARTGUIDE
+            </span>
+          </div>
+        </Reveal>
+
+        {/* Brödtext */}
+        <Reveal delay={320}>
+          <div className="mx-auto mb-12 max-w-[520px] space-y-4">
+            <p className="font-mono text-[15px] leading-[1.7] text-black/75 md:text-[16px]">
+              Små steg, träningstips, tankar kring kvinnlig hälsa och
+              påminnelser om att du inte behöver göra allt perfekt för att må bra.
+            </p>
+            <p className="font-mono text-[15px] italic leading-[1.5] text-black/60 md:text-[16px]">
+              Bara ett mjukare sätt att börja.
+            </p>
+          </div>
+        </Reveal>
+
+        {/* Formulär */}
+        <Reveal delay={400}>
+          <SubscribeForm variant="cream" />
+        </Reveal>
+
+        {/* Disclaimer */}
+        <Reveal delay={480}>
+          <p className="mt-6 font-mono text-[12px] text-black/40">
+            Du får också mina nyhetsbrev då och då. Avregistrera dig när du vill.
+          </p>
+        </Reveal>
+
       </div>
     </section>
   );
