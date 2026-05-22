@@ -108,7 +108,7 @@ function buttonStyle(featured?: boolean, variant?: string) {
 
 export function Programs() {
   return (
-    <section className="px-6 md:px-16 py-28 md:py-40 
+    <section id="program" className="px-6 md:px-16 py-28 md:py-40
       bg-gradient-to-br from-[#fff9f5] via-[#fdf5f8] to-[#f8f4eb]
       relative overflow-hidden">
 
@@ -220,14 +220,19 @@ export function Programs() {
 
                 <a
   href="#kontakt"
-  className={`block w-full text-center py-5 rounded-2xl font-medium text-base mt-8 
-              transition-all duration-300 active:scale-95
+  className={`group relative overflow-hidden flex items-center justify-center w-full py-5 rounded-full font-medium text-base mt-8
+              transition-all duration-300 hover:-translate-y-[2px] active:scale-95
     ${p.featured
-      ? "bg-white text-[#0a594c] hover:bg-[#97a9aa] hover:text-white hover:shadow-xl"
-      : "bg-gradient-to-r from-[#ec4d9c] to-[#d63a85] text-white hover:brightness-110 hover:shadow-xl"
+      ? "bg-white text-[#0a594c] hover:bg-[#97a9aa] hover:text-white"
+      : "bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111]"
     }`}
 >
-  {p.cta}
+  <span className="block transition-transform duration-300 group-hover:-translate-x-2">{p.cta}</span>
+  <span className="absolute inset-y-0 right-6 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 8h10M9 4l4 4-4 4" />
+    </svg>
+  </span>
 </a>
               </div>
             </div>

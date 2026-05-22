@@ -64,7 +64,7 @@ export function SubscribeForm({ variant = "pink" }: Props) {
   const inputClasses =
     variant === "pink"
       ? "bg-white/95 text-ink placeholder-ink-gray border-white"
-      : "bg-white text-ink placeholder-ink-gray border-ink";
+      : "bg-white text-ink placeholder-ink-gray border-[#f4c1f0]/60 hover:border-[#ec4d9c]/40";
 
   return (
     <form
@@ -82,7 +82,7 @@ export function SubscribeForm({ variant = "pink" }: Props) {
         placeholder="din@mejl.se"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className={`flex-grow rounded-full px-5 py-3 border-[1.5px] font-sans text-[15px] focus:outline-none focus:ring-2 focus:ring-lime/70 ${inputClasses}`}
+        className={`flex-grow rounded-full px-6 py-4 border-[1.5px] font-sans text-[15px] focus:outline-none focus:ring-2 focus:ring-[#f4c1f0]/60 transition-all duration-200 ${inputClasses}`}
         disabled={status === "loading"}
         aria-invalid={status === "error"}
         aria-describedby={status === "error" ? "subscribe-error" : undefined}
@@ -90,13 +90,22 @@ export function SubscribeForm({ variant = "pink" }: Props) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className={
+        className={`group relative overflow-hidden inline-flex items-center justify-center px-8 py-4 rounded-full font-mono font-bold text-[15px] transition-all duration-300 cursor-pointer disabled:opacity-60 hover:-translate-y-[2px] ${
           variant === "pink"
-            ? "btn-pill bg-white text-pink-hot hover:bg-teal hover:text-white disabled:opacity-60"
-            : "btn-pink disabled:opacity-60"
-        }
+            ? "bg-white text-pink-hot hover:bg-[#fdeaf8]"
+            : "bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111]"
+        }`}
       >
-        {status === "loading" ? "Skickar…" : "Skicka mig guiden"}
+        <span className="block transition-transform duration-300 group-hover:-translate-x-2">
+          {status === "loading" ? "Skickar…" : "Skicka mig guiden"}
+        </span>
+        {status !== "loading" && (
+          <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </span>
+        )}
       </button>
       {status === "error" && (
         <p

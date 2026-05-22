@@ -53,17 +53,26 @@ export function Hero() {
           <div className="flex flex-wrap gap-4">
             <a
               href="#program"
-              className="group inline-flex items-center justify-center gap-3 bg-[#ec4d9c] hover:bg-[#d13f87] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-500 hover:-translate-y-1 hover:scale-[1.04] shadow-lg shadow-[#ec4d9c]/40 hover:shadow-xl hover:shadow-[#ec4d9c]/50 active:scale-[0.97]"
+              className="group relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.22)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.28)] active:scale-[0.97]"
             >
-              Se programmen
-              <span className="text-xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+              <span className="block transition-transform duration-300 group-hover:-translate-x-2">Se programmen</span>
+              <span className="absolute inset-y-0 right-7 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
             </a>
 
             <a
-              href="#startguide"
-              className="group inline-flex items-center justify-center gap-3 bg-transparent border-2 border-[#f4c1f0] hover:border-[#ec4d9c] hover:bg-white/10 text-[#f4c1f0] hover:text-white font-mono font-bold text-base px-8 py-5 rounded-full transition-all duration-500 hover:-translate-y-1 hover:scale-[1.04] active:scale-[0.97]"
+              href="#guide"
+              className="group relative overflow-hidden inline-flex items-center justify-center bg-transparent border-2 border-[#f4c1f0] hover:border-[#ec4d9c] hover:bg-white/10 text-[#f4c1f0] hover:text-white font-mono font-bold text-base px-8 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 active:scale-[0.97]"
             >
-              Gratis 7-dagars startguide
+              <span className="absolute inset-y-0 left-6 flex items-center -translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
+                <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 1 L9.3 6.7 L15 8 L9.3 9.3 L8 15 L6.7 9.3 L1 8 L6.7 6.7 Z" />
+                </svg>
+              </span>
+              <span className="block transition-transform duration-300 group-hover:translate-x-5">Gratis 7-dagars startguide</span>
             </a>
           </div>
         </Reveal>

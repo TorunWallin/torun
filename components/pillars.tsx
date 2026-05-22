@@ -20,7 +20,7 @@ const pillars = [
 
 export function Pillars() {
   return (
-    <section className="relative overflow-hidden px-6 md:px-16 py-28 md:py-40">
+    <section id="filosofi" className="relative overflow-hidden px-6 md:px-16 py-28 md:py-40">
       
       {/* Background image - subtil */}
       <div

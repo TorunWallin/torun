@@ -5,13 +5,11 @@ export function CtaStrip() {
   return (
     <section
       id="guide"
-      className="relative overflow-hidden bg-[#fdeaf8] px-6 py-24 md:px-16 md:py-36 text-center"
+      className="relative overflow-hidden bg-[#fef6fb] px-6 py-24 md:px-16 md:py-36 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.08),0_-1px_0_rgba(255,255,255,0.6)]"
     >
-      {/* Glows — rosa + grön */}
-      <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#ff8fd4]/25 blur-[130px]" />
-      <div className="pointer-events-none absolute -bottom-20 -right-40 h-[450px] w-[450px] rounded-full bg-[#245648]/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -left-20 bottom-0 h-[350px] w-[350px] rounded-full bg-[#0F4C3A]/15 blur-[100px]" />
-      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-[#ffccf7]/40 blur-[100px]" />
+      {/* Glows — endast mjuka rosa */}
+      <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#ff8fd4]/15 blur-[140px]" />
+      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-[#ffccf7]/25 blur-[100px]" />
 
       <div className="relative mx-auto max-w-[720px]">
 

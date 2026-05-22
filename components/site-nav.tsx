@@ -63,9 +63,10 @@ export function SiteNav() {
                 href={href}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
-                className="font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-all duration-200 tracking-[1.5px] uppercase"
+                className="group relative font-mono text-[15px] font-medium text-ink hover:text-pink-hot transition-colors duration-200 tracking-[1.5px] uppercase"
               >
-                {label}
+                <span className="absolute -inset-x-3 -inset-y-1 rounded-full bg-[#f4c1f0]/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                <span className="relative">{label}</span>
               </a>
             </li>
           ))}
@@ -74,14 +75,16 @@ export function SiteNav() {
         {/* Desktop CTA */}
         <Link
           href="#program"
-          className="hidden md:inline-flex group relative items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-serif font-semibold text-[18px] pl-9 pr-12 py-3 rounded-full transition-all duration-300 hover:scale-[1.05]"
+          className="group relative overflow-hidden hidden md:inline-flex items-center justify-center bg-[#0a594c] text-white font-serif font-semibold text-[17px] px-8 py-3 rounded-full transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#0d7c68]"
         >
-          Börja här
-          <img
-            src="/heart_white.png"
-            alt=""
-            className="absolute right-6 w-6 h-6 opacity-0 group-hover:opacity-100 transition-all duration-300"
-          />
+          <span className="block transition-transform duration-300 group-hover:-translate-x-2">Börja här</span>
+          <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
+              <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.593C6.37 16.054 1 11.296 1 7.19 1 3.8 3.78 2 6.281 2c1.312 0 3.5.612 5.719 3.457C14.219 2.612 16.407 2 17.719 2 20.22 2 23 3.8 23 7.19c0 4.106-5.37 8.864-11 14.403z"/>
+              </svg>
+            </span>
+          </span>
         </Link>
 
         {/* Hamburger (mobil) */}
