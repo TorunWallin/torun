@@ -1,14 +1,25 @@
+// =============================================================================
+// LIVE-VERSION — Ny struktur:
+//   1. Hero
+//   2. Stats
+//   3. Filosofin + Kvinnokroppen (cute_background.png — en sektion)
+//   4. Skiftet
+//   5. Programs (Välj din väg)
+//   6. Manifesto + Stark Tjej (radjur-blabar_bakgrund.png — en sektion)
+//   7. CtaStrip
+//   8. Footer
+// =============================================================================
+
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { SiteNav } from "@/components/site-nav";
-import { Hero } from "@/components/hero";
-import { StatsStrip } from "@/components/stats-strip";
-import { Pillars } from "@/components/pillars";
-import { Kvinnokroppen } from "@/components/kvinnokroppen";
-import { Programs } from "@/components/programs";
-import { AboutTeaser } from "@/components/about-teaser";
+import { HeroV2 as Hero } from "@/components/hero-v2";
+import { StatsStripV2 as StatsStrip } from "@/components/stats-strip-v2";
+import { FilosofinKvinnokroppen } from "@/components/filosofin-kvinnokroppen";
+import { Skiftet } from "@/components/skiftet";
+import { ProgramsV2 as Programs } from "@/components/programs-v2";
+import { ManifestoStarkTjej } from "@/components/manifesto-starktjej";
 import { CtaStrip } from "@/components/cta-strip";
 import { SiteFooter } from "@/components/site-footer";
-import { WaveDivider } from "@/components/wave-divider";
 
 export default function Home() {
   return (
@@ -17,10 +28,10 @@ export default function Home() {
       <SiteNav />
       <Hero />
       <StatsStrip />
-      <Pillars />
-      <Kvinnokroppen />
+      <FilosofinKvinnokroppen />
+      <Skiftet />
       <Programs />
-      <AboutTeaser />
+      <ManifestoStarkTjej />
       <CtaStrip />
       <SiteFooter />
     </main>
