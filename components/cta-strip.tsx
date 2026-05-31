@@ -34,13 +34,11 @@ export function CtaStrip() {
           </div>
         </Reveal>
 
-        {/* Blob-piller */}
+        {/* Lead-in mening — mjukare än all-caps-pill */}
         <Reveal delay={240}>
-          <div className="mb-10 flex justify-center">
-            <span className="rounded-[22px] bg-white/70 px-5 py-2 font-mono text-[12px] font-extrabold uppercase tracking-[0.15em] text-[#ff4fc4] shadow-sm md:text-[14px]">
-              FÅ MIN GRATIS 7-DAGARS STARTGUIDE
-            </span>
-          </div>
+          <p className="mb-10 font-serif text-[18px] md:text-[20px] text-[#ff4fc4] font-semibold italic">
+            Få min gratis 7-dagars startguide.
+          </p>
         </Reveal>
 
         {/* Brödtext */}

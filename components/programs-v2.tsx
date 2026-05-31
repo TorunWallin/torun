@@ -31,10 +31,10 @@ const programs: Program[] = [
   {
     badge: "01",
     name: "Kickstart",
-    tagline: "Första stegen hem.",
+    tagline: "Dina första steg — utan press.",
     description:
-      "En tydlig 4-veckors plan för dig som vill börja — men inte vet var. Ingen press, ingen perfekt start. Bara struktur som faktiskt funkar i ditt liv, och det första lugnet i kroppen när du vet vad du ska göra.",
-    outcome: "Du vet exakt vad du ska göra varje vecka och bygger momentum direkt.",
+      "En tydlig 4-veckorsplan för dig som vill börja, men inte vet var. Ingen press, ingen perfekt start. Bara struktur som funkar i ditt liv — och det där första lugnet i kroppen när du vet vad du ska göra.",
+    outcome: "Du vet exakt vad du ska göra varje vecka, och bygger momentum direkt.",
     price: "795 kr",
     priceNote: "engångsbetalning",
     cta: "Ja, jag är redo ♡",
@@ -50,39 +50,40 @@ const programs: Program[] = [
   {
     badge: "02 · Mest populär",
     name: "Stark med Torun",
-    tagline: "Vägen tillbaka, vecka för vecka.",
+    tagline: "Starkare, vecka för vecka.",
     description:
-      "Sex månader av coaching som lever med ditt liv. Träning, kost och vanor som justeras efter din vecka, din kropp, din menscykel. Du har mig vid din sida — och vi går den här vägen tillsammans.",
+      "Sex månader av coaching som lever med ditt liv. Träning, kost och vanor som justeras efter din vecka, din kropp och din menscykel. Du har mig vid din sida — och vi går vägen tillsammans.",
     outcome:
       "Du blir starkare, mer stabil och får en kropp och vardag som känns hållbar.",
     price: "1 795 kr",
-    priceNote: "/månad · 6 mån",
+    priceNote: "/mån · 6 mån",
     cta: "Ja, jag vill börja ♡",
     variant: "core",
     featured: true,
     action: { kind: "link", href: "/kontakt#stark" },
     features: [
       "Personligt anpassat upplägg",
-      "Veckovis justering av träning",
-      "Stöd i vardagsrutiner",
+      "Veckovis incheckning med mig",
+      "Löpande justering av träningen",
+      "Stöd i dina vardagsrutiner",
       "Balans mellan resultat & liv",
     ],
   },
   {
-    badge: "03 · Max 5 platser",
+    badge: "03",
     name: "1:1 Coaching",
     tagline: "Full omfamning, hela vägen.",
     description:
-      "Det djupaste arbetet. Daglig kontakt, individuellt upplägg i allt — träning, kost, mental hälsa och självkänsla. För dig som är redo att göra det här arbetet på riktigt, med någon som ser dig hela tiden.",
+      "Det djupaste arbetet. Daglig kontakt och ett individuellt upplägg i allt — träning, kost, mental hälsa och självkänsla. För dig som är redo att göra det här på riktigt, med någon som ser dig hela tiden.",
     outcome:
-      "Du bygger en helt ny nivå av disciplin, trygghet och självkänsla.",
+      "Du bygger en helt ny nivå av styrka, trygghet och självkänsla.",
     price: "3 495 kr",
-    priceNote: "/månad",
+    priceNote: "/mån",
     cta: "Ansök om plats ♡",
     variant: "premium",
     action: { kind: "link", href: "/kontakt#ett-till-ett" },
     features: [
-      "Daglig chat med coach",
+      "Daglig chat med mig",
       "Individuellt kostupplägg",
       "Veckoplanering & justering",
       "Mental coaching & stöd",
@@ -120,9 +121,9 @@ export function ProgramsV2() {
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="font-serif italic text-[18px] md:text-[20px] leading-[1.65] text-black/75 mt-8 max-w-[620px] mx-auto">
+          <p className="font-serif text-[18px] md:text-[20px] leading-[1.65] text-black/100 mt-8 max-w-[620px] mx-auto">
             Oavsett var du börjar handlar det om samma sak — att hitta tillbaka
-            till en kropp som är trygg, stark och din.
+            till en<i>  kropp som är trygg, stark och din.</i>
           </p>
         </Reveal>
       </div>
@@ -164,7 +165,7 @@ export function ProgramsV2() {
               <p className={`font-merriweather italic text-[16px] leading-relaxed mb-4 ${p.featured ? "text-white" : "text-black"}`}>
                 {p.tagline}
               </p>
-              <p className={`font-merriweather text-[15px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#444]"}`}>
+              <p className={`font-merriweather text-[15px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#00000]"}`}>
                 {p.description}
               </p>
 
@@ -194,7 +195,7 @@ export function ProgramsV2() {
                 </div>
 
                 {p.priceNote && (
-                  <div className="font-ibm-mono italic text-sm opacity-75 mt-1">
+                  <div className="font-ibm-mono italic text-sm opacity-100 mt-1">
                     {p.priceNote}
                   </div>
                 )}

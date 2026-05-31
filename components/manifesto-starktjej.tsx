@@ -70,13 +70,13 @@ export function ManifestoStarkTjej() {
             </Reveal>
 
             <Reveal delay={160}>
-              <h2 className="font-pacifico text-[46px] leading-[1.1] tracking-[-0.025em] text-[#111] md:text-[62px]">
+              <h2 className="font-pacifico text-[46px] leading-[1.1] tracking-[-0.025em] text-[#111] md:text-[52px]">
                 Hej, jag är <span className="text-[#ff4fc4]">Torun.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={260}>
-              <p className="mt-8 max-w-[650px] font-serif text-[22px] leading-[1.55] text-black/100 md:text-[19px]">
+              <p className="mt-8 max-w-[600px] font-serif text-[22px] leading-[1.55] text-black/100 md:text-[19px]">
                 <b>Jag tror inte att din kropp är ett problem som ska fixas.</b>{" "}
                 Jag tror att den är ett hem du har varit borta från ett tag.
               </p>
@@ -84,8 +84,8 @@ export function ManifestoStarkTjej() {
 
             <Reveal delay={340}>
               <div className="mt-10 border-l border-[#ff4fc4]/40 pl-6">
-                <p className="font-mono text-[21px] italic leading-[1.65] text-[#111] md:text-[24px]">
-                  &ldquo;Och jag är här för att hjälpa dig hitta tillbaka.&rdquo;
+                <p className="font-mono text-[20px] italic leading-[1.65] text-[#111] md:text-[20px]">
+                  &ldquo;& jag är här för att hjälpa dig hitta tillbaka.&rdquo;
                 </p>
               </div>
             </Reveal>
@@ -95,7 +95,7 @@ export function ManifestoStarkTjej() {
                 <p>
                   Jag har själv levt i det. I <b>dietkulturen</b>, i kontrollen,
                   i den utmattande jakten på en mindre version av mig själv.
-                  I tron om att styrka var något jag måste förtjäna —
+                  I tron att styrka var något jag måste förtjäna —
                   och att vila var något jag skulle straffas för.
                 </p>
                 <p>
@@ -109,10 +109,19 @@ export function ManifestoStarkTjej() {
             </Reveal>
 
             <Reveal delay={580}>
-              <p className="mt-10 font-merriweather italic text-[18px] leading-[1.6] text-[#111] max-w-[640px] md:text-[20px]">
+              <p className="mt-10 font-merriweather text-[18px] leading-[1.6] text-[#111] max-w-[640px] md:text-[20px]">
                 Det är det jag vill ge vidare. Inte ett program. Inte en
-                quick fix. Utan en mjukare, sundare väg hem.
+                quick fix. Utan en mjukare, sundare väg <i> — den jag själv
+                önskar att jag haft.</i>
               </p>
+            </Reveal>
+
+            {/* Trovärdighetsrad — uppdatera med din faktiska titel/utbildning */}
+            <Reveal delay={660}>
+              <div className="mt-8 flex items-center gap-3 text-[12px] font-mono text-black/55 tracking-[0.08em]">
+                <span className="block h-px w-8 bg-[#ff4fc4]/40" />
+                <span>Certifierad PT · Inriktning kvinnors hälsa</span>
+              </div>
             </Reveal>
 
             <Reveal delay={700}>
@@ -122,7 +131,7 @@ export function ManifestoStarkTjej() {
                   className="group relative overflow-hidden rounded-full bg-[#ff4fc4] px-8 py-4 font-serif text-[15px] tracking-wide text-white shadow-[0_8px_28px_rgba(255,79,196,0.35)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0] hover:shadow-[0_16px_40px_rgba(255,79,196,0.45)]"
                 >
                   <span className="block transition-transform duration-300 group-hover:-translate-x-2">
-                    Se programmen
+                   <b> Se programmen </b>
                   </span>
                   <span className="absolute inset-y-0 right-6 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
@@ -171,13 +180,13 @@ export function ManifestoStarkTjej() {
               </h3>
 
               <p className="mt-6 font-serif text-[18px] leading-[1.8] text-black/80 md:text-[20px]">
-                En gång per kvartal ger jag bort en plats i{" "}
+                Varje kvartal ger jag bort en plats i{" "}
                 <b>Stark med Torun</b> till en ung tjej som behöver stöd,
-                trygghet och en ny start i sin relation till träning och sig själv.
+                trygghet och någon som tror på henne.
               </p>
 
               <div className="mt-8 rounded-2xl bg-[#fdeaf8]/70 px-6 py-5">
-                <p className="font-mono text-[15px] italic leading-[1.7] text-[#111]">
+                <p className="font-mono text-[18px] italic leading-[1.7] text-[#111]">
                   Ingen prestation. Ingen press att vara duktig.
                   Bara ett varmt rum att börja om i.
                 </p>
@@ -192,15 +201,15 @@ export function ManifestoStarkTjej() {
               <div className="mt-10">
                 <a
                   href="/kontakt#stark-tjej"
-                  className="group relative overflow-hidden inline-flex items-center justify-center rounded-full bg-[#ff4fc4] px-10 py-4 font-serif text-[16px] tracking-[0.02em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
+                  className="group relative overflow-hidden inline-flex items-center justify-center rounded-full bg-[#ff4fc4] px-9 py-4 font-serif text-[15.5px] tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
                 >
                   <span className="block transition-transform duration-300 group-hover:-translate-x-2">
-                    Skicka ett mejl
+                    Ansök — för dig själv eller någon du tror på ♡
                   </span>
                   <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
-                      <svg className="h-3 w-3" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 21.593C6.37 16.054 1 11.296 1 7.19 1 3.8 3.78 2 6.281 2c1.312 0 3.5.612 5.719 3.457C14.219 2.612 16.407 2 17.719 2 20.22 2 23 3.8 23 7.19c0 4.106-5.37 8.864-11 14.403z" />
+                      <svg className="h-3 w-3" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 8h10M9 4l4 4-4 4" />
                       </svg>
                     </span>
                   </span>

@@ -97,7 +97,7 @@ export function SubscribeForm({ variant = "pink" }: Props) {
         }`}
       >
         <span className="block transition-transform duration-300 group-hover:-translate-x-2">
-          {status === "loading" ? "Skickar…" : "Skicka mig guiden"}
+          {status === "loading" ? "Skickar…" : "Skicka guiden ♡"}
         </span>
         {status !== "loading" && (
           <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">

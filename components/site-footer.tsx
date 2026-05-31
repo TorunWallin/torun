@@ -77,7 +77,7 @@ export function SiteFooter() {
                 <span className="font-playwrite text-[20px] leading-none text-[#ffa3f0]">Torun</span>
               </div>
               <p className="font-mono text-[12px] leading-[1.8] text-white/30">
-                hälsa på dina villkor ♡ 
+                stark, trygg, hel ♡
               </p>
             </div>
 

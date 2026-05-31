@@ -10,7 +10,7 @@ type Shift = {
 };
 
 const shifts: Shift[] = [
-  { from: "Träning som straff", to: "Rörelse som tar dig hem" },
+  { from: "Träning som straff", to: "Rörelse som ger dig energi" },
   { from: "Mat som fiende", to: "Mat som ger dig kraft" },
   { from: "Vågen som domare", to: "Din egen kropp som kompass" },
   { from: "Krympa dig själv", to: "Ta plats — och bli stark" },
@@ -62,15 +62,14 @@ export function Skiftet() {
         {/* Headline — mindre, på samma rad */}
         <Reveal delay={120}>
           <h2 className="text-center font-pacifico text-[34px] md:text-[48px] lg:text-[54px] leading-[1.1] text-[#111] mb-3 tracking-[-0.02em]">
-            Från överlevnad —{" "}
-            <span className="text-[#ec4d9c] italic">till att leva.</span>
+            Från press —{" "}
+            <span className="text-[#ec4d9c] italic">till frihet.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="text-center font-merriweather italic text-[16px] md:text-[18px] text-black/65 max-w-[520px] mx-auto mb-16 leading-[1.5]">
-            Små skiften som förändrar allt.
-          </p>
+        <p className="text-center font-merriweather text-[16px] md:text-[18px] text-black/90 max-w-[520px] mx-auto mb-16 leading-[1.6] tracking-[-0.01em]">
+Ett nytt perspektiv på kroppen.</p>
         </Reveal>
 
         {/* Shifts list — vita kort på rosa bg */}

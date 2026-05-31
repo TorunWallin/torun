@@ -11,7 +11,7 @@ const stats = [
   { num: "0", label: "Skam" },
   { num: "0", label: "Förbjudna livsmedel" },
   { num: "100%", label: "Du, precis som du är" },
-  { num: "∞", label: "Mjuka omstarter" },
+  { num: "∞", label: "Nya chanser" },
 ];
 
 export function StatsStripV2() {
@@ -37,8 +37,8 @@ export function StatsStripV2() {
           </h2>
         </Reveal>
         <Reveal direction="up" delay={220}>
-          <p className="font-mono italic text-[14px] md:text-[16px] text-black/55 mt-5 max-w-[520px] mx-auto leading-[1.6]">
-            Det här är ingen tävling. Det är ett hem du redan har nyckeln till.
+          <p className="font-mono italic text-[14px] md:text-[16px] text-black/55 mt-5 max-w-[560px] mx-auto leading-[1.6]">
+            Det här är ingen tävling, och det finns inget facit. Bara du, och en väg som möter dig där du står.
           </p>
         </Reveal>
       </div>
