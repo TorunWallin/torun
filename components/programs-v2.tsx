@@ -115,7 +115,7 @@ export function ProgramsV2() {
         </Reveal>
 
         <Reveal delay={120}>
-          <h2 className="font-pacifico text-[52px] md:text-[68px] leading-[1.05] text-black mt-6">
+          <h2 className="font-pacifico text-[52px] md:text-[60px] leading-[1.05] text-black mt-6">
             Välj din väg <span className="text-[#ec4d9c]">hem.</span>
           </h2>
         </Reveal>
