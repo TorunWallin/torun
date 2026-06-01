@@ -97,20 +97,48 @@ export function HeroV2() {
       {/* Fade */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent via-black/40 to-black/80" />
 
-      {/* Scroll indicator */}
+      {/* LYXIG SCROLL-INDIKATOR */}
       <a
         href="#program"
         className="group absolute bottom-16 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-5 z-20"
         aria-label="Scrolla ner"
       >
+        <div className="absolute -inset-8 rounded-full bg-[#f4c1f0]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
         <div className="relative font-mono text-[11px] tracking-[0.4em] text-white/80 group-hover:text-[#f4c1f0] transition-colors duration-500">
           UPPTÄCK MER
         </div>
+
+        <div className="relative w-[26px] h-[42px] rounded-full border border-white/50 group-hover:border-[#f4c1f0] transition-colors duration-500 flex justify-center pt-2 backdrop-blur-sm bg-white/5">
+          <span className="block w-[3px] h-[8px] rounded-full bg-[#f4c1f0] animate-scroll-dot" />
+        </div>
+
+        <div className="flex flex-col items-center gap-1 -mt-1">
+          <span className="block w-2 h-2 border-r border-b border-white/60 rotate-45 animate-bounce-slow group-hover:border-[#f4c1f0]" />
+          <span className="block w-2 h-2 border-r border-b border-white/30 rotate-45 animate-bounce-slow-delayed group-hover:border-[#f4c1f0]/60" />
+        </div>
+
+        <div className="w-px h-16 bg-gradient-to-b from-white/60 via-[#f4c1f0]/40 to-transparent" />
       </a>
 
       <style
         dangerouslySetInnerHTML={{
           __html: `
+            @keyframes scroll-dot {
+              0%   { transform: translateY(0);    opacity: 1; }
+              70%  { transform: translateY(14px); opacity: 0; }
+              100% { transform: translateY(0);    opacity: 0; }
+            }
+            @keyframes bounce-slow {
+              0%, 100% { transform: rotate(45deg) translateY(0);  opacity: 0.7; }
+              50%      { transform: rotate(45deg) translateY(4px); opacity: 1; }
+            }
+            .animate-scroll-dot          { animation: scroll-dot 2.2s cubic-bezier(0.65,0,0.35,1) infinite; }
+            .animate-bounce-slow         { animation: bounce-slow 2s ease-in-out infinite; }
+            .animate-bounce-slow-delayed { animation: bounce-slow 2s ease-in-out infinite 0.3s; }
+
+            /* På mobil: använd "fixed-liknande" med background-attachment: scroll
+               eftersom iOS Safari inte stöder fixed bakgrund bra */
             @media (max-width: 768px) {
               .hero-section {
                 background-attachment: scroll !important;
