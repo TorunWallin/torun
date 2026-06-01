@@ -134,13 +134,13 @@ export function ProgramsV2() {
         </Reveal>
       </div>
 
-      {/* Program Cards */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 md:gap-8 items-stretch relative">
+      {/* Program Cards — bredare container för mer features-text */}
+      <div className="max-w-[1440px] mx-auto grid md:grid-cols-3 gap-5 md:gap-6 items-stretch relative">
         {programs.map((p, i) => (
           <Reveal key={p.name} delay={200 + i * 100}>
             <div
               className={`
-                group relative h-full rounded-3xl p-7 md:p-10 flex flex-col
+                group relative h-full rounded-3xl p-8 md:p-11 flex flex-col
                 transition-all duration-500 md:hover:scale-[1.03] hover:shadow-2xl overflow-hidden
                 ${p.featured
                   ? "bg-[#0a594c] text-white shadow-2xl border-2 border-[#97a9aa] md:scale-[1.02]"
