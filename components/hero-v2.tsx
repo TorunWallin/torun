@@ -3,7 +3,7 @@ import { Reveal } from "./reveal";
 export function HeroV2() {
   return (
     <section
-      className="hero-section relative min-h-[100svh] md:min-h-[1200px] lg:min-h-[1280px] flex items-start px-6 md:px-16 lg:px-20 pt-24 md:pt-40 lg:pt-48 pb-32 md:pb-72 overflow-hidden"
+      className="hero-section relative min-h-[100svh] flex items-start px-6 md:px-16 lg:px-20 pt-20 md:pt-24 lg:pt-28 pb-24 md:pb-32 overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.85) 100%), linear-gradient(to right, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.42) 50%, rgba(10,10,10,0.15) 80%), url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1920&q=85&auto=format&fit=crop')",
@@ -44,7 +44,7 @@ export function HeroV2() {
 
         {/* Body — UPDATED */}
         <Reveal delay={350}>
-          <p className="font-mono text-[15.5px] md:text-[16.5px] leading-relaxed max-w-[600px] mb-12 opacity-95">
+          <p className="font-mono text-[15.5px] md:text-[16.5px] leading-relaxed max-w-[600px] mb-9 opacity-95">
             För dig som tränat för att straffa, ätit för att kompensera eller
             tappat bort känslan av att vara på samma lag som din kropp. Här
             finns en mjukare väg framåt. En plats där du får bygga styrka,

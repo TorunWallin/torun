@@ -5,7 +5,7 @@ export function CtaStrip() {
   return (
     <section
       id="guide"
-      className="relative overflow-hidden bg-[#fef6fb] px-6 py-24 md:px-16 md:py-36 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.08),0_-1px_0_rgba(255,255,255,0.6)]"
+      className="relative overflow-hidden bg-[#fef6fb] px-6 py-16 md:px-16 md:py-24 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.08),0_-1px_0_rgba(255,255,255,0.6)]"
     >
       {/* Glows — endast mjuka rosa */}
       <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#ff8fd4]/15 blur-[140px]" />

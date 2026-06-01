@@ -33,7 +33,7 @@ export function ManifestoStarkTjej() {
       </div>
 
       {/* ============ DEL 1: MANIFESTO ============ */}
-      <div className="relative z-10 px-6 py-20 md:px-16 md:py-44">
+      <div className="relative z-10 px-6 py-16 md:px-16 md:py-28">
         <div className="relative mx-auto grid max-w-[1300px] grid-cols-1 items-center gap-16 md:grid-cols-12 lg:gap-24">
           {/* IMAGE */}
           <Reveal direction="left" delay={0} className="relative md:col-span-5">
@@ -162,7 +162,7 @@ export function ManifestoStarkTjej() {
       </div>
 
       {/* ============ DEL 2: STARK TJEJ — SAMMA BAKGRUND ============ */}
-      <div id="stipendiet" className="relative z-10 px-6 md:px-16 pt-8 md:pt-12 pb-24 md:pb-40">
+      <div id="stipendiet" className="relative z-10 px-6 md:px-16 pt-8 md:pt-12 pb-20 md:pb-28">
         <Reveal delay={0} className="relative mx-auto max-w-[860px]">
           <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px] border border-white/50 bg-white/30 px-6 py-10 shadow-[0_8px_40px_rgba(255,79,196,0.12),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl md:px-16 md:py-16">
             <div className="relative">

@@ -42,7 +42,7 @@ export function FilosofinKvinnokroppen() {
       </div>
 
       {/* ============ FILOSOFIN ============ */}
-      <div id="filosofi" className="relative z-10 px-6 md:px-16 pt-28 md:pt-40 pb-16 md:pb-24">
+      <div id="filosofi" className="relative z-10 px-6 md:px-16 pt-20 md:pt-28 pb-12 md:pb-16">
         <div className="relative max-w-[1180px] mx-auto text-center"> {/* Ökad max-width */}
           
           {/* Badge + Rubrik + Sub (oförändrade) */}
@@ -113,7 +113,7 @@ export function FilosofinKvinnokroppen() {
 
 
       {/* ============ DEL 2: KVINNOKROPPEN — SAMMA BAKGRUND ============ */}
-      <div className="relative z-10 px-6 md:px-16 pt-16 md:pt-24 pb-28 md:pb-40">
+      <div className="relative z-10 px-6 md:px-16 pt-12 md:pt-16 pb-20 md:pb-28">
         <div className="relative max-w-[1180px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1fr] gap-20 items-center">
 

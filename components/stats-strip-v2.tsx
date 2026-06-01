@@ -16,7 +16,7 @@ const stats = [
 
 export function StatsStripV2() {
   return (
-    <section className="relative -mt-24 md:-mt-32 z-30 px-6 md:px-12 py-20 md:py-28 overflow-hidden bg-[#fff7fb]">
+    <section className="relative -mt-24 md:-mt-32 z-30 px-6 md:px-12 py-14 md:py-20 overflow-hidden bg-[#fff7fb]">
 
       {/* floating background glow */}
       <div className="absolute inset-0 pointer-events-none">

@@ -99,7 +99,7 @@ const programs: Program[] = [
 
 export function ProgramsV2() {
   return (
-    <section id="program" className="px-6 md:px-16 py-28 md:py-40
+    <section id="program" className="px-6 md:px-16 py-20 md:py-28
       bg-gradient-to-br from-[#fff9f5] via-[#fdf5f8] to-[#f8f4eb]
       relative overflow-hidden">
 

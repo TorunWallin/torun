@@ -20,7 +20,7 @@ const shifts: Shift[] = [
 export function Skiftet() {
   return (
     <section
-      className="relative overflow-hidden px-6 md:px-16 py-24 md:py-32"
+      className="relative overflow-hidden px-6 md:px-16 py-16 md:py-24"
       style={{
         background:
           "linear-gradient(135deg, #fff7fb 0%, #fdeaf8 50%, #fff0f7 100%)",
