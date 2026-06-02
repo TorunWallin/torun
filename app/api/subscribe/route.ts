@@ -109,7 +109,7 @@ function welcomeEmailHtml(guideUrl: string): string {
     <p style="font-size: 12px; color:#5A5A5A; line-height: 1.5;">
       Du får det här mejlet för att du anmälde dig till min startguide på torun.se.
       <br />
-      <a href="https://www.tiktok.com/@toruncoach" style="color:#5A5A5A;">TikTok @toruncoach</a> · <a href="https://www.instagram.com/toruncoach" style="color:#5A5A5A;">Instagram @toruncoach</a>
+      <a href="https://www.tiktok.com/@torunwallin" style="color:#5A5A5A;">TikTok @torunwallin</a> · <a href="https://www.instagram.com/torunwallin" style="color:#5A5A5A;">Instagram @torunwallin</a>
     </p>
   </div>
 </body>

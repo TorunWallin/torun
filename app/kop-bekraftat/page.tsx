@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
-  title: "Tack ♡ — TORUN Coach",
+  title: "Tack ♡ — Torun Wallin",
   description:
     "Tack för ditt köp av Kickstart. Här är vad som händer härnäst.",
   // Don't index this page

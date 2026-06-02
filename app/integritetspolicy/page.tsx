@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Integritetspolicy — Torun Coach",
-  description: "Hur Torun Coach hanterar dina personuppgifter.",
+  title: "Integritetspolicy — Torun Wallin",
+  description: "Hur Torun Wallin hanterar dina personuppgifter.",
 };
 
 export default function IntegritetspolicyPage() {
@@ -32,7 +32,7 @@ export default function IntegritetspolicyPage() {
 
           <Section title="1. Vem ansvarar för dina uppgifter?">
             <p>
-              Torun Coach (nedan "vi", "oss" eller "Toruncoach") ansvarar för behandlingen av dina personuppgifter. Har du frågor är du alltid välkommen att kontakta oss på{" "}
+              Torun Wallin (nedan "vi", "oss" eller "Torun Wallin") ansvarar för behandlingen av dina personuppgifter. Har du frågor är du alltid välkommen att kontakta oss på{" "}
               <a href="mailto:hej@torun.se" className="text-[#ec4d9c] underline underline-offset-2 hover:text-[#ff4fc4]">
                 hej@torun.se
               </a>.

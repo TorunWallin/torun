@@ -34,40 +34,44 @@ const initial: FormState = {
   guardianEmail: "",
 };
 
-// Theme per program — matches the section bg color in /kontakt
+// Theme per program — matches the program card in /kontakt
+// (homepage Programs recipe: Stark = green "Mest populär" card, the other two = white cards)
+const PINK_BTN =
+  "rounded-full px-6 py-3.5 inline-flex items-center gap-2 bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-sans font-semibold text-[15px] transition-all duration-300 hover:-translate-y-[2px] hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] cursor-pointer";
+
 const THEMES = {
+  // Stark med Torun = vitt kort (samma stil som de andra)
   stark: {
-    // White card on pink-light section
     inputBg: "bg-white",
     inputBorder: "border-ink",
     inputText: "text-ink",
     label: "text-ink-charcoal",
-    button: "btn-pink",
+    button: PINK_BTN,
     successAccent: "text-pink-hot",
     errorText: "text-pink-deep",
     ring: "focus:ring-pink-hot/50",
   },
+  // 1:1 Coaching = vitt kort
   "ett-till-ett": {
-    // Cream card on teal section
-    inputBg: "bg-cream",
-    inputBorder: "border-teal",
+    inputBg: "bg-white",
+    inputBorder: "border-ink",
     inputText: "text-ink",
-    label: "text-cream-warm",
-    button: "btn-lime",
-    successAccent: "text-lime",
-    errorText: "text-pink-light",
-    ring: "focus:ring-lime/60",
+    label: "text-ink-charcoal",
+    button: PINK_BTN,
+    successAccent: "text-pink-hot",
+    errorText: "text-pink-deep",
+    ring: "focus:ring-pink-hot/50",
   },
+  // Stark Tjej = vitt kort
   "stark-tjej": {
-    // Cream card on teal-deep section
-    inputBg: "bg-cream",
-    inputBorder: "border-teal",
+    inputBg: "bg-white",
+    inputBorder: "border-ink",
     inputText: "text-ink",
-    label: "text-cream-warm",
-    button: "btn-lime",
-    successAccent: "text-lime",
-    errorText: "text-pink-light",
-    ring: "focus:ring-lime/60",
+    label: "text-ink-charcoal",
+    button: PINK_BTN,
+    successAccent: "text-pink-hot",
+    errorText: "text-pink-deep",
+    ring: "focus:ring-pink-hot/50",
   },
 } as const;
 

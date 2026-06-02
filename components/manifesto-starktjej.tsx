@@ -141,7 +141,7 @@ export function ManifestoStarkTjej() {
                 </a>
 
                 <a
-                  href="https://www.tiktok.com/@toruncoach"
+                  href="https://www.tiktok.com/@torunwallin"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden rounded-full border border-black/10 bg-white/60 px-8 py-4 font-serif text-[15px] tracking-wide text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:border-[#ff4fc4]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
