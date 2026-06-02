@@ -63,7 +63,7 @@ export function FilosofinKvinnokroppen() {
 
           <Reveal delay={220}>
             <p className="font-pacifico text-[20px] md:text-[26px] text-black max-w-[700px] mx-auto mb-16 leading-[1.2]">
-              För vägen till mer energi, mer styrka — och mer av dig själv. Börjar här & nu.
+              Vägen till ett hälsosammare liv handlar om mer energi, mer styrka – och mer av dig själv. &amp; den börjar precis här.
             </p>
           </Reveal>
 

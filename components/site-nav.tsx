@@ -52,7 +52,7 @@ export function SiteNav() {
             Torun Wallin
           </span>
           <span className="font-mono italic text-[11px] md:text-[13px] text-ink-charcoal/85 block mt-0.5 tracking-tight">
-            hälsa · styrka · vardag
+            Vägen till ett hälsosammare liv
           </span>
         </Link>
 
