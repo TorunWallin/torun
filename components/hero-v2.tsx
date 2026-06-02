@@ -3,7 +3,7 @@ import { Reveal } from "./reveal";
 export function HeroV2() {
   return (
     <section
-      className="hero-section relative min-h-[100svh] flex items-start px-6 md:px-16 lg:px-20 pt-20 md:pt-24 lg:pt-28 pb-24 md:pb-32 overflow-hidden"
+      className="hero-section relative min-h-[100svh] md:min-h-[max(100svh,1040px)] lg:min-h-[max(100svh,1060px)] flex items-start px-6 md:px-16 lg:px-20 pt-20 md:pt-24 lg:pt-28 pb-24 md:pb-32 overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.85) 100%), linear-gradient(to right, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.42) 50%, rgba(10,10,10,0.15) 80%), url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1920&q=85&auto=format&fit=crop')",

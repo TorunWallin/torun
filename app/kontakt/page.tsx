@@ -165,7 +165,7 @@ export default function KontaktPage() {
                 <div aria-hidden className="pointer-events-none absolute -inset-6 rounded-[48px] bg-[#ff8fd4]/20 blur-[60px]" />
                 <div
                   className="relative aspect-[4/5] overflow-hidden rounded-[38px] shadow-[0_30px_90px_rgba(236,77,156,0.20)]"
-                  style={{ backgroundImage: "url('/torun-portrait.png')", backgroundSize: "cover", backgroundPosition: "center" }}
+                  style={{ backgroundImage: "url('/kontakta_bild.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}
                   aria-label="Torun"
                 />
                 <div className="absolute -bottom-5 -right-3 md:-right-5 rounded-full border border-black/10 bg-white/85 px-5 py-2.5 backdrop-blur-xl shadow-xl">
