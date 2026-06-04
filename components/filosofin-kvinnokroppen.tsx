@@ -115,16 +115,19 @@ export function FilosofinKvinnokroppen() {
       {/* ============ DEL 2: KVINNOKROPPEN — SAMMA BAKGRUND ============ */}
       <div className="relative z-10 px-6 md:px-16 pt-12 md:pt-16 pb-20 md:pb-28">
         <div className="relative max-w-[1180px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1fr] gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1fr] gap-20 items-center lg:items-stretch">
 
             {/* Image */}
-            <Reveal delay={0}>
-              <div style={{ animation: "float 6s ease-in-out infinite" }}>
+            <Reveal delay={0} className="lg:h-full">
+              <div
+                className="relative max-w-[520px] mx-auto lg:mx-0 lg:h-full lg:min-h-[420px]"
+                style={{ animation: "float 6s ease-in-out infinite" }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/bild_för-kvinnokroppen2.png"
-                  alt="Kvinna som fixar håret"
-                  className="rounded-[6px] w-full max-w-[520px] mx-auto lg:mx-0"
+                  src="/kontakta_bild.jpeg"
+                  alt="Torun med en smoothiebowl"
+                  className="w-full rounded-[6px] lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-cover"
                 />
               </div>
             </Reveal>

@@ -74,10 +74,10 @@ export function SiteFooter() {
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <div className="mb-5 inline-block rounded-[16px] border border-white/10 bg-white/5 px-5 py-3">
-                <span className="font-playwrite text-[20px] leading-none text-[#ffa3f0]">Torun</span>
+                <span className="font-playwrite text-[20px] leading-none text-[#ffa3f0]">Torun 🤍</span>
               </div>
               <p className="font-mono text-[12px] leading-[1.8] text-white/30">
-                stark, trygg, hel ♡
+                Vägen till ett<br />hälsosammare liv
               </p>
             </div>
 
@@ -165,12 +165,12 @@ export function SiteFooter() {
       <div className="mx-6 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent md:mx-16" />
       <Reveal delay={120}>
         <div className="flex flex-col items-center justify-between gap-3 px-6 py-8 text-center md:flex-row md:px-16 md:text-left">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/22">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/35">
             © {new Date().getFullYear()} Torun Wallin · Alla rättigheter förbehållna
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] text-[#ff4fc4]/50">♡</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/22">
+            <span className="text-[11px] text-white/35">♡</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/35">
               Gjord med kärlek
             </span>
           </div>

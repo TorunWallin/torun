@@ -1,4 +1,11 @@
 import { Resend } from "resend";
+import {
+  applicationReplyEmail,
+  escapeHtml,
+  firstName,
+  PROGRAM_LABELS,
+  type EmailProgram,
+} from "@/lib/email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -6,7 +13,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.RESEND_FROM ?? "TORUN. <onboarding@resend.dev>";
 const NOTIFY_TO = process.env.NOTIFY_EMAIL ?? "itorun@me.com";
 
-type Program = "stark" | "ett-till-ett" | "stark-tjej";
+type Program = EmailProgram;
 
 type Payload = {
   program: Program;
@@ -22,12 +29,6 @@ type Payload = {
   age?: string;
   why?: string;
   guardianEmail?: string;
-};
-
-const PROGRAM_LABELS: Record<Program, string> = {
-  stark: "Stark med Torun",
-  "ett-till-ett": "1:1 Coaching",
-  "stark-tjej": "Stark Tjej",
 };
 
 const EXPERIENCE_LABELS: Record<NonNullable<Payload["experience"]>, string> = {
@@ -65,7 +66,7 @@ export async function POST(req: Request) {
       to: data.email,
       replyTo: NOTIFY_TO,
       subject: replySubject(data.program),
-      html: replyEmailHtml(data),
+      html: applicationReplyEmail({ program: data.program, name: data.name }),
     });
 
     if (replyResult.error) {
@@ -174,75 +175,20 @@ function validatePayload(body: Payload): ValidationResult {
 // -----------------------------------------------------------------------------
 
 function replySubject(program: Program): string {
-  if (program === "stark") return "Tack ♡ Jag hör av mig snart — Stark med Torun";
-  if (program === "ett-till-ett") return "Tack ♡ Jag hör av mig snart — 1:1 Coaching";
-  return "Tack ♡ Jag hör av mig snart — Stark Tjej";
+  if (program === "stark") {
+    // A/B-alternativ: "Välkommen till Stark med Torun — så här fortsätter vi"
+    return "Din anmälan landade hos mig 🤍";
+  }
+  if (program === "ett-till-ett") {
+    // A/B-alternativ: "Tack — här pratar vi alltid först"
+    return "Din intresseanmälan landade hos mig 🤍";
+  }
+  // stark-tjej — A/B-alternativ: "Din ansökan har landat hos mig ♡"
+  return "Tack för att du vågade söka ♡";
 }
 
 function notifySubject(data: Payload): string {
   return `Ny ansökan: ${PROGRAM_LABELS[data.program]} — ${data.name}`;
-}
-
-function replyEmailHtml(data: Payload): string {
-  const programName = PROGRAM_LABELS[data.program];
-
-  const programIntro: Record<Program, string> = {
-    stark:
-      "Så glad att du vill börja resan in i <em>Stark med Torun</em>. Jag läser igenom din anmälan personligen, och hör av mig inom 2–3 dagar med nästa steg.",
-    "ett-till-ett":
-      "Så glad att du visat intresse för min mest personliga coachning. För 1:1 vill jag alltid prata med dig först innan vi bestämmer något — så jag hör av mig inom 2–3 dagar för att boka ett kort samtal.",
-    "stark-tjej":
-      "Tack för att du vågade söka platsen. Jag läser varje ansökan själv. Du hör från mig inom en vecka — och oavsett om platsen blir din den här gången eller inte vill jag att du vet att det betyder något att du tog det här steget.",
-  };
-
-  return `<!DOCTYPE html>
-<html lang="sv">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tack — ${programName}</title>
-</head>
-<body style="margin:0; padding:0; background:#FAF6EE; font-family: Georgia, 'Times New Roman', serif; color:#0A0A0A;">
-  <div style="max-width:560px; margin:0 auto; padding:32px 24px;">
-    <div style="font-style: italic; font-weight: 700; font-size: 28px; color:#0F4C3A; letter-spacing:-0.02em;">torun.</div>
-    <div style="font-family: Helvetica, Arial, sans-serif; font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:#5A5A5A; margin-bottom: 28px;">Hälsa · Styrka · Vardag</div>
-
-    <h1 style="font-style: italic; font-weight: 700; font-size: 32px; line-height:1.1; color:#0F4C3A; margin: 0 0 16px;">
-      Hej ${escapeHtml(firstName(data.name))} ♡
-    </h1>
-
-    <p style="font-size: 16px; line-height: 1.7; margin: 0 0 14px;">
-      Tack för att du tog dig tid att skriva — det är inte småsak att skicka iväg ett sånt här mejl, och jag tar emot det med stor omsorg.
-    </p>
-
-    <p style="font-size: 16px; line-height: 1.7; margin: 0 0 24px;">
-      ${programIntro[data.program]}
-    </p>
-
-    <div style="background:#F2EBDB; border-radius:12px; padding:18px 22px; margin: 0 0 28px;">
-      <p style="font-family: Helvetica, Arial, sans-serif; font-size: 11px; letter-spacing:0.18em; text-transform:uppercase; color:#5A5A5A; margin: 0 0 6px;">Din ansökan</p>
-      <p style="font-size: 15px; font-style: italic; color:#0F4C3A; margin: 0;">${programName}</p>
-    </div>
-
-    <p style="font-size: 16px; line-height: 1.7; margin: 0 0 14px;">
-      Under tiden — ta hand om dig. Och kom ihåg: bara det att du vågade ta det här steget är redan styrka.
-    </p>
-
-    <p style="font-size: 16px; line-height: 1.7; margin: 0 0 4px;">
-      Stark, trygg, hel ♡
-    </p>
-    <p style="font-style: italic; font-size: 18px; margin: 0; color:#0F4C3A;">Torun</p>
-
-    <hr style="border: none; border-top: 1px solid #E8E8E8; margin: 36px 0 18px;" />
-
-    <p style="font-size: 12px; color:#5A5A5A; line-height: 1.5;">
-      Du får det här mejlet för att du skickade in en ansökan på torun.se.
-      <br />
-      <a href="https://www.tiktok.com/@torunwallin" style="color:#5A5A5A;">TikTok @torunwallin</a> · <a href="https://www.instagram.com/torunwallin" style="color:#5A5A5A;">Instagram @torunwallin</a>
-    </p>
-  </div>
-</body>
-</html>`;
 }
 
 function notifyEmailHtml(data: Payload): string {
@@ -321,17 +267,4 @@ function buildNotifyFields(data: Payload): Array<[string, string]> {
   }
 
   return fields;
-}
-
-function firstName(fullName: string): string {
-  return fullName.trim().split(/\s+/)[0] ?? fullName;
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 }
