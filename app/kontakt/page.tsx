@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
 import { ContactForm, type ContactProgram } from "@/components/contact-form";
+import { LAUNCH_OFFER } from "@/lib/offer";
 
 export const metadata: Metadata = {
   title: "Kontakt — Torun Wallin",
@@ -19,6 +20,8 @@ type Program = {
   highlights: string[];
   price: string;
   priceNote: string;
+  launchPrice?: string;
+  offerLabel?: string;
   featured?: boolean;
 };
 
@@ -36,6 +39,8 @@ const programs: Program[] = [
     ],
     price: "1 795 kr",
     priceNote: "/månad · 6 mån",
+    launchPrice: LAUNCH_OFFER.stark.active ? LAUNCH_OFFER.stark.now : undefined,
+    offerLabel: LAUNCH_OFFER.stark.active ? LAUNCH_OFFER.label : undefined,
   },
   {
     program: "ett-till-ett",
@@ -254,8 +259,16 @@ export default function KontaktPage() {
                         </ul>
 
                         {/* Pris */}
+                        {p.offerLabel && (
+                          <span className="inline-block mb-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full bg-[#fdeaf8] text-[#ec4d9c]">
+                            {p.offerLabel}
+                          </span>
+                        )}
                         <div className="flex items-baseline gap-3">
-                          <span className="text-4xl font-semibold tracking-tight text-[#2f4a3a]">{p.price}</span>
+                          <span className="text-4xl font-semibold tracking-tight text-[#2f4a3a]">{p.launchPrice ?? p.price}</span>
+                          {p.launchPrice && (
+                            <span className="text-xl font-medium line-through text-black/35">{p.price}</span>
+                          )}
                           <span className="font-ibm-mono italic text-sm text-ink-gray">{p.priceNote}</span>
                         </div>
                       </div>

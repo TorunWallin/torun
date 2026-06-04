@@ -10,6 +10,7 @@
  */
 import { Reveal } from "./reveal";
 import { KickstartCheckoutButton } from "./kickstart-checkout-button";
+import { LAUNCH_OFFER } from "@/lib/offer";
 
 type Program = {
   badge?: string;
@@ -19,6 +20,9 @@ type Program = {
   outcome: string;
   price: string;
   priceNote?: string;
+  /** Lanseringspris — överstruket ordinarie (price) + nytt pris (launchPrice) */
+  launchPrice?: string;
+  offerLabel?: string;
   features: string[];
   cta: string;
   variant: "basic" | "core" | "premium";
@@ -38,6 +42,8 @@ const programs: Program[] = [
       "Struktur, momentum och en kropp som äntligen börjar känna sig hemma i träningen – utan att hela ditt liv måste läggas om.",
     price: "795 kr",
     priceNote: "engångsbetalning",
+    launchPrice: LAUNCH_OFFER.kickstart.active ? LAUNCH_OFFER.kickstart.now : undefined,
+    offerLabel: LAUNCH_OFFER.kickstart.active ? LAUNCH_OFFER.label : undefined,
     cta: "Ja, jag är redo ♡",
     variant: "basic",
     action: { kind: "checkout", product: "kickstart" },
@@ -59,6 +65,8 @@ const programs: Program[] = [
       "En starkare och stabilare kropp – och en vardag som faktiskt går ihop. Inte ett quick fix, utan ett halvår som förändrar hur du rör dig genom livet.",
     price: "1 795 kr",
     priceNote: "/mån · 6 mån bindning",
+    launchPrice: LAUNCH_OFFER.stark.active ? LAUNCH_OFFER.stark.now : undefined,
+    offerLabel: LAUNCH_OFFER.stark.active ? LAUNCH_OFFER.label : undefined,
     cta: "Ja, jag vill börja ♡",
     variant: "core",
     featured: true,
@@ -196,8 +204,21 @@ export function ProgramsV2() {
 
               {/* Price + CTA */}
               <div className={`mt-auto pt-8 border-t ${p.featured ? "border-white/20" : "border-black/10"}`}>
-                <div className={`text-4xl font-semibold tracking-tight ${p.featured ? "text-white" : "text-[#2f4a3a]"}`}>
-                  {p.price}
+                {p.offerLabel && (
+                  <div className={`inline-block mb-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full
+                    ${p.featured ? "bg-white/15 text-white" : "bg-[#fdeaf8] text-[#ec4d9c]"}`}>
+                    {p.offerLabel}
+                  </div>
+                )}
+                <div className="flex items-baseline gap-2.5">
+                  <div className={`text-4xl font-semibold tracking-tight ${p.featured ? "text-white" : "text-[#2f4a3a]"}`}>
+                    {p.launchPrice ?? p.price}
+                  </div>
+                  {p.launchPrice && (
+                    <div className={`text-xl font-medium line-through ${p.featured ? "text-white/50" : "text-black/35"}`}>
+                      {p.price}
+                    </div>
+                  )}
                 </div>
 
                 {p.priceNote && (
