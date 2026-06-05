@@ -91,6 +91,8 @@ const programs: Program[] = [
       "En helt ny nivå av styrka, trygghet och självkänsla. Och en relation till din kropp som håller långt efter att vi är klara.",
     price: "3 495 kr",
     priceNote: "/mån · löpande, minst 3 mån",
+    launchPrice: LAUNCH_OFFER.one1.active ? LAUNCH_OFFER.one1.now : undefined,
+    offerLabel: LAUNCH_OFFER.one1.active ? LAUNCH_OFFER.label : undefined,
     cta: "Ansök om plats ♡",
     variant: "premium",
     action: { kind: "link", href: "/kontakt#ett-till-ett" },
@@ -108,13 +110,13 @@ const programs: Program[] = [
 export function ProgramsV2() {
   return (
     <section id="program" className="px-6 md:px-16 py-20 md:py-28
-      bg-gradient-to-br from-[#fff9f5] via-[#fdf5f8] to-[#f8f4eb]
+      bg-gradient-to-br from-[#FAF6EE] via-[#F8F1E8] to-[#FDF8F2]
       relative overflow-hidden">
 
       {/* Bakgrundsmönster */}
-      <div className="absolute inset-0 bg-[radial-gradient(#fcc6e8_1.2px,transparent_1px)]
-                      [background-size:45px_45px] opacity-60 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#ffe4f0]/40 via-transparent to-[#f0f7e8]/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#f4a6cc_1.2px,transparent_1px)]
+                      [background-size:45px_45px] opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#f4a6cc]/10 via-transparent to-[#f0f7e8]/20 pointer-events-none" />
 
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-20 relative">
@@ -129,13 +131,13 @@ export function ProgramsV2() {
         </Reveal>
 
         <Reveal delay={120}>
-          <h2 className="font-pacifico text-[52px] md:text-[60px] leading-[1.05] text-black mt-6">
+          <h2 className="font-uloopet text-[52px] md:text-[60px] leading-[1.05] text-black mt-6">
             Välj din väg <span className="text-[#ec4d9c]">hem.</span>
           </h2>
         </Reveal>
 
         <Reveal delay={220}>
-          <p className="font-serif text-[18px] md:text-[20px] leading-[1.65] text-black/100 mt-8 max-w-[620px] mx-auto">
+          <p className="font-alice tracking-[-0.015em] text-[18px] md:text-[20px] leading-[1.65] text-black/100 mt-8 max-w-[620px] mx-auto">
             Oavsett var du börjar handlar det om samma sak — att hitta tillbaka
             till en<i>  kropp som är trygg, stark och din.</i>
           </p>
@@ -162,7 +164,7 @@ export function ProgramsV2() {
                   <span className={`inline-block text-xs font-mono tracking-widest px-5 py-2 rounded-2xl font-medium
                     ${p.featured
                       ? "bg-[#97a9aa] text-white"
-                      : "bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c]"
+                      : "bg-[#F5EDE3] text-[#ec4d9c]"
                     }`}>
                     {p.badge}
                   </span>
@@ -170,16 +172,16 @@ export function ProgramsV2() {
               )}
 
               {/* Namn */}
-              <h3 className={`font-pacifico text-3xl md:text-4xl mb-3 transition-colors
+              <h3 className={`font-uloopet text-3xl md:text-4xl mb-3 transition-colors
                 ${p.featured ? "text-white" : "text-[#ec4d9c]"}`}>
                 {p.name}
               </h3>
 
               {/* Tagline */}
-              <p className={`font-merriweather italic text-[16px] leading-relaxed mb-4 ${p.featured ? "text-white" : "text-black"}`}>
+              <p className={`font-alice tracking-[-0.015em] italic text-[17px] leading-relaxed mb-4 ${p.featured ? "text-white" : "text-black"}`}>
                 {p.tagline}
               </p>
-              <p className={`font-merriweather text-[15px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#00000]"}`}>
+              <p className={`font-alice tracking-[-0.015em] text-[16px] leading-relaxed mb-8 ${p.featured ? "text-white/90" : "text-[#00000]"}`}>
                 {p.description}
               </p>
 
@@ -211,32 +213,32 @@ export function ProgramsV2() {
                   </div>
                 )}
                 <div className="flex items-baseline gap-2.5">
-                  <div className={`text-4xl font-semibold tracking-tight ${p.featured ? "text-white" : "text-[#2f4a3a]"}`}>
+                  <div className={`text-[42px] font-alice tracking-[-0.015em] font-semibold tracking-tight ${p.featured ? "text-white" : "text-[#2f4a3a]"}`}>
                     {p.launchPrice ?? p.price}
                   </div>
                   {p.launchPrice && (
-                    <div className={`text-xl font-medium line-through ${p.featured ? "text-white/50" : "text-black/35"}`}>
+                    <div className={`text-2xl font-alice tracking-[-0.015em] font-medium line-through ${p.featured ? "text-white/50" : "text-black/35"}`}>
                       {p.price}
                     </div>
                   )}
                 </div>
 
                 {p.priceNote && (
-                  <div className="font-ibm-mono italic text-sm opacity-100 mt-1">
+                  <div className="font-alice tracking-[-0.015em] italic text-base opacity-100 mt-1">
                     {p.priceNote}
                   </div>
                 )}
 
                 {p.action.kind === "checkout" ? (
                   <KickstartCheckoutButton
-                    className={`group relative overflow-hidden flex items-center justify-center w-full py-5 rounded-full font-medium text-base mt-8
+                    className={`group relative overflow-hidden flex items-center justify-center w-full py-5 rounded-full font-medium text-lg mt-8
               transition-all duration-300 hover:-translate-y-[2px] active:scale-95
     ${p.featured
       ? "bg-white text-[#0a594c] hover:bg-[#97a9aa] hover:text-white"
       : "bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111]"
     }`}
                   >
-                    <span className="block transition-transform duration-300 group-hover:-translate-x-2">{p.cta}</span>
+                    <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">{p.cta}</span>
                     <span className="absolute inset-y-0 right-6 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
                         <path d="M3 8h10M9 4l4 4-4 4" />
@@ -246,14 +248,14 @@ export function ProgramsV2() {
                 ) : (
                   <a
                     href={p.action.href}
-                    className={`group relative overflow-hidden flex items-center justify-center w-full py-5 rounded-full font-medium text-base mt-8
+                    className={`group relative overflow-hidden flex items-center justify-center w-full py-5 rounded-full font-medium text-lg mt-8
               transition-all duration-300 hover:-translate-y-[2px] active:scale-95
     ${p.featured
       ? "bg-white text-[#0a594c] hover:bg-[#97a9aa] hover:text-white"
       : "bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111]"
     }`}
                   >
-                    <span className="block transition-transform duration-300 group-hover:-translate-x-2">{p.cta}</span>
+                    <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">{p.cta}</span>
                     <span className="absolute inset-y-0 right-6 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
                         <path d="M3 8h10M9 4l4 4-4 4" />

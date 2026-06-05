@@ -18,15 +18,15 @@ export function ManifestoStarkTjej() {
             backgroundRepeat: "no-repeat",
           }}
         />
-        <div className="absolute inset-0 bg-[#fdeaf8]/80" />
+        <div className="absolute inset-0 bg-[#FAF6EE]/85" />
 
-        <div className="absolute left-[-100px] top-[5%] h-[480px] w-[480px] rounded-full bg-[#ff8fd4]/50 blur-[130px]" />
-        <div className="absolute bottom-[-100px] right-[-80px] h-[420px] w-[420px] rounded-full bg-white/60 blur-[140px]" />
+        <div className="absolute left-[-100px] top-[5%] h-[480px] w-[480px] rounded-full bg-[#f4a6cc]/25 blur-[130px]" />
+        <div className="absolute bottom-[-100px] right-[-80px] h-[420px] w-[420px] rounded-full bg-white/70 blur-[140px]" />
 
         <div
           className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #ff4fc4 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, #f4a6cc 1px, transparent 0)`,
             backgroundSize: "22px 22px",
           }}
         />
@@ -70,13 +70,13 @@ export function ManifestoStarkTjej() {
             </Reveal>
 
             <Reveal delay={160}>
-              <h2 className="font-pacifico text-[46px] leading-[1.1] tracking-[-0.025em] text-[#111] md:text-[52px]">
+              <h2 className="font-uloopet text-[46px] leading-[1.1] tracking-[-0.025em] text-[#111] md:text-[52px]">
                 Hej, jag är <span className="text-[#ff4fc4]">Torun.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={260}>
-              <p className="mt-8 max-w-[600px] font-serif text-[22px] leading-[1.55] text-black/100 md:text-[19px]">
+              <p className="mt-8 max-w-[600px] font-alice text-[22px] leading-[1.55] text-black/100 md:text-[19px]">
                 <b>Jag tror inte att din kropp är ett problem som ska fixas.</b>{" "}
                 Jag tror att den är ett hem du har varit borta från ett tag.
               </p>
@@ -109,7 +109,7 @@ export function ManifestoStarkTjej() {
             </Reveal>
 
             <Reveal delay={580}>
-              <p className="mt-10 font-merriweather text-[18px] leading-[1.6] text-[#111] max-w-[640px] md:text-[20px]">
+              <p className="mt-10 font-alice tracking-[-0.015em] text-[18px] leading-[1.6] text-[#111] max-w-[640px] md:text-[20px]">
                 Det är det jag vill ge vidare. Inte ett program. Inte en
                 quick fix. Utan en mjukare, sundare väg <i> — den jag själv
                 önskar att jag haft.</i>
@@ -128,9 +128,9 @@ export function ManifestoStarkTjej() {
               <div className="mt-14 flex flex-wrap gap-4">
                 <a
                   href="#program"
-                  className="group relative overflow-hidden rounded-full bg-[#ff4fc4] px-8 py-4 font-serif text-[15px] tracking-wide text-white shadow-[0_8px_28px_rgba(255,79,196,0.35)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0] hover:shadow-[0_16px_40px_rgba(255,79,196,0.45)]"
+                  className="group relative overflow-hidden rounded-full bg-[#ff4fc4] px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-white shadow-[0_8px_28px_rgba(255,79,196,0.35)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0] hover:shadow-[0_16px_40px_rgba(255,79,196,0.45)]"
                 >
-                  <span className="block transition-transform duration-300 group-hover:-translate-x-2">
+                  <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                    <b> Se programmen </b>
                   </span>
                   <span className="absolute inset-y-0 right-6 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
@@ -144,14 +144,14 @@ export function ManifestoStarkTjej() {
                   href="https://www.tiktok.com/@torunwallin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-full border border-black/10 bg-white/60 px-8 py-4 font-serif text-[15px] tracking-wide text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:border-[#ff4fc4]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
+                  className="group relative overflow-hidden rounded-full border border-black/10 bg-white/60 px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:border-[#ff4fc4]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
                 >
                   <span className="absolute inset-y-0 left-6 flex items-center -translate-x-10 transition-transform duration-300 group-hover:translate-x-0">
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z" />
                     </svg>
                   </span>
-                  <span className="block transition-transform duration-300 group-hover:translate-x-2">
+                  <span className="block transition-transform duration-300 group-hover:translate-x-2 font-alice tracking-[-0.015em]">
                     Följ på TikTok
                   </span>
                 </a>
@@ -174,18 +174,18 @@ export function ManifestoStarkTjej() {
                 <div className="h-[1px] w-10 bg-[#ff4fc4]" />
               </div>
 
-              <h3 className="font-pacifico text-[38px] leading-[1.15] text-[#111] md:text-[50px]">
+              <h3 className="font-uloopet text-[38px] leading-[1.15] text-[#111] md:text-[50px]">
                 Stark Tjej{" "}
                 <span className="text-[#ff4fc4]">♡</span>
               </h3>
 
-              <p className="mt-6 font-serif text-[18px] leading-[1.8] text-black/80 md:text-[20px]">
+              <p className="mt-6 font-alice tracking-[-0.015em] text-[18px] leading-[1.8] text-black/80 md:text-[20px]">
                 Varje kvartal ger jag bort en plats i{" "}
                 <b>Stark med Torun</b> till en ung tjej som behöver stöd,
                 trygghet och någon som tror på henne.
               </p>
 
-              <div className="mt-8 rounded-2xl bg-[#fdeaf8]/70 px-6 py-5">
+              <div className="mt-8 rounded-2xl bg-[#F5EDE3]/60 px-6 py-5">
                 <p className="font-mono text-[18px] italic leading-[1.7] text-[#111]">
                   Ingen prestation. Ingen press att vara duktig.
                   Bara ett varmt rum att börja om i.
@@ -201,9 +201,9 @@ export function ManifestoStarkTjej() {
               <div className="mt-10">
                 <a
                   href="/kontakt#stark-tjej"
-                  className="group relative overflow-hidden inline-flex items-center justify-center rounded-full bg-[#ff4fc4] px-9 py-4 font-serif text-[15.5px] tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
+                  className="group relative overflow-hidden inline-flex items-center justify-center rounded-full bg-[#ff4fc4] px-9 py-4 font-alice tracking-[-0.015em] text-[15.5px] tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
                 >
-                  <span className="block transition-transform duration-300 group-hover:-translate-x-2">
+                  <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                     Ansök — för dig själv eller någon du tror på ♡
                   </span>
                   <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">

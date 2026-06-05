@@ -1,6 +1,6 @@
 export function AnnouncementBar() {
   return (
-    <div className="bg-[#fce7f3] text-[#2f4a3a] text-center py-2.5 px-4 text-[14px] tracking-[0.5px] border-b border-[#f8d0e0]">
+    <div className="bg-[#FAF6EE] text-[#2f4a3a] text-center py-2.5 px-4 text-[14px] tracking-[0.5px] border-b border-[#f0e6d8]">
       <div className="flex items-center justify-center gap-2">
         <span className="font-mono">Gratis 7-dagars startguide</span>
         <span className="text-[#5c6b5f]">→</span>

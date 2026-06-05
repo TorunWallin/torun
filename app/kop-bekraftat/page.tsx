@@ -17,7 +17,7 @@ export default function KopBekraftatPage() {
     <>
       <SiteNav />
 
-      <section className="relative px-6 md:px-16 py-20 md:py-32 bg-pink-light overflow-hidden min-h-[70vh] flex items-center">
+      <section className="relative px-6 md:px-16 py-20 md:py-32 bg-[#FAF6EE] overflow-hidden min-h-[70vh] flex items-center">
         <div className="max-w-[720px] mx-auto text-center">
           <Reveal delay={0}>
             <div className="mono-eyebrow text-pink-hot mb-5">

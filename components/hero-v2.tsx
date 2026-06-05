@@ -26,14 +26,14 @@ export function HeroV2() {
 
         {/* Headline — den kraftfulla raden */}
         <Reveal delay={100}>
-          <h1 className="font-pacifico text-[36px] sm:text-[44px] md:text-[58px] lg:text-[60px] leading-[1.06] tracking-[-0.03em] font-light mb-7 max-w-[680px]">
+          <h1 className="font-uloopet text-[36px] sm:text-[44px] md:text-[58px] lg:text-[60px] leading-[1.06] tracking-[-0.03em] font-light mb-7 max-w-[680px]">
             Du behöver inte förtjäna din egen kropp.
           </h1>
         </Reveal>
 
         {/* Tagline — med rosa accent på "en kropp som bär dem genom livet" */}
         <Reveal delay={250}>
-          <p className="font-serif text-[19px] md:text-[22px] leading-[1.45] mb-8 text-white/95 tracking-wide max-w-[680px]">
+          <p className="font-alice text-[19px] md:text-[22px] leading-[1.45] mb-8 text-white/95 tracking-wide max-w-[680px]">
             <b>
               Styrketräning och coaching för kvinnor som vill må bra på riktigt
               — genom styrka, energi och{" "}
@@ -59,7 +59,7 @@ export function HeroV2() {
               href="#program"
               className="group relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.22)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.28)] active:scale-[0.97]"
             >
-              <span className="block transition-transform duration-300 group-hover:-translate-x-2">
+              <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                 Se programmen
               </span>
               <span className="absolute inset-y-0 right-7 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">

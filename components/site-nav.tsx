@@ -76,7 +76,7 @@ export function SiteNav() {
         {/* Desktop CTA */}
         <Link
           href="#program"
-          className="group relative overflow-hidden hidden md:inline-flex items-center justify-center bg-[#0a594c] text-white font-serif font-semibold text-[17px] px-8 py-3 rounded-full transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#0d7c68]"
+          className="group relative overflow-hidden hidden md:inline-flex items-center justify-center bg-[#0a594c] text-white font-alice tracking-[-0.015em] font-semibold text-[17px] px-8 py-3 rounded-full transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#0d7c68]"
         >
           <span className="block transition-transform duration-300 group-hover:-translate-x-2">Börja här</span>
           <span className="absolute inset-y-0 right-5 flex items-center translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
@@ -146,7 +146,7 @@ export function SiteNav() {
           <Link
             href="#program"
             onClick={() => setMenuOpen(false)}
-            className="mt-8 flex items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-serif font-semibold text-[18px] px-9 py-4 rounded-full transition-colors duration-300"
+            className="mt-8 flex items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-alice tracking-[-0.015em] font-semibold text-[18px] px-9 py-4 rounded-full transition-colors duration-300"
           >
             Börja här ♡
           </Link>

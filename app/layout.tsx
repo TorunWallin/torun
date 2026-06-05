@@ -7,6 +7,10 @@ import {
   Merriweather,
   Pacifico,
   Playwrite_SK,
+  Playwrite_DK_Uloopet,
+  Playwrite_GB_J,
+  Quattrocento,
+  Alice,
 } from "next/font/google";
 import "./globals.css";
 
@@ -30,6 +34,36 @@ const pacifico = Pacifico({
 // Handwritten body accent — Playwrite SK weight 400 (Toruns logo font)
 const playwrite = Playwrite_SK({
   variable: "--font-playwrite",
+  display: "swap",
+  weight: ["400"],
+});
+
+// New display script for specific poetic/headline phrases + pillars — Playwrite DK Uloopet (normal/regular weight 400)
+const playwriteDKUloopet = Playwrite_DK_Uloopet({
+  subsets: ["latin"],
+  variable: "--font-playwrite-dk-uloopet",
+  display: "swap",
+  weight: ["400"],
+});
+
+// Playwrite England Joined for specific sentences in filosofin section (normal weight 400)
+const playwriteEnglandJoined = Playwrite_GB_J({
+  subsets: ["latin"],
+  variable: "--font-playwrite-england-joined",
+  display: "swap",
+  weight: ["400"],
+});
+
+const quattrocento = Quattrocento({
+  subsets: ["latin"],
+  variable: "--font-quattrocento",
+  display: "swap",
+  weight: ["400", "700"],
+});
+
+const alice = Alice({
+  subsets: ["latin"],
+  variable: "--font-alice",
   display: "swap",
   weight: ["400"],
 });
@@ -84,7 +118,7 @@ export default function RootLayout({
   return (
     <html
       lang="sv"
-      className={`${lora.variable} ${pacifico.variable} ${playwrite.variable} ${inter.variable} ${jetbrainsMono.variable} ${ibmPlexMono.variable} ${merriweather.variable}`}
+      className={`${lora.variable} ${pacifico.variable} ${playwrite.variable} ${inter.variable} ${jetbrainsMono.variable} ${ibmPlexMono.variable} ${merriweather.variable} ${playwriteDKUloopet.variable} ${playwriteEnglandJoined.variable} ${quattrocento.variable} ${alice.variable}`}
     >
       <body className="font-serif">{children}</body>
     </html>

@@ -43,7 +43,7 @@ export function SiteFooter() {
             <div className="h-px w-14 bg-gradient-to-l from-transparent to-[#ff4fc4]/40" />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            <h2 className="font-pacifico text-[42px] leading-none text-white/90 md:text-[76px]">
+            <h2 className="font-uloopet text-[42px] leading-none text-white/90 md:text-[76px]">
               hälsa på dina villkor
             </h2>
             <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#ff4fc4]/20 border border-[#ff4fc4]/30 md:h-14 md:w-14">

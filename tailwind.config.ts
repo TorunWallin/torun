@@ -44,12 +44,16 @@ const config: Config = {
         script: ["var(--font-playwrite)", "cursive"],
         pacifico: ["var(--font-pacifico)", "cursive"],
         playwrite: ["var(--font-playwrite)", "cursive"],
+        uloopet: ["var(--font-playwrite-dk-uloopet)", "cursive"],
+        englandJoined: ["var(--font-playwrite-england-joined)", "cursive"],
+        quattrocento: ["var(--font-quattrocento)", "Georgia", "serif"],
+        alice: ["var(--font-alice)", "Georgia", "serif"],
       },
       backgroundImage: {
         "pink-stripes":
-          "repeating-linear-gradient(to right, #FCE4EE 0, #FCE4EE 28px, #FFF0F7 28px, #FFF0F7 56px)",
+          "repeating-linear-gradient(to right, #FAF6EE 0, #FAF6EE 28px, #F8F1E8 28px, #F8F1E8 56px)",
         "pink-stripes-narrow":
-          "repeating-linear-gradient(to right, #FCE4EE 0, #FCE4EE 14px, #FFF0F7 14px, #FFF0F7 28px)",
+          "repeating-linear-gradient(to right, #FAF6EE 0, #FAF6EE 14px, #F8F1E8 14px, #F8F1E8 28px)",
       },
       keyframes: {
         wiggle: {

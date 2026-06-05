@@ -1,6 +1,6 @@
 /**
  * Lanseringserbjudande — tidsbegränsat "lanseringspris" (20 % rabatt) på
- * Kickstart + Stark med Torun. 1:1 Coaching och Stark Tjej är oförändrade.
+ * Kickstart + Stark med Torun + 1:1 Coaching. Stark Tjej är oförändrad.
  *
  * Styr allt härifrån:
  *   • Ändra datumet i `label` på ETT ställe.
@@ -24,10 +24,12 @@ export const LAUNCH_OFFER: {
   label: string;
   kickstart: OfferTier;
   stark: OfferTier;
+  one1: OfferTier;
 } = {
   label: "Lanseringspris · t.o.m. 10 juli",
   // Kickstart väntar tills Stripe-priset är satt till 636 kr (annars visar
   // sajten 636 men Stripe drar 795). Sätt till true när Stripe är klart.
   kickstart: { active: false, original: "795 kr", now: "636 kr" },
   stark: { active: true, original: "1 795 kr", now: "1 436 kr" },
+  one1: { active: true, original: "3 495 kr", now: "2 796 kr" },
 };

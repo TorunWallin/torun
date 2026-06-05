@@ -35,10 +35,10 @@ export function FilosofinKvinnokroppen() {
             backgroundRepeat: "repeat",
           }}
         />
-        <div className="absolute inset-0 bg-white/70" />
-        <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-[#ff8fd4]/20 blur-[140px]" />
-        <div className="absolute top-1/2 -right-32 h-[420px] w-[420px] rounded-full bg-white/50 blur-[120px]" />
-        <div className="absolute -bottom-32 left-1/3 h-[420px] w-[420px] rounded-full bg-[#ff8fd4]/15 blur-[140px]" />
+        <div className="absolute inset-0 bg-[#FAF6EE]/80" />
+        <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-[#f4a6cc]/12 blur-[140px]" />
+        <div className="absolute top-1/2 -right-32 h-[420px] w-[420px] rounded-full bg-white/60 blur-[120px]" />
+        <div className="absolute -bottom-32 left-1/3 h-[420px] w-[420px] rounded-full bg-[#f4a6cc]/10 blur-[140px]" />
       </div>
 
       {/* ============ FILOSOFIN ============ */}
@@ -55,14 +55,14 @@ export function FilosofinKvinnokroppen() {
           </Reveal>
 
           <Reveal delay={140}>
-            <h2 className="font-serif text-[44px] md:text-[55px] tracking-[-0.05em] text-[#111] leading-[1.0] mb-4 max-w-[960px] mx-auto">
+            <h2 className="font-englandJoined text-[44px] md:text-[55px] tracking-[-0.05em] text-[#111] leading-[1.0] mb-4 max-w-[960px] mx-auto">
               Styrka är inte målet. Styrka är{" "}
-              <span className="text-[#ec4d9c]">medicinen.</span>
+              <span className="text-[#ec4d9c] font-englandJoined">medicinen.</span>
             </h2>
           </Reveal>
 
           <Reveal delay={220}>
-            <p className="font-pacifico text-[20px] md:text-[26px] text-black max-w-[700px] mx-auto mb-16 leading-[1.2]">
+            <p className="font-alice tracking-[-0.015em] text-[20px] md:text-[26px] text-black max-w-[700px] mx-auto mb-16 leading-[1.2]">
               Vägen till ett hälsosammare liv handlar om mer energi, mer styrka – och mer av dig själv. &amp; den börjar precis här.
             </p>
           </Reveal>
@@ -75,7 +75,7 @@ export function FilosofinKvinnokroppen() {
                   className={`
                     relative overflow-hidden
                     bg-white/85 backdrop-blur-md
-                    border-[2px] border-[#ffa3f0]
+                    border-[2px] border-[#f4a6cc]/60
                     rounded-[32px] px-10 py-12 md:px-11 md:py-14
                     text-left h-full flex flex-col
                     shadow-[0_10px_40px_rgba(236,77,156,0.10)]
@@ -90,11 +90,11 @@ export function FilosofinKvinnokroppen() {
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_50%)] pointer-events-none" />
 
-                  <div className="relative z-10 inline-flex items-center justify-center bg-[#fdeaf8] text-[#ffa3f0] text-[16px] font-mono font-bold px-5 py-2 rounded-2xl mb-7 w-fit tracking-[0.08em]">
+                  <div className="relative z-10 inline-flex items-center justify-center bg-[#F5EDE3] text-[#ec4d9c] text-[16px] font-mono font-bold px-5 py-2 rounded-2xl mb-7 w-fit tracking-[0.08em]">
                     {p.num}
                   </div>
 
-                  <h3 className="relative z-10 font-pacifico text-[29px] md:text-[28px] tracking-[-0.04em] text-[#111] leading-[1.05] mb-6">
+                  <h3 className="relative z-10 font-uloopet text-[29px] md:text-[28px] tracking-[-0.04em] text-[#111] leading-[1.05] mb-6">
                     {p.title}
                   </h3>
 
@@ -143,7 +143,7 @@ export function FilosofinKvinnokroppen() {
                 </div>
 
                 <h2
-                  className="font-serif text-[34px] sm:text-[42px] md:text-[54px] leading-[1.15] tracking-[-0.05em] text-[#ffccf7] mb-1"
+                  className="font-alice tracking-[-0.015em] text-[34px] sm:text-[42px] md:text-[54px] leading-[1.15] tracking-[-0.05em] text-[#ffccf7] mb-1"
                   style={{
                     textShadow:
                       "0px 1px 0px #e5a8d7, 0px 1px 0px rgba(236,77,156,0.18)",
@@ -156,7 +156,7 @@ export function FilosofinKvinnokroppen() {
                   Aldrig någonsin emot den.
                 </div>
 
-                <p className="font-serif text-[18px] md:text-[20px] leading-[1.5] text-black font-bold mb-7 max-w-[480px]">
+                <p className="font-alice text-[18px] md:text-[20px] leading-[1.5] text-black font-bold mb-7 max-w-[480px]">
                   Jag coachar tjejer och kvinnor utifrån hur kvinnokroppen faktiskt fungerar.
                 </p>
 
@@ -167,7 +167,7 @@ export function FilosofinKvinnokroppen() {
                   </p>
                   <p className="font-mono italic text-[15.5px] md:text-[16px] text-black leading-[1.55]">
                     Du behöver inte leva som en fitnessprofil för att få resultat.{" "}
-                    <span className="font-pacifico not-italic text-[22px] md:text-[20px] text-black leading-[1.2] block mt-3">
+                    <span className="font-englandJoined not-italic text-[22px] md:text-[20px] text-black leading-[1.2] block mt-3">
                       Utan du behöver vanor som fungerar i ditt riktiga liv.
                     </span>
                   </p>

@@ -5,11 +5,11 @@ export function CtaStrip() {
   return (
     <section
       id="guide"
-      className="relative overflow-hidden bg-[#fef6fb] px-6 py-16 md:px-16 md:py-24 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.08),0_-1px_0_rgba(255,255,255,0.6)]"
+      className="relative overflow-hidden bg-[#FAF6EE] px-6 py-16 md:px-16 md:py-24 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.05),0_-1px_0_rgba(255,255,255,0.6)]"
     >
-      {/* Glows — endast mjuka rosa */}
-      <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#ff8fd4]/15 blur-[140px]" />
-      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-[#ffccf7]/25 blur-[100px]" />
+      {/* Glows — mjukare, mer neutrala */}
+      <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#f4a6cc]/10 blur-[140px]" />
+      <div className="pointer-events-none absolute right-1/4 top-0 h-[300px] w-[300px] rounded-full bg-[#f4a6cc]/15 blur-[100px]" />
 
       <div className="relative mx-auto max-w-[720px]">
 
@@ -22,7 +22,7 @@ export function CtaStrip() {
 
         {/* Rubrik */}
         <Reveal delay={80}>
-          <h2 className="font-serif text-[48px] leading-[1.15] tracking-[-0.05em] text-[#111] md:text-[72px]">
+          <h2 className="font-alice text-[48px] leading-[1.15] tracking-[-0.05em] text-[#111] md:text-[72px]">
             Stanna kvar
           </h2>
         </Reveal>
@@ -36,7 +36,7 @@ export function CtaStrip() {
 
         {/* Lead-in mening — mjukare än all-caps-pill */}
         <Reveal delay={240}>
-          <p className="mb-10 font-serif text-[18px] md:text-[20px] text-[#ff4fc4] font-semibold italic">
+          <p className="mb-10 font-alice text-[18px] md:text-[20px] text-[#ff4fc4] font-semibold italic">
             Få min gratis 7-dagars startguide.
           </p>
         </Reveal>

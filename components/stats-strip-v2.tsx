@@ -32,7 +32,7 @@ export function StatsStripV2() {
           </p>
         </Reveal>
         <Reveal direction="up" delay={120}>
-          <h2 className="font-serif text-[32px] md:text-[42px] font-semibold tracking-[-0.03em] text-[#2a2a2a]">
+          <h2 className="font-alice text-[32px] md:text-[42px] font-semibold tracking-[-0.03em] text-[#2a2a2a]">
             Allt börjar med att släppa pressen.
           </h2>
         </Reveal>

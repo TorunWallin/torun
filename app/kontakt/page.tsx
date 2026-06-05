@@ -55,6 +55,8 @@ const programs: Program[] = [
     ],
     price: "3 495 kr",
     priceNote: "/månad",
+    launchPrice: LAUNCH_OFFER.one1.active ? LAUNCH_OFFER.one1.now : undefined,
+    offerLabel: LAUNCH_OFFER.one1.active ? LAUNCH_OFFER.label : undefined,
   },
   {
     program: "stark-tjej",
@@ -92,10 +94,10 @@ export default function KontaktPage() {
               backgroundRepeat: "repeat",
             }}
           />
-          <div className="absolute inset-0 bg-white/75" />
-          <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-[#ff8fd4]/20 blur-[140px]" />
-          <div className="absolute top-1/3 -right-32 h-[440px] w-[440px] rounded-full bg-white/50 blur-[120px]" />
-          <div className="absolute bottom-0 left-1/4 h-[420px] w-[420px] rounded-full bg-[#ff8fd4]/15 blur-[140px]" />
+          <div className="absolute inset-0 bg-[#FAF6EE]/85" />
+          <div className="absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full bg-[#f4a6cc]/12 blur-[140px]" />
+          <div className="absolute top-1/3 -right-32 h-[440px] w-[440px] rounded-full bg-white/60 blur-[120px]" />
+          <div className="absolute bottom-0 left-1/4 h-[420px] w-[420px] rounded-full bg-[#f4a6cc]/10 blur-[140px]" />
         </div>
 
         {/* ---------- HERO (mejl-fokus) ---------- */}
@@ -167,7 +169,7 @@ export default function KontaktPage() {
             <Reveal direction="left" delay={200} className="md:col-span-5">
               <div className="relative mx-auto w-full max-w-[340px]">
                 <div aria-hidden className="absolute -left-5 -top-5 h-full w-full rounded-[40px] border border-[#ec4d9c]/25" />
-                <div aria-hidden className="pointer-events-none absolute -inset-6 rounded-[48px] bg-[#ff8fd4]/20 blur-[60px]" />
+                <div aria-hidden className="pointer-events-none absolute -inset-6 rounded-[48px] bg-[#f4a6cc]/12 blur-[60px]" />
                 <div
                   className="relative aspect-[4/5] overflow-hidden rounded-[38px] shadow-[0_30px_90px_rgba(236,77,156,0.20)]"
                   style={{ backgroundImage: "url('/kontakta_bild.jpeg')", backgroundSize: "cover", backgroundPosition: "center" }}
@@ -198,7 +200,7 @@ export default function KontaktPage() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h2 className="font-pacifico text-[44px] md:text-[56px] leading-[1.05] text-black">
+            <h2 className="font-uloopet text-[44px] md:text-[56px] leading-[1.05] text-black">
               Välj din väg <span className="text-[#ec4d9c]">in.</span>
             </h2>
           </Reveal>
@@ -227,24 +229,24 @@ export default function KontaktPage() {
                           className={`inline-block text-xs font-mono tracking-widest px-5 py-2 rounded-2xl font-medium mb-5 ${
                             p.featured
                               ? "bg-[#97a9aa] text-white"
-                              : "bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c]"
+                              : "bg-[#F5EDE3] text-[#ec4d9c]"
                           }`}
                         >
                           {p.badge}
                         </span>
 
-                        {/* Namn — Pacifico */}
-                        <h3 className="font-pacifico text-3xl md:text-4xl mb-3" style={{ color: accent }}>
+                        {/* Namn — Playwrite DK Uloopet (normal weight 400) */}
+                        <h3 className="font-uloopet text-3xl md:text-4xl mb-3" style={{ color: accent }}>
                           {p.name}
                         </h3>
 
                         {/* Tagline — Merriweather italic */}
-                        <p className="font-merriweather italic text-[16px] leading-relaxed text-black/80 mb-4">
+                        <p className="font-alice tracking-[-0.015em] italic text-[17px] leading-relaxed text-black/80 mb-4">
                           {p.tagline}
                         </p>
 
                         {/* Beskrivning — Merriweather */}
-                        <p className="font-merriweather text-[15px] leading-relaxed text-ink-charcoal mb-6 max-w-[460px]">
+                        <p className="font-alice tracking-[-0.015em] text-[16px] leading-relaxed text-ink-charcoal mb-6 max-w-[460px]">
                           {p.desc}
                         </p>
 
@@ -265,11 +267,11 @@ export default function KontaktPage() {
                           </span>
                         )}
                         <div className="flex items-baseline gap-3">
-                          <span className="text-4xl font-semibold tracking-tight text-[#2f4a3a]">{p.launchPrice ?? p.price}</span>
+                          <span className="text-[42px] font-alice tracking-[-0.015em] font-semibold tracking-tight text-[#2f4a3a]">{p.launchPrice ?? p.price}</span>
                           {p.launchPrice && (
-                            <span className="text-xl font-medium line-through text-black/35">{p.price}</span>
+                            <span className="text-2xl font-alice tracking-[-0.015em] font-medium line-through text-black/35">{p.price}</span>
                           )}
-                          <span className="font-ibm-mono italic text-sm text-ink-gray">{p.priceNote}</span>
+                          <span className="font-alice tracking-[-0.015em] italic text-base text-ink-gray">{p.priceNote}</span>
                         </div>
                       </div>
 
