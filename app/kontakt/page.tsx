@@ -8,7 +8,7 @@ import { LAUNCH_OFFER } from "@/lib/offer";
 export const metadata: Metadata = {
   title: "Kontakt — TORUN",
   description:
-    "Hör av dig till Torun — mejla för frågor eller bara ett hej. Eller anmäl dig till Stark med Torun, 1:1 Coaching eller sök platsen i Stark Tjej.",
+    "Hör av dig till TORUN — mejla för frågor eller bara ett hej. Eller anmäl dig till Stark med Torun, 1:1 Coaching eller sök platsen i Stark Tjej.",
 };
 
 type Program = {

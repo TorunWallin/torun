@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Integritetspolicy — TORUN",
-  description: "Hur Torun Wallin hanterar dina personuppgifter.",
+  description: "Hur TORUN hanterar dina personuppgifter.",
 };
 
 export default function IntegritetspolicyPage() {
