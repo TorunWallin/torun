@@ -9,7 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.RESEND_FROM ?? "TORUN. <onboarding@resend.dev>";
 const NOTIFY_TO = process.env.NOTIFY_EMAIL ?? "itorun@me.com";
 const KICKSTART_PDF_URL =
-  process.env.KICKSTART_PDF_URL ?? "https://torun.se/torun-startguide.pdf";
+  process.env.KICKSTART_PDF_URL ?? "https://torun.se/kickstart-handbook.pdf";
 
 // Stripe requires the raw body to verify the webhook signature
 export const dynamic = "force-dynamic";

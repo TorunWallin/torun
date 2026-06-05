@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 const GUIDE = "https://torun.se/torun-startguide.pdf";
+const KICKSTART_PDF = "https://torun.se/kickstart-handbook.pdf";
 
 const samples: { title: string; subject: string; html: string }[] = [
   {
@@ -37,7 +38,7 @@ const samples: { title: string; subject: string; html: string }[] = [
   {
     title: "Köp · Kickstart",
     subject: "Välkommen till Kickstart 🤍",
-    html: kickstartWelcomeEmail({ firstName: "Anna", pdfUrl: GUIDE }),
+    html: kickstartWelcomeEmail({ firstName: "Anna", pdfUrl: KICKSTART_PDF }),
   },
 ];
 
