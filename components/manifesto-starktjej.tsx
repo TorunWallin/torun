@@ -18,7 +18,7 @@ export function ManifestoStarkTjej() {
             backgroundRepeat: "no-repeat",
           }}
         />
-        <div className="absolute inset-0 bg-[#FAF6EE]/85" />
+        <div className="absolute inset-0 bg-[#FDF8F2]/90" />
 
         <div className="absolute left-[-100px] top-[5%] h-[480px] w-[480px] rounded-full bg-[#f4a6cc]/25 blur-[130px]" />
         <div className="absolute bottom-[-100px] right-[-80px] h-[420px] w-[420px] rounded-full bg-white/70 blur-[140px]" />
@@ -164,7 +164,7 @@ export function ManifestoStarkTjej() {
       {/* ============ DEL 2: STARK TJEJ — SAMMA BAKGRUND ============ */}
       <div id="stipendiet" className="relative z-10 px-6 md:px-16 pt-8 md:pt-12 pb-20 md:pb-28">
         <Reveal delay={0} className="relative mx-auto max-w-[860px]">
-          <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px] border border-white/50 bg-white/30 px-6 py-10 shadow-[0_8px_40px_rgba(255,79,196,0.12),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl md:px-16 md:py-16">
+          <div className="relative overflow-hidden rounded-[32px] md:rounded-[40px] border border-[#f6c9ea]/50 bg-[#FDF8F2] px-6 py-10 shadow-[0_8px_40px_rgba(255,79,196,0.12),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-2xl md:px-16 md:py-16">
             <div className="relative">
               <div className="mb-6 inline-flex items-center gap-3">
                 <div className="h-[1px] w-10 bg-[#ff4fc4]" />

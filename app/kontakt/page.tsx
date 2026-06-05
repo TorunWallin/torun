@@ -6,7 +6,7 @@ import { ContactForm, type ContactProgram } from "@/components/contact-form";
 import { LAUNCH_OFFER } from "@/lib/offer";
 
 export const metadata: Metadata = {
-  title: "Kontakt — Torun Wallin",
+  title: "Kontakt — TORUN",
   description:
     "Hör av dig till Torun — mejla för frågor eller bara ett hej. Eller anmäl dig till Stark med Torun, 1:1 Coaching eller sök platsen i Stark Tjej.",
 };
@@ -114,13 +114,13 @@ export default function KontaktPage() {
               </Reveal>
 
               <Reveal delay={140}>
-                <h1 className="font-pacifico text-[46px] md:text-[64px] lg:text-[72px] text-teal leading-[0.98] mb-6">
+                <h1 className="font-alice text-[46px] md:text-[64px] lg:text-[72px] text-teal leading-[0.98] mb-6">
                   Hör av dig <span className="text-pink-hot">♡</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={240}>
-                <p className="font-serif text-[18px] md:text-[20px] leading-[1.6] text-ink-charcoal max-w-[540px] mb-8">
+                <p className="font-alice text-[18px] md:text-[20px] leading-[1.6] text-ink-charcoal max-w-[540px] mb-8">
                   Har du en fråga, vill veta mer eller bara säga hej? Mejla mig så
                   svarar jag personligen — oftast inom 2–3 dagar. Inget krångel,
                   inga formulär.
@@ -191,10 +191,10 @@ export default function KontaktPage() {
         </div>
 
         {/* ---------- PROGRAM-HEADER (samma stil som "Välj din väg hem") ---------- */}
-        <div className="relative z-10 px-6 md:px-16 pt-10 md:pt-16 pb-2 text-center">
+        <div className="relative z-10 px-6 md:px-16 pt-10 md:pt-16 pb-2 text-center bg-[#FEFBF5]">
           <Reveal>
             <div className="mb-7">
-              <div className="inline bg-[#fdeaf8] text-[#ec4d9c] font-mono font-extrabold uppercase text-[13px] md:text-[15px] leading-[1.7] px-8 py-3 rounded-[22px] tracking-[0.18em] decoration-clone box-decoration-clone">
+              <div className="inline bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c] font-mono font-extrabold uppercase text-[13px] md:text-[15px] leading-[1.7] px-8 py-3 rounded-[22px] tracking-[0.18em] decoration-clone box-decoration-clone">
                 Anmäl dig
               </div>
             </div>
@@ -205,7 +205,7 @@ export default function KontaktPage() {
             </h2>
           </Reveal>
           <Reveal delay={220}>
-            <p className="font-serif text-[18px] md:text-[20px] leading-[1.6] text-black/90 mt-6 max-w-[620px] mx-auto">
+            <p className="font-alice text-[18px] md:text-[20px] leading-[1.6] text-black/90 mt-6 max-w-[620px] mx-auto">
               Tre vägar att börja — välj den som känns rätt för dig. Jag läser
               varje anmälan personligen.
             </p>
@@ -262,7 +262,7 @@ export default function KontaktPage() {
 
                         {/* Pris */}
                         {p.offerLabel && (
-                          <span className="inline-block mb-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full bg-[#fdeaf8] text-[#ec4d9c]">
+                          <span className="inline-block mb-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c]">
                             {p.offerLabel}
                           </span>
                         )}

@@ -16,18 +16,18 @@ const stats = [
 
 export function StatsStripV2() {
   return (
-    <section className="relative -mt-24 md:-mt-32 z-30 px-6 md:px-12 py-14 md:py-20 overflow-hidden bg-[#fff7fb]">
+    <section className="relative -mt-24 md:-mt-32 z-30 px-6 md:px-12 py-14 md:py-20 overflow-hidden bg-cream">
 
       {/* floating background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-200px] left-[-120px] w-[520px] h-[520px] bg-pink-200/30 blur-[140px] rounded-full animate-float-slow" />
-        <div className="absolute bottom-[-220px] right-[-120px] w-[520px] h-[520px] bg-rose-200/20 blur-[160px] rounded-full animate-float-slower" />
+        <div className="absolute top-[-200px] left-[-120px] w-[520px] h-[520px] bg-[#f4a6cc]/10 blur-[140px] rounded-full animate-float-slow" />
+        <div className="absolute bottom-[-220px] right-[-120px] w-[520px] h-[520px] bg-[#f4a6cc]/8 blur-[160px] rounded-full animate-float-slower" />
       </div>
 
       {/* Header */}
       <div className="relative max-w-[1200px] mx-auto text-center mb-14 md:mb-20">
         <Reveal direction="up" delay={0}>
-          <p className="font-mono text-[15px] md:text-[17px] tracking-[0.35em] uppercase text-pink-400 mb-4">
+          <p className="font-mono text-[15px] md:text-[17px] tracking-[0.35em] uppercase text-[#ec4d9c] mb-4">
             MINDSET SHIFT
           </p>
         </Reveal>

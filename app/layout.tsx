@@ -97,12 +97,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Torun Wallin — Vägen till ett hälsosammare liv",
+  title: "TORUN — Vägen till ett hälsosammare liv",
   description:
     "Vägen till ett hälsosammare liv — träning, mat och välmående utan diet-tjat, vågen som coach eller skam. Ett annat samtal om hälsa — varmt, ärligt, gjort för verkliga liv.",
   metadataBase: new URL("https://torun.se"),
   openGraph: {
-    title: "Torun Wallin — Vägen till ett hälsosammare liv",
+    title: "TORUN — Vägen till ett hälsosammare liv",
     description:
       "Vägen till ett hälsosammare liv — träning, mat och välmående utan diet-tjat, vågen som coach eller skam.",
     locale: "sv_SE",

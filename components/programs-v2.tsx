@@ -110,19 +110,17 @@ const programs: Program[] = [
 export function ProgramsV2() {
   return (
     <section id="program" className="px-6 md:px-16 py-20 md:py-28
-      bg-gradient-to-br from-[#FAF6EE] via-[#F8F1E8] to-[#FDF8F2]
+      bg-gradient-to-br from-[#FEFBF5] via-[#FDF8F2] to-[#FEFBF5]
       relative overflow-hidden">
 
       {/* Bakgrundsmönster */}
-      <div className="absolute inset-0 bg-[radial-gradient(#f4a6cc_1.2px,transparent_1px)]
-                      [background-size:45px_45px] opacity-40 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#f4a6cc]/10 via-transparent to-[#f0f7e8]/20 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0F4C3A]/5 via-transparent to-[#f0f7e8]/15 pointer-events-none" />
 
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-20 relative">
         <Reveal>
           <div className="mb-10">
-            <div className="inline bg-[#fdeaf8] text-[#ec4d9c] font-mono font-extrabold uppercase
+            <div className="inline bg-gradient-to-r from-[#fce7f3] to-[#f8d4e6] text-[#ec4d9c] font-mono font-extrabold uppercase
                           text-[13px] md:text-[15px] leading-[1.7] px-8 py-3 rounded-[22px]
                           tracking-[0.18em] decoration-clone box-decoration-clone">
               Tre vägar tillbaka
@@ -189,7 +187,7 @@ export function ProgramsV2() {
               <div className={`p-5 rounded-2xl mb-8 text-[15px] leading-relaxed font-ibm-mono
                 ${p.featured
                   ? "bg-white/10 border border-white/20 text-white"
-                  : "bg-gradient-to-br from-[#fff7fb] to-[#fdf0f7] border border-[#fce7f3] text-black"
+                  : "bg-gradient-to-br from-cream to-cream-warm border border-[#f4a6cc]/30 text-black"
                 }`}>
                 <span className="font-medium">Du kommer få:</span> {p.outcome}
               </div>

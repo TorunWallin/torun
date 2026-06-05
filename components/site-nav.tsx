@@ -49,10 +49,10 @@ export function SiteNav() {
         {/* Logotyp */}
         <Link href="/" className="block group">
           <span className="font-playwrite text-[18px] md:text-[25px] text-ink-charcoal block leading-[1.1]">
-            Torun Wallin
+            TORUN
           </span>
           <span className="font-mono italic text-[11px] md:text-[13px] text-ink-charcoal/85 block mt-0.5 tracking-tight">
-            Vägen till ett hälsosammare liv
+            - Vägen till ett hälsosammare liv
           </span>
         </Link>
 

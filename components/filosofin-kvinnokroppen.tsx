@@ -90,7 +90,7 @@ export function FilosofinKvinnokroppen() {
                 >
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_50%)] pointer-events-none" />
 
-                  <div className="relative z-10 inline-flex items-center justify-center bg-[#F5EDE3] text-[#ec4d9c] text-[16px] font-mono font-bold px-5 py-2 rounded-2xl mb-7 w-fit tracking-[0.08em]">
+                  <div className="relative z-10 inline-flex items-center justify-center bg-[#fdeaf8] text-[#ffa3f0] text-[16px] font-mono font-bold px-5 py-2 rounded-2xl mb-7 w-fit tracking-[0.08em]">
                     {p.num}
                   </div>
 
@@ -135,7 +135,7 @@ export function FilosofinKvinnokroppen() {
             {/* Textbox */}
             <Reveal delay={200}>
               <div
-                className="relative bg-white/95 border-[1.5px] border-[#f6c9ea] rounded-[42px] px-10 py-12 md:px-14 md:py-14 shadow-[0_8px_40px_rgba(255,79,196,0.08)]"
+                className="relative bg-white border-[1.5px] border-[#f6c9ea] rounded-[42px] px-10 py-12 md:px-14 md:py-14 shadow-[0_8px_40px_rgba(255,79,196,0.08)]"
                 style={{ animation: "scaleIn 1.2s ease-out forwards" }}
               >
                 <div className="font-mono text-[14px] md:text-[15px] tracking-[0.22em] text-[#f09ad6] font-bold uppercase mb-3">
@@ -143,7 +143,7 @@ export function FilosofinKvinnokroppen() {
                 </div>
 
                 <h2
-                  className="font-alice tracking-[-0.015em] text-[34px] sm:text-[42px] md:text-[54px] leading-[1.15] tracking-[-0.05em] text-[#ffccf7] mb-1"
+                  className="font-alice tracking-[-0.015em] text-[34px] sm:text-[42px] md:text-[54px] leading-[1.15] tracking-[-0.05em] text-[#ec4d9c] mb-1"
                   style={{
                     textShadow:
                       "0px 1px 0px #e5a8d7, 0px 1px 0px rgba(236,77,156,0.18)",

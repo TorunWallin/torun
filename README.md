@@ -50,9 +50,13 @@ tailwind.config.ts   # Brand-paletten
 - Teal `#0F4C3A`
 - Ink (svart) `#0A0A0A`
 
-**Typografi:**
-- Display: Fraunces (italic, extra-bold)
-- Sans: Inter
-- Mono: JetBrains Mono
+**Typografi (aktuell):**
+- Alice (narrow/regular för body + programtexter)
+- Quattrocento (vissa rubriker)
+- Playwrite England Joined + DK Uloopet (specifika poetiska meningar)
+- Uloopet / England Joined / Pacifico-varianter för accenter
+- Inter (sans), Lora (serif body)
 
-**Tonalitet:** varm, ärlig, peppande — anti-dietkultur. Se varumärkesdokumentet.
+**Tonalitet:** varm, ärlig, peppande — anti-dietkultur. Mer cream/beige än tidigare rosa-dominans för bättre balans.
+
+Se varumärkesdokumentet.

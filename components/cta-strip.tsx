@@ -5,7 +5,7 @@ export function CtaStrip() {
   return (
     <section
       id="guide"
-      className="relative overflow-hidden bg-[#FAF6EE] px-6 py-16 md:px-16 md:py-24 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.05),0_-1px_0_rgba(255,255,255,0.6)]"
+      className="relative overflow-hidden bg-[#FEFBF5] px-6 py-16 md:px-16 md:py-24 text-center rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(255,79,196,0.05),0_-1px_0_rgba(255,255,255,0.6)]"
     >
       {/* Glows — mjukare, mer neutrala */}
       <div className="pointer-events-none absolute -left-40 -top-20 h-[500px] w-[500px] rounded-full bg-[#f4a6cc]/10 blur-[140px]" />
@@ -15,7 +15,7 @@ export function CtaStrip() {
 
         {/* Eyebrow */}
         <Reveal delay={0}>
-          <div className="mb-4 font-mono text-[13px] font-bold uppercase tracking-[0.28em] text-[#ff4fc4]">
+          <div className="mb-4 font-mono text-[13px] font-bold uppercase tracking-[0.28em] text-teal">
             nyhetsbrevet
           </div>
         </Reveal>

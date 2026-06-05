@@ -12,6 +12,9 @@ const config: Config = {
         cream: {
           DEFAULT: "#FAF6EE",
           warm: "#F2EBDB",
+          light: "#FEFBF5",
+          sand: "#F5EDE3",
+          oat: "#EDE5D9",
         },
         pink: {
           light: "#FCE4EE",

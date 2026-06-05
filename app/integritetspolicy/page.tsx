@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Integritetspolicy — Torun Wallin",
+  title: "Integritetspolicy — TORUN",
   description: "Hur Torun Wallin hanterar dina personuppgifter.",
 };
 
