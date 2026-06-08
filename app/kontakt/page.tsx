@@ -34,7 +34,7 @@ const programs: Program[] = [
     desc: "Coaching som bygger styrka, trygghet och balans — för dig som vill må bra på riktigt och skapa vanor som håller i din vardag.",
     highlights: [
       "Personligt program som uppdateras varje vecka",
-      "Veckovis incheckning & feedback från mig",
+      "Månadsvisa check-ins + veckovisa chattavstämningar",
       "Kost och vanor anpassat efter din menscykel",
     ],
     price: "1 795 kr",
@@ -47,10 +47,10 @@ const programs: Program[] = [
     badge: "02 · Max 5 platser",
     name: "1:1 Coaching",
     tagline: "Full omfamning, hela vägen.",
-    desc: "Det djupaste stödet — daglig kontakt och ett helt individuellt upplägg. För dig som vill gå all in, med mig vid din sida varje dag.",
+    desc: "Det djupaste stödet — daglig chatt och veckovisa 1:1-möten. Ett helt individuellt upplägg för träning, kost, mental hälsa och självkänsla. För dig som vill gå all in, med mig vid din sida varje vecka.",
     highlights: [
       "Daglig chatt med mig varje vardag",
-      "Live-videosamtal varannan vecka",
+      "Veckovisa 1:1-möten (live, bara vi två)",
       "Allt som ingår i Stark med Torun",
     ],
     price: "3 495 kr",
@@ -128,10 +128,10 @@ export default function KontaktPage() {
               </Reveal>
 
               <Reveal delay={340}>
-                <div className="flex flex-wrap items-center gap-3.5">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5">
                   <a
                     href="mailto:hej@torun.se"
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-sans font-semibold text-[15px] px-7 py-3.5 shadow-[0_8px_28px_rgba(236,77,156,0.28)] hover:-translate-y-[2px] hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] transition-all duration-300"
+                    className="group inline-flex items-center justify-center w-full sm:w-auto gap-2.5 rounded-full bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-sans font-semibold text-[15px] px-7 py-3.5 shadow-[0_8px_28px_rgba(236,77,156,0.28)] hover:-translate-y-[2px] hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] transition-all duration-300"
                   >
                     <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="5" width="18" height="14" rx="2.5" />
@@ -143,7 +143,7 @@ export default function KontaktPage() {
                     href="https://www.instagram.com/torunwallin"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-ink bg-white/70 backdrop-blur-sm text-ink font-sans font-semibold text-[15px] px-7 py-3.5 hover:bg-teal hover:text-cream hover:border-teal hover:-translate-y-[2px] transition-all duration-300"
+                    className="inline-flex items-center justify-center w-full sm:w-auto gap-2.5 rounded-full border-[1.5px] border-ink bg-white/70 backdrop-blur-sm text-ink font-sans font-semibold text-[15px] px-7 py-3.5 hover:bg-teal hover:text-cream hover:border-teal hover:-translate-y-[2px] transition-all duration-300"
                   >
                     <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="3" width="18" height="18" rx="5" />

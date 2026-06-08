@@ -54,10 +54,10 @@ export function HeroV2() {
         </Reveal>
 
         <Reveal delay={450}>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
             <a
               href="#program"
-              className="group relative overflow-hidden inline-flex items-center justify-center bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.22)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.28)] active:scale-[0.97]"
+              className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.22)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.28)] active:scale-[0.97]"
             >
               <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                 Se programmen
@@ -79,7 +79,7 @@ export function HeroV2() {
 
             <a
               href="#guide"
-              className="group relative overflow-hidden inline-flex items-center justify-center bg-transparent border-2 border-[#f4c1f0] hover:border-[#ec4d9c] hover:bg-white/10 text-[#f4c1f0] hover:text-white font-mono font-bold text-base px-8 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 active:scale-[0.97]"
+              className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto bg-transparent border-2 border-[#f4c1f0] hover:border-[#ec4d9c] hover:bg-white/10 text-[#f4c1f0] hover:text-white font-mono font-bold text-base px-8 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 active:scale-[0.97]"
             >
               <span className="absolute inset-y-0 left-6 flex items-center -translate-x-16 transition-transform duration-300 group-hover:translate-x-0">
                 <svg className="h-3.5 w-3.5" viewBox="0 0 16 16" fill="currentColor">

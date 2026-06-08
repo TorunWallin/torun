@@ -125,10 +125,10 @@ export function ManifestoStarkTjej() {
             </Reveal>
 
             <Reveal delay={700}>
-              <div className="mt-14 flex flex-wrap gap-4">
+              <div className="mt-14 flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
                 <a
                   href="#program"
-                  className="group relative overflow-hidden rounded-full bg-[#ff4fc4] px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-white shadow-[0_8px_28px_rgba(255,79,196,0.35)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0] hover:shadow-[0_16px_40px_rgba(255,79,196,0.45)]"
+                  className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto rounded-full bg-[#ff4fc4] px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-white shadow-[0_8px_28px_rgba(255,79,196,0.35)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0] hover:shadow-[0_16px_40px_rgba(255,79,196,0.45)]"
                 >
                   <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                    <b> Se programmen </b>
@@ -144,7 +144,7 @@ export function ManifestoStarkTjej() {
                   href="https://www.tiktok.com/@torunwallin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-full border border-black/10 bg-white/60 px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:border-[#ff4fc4]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
+                  className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto rounded-full border border-black/10 bg-white/60 px-8 py-4 font-alice tracking-[-0.015em] text-[15px] tracking-wide text-[#111] backdrop-blur-xl transition-all duration-300 hover:-translate-y-[2px] hover:border-[#ff4fc4]/30 hover:bg-white hover:shadow-[0_12px_30px_rgba(0,0,0,0.08)]"
                 >
                   <span className="absolute inset-y-0 left-6 flex items-center -translate-x-10 transition-transform duration-300 group-hover:translate-x-0">
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
@@ -201,7 +201,7 @@ export function ManifestoStarkTjej() {
               <div className="mt-10">
                 <a
                   href="/kontakt#stark-tjej"
-                  className="group relative overflow-hidden inline-flex items-center justify-center rounded-full bg-[#ff4fc4] px-9 py-4 font-alice tracking-[-0.015em] text-[15.5px] tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
+                  className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto rounded-full bg-[#ff4fc4] px-9 py-4 font-alice tracking-[-0.015em] text-[15.5px] tracking-[0.01em] text-white transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#e03db0]"
                 >
                   <span className="block transition-transform duration-300 group-hover:-translate-x-2 font-alice tracking-[-0.015em]">
                     Ansök — för dig själv eller någon du tror på ♡

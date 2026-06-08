@@ -90,7 +90,7 @@ export function SubscribeForm({ variant = "pink" }: Props) {
       <button
         type="submit"
         disabled={status === "loading"}
-        className={`group relative overflow-hidden inline-flex items-center justify-center px-8 py-4 rounded-full font-mono font-bold text-[15px] transition-all duration-300 cursor-pointer disabled:opacity-60 hover:-translate-y-[2px] ${
+        className={`group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-full font-mono font-bold text-[15px] transition-all duration-300 cursor-pointer disabled:opacity-60 hover:-translate-y-[2px] ${
           variant === "pink"
             ? "bg-white text-pink-hot hover:bg-[#fdeaf8]"
             : "bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111]"

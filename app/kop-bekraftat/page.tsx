@@ -85,7 +85,7 @@ export default function KopBekraftatPage() {
           </Reveal>
 
           <Reveal delay={700}>
-            <Link href="/" className="btn-teal-deep">
+            <Link href="/" className="btn-teal-deep w-full sm:w-auto justify-center">
               Tillbaka till startsidan
             </Link>
           </Reveal>

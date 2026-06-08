@@ -16,7 +16,7 @@ import { HeroV2 as Hero } from "@/components/hero-v2";
 import { StatsStripV2 as StatsStrip } from "@/components/stats-strip-v2";
 import { FilosofinKvinnokroppen } from "@/components/filosofin-kvinnokroppen";
 import { Skiftet } from "@/components/skiftet";
-import { ProgramsV2 as Programs } from "@/components/programs-v2";
+import { ProgramsV2 as Programs } from "@/components/programs-v2"; // Program changes live here
 import { ManifestoStarkTjej } from "@/components/manifesto-starktjej";
 import { CtaStrip } from "@/components/cta-strip";
 import { SiteFooter } from "@/components/site-footer";

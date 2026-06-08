@@ -73,11 +73,12 @@ const programs: Program[] = [
     action: { kind: "link", href: "/kontakt#stark" },
     features: [
       "Personligt anpassat träningsprogram (uppdateras varje vecka)",
-      "Veckovis incheckning via chatt – du skickar, jag ger feedback och justerar",
+      "Månadsvisa check-ins via möte/video",
+      "Veckovisa chatt-avstämningar – du skickar, jag ger feedback och justerar varje vecka",
       "Kostvägledning anpassad efter dig (inte ett strikt schema)",
       "Anpassningar utifrån menscykel och energi",
       "Stöd i sömn, stress och återhämtning",
-      "Tillgång till mig via chatt på vardagar",
+      "Löpande stöd via chatt på vardagar",
       "Full tillgång till ditt program i Everfit",
     ],
   },
@@ -86,7 +87,7 @@ const programs: Program[] = [
     name: "1:1 Coaching",
     tagline: "Full omfamning, hela vägen.",
     description:
-      "Det djupaste stödet. Daglig kontakt och ett helt individuellt upplägg för träning, kost, mental hälsa och självkänsla. För dig som är redo att göra det här på riktigt – med någon som ser dig varje dag.",
+      "Det djupaste stödet. Daglig chatt och veckovisa 1:1-möten med ett helt individuellt upplägg för träning, kost, mental hälsa och självkänsla. För dig som är redo att göra det här på riktigt – med någon som ser dig varje vecka.",
     outcome:
       "En helt ny nivå av styrka, trygghet och självkänsla. Och en relation till din kropp som håller långt efter att vi är klara.",
     price: "3 495 kr",
@@ -98,10 +99,10 @@ const programs: Program[] = [
     action: { kind: "link", href: "/kontakt#ett-till-ett" },
     features: [
       "Daglig chatt med mig varje vardag",
-      "Live videosamtal varannan vecka",
+      "Veckovisa 1:1-möten (live video, bara vi två)",
       "Individuellt kostschema byggt bara för dig",
       "Mental coaching kring självkänsla och kroppsbild",
-      "Prioriterad hjälp och löpande veckoplanering i realtid",
+      "Prioriterad hjälp och löpande planering i realtid",
       "Allt som ingår i Stark med Torun",
     ],
   },

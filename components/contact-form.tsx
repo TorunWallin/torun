@@ -227,7 +227,7 @@ export function ContactForm({ program }: Props) {
       {program === "stark" && (
         <div className={fieldGroup}>
           <span className={labelBase}>Träningserfarenhet</span>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="grid grid-cols-3 gap-2.5">
             {([
               ["nyborjare", "Nybörjare"],
               ["lite-van", "Lite van"],

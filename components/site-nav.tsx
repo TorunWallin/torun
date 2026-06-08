@@ -146,7 +146,7 @@ export function SiteNav() {
           <Link
             href="#program"
             onClick={() => setMenuOpen(false)}
-            className="mt-8 flex items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-alice tracking-[-0.015em] font-semibold text-[18px] px-9 py-4 rounded-full transition-colors duration-300"
+            className="mt-8 flex w-full items-center justify-center bg-[#0a594c] hover:bg-[#ec4d9c] text-white font-alice tracking-[-0.015em] font-semibold text-[18px] px-9 py-4 rounded-full transition-colors duration-300"
           >
             Börja här ♡
           </Link>
