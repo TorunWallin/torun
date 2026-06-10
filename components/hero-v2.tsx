@@ -3,7 +3,7 @@ import { Reveal } from "./reveal";
 export function HeroV2() {
   return (
     <section
-      className="hero-section relative min-h-[100svh] md:min-h-[max(100svh,1040px)] lg:min-h-[max(100svh,1060px)] flex items-start px-6 md:px-16 lg:px-20 pt-20 md:pt-24 lg:pt-28 pb-24 md:pb-32 overflow-hidden"
+      className="hero-section relative min-h-[100svh] md:min-h-[max(100svh,1040px)] lg:min-h-[max(100svh,1060px)] flex items-start px-6 md:px-16 lg:px-20 pt-20 md:pt-24 lg:pt-28 pb-36 md:pb-32 lg:pb-36 overflow-hidden"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.85) 100%), linear-gradient(to right, rgba(10,10,10,0.68) 0%, rgba(10,10,10,0.42) 50%, rgba(10,10,10,0.15) 80%), url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1920&q=85&auto=format&fit=crop')",
@@ -54,7 +54,7 @@ export function HeroV2() {
         </Reveal>
 
         <Reveal delay={450}>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center mb-4 md:mb-0">
             <a
               href="#program"
               className="group relative overflow-hidden inline-flex items-center justify-center w-full sm:w-auto bg-gradient-to-br from-[#f4c1f0] to-[#ec4d9c] text-white font-mono font-bold text-base px-9 py-5 rounded-full transition-all duration-300 hover:-translate-y-1 hover:from-[#fce4ee] hover:to-[#f4a6cc] hover:text-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.22)] hover:shadow-[0_8px_28px_rgba(0,0,0,0.28)] active:scale-[0.97]"
