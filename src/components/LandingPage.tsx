@@ -266,7 +266,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               className="inline-flex items-center gap-2 bg-[#fff5fa]/90 hover:bg-white text-[#230c1e] border border-pink-200/80 px-4.5 py-1.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase backdrop-blur-md transition-all shadow-[0_4px_20px_rgba(219,101,162,0.03)] cursor-default"
             >
               <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
-              <span className="font-sans text-[9px] tracking-[0.12em] font-extrabold text-[#fd80ff]">✦ FITNESSCOACH För tjejer & kvinnor</span>
+              <span className="font-sans text-xs tracking-[0.12em] font-extrabold text-[#fd80ff]">✦ FITNESSCOACH För tjejer & kvinnor</span>
               <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
             </motion.div>
             
@@ -283,14 +283,14 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             <div className="space-y-2.5">
               <motion.p 
                 variants={fUpVariants}
-                className="text-base font-sans font-medium text-[#230c1e] leading-relaxed max-w-xl"
+                className="text-lg sm:text-xl font-sans font-semibold text-[#230c1e] leading-relaxed max-w-xl"
               >
                 Styrketräning och coaching för kvinnor som vill må bra på riktigt — genom styrka, energi och en kropp som bär dem genom livet.
               </motion.p>
               
               <motion.p 
                 variants={fUpVariants}
-                className="text-xs sm:text-[13px] text-[#230c1e]/80 font-light leading-relaxed max-w-xl font-sans"
+                className="text-sm sm:text-base text-[#230c1e]/80 font-normal leading-relaxed max-w-xl font-sans"
               >
                 För dig som tränat för att straffa, ätit för att kompensera eller tappat bort känslan av att vara på samma lag som din kropp. Här finns en mjukare väg framåt. En plats där du får bygga styrka, skapa hållbara vanor och må bra utan att din relation till kroppen tar över hela ditt liv.
               </motion.p>

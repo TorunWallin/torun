@@ -78,12 +78,12 @@
 
 /* Fine-tune global focus, transitions and body defaults for a futuristic feel */
 html {
-  font-size: 106.25%; /* Base: 17px on mobile for better readability */
+  font-size: 112.5%; /* Base: 18px on mobile for better readability */
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 112.5%; /* Base: 18px on tablets and desktop to prevent content looking too small */
+    font-size: 125%; /* Base: 20px on tablets and desktop to prevent content looking too small */
   }
 }
 
