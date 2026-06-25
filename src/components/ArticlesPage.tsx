@@ -12,6 +12,28 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("Alla");
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
+  // Sync selected article from landing page
+  React.useEffect(() => {
+    const handleArticleSelected = () => {
+      const artId = localStorage.getItem("torun_selected_article_id");
+      if (artId) {
+        const found = articles.find((a) => a.id === artId);
+        if (found) {
+          setSelectedArticle(found);
+          localStorage.removeItem("torun_selected_article_id");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    };
+
+    handleArticleSelected();
+
+    window.addEventListener("torun-article-selected", handleArticleSelected);
+    return () => {
+      window.removeEventListener("torun-article-selected", handleArticleSelected);
+    };
+  }, []);
+
   // Framer motion variants
   const containerVariants = {
     hidden: { opacity: 0 },

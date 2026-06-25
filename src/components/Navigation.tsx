@@ -345,7 +345,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                             Om Coach Torun
                           </span>
                           <span className="text-[13px] text-[#230c1e]/70 leading-relaxed block mt-1.5">
-                            Lic. PT & gravidträningsspecialist under samtalsterapeututbildning.
+                            Lic. PT & Kostrådgivare under samtalsterapeututbildning.
                           </span>
                         </div>
                       </div>

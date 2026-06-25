@@ -383,7 +383,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                     <div className="w-10 h-10 rounded-full bg-[#FFF5FB]/90 backdrop-blur-md flex items-center justify-center border border-pink-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
                       <Heart className="w-4.5 h-4.5 text-[#fd80ff] fill-[#fd80ff] drop-shadow-[0_2px_6px_rgba(253,128,255,0.45)]" />
                     </div>
-                    <span className="text-[10px] font-sans text-[#fd80ff] bg-white border border-pink-100 px-3.5 py-1 rounded-full uppercase tracking-widest font-extrabold flex items-center gap-1.5 shadow-xs">
+                    <span className="text-[9.5px] font-sans text-[#fd80ff] bg-white border border-pink-100 px-2.5 py-1.5 rounded-full uppercase tracking-wider font-extrabold flex items-center gap-1 shadow-xs">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#fd80ff] animate-ping" />
                       <span>Personligt & Tryggt</span>
                       <Heart className="w-2.5 h-2.5 text-[#fd80ff] fill-[#fd80ff] inline-block ml-0.5" />
@@ -410,7 +410,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                     </div>
                     <div>
                       <span className="block font-signature text-sm text-[#fd80ff] tracking-normal leading-none mb-1.5">Torun Wallin</span>
-                      <span className="block text-[10px] font-sans text-stone-500 uppercase tracking-widest leading-none mt-0.5">Lic. PT (Mamma- & Gravidtränare)</span>
+                      <span className="block text-[10px] font-sans text-stone-500 uppercase tracking-widest leading-none mt-0.5">Lic. PT & Kostrådgivare</span>
                     </div>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY2 }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -top-12 -right-4 sm:-top-16 sm:-right-6 md:-top-10 md:-right-16 lg:-right-24 lg:-top-12 bg-white shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-pink-100/80 w-48 sm:w-52 p-4 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -top-16 -right-6 sm:-top-20 sm:-right-8 md:-top-14 md:-right-20 lg:-right-32 lg:-top-16 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_15px_35px_rgba(219,101,162,0.06)] hover:shadow-[0_20px_45px_rgba(219,101,162,0.12)] w-48 sm:w-52 p-4 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-2"
               >
                 <div className="flex items-center gap-1.5">
@@ -468,7 +468,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
           </div>
 
           {/* Centered elegant quote in serif font */}
-          <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
+          <blockquote className="font-serif text-xl sm:text-[22px] lg:text-[24px] text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
             "Att skifta fokus till att <span className="text-[#fd80ff] font-medium">lyssna på kroppen</span> istället för pulsklockan har förändrat allt. Att <span className="text-[#fd80ff] font-medium">träna på kroppens villkor</span> ger så mycket mer energi och träningsglädje i vardagen!"
           </blockquote>
         </div>
@@ -1157,9 +1157,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 <div className="pt-4">
                   <button 
                     onClick={() => onNavigate("programs")}
-                    className="bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[11px] font-sans font-black uppercase tracking-widest px-8 py-4 rounded-full transition-all cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-98"
+                    className="group bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[11px] font-sans font-black uppercase tracking-widest px-8 py-4 rounded-full transition-all cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-98"
                   >
-                    Bli medlem och lås upp hela din potential 🎀
+                    Bli medlem och lås upp hela din potential{" "}
+                    <span className="inline-block transition-transform duration-300 group-hover:scale-130 group-hover:rotate-[15deg] ml-1">
+                      🎀
+                    </span>
                   </button>
                 </div>
               </div>
@@ -1280,9 +1283,9 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 rel="noreferrer" 
                 className="group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer bg-white hover:bg-stone-50 border border-stone-200 text-[#230c1e] shadow-xs hover:shadow-md hover:-translate-y-0.5 active:scale-98 select-none overflow-hidden transition-all duration-300"
               >
-                <span className="absolute left-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-[#230c1e]">
-                    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.52-4.06-1.39-.77-.57-1.39-1.35-1.77-2.24-.03 1.93-.01 3.86-.02 5.79-.06 2.73-1.01 5.48-2.97 7.37-2.02 2.01-5.11 2.87-7.9 2.23-2.91-.62-5.49-2.94-6.3-5.75-.95-3.14-.11-6.72 2.19-9.04 1.83-1.89 4.54-2.67 7.09-2.22v4.18c-1.52-.45-3.23-.07-4.41.97-1.07.94-1.54 2.47-1.28 3.88.29 1.62 1.67 2.92 3.3 3.1 1.79.23 3.65-.87 4.13-2.6.14-.52.17-1.07.17-1.61V.02z"/>
+                <span className="absolute left-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 w-4 h-4 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#230c1e]">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.99-1.72-.28-.24-.53-.5-.77-.78-.07 1.93-.03 3.85-.04 5.78-.04 2.63-.84 5.34-2.81 7.11-2.02 1.84-4.9 2.58-7.56 2.09-2.73-.47-5.26-2.45-6.19-5.11-.99-2.79-.47-6.08 1.44-8.37 1.78-2.16 4.67-3.12 7.37-2.58v4.18c-1.39-.42-2.99-.08-4.06.87-.99.86-1.43 2.29-1.2 3.58.21 1.22.99 2.36 2.1 2.87 1.34.63 3 .47 4.14-.42.92-.72 1.38-1.87 1.37-3.05.02-4.46.01-8.91.01-13.37z" />
                   </svg>
                 </span>
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-2.5">
@@ -1398,7 +1401,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               <motion.div 
                 variants={fUpVariants}
                 key={article.id}
-                className="bg-white/20 hover:bg-white/40 border border-white/50 rounded-3xl p-6 sm:p-7 flex flex-col justify-between hover:shadow-lg transition-all duration-300 backdrop-blur-md text-left"
+                onClick={() => {
+                  localStorage.setItem("torun_selected_article_id", article.id);
+                  window.dispatchEvent(new Event("torun-article-selected"));
+                  onNavigate("articles");
+                }}
+                className="bg-white/20 hover:bg-white/40 border border-white/50 rounded-3xl p-6 sm:p-7 flex flex-col justify-between hover:shadow-lg transition-all duration-300 backdrop-blur-md text-left cursor-pointer hover:-translate-y-0.5 group/card"
               >
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -1410,23 +1418,22 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                     </span>
                   </div>
 
-                  <h3 className="font-sans text-sm font-black uppercase tracking-widest text-[#230c1e] leading-snug">
+                  <h3 className="font-sans text-sm font-black uppercase tracking-widest text-[#230c1e] leading-snug group-hover/card:text-[#fd80ff] transition-colors">
                     {article.title}
                   </h3>
 
-                  <p className="text-xs text-stone-500 leading-relaxed font-sans font-light">
+                  <p className="text-sm text-stone-600 leading-relaxed font-sans">
                     {article.excerpt}
                   </p>
                 </div>
 
                 <div className="pt-5 mt-5 border-t border-neutral-100/55 flex justify-end">
-                  <button
-                    onClick={() => setSelectedArticle(article)}
-                    className="text-[10px] font-sans font-black uppercase tracking-widest text-[#fd80ff] hover:text-[#e472e6] flex items-center gap-1.5 cursor-pointer select-none"
+                  <span
+                    className="text-[10px] font-sans font-black uppercase tracking-widest text-[#fd80ff] group-hover/card:text-[#e472e6] flex items-center gap-1.5 select-none"
                   >
                     Läs artikeln
-                    <ArrowRight className="w-3.5 h-3.5 text-[#fd80ff]" />
-                  </button>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#fd80ff] group-hover/card:translate-x-1 transition-transform" />
+                  </span>
                 </div>
               </motion.div>
             ))}
@@ -1587,24 +1594,6 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
         </motion.div>
       </section>
 
-
-      {/* Elegantly floating scroll-to-top button */}
-      <AnimatePresence>
-        {showScrollTop && (
-          <motion.button
-            key="scrollTopBtn"
-            initial={{ opacity: 0, scale: 0.8, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 15 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-8 right-8 z-40 w-11 h-11 bg-white text-[#230c1e] hover:bg-[#230c1e] hover:text-white border border-stone-200/60 rounded-full flex items-center justify-center shadow-[0_12px_36px_rgba(2,71,62,0.12)] hover:shadow-[0_15px_30px_rgba(253,128,255,0.22)] transition-all duration-300 active:scale-95 cursor-pointer outline-none"
-            title="Skrolla till toppen"
-          >
-            <ArrowUp className="w-4.5 h-4.5 stroke-[2.5]" />
-          </motion.button>
-        )}
-      </AnimatePresence>
 
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import StartGuide from "./components/StartGuide";
@@ -9,10 +9,25 @@ import ArticlesPage from "./components/ArticlesPage";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import { motion, AnimatePresence } from "motion/react";
+import { ArrowUp } from "lucide-react";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("home");
   const [selectedPackageId, setSelectedPackageId] = useState<string>("");
+  const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
+
+  // Listen to window scroll to toggle scroll-to-top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Custom callback when navigating to tabs generally
   const handleNavigateToTab = (tabId: string) => {
@@ -80,6 +95,24 @@ export default function App() {
       </main>
 
       <Footer onNavigate={handleNavigateToTab} />
+
+      {/* Elegantly floating scroll-to-top button (Active globally across all pages, with highest z-index) */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            key="scrollTopBtn"
+            initial={{ opacity: 0, scale: 0.8, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 15 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-8 right-8 z-70 w-11 h-11 bg-white text-[#230c1e] hover:bg-[#230c1e] hover:text-white border border-stone-200/60 rounded-full flex items-center justify-center shadow-[0_12px_36px_rgba(2,71,62,0.12)] hover:shadow-[0_15px_30px_rgba(253,128,255,0.22)] transition-all duration-300 active:scale-95 cursor-pointer outline-none"
+            title="Skrolla till toppen"
+          >
+            <ArrowUp className="w-4.5 h-4.5 stroke-[2.5]" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

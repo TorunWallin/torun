@@ -165,7 +165,7 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
                       Torun Wallin
                     </h3>
                     <p className="text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-wider text-[#fd80ff]">
-                      Lic. Personlig Tränare & Specialist
+                      Lic. Personlig Tränare & Kostrådgivare
                     </p>
                   </div>
 
