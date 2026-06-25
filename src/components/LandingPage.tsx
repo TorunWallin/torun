@@ -375,7 +375,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               >
                 <div className="absolute inset-0 bg-white rounded-[1.75rem] -z-10" />
                 
-                <div className="min-h-[380px] lg:min-h-[390px] w-full rounded-[1.65rem] bg-white overflow-hidden relative flex flex-col justify-between p-5 border border-white/80 shadow-inner">
+                <div className="min-h-[430px] lg:min-h-[450px] h-auto w-full rounded-[1.65rem] bg-white overflow-hidden relative flex flex-col justify-between p-5 border border-white/80 shadow-inner">
                   
                   <div className="flex justify-between items-center">
                     <div className="w-10 h-10 rounded-full bg-[#FFF5FB]/90 backdrop-blur-md flex items-center justify-center border border-pink-100 shadow-sm">

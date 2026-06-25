@@ -257,3 +257,7 @@ input[type="range"].premium-slider:active::-moz-range-thumb {
 .text-\[15px\] { font-size: 1rem !important; }
 .text-\[19px\] { font-size: 1.25rem !important; }
 
+.font-light {
+  font-weight: 450 !important; /* Thicken light font weight for better readability across all pages */
+}
+
