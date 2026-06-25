@@ -136,7 +136,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
             <h1 className="font-serif text-4xl sm:text-[54px] font-normal text-[#230c1e] tracking-wide leading-tight">
               Mina program & vägar
             </h1>
-            <p className="text-[#230c1e]/85 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto font-sans font-light">
+            <p className="text-[#230c1e]/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-sans">
               Här hittar du mina coachingpaket och medlemskap. Jag stöttar dig att bygga en stark, trygg kropp som bär dig genom livet — helt utan hets, förbud eller kaloripiskor.
             </p>
           </motion.div>
@@ -190,7 +190,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                 <h3 className="font-serif text-2xl sm:text-[28px] font-normal text-[#230c1e] tracking-wide leading-tight">
                   "Låt oss hitta den väg som stöttar ditt nervsystem bäst just nu."
                 </h3>
-                <div className="space-y-3 text-xs sm:text-[13px] text-stone-600 leading-relaxed font-sans font-light">
+                <div className="space-y-3 text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
                   <p>
                     I den här korta videon förklarar jag tanken bakom mina vägar. Styrketräning handlar inte om att straffa kroppen eller kompensera för vad du åt igår. Det handlar om att bygga en trygg boning att trivas och leva i.
                   </p>
@@ -269,20 +269,20 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     </div>
 
                     {/* Detailed grids for Target Group & Philosophy */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-xs sm:text-[13px] leading-relaxed border-t border-stone-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-sm sm:text-base leading-relaxed border-t border-stone-100">
                       <div className="space-y-2.5">
-                        <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
                           <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> Vem är det för?
                         </h4>
-                        <p className="text-stone-600 font-light leading-relaxed">
+                        <p className="text-stone-600 leading-relaxed">
                           {details.targetGroup}
                         </p>
                       </div>
                       <div className="space-y-2.5">
-                        <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
                           <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> Filosofi
                         </h4>
-                        <p className="text-stone-600 font-light leading-relaxed">
+                        <p className="text-stone-600 leading-relaxed">
                           {details.philosophy}
                         </p>
                       </div>
@@ -290,10 +290,10 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
 
                     {/* Feature Details List */}
                     <div className="space-y-4 font-sans pt-6 border-t border-stone-100">
-                      <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50">
                         Vad som ingår i detalj:
                       </h4>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-xs sm:text-[13px] text-stone-700 font-light">
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-sm sm:text-base text-stone-700">
                         {details.details.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-3">
                             <span className="w-5.5 h-5.5 rounded-full bg-[#fd80ff]/10 border border-[#fd80ff]/15 flex items-center justify-center text-[#fd80ff] shrink-0 mt-0.5 shadow-2xs">
@@ -377,20 +377,20 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     </div>
 
                     {/* Detailed grids for Target Group & Philosophy */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-xs sm:text-[13px] leading-relaxed border-t border-stone-100">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-sm sm:text-base leading-relaxed border-t border-stone-100">
                       <div className="space-y-2.5">
-                        <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
                           <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> Vem är det för?
                         </h4>
-                        <p className="text-stone-600 font-light leading-relaxed">
+                        <p className="text-stone-600 leading-relaxed">
                           {details.targetGroup}
                         </p>
                       </div>
                       <div className="space-y-2.5">
-                        <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
                           <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> Filosofi
                         </h4>
-                        <p className="text-stone-600 font-light leading-relaxed">
+                        <p className="text-stone-600 leading-relaxed">
                           {details.philosophy}
                         </p>
                       </div>
@@ -398,10 +398,10 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
 
                     {/* Feature Details List */}
                     <div className="space-y-4 font-sans pt-6 border-t border-stone-100">
-                      <h4 className="text-[9px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 font-sans">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 font-sans">
                         Vad som ingår i detalj:
                       </h4>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-xs sm:text-[13px] text-stone-700 font-light">
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-sm sm:text-base text-stone-700">
                         {details.details.map((feat, idx) => (
                           <li key={idx} className="flex items-start gap-3">
                             <span className="w-5.5 h-5.5 rounded-full bg-[#fd80ff]/10 border border-[#fd80ff]/15 flex items-center justify-center text-[#fd80ff] shrink-0 mt-0.5 shadow-2xs">

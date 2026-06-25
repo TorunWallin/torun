@@ -276,7 +276,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               className="font-display text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-[#230c1e] leading-[1.15] sm:leading-[1.05]"
             >
               Du behöver inte{" "}
-              <span className="font-script text-[#fd80ff]/95 text-3xl sm:text-4xl lg:text-[40px] inline-block mx-1 tracking-normal lowercase align-middle">förtjäna</span> <br />
+              <span className="font-script text-[#fd80ff]/95 text-5xl sm:text-6xl lg:text-[68px] inline-block mx-1 tracking-normal lowercase align-middle">förtjäna</span> <br />
               din egen kropp.
             </motion.h1>
             
@@ -299,7 +299,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             {/* Premium Feminine CTA Buttons */}
             <motion.div 
               variants={fUpVariants}
-              className="flex flex-col sm:flex-row gap-3 pt-0"
+              className="flex flex-col sm:flex-row gap-3 pt-6 sm:pt-8"
             >
               <button
                 onClick={() => onNavigate("startguide")}
@@ -337,23 +337,25 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             </motion.div>
 
             {/* Soft grid of kind philosophy notes (Polished, centered layout) */}
-            <motion.div 
-              variants={fUpVariants}
-              className="grid grid-cols-3 divide-x divide-pink-100 p-2.5 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full max-w-md font-sans"
-            >
-              <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-                <span className="text-2xl font-serif font-bold text-[#fd80ff] leading-none">0%</span>
-                <span className="text-[9px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Krav & Hets</span>
-              </div>
-              <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-                <span className="text-lg font-serif font-bold text-[#fd80ff] leading-none">Synkad</span>
-                <span className="text-[9px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Efter menscykel</span>
-              </div>
-              <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
-                <span className="text-lg font-serif font-bold text-[#230c1e] leading-none">Mjuk</span>
-                <span className="text-[9px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Återhämtning</span>
-              </div>
-            </motion.div>
+            <div className="pt-6 sm:pt-10 w-full max-w-md">
+              <motion.div 
+                variants={fUpVariants}
+                className="grid grid-cols-3 divide-x divide-pink-100 p-3.5 sm:p-4 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full font-sans"
+              >
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                  <span className="text-2xl sm:text-3xl font-serif font-bold text-[#fd80ff] leading-none">0%</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Krav & Hets</span>
+                </div>
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">Synkad</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Efter menscykel</span>
+                </div>
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#230c1e] leading-none">Mjuk</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Återhämtning</span>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Majestic Interactive Visual Stage (Glassmorphism & scrapbook style) */}
@@ -433,7 +435,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY2 }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -top-12 -right-4 sm:-top-16 sm:-right-6 md:-top-10 md:-right-16 lg:-right-24 lg:-top-12 bg-white shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-pink-100/80 max-w-[155px] p-3 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -top-12 -right-4 sm:-top-16 sm:-right-6 md:-top-10 md:-right-16 lg:-right-24 lg:-top-12 bg-white shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-pink-100/80 w-48 sm:w-52 p-4 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-2"
               >
                 <div className="flex items-center gap-1.5">
@@ -441,7 +443,10 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                   <span className="text-[9px] font-sans font-bold uppercase tracking-wider text-[#fd80ff]">ÖPPET FÖR INTAG</span>
                 </div>
                 <p className="text-xs font-extrabold text-[#230c1e] leading-snug">Hitta din plats 🎀</p>
-                <p className="text-[10px] text-[#230c1e]/75 leading-snug font-medium">Börja när du känner dig redo ♡</p>
+                <div className="text-[10px] text-[#230c1e]/75 leading-snug font-medium flex items-center flex-wrap gap-1">
+                  <span>Börja när du känner dig redo</span>
+                  <Heart className="w-3 h-3 text-[#fd80ff] fill-[#fd80ff] inline-block" />
+                </div>
               </motion.div>
             </div>
 

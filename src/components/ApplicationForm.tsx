@@ -162,7 +162,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                             Medlemsportal & App
                           </h3>
                           <p className="text-[11px] text-[#230c1e]/70 leading-normal mt-0.5 font-light">
-                            Säkra ditt early-bird-pris (49 kr/mån) och bevaka lanseringen.
+                            Säkra ditt early-bird-pris (19 kr/mån) och bevaka lanseringen.
                           </p>
                         </div>
                         <ArrowRight className="w-4 h-4 text-[#fd80ff] group-hover:translate-x-0.5 transition-transform shrink-0" />
@@ -233,7 +233,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     Säkra ditt lanseringspris 💎
                   </h1>
                   <p className="text-xs text-[#230c1e]/75 font-sans leading-relaxed font-light">
-                    Säkra ditt lanseringspris på <strong>49 kr/mån</strong> (utan bindningstid) och få info så fort vi lanserar portalen och appen.
+                    Säkra ditt lanseringspris på <strong>19 kr/mån</strong> (utan bindningstid, ord. pris 39 kr/mån) och få info så fort vi lanserar portalen och appen.
                   </p>
                 </div>
 
@@ -700,7 +700,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     Du står nu på väntelistan, {formData.name.split(" ")[0]}! ♡
                   </h2>
                   <p className="text-[#230c1e]/80 text-xs sm:text-sm leading-relaxed max-w-sm mx-auto font-sans font-light">
-                    Tack för din intresseanmälan! Jag har registrerat din e-postadress <strong>{formData.email}</strong>. Din tidiga rabatt på 49 kr/mån är säkrad och du får reda på direkt när appen lanseras.
+                    Tack för din intresseanmälan! Jag har registrerat din e-postadress <strong>{formData.email}</strong>. Din tidiga rabatt på 19 kr/mån (ord. pris 39 kr/mån) är säkrad och du får reda på direkt när appen lanseras.
                   </p>
                 </div>
 

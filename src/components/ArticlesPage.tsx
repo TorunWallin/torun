@@ -84,8 +84,8 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                 <h1 className="font-serif text-4xl sm:text-[54px] font-normal text-[#230c1e] tracking-wide leading-tight">
                   Klok vetenskap för din kropp
                 </h1>
-                <p className="text-[#230c1e]/85 text-xs sm:text-[13px] leading-relaxed max-w-xl mx-auto font-sans font-light">
-                  Min pedagogik är din sköld mot fitness-myter. Läs mina artiklar om mjuk biomekanik, cykel-synkronisering och hur du tränar på ett hormonstöttande sätt.
+                <p className="text-[#230c1e]/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-sans">
+                  Här delar jag med mig av kunskap, tankar och vetenskap kring menscykeln, styrketräning för kvinnor och konsten att bygga en hållbar livsstil utan hets.
                 </p>
               </div>
 
@@ -132,7 +132,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                           {article.title}
                         </h3>
 
-                        <p className="text-xs sm:text-[13px] text-stone-500 leading-relaxed font-sans font-light">
+                        <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
                           {article.excerpt}
                         </p>
                       </div>
@@ -180,9 +180,9 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
               </div>
 
               {/* Editorial Article Body */}
-              <div className="space-y-6 text-[14px] sm:text-[16px] leading-relaxed text-stone-800 font-sans font-normal max-w-2xl">
+              <div className="space-y-6 text-base sm:text-lg leading-relaxed text-stone-800 font-sans font-normal max-w-2xl">
                 {/* Lead intro paragraph */}
-                <p className="text-[16px] sm:text-[18px] text-stone-900 font-normal italic leading-relaxed">
+                <p className="text-lg sm:text-xl text-stone-900 font-normal italic leading-relaxed">
                   {selectedArticle.content[0]}
                 </p>
 
