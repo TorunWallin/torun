@@ -368,22 +368,20 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
           >
             {/* Centered relative wrapper to anchor floating capsules to the card edge */}
             <div className="relative w-full max-w-[360px]" id="hero-interactive-stage">
-              {/* Extremely luxurious Solid White Card containing Torun's philosophy to prevent overlapping silhouettes */}
+              {/* Extremely luxurious iOS glassmorphic Card containing Torun's philosophy */}
               <motion.div 
                 whileHover={{ y: -5, scale: 1.015, rotate: 0.5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="w-full rounded-[1.75rem] bg-gradient-to-tr from-white to-[#f5c7fa]/40 p-[1.5px] shadow-[0_30px_70px_-15px_rgba(219,101,162,0.12),inset_0_4px_30px_rgba(255,255,255,0.9)] relative overflow-hidden group border border-white/40 cursor-default" 
+                className="w-full rounded-[1.75rem] bg-gradient-to-tr from-white/35 to-[#f5c7fa]/20 p-[1.5px] shadow-[0_30px_70px_-15px_rgba(219,101,162,0.06)] relative overflow-hidden group border border-white/20 backdrop-blur-2xl cursor-default" 
                 id="hero-philosophy-card"
               >
-                <div className="absolute inset-0 bg-white rounded-[1.75rem] -z-10" />
-                
-                <div className="min-h-[430px] lg:min-h-[450px] h-auto w-full rounded-[1.65rem] bg-white overflow-hidden relative flex flex-col justify-between p-5 border border-white/80 shadow-inner">
+                <div className="min-h-[430px] lg:min-h-[450px] h-auto w-full rounded-[1.65rem] bg-white/45 overflow-hidden relative flex flex-col justify-between p-5 border border-white/40 shadow-inner backdrop-blur-xl">
                   
                   <div className="flex justify-between items-center">
-                    <div className="w-10 h-10 rounded-full bg-[#FFF5FB]/90 backdrop-blur-md flex items-center justify-center border border-pink-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-10 h-10 rounded-full bg-white/45 backdrop-blur-md flex items-center justify-center border border-white/60 shadow-sm group-hover:scale-105 transition-transform duration-300">
                       <Heart className="w-4.5 h-4.5 text-[#fd80ff] fill-[#fd80ff] drop-shadow-[0_2px_6px_rgba(253,128,255,0.45)]" />
                     </div>
-                    <span className="text-[9.5px] font-sans text-[#fd80ff] bg-white border border-pink-100 px-2.5 py-1.5 rounded-full uppercase tracking-wider font-extrabold flex items-center gap-1 shadow-xs">
+                    <span className="text-[9.5px] font-sans text-[#fd80ff] bg-white/45 backdrop-blur-md border border-white/60 px-2.5 py-1.5 rounded-full uppercase tracking-wider font-extrabold flex items-center gap-1 shadow-xs">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#fd80ff] animate-ping" />
                       <span>Personligt & Tryggt</span>
                       <Heart className="w-2.5 h-2.5 text-[#fd80ff] fill-[#fd80ff] inline-block ml-0.5" />
@@ -436,7 +434,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY2 }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -top-16 -right-6 sm:-top-20 sm:-right-8 md:-top-14 md:-right-20 lg:-right-32 lg:-top-16 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_15px_35px_rgba(219,101,162,0.06)] hover:shadow-[0_20px_45px_rgba(219,101,162,0.12)] w-48 sm:w-52 p-4 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -top-16 -right-6 sm:-top-20 sm:-right-8 md:-top-14 md:-right-20 lg:-right-32 lg:-top-16 bg-white/20 backdrop-blur-xl border border-white/30 shadow-[0_15px_35px_rgba(219,101,162,0.03)] hover:shadow-[0_20px_45px_rgba(219,101,162,0.08)] w-48 sm:w-52 p-4 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-2"
               >
                 <div className="flex items-center gap-1.5">

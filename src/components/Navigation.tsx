@@ -175,8 +175,8 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
         transition={{ type: "spring", stiffness: 220, damping: 28 }}
         className={`mx-auto flex items-center justify-between relative transition-all duration-500 ${
           isScrolled 
-            ? "max-w-6xl bg-white/80 backdrop-blur-2xl border border-white/60 shadow-[0_12px_45px_-12px_rgba(35,12,30,0.14)] rounded-[2rem] h-14 px-4 sm:px-5" 
-            : "max-w-7xl bg-white/20 backdrop-blur-md border border-white/35 shadow-[0_8px_32px_rgba(28,23,20,0.01)] rounded-full h-18 px-5 sm:px-6"
+            ? "max-w-6xl bg-white/45 backdrop-blur-2xl border border-white/40 shadow-[0_12px_45px_-12px_rgba(35,12,30,0.08)] rounded-[2rem] h-14 px-4 sm:px-5" 
+            : "max-w-7xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(28,23,20,0.01)] rounded-full h-18 px-5 sm:px-6"
         }`}
       >
         
