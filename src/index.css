@@ -246,3 +246,14 @@ input[type="range"].premium-slider:active::-moz-range-thumb {
   animation: heartbeat 0.9s ease-in-out infinite;
 }
 
+/* Override all tiny arbitrary pixel classes to make them relative (rem) so they scale up */
+.text-\[9px\] { font-size: 0.65rem !important; }
+.text-\[10px\] { font-size: 0.72rem !important; }
+.text-\[10\.5px\] { font-size: 0.75rem !important; }
+.text-\[11px\] { font-size: 0.78rem !important; }
+.text-\[12px\] { font-size: 0.83rem !important; }
+.text-\[13px\] { font-size: 0.88rem !important; }
+.text-\[13\.5px\] { font-size: 0.91rem !important; }
+.text-\[15px\] { font-size: 1rem !important; }
+.text-\[19px\] { font-size: 1.25rem !important; }
+
