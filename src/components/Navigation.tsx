@@ -235,7 +235,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                       }
                     }}
                     id={`nav-btn-${item.id}`}
-                    className="relative px-3.5 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.16em] transition-all duration-300 select-none cursor-pointer flex items-center gap-1.5 whitespace-nowrap group"
+                    className="relative px-3.5 py-2 rounded-full text-xs font-extrabold uppercase tracking-[0.14em] transition-all duration-300 select-none cursor-pointer flex items-center gap-1.5 whitespace-nowrap group"
                   >
                     {/* Active highlight glow capsule */}
                     {isActive && (
@@ -264,7 +264,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
           {/* Member Login */}
           <button
             onClick={() => handleTabClick("contact")}
-            className="relative px-3.5 py-2 text-[10px] font-sans font-bold uppercase tracking-[0.18em] text-[#230c1e]/70 hover:text-[#230c1e] transition-all cursor-pointer mr-0.5 group whitespace-nowrap"
+            className="relative px-3.5 py-2 text-xs font-sans font-extrabold uppercase tracking-[0.14em] text-[#230c1e]/70 hover:text-[#230c1e] transition-all cursor-pointer mr-0.5 group whitespace-nowrap"
           >
             Kontakta mig
             <span className="absolute bottom-1.5 left-3.5 right-3.5 h-0.5 bg-[#fd80ff]/40 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
@@ -279,7 +279,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
             <div className="w-7 h-7 rounded-full bg-[#fdf0f8] group-hover:bg-white text-[#230c1e] flex items-center justify-center transition-all duration-300 pointer-events-none">
               <Heart className="w-3.5 h-3.5 text-[#230c1e] group-hover:text-[#fd80ff] fill-none group-hover:fill-[#fd80ff]/10 animate-heartbeat-hover transition-all duration-300" />
             </div>
-            <span className="font-sans text-[10px] font-black tracking-[0.16em] text-[#230c1e] group-hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">
+            <span className="font-sans text-xs font-black tracking-[0.14em] text-[#230c1e] group-hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">
               Starta nu
             </span>
           </button>
@@ -553,7 +553,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                         }
                       }}
                       id={`mobile-nav-btn-${item.id}`}
-                      className={`flex items-center justify-between w-full px-5 py-3 rounded-2xl text-[10.5px] font-bold uppercase tracking-[0.16em] transition-all cursor-pointer ${
+                      className={`flex items-center justify-between w-full px-5 py-3 rounded-2xl text-xs font-extrabold uppercase tracking-[0.14em] transition-all cursor-pointer ${
                         isActive
                           ? "bg-[#230c1e]/5 text-[#230c1e] border border-[#230c1e]/10 font-extrabold"
                           : "text-[#230c1e]/75 hover:bg-white/50 border border-transparent"
@@ -572,7 +572,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
               <div className="pt-1 flex flex-col gap-2">
                 <button
                   onClick={() => handleTabClick("contact")}
-                  className="w-full flex items-center justify-center gap-2 bg-white/70 text-[#230c1e] border border-stone-200 font-extrabold text-[10px] uppercase tracking-[0.16em] py-3.5 rounded-xl transition-all active:scale-98 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 bg-white/70 text-[#230c1e] border border-stone-200 font-extrabold text-xs uppercase tracking-[0.14em] py-3.5 rounded-xl transition-all active:scale-98 cursor-pointer"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#fd80ff]" />
                   Kontakta mig
@@ -580,7 +580,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                 <button
                   onClick={() => handleTabClick("apply")}
                   id="mobile-nav-cta"
-                  className="w-full flex items-center justify-center gap-2 bg-[#230c1e] text-white font-extrabold text-[10px] uppercase tracking-[0.16em] py-3.5 rounded-xl transition-all shadow-md active:scale-98 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 bg-[#230c1e] text-white font-extrabold text-xs uppercase tracking-[0.14em] py-3.5 rounded-xl transition-all shadow-md active:scale-98 cursor-pointer"
                 >
                   <ClipboardCheck className="w-3.5 h-3.5 text-pink-200" />
                   Ansök om coachning nu
