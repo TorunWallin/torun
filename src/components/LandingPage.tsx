@@ -378,8 +378,8 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 <div className="min-h-[430px] lg:min-h-[450px] h-auto w-full rounded-[1.65rem] bg-white overflow-hidden relative flex flex-col justify-between p-5 border border-white/80 shadow-inner">
                   
                   <div className="flex justify-between items-center">
-                    <div className="w-10 h-10 rounded-full bg-[#FFF5FB]/90 backdrop-blur-md flex items-center justify-center border border-pink-100 shadow-sm">
-                      <Heart className="w-5 h-5 text-[#fd80ff] fill-[#fd80ff]/10" />
+                    <div className="w-10 h-10 rounded-full bg-[#FFF5FB]/90 backdrop-blur-md flex items-center justify-center border border-pink-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
+                      <Heart className="w-4.5 h-4.5 text-[#fd80ff] fill-[#fd80ff] drop-shadow-[0_2px_6px_rgba(253,128,255,0.45)]" />
                     </div>
                     <span className="text-[10px] font-sans text-[#fd80ff] bg-white border border-pink-100 px-3.5 py-1 rounded-full uppercase tracking-widest font-extrabold flex items-center gap-1.5 shadow-xs">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#fd80ff] animate-ping" />
@@ -418,7 +418,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY1 }}
                 whileHover={{ scale: 1.05, rotate: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -bottom-14 left-2 sm:-bottom-16 sm:left-4 md:-bottom-10 md:-left-12 lg:-left-16 lg:-bottom-8 bg-white text-stone-800 px-4 py-3 rounded-2xl shadow-[0_15px_30px_rgba(219,101,162,0.08)] hover:shadow-[0_20px_40px_rgba(219,101,162,0.14)] border border-pink-100/80 text-[10.5px] max-w-[170px] sm:max-w-[185px] space-y-0.5 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -bottom-16 -left-4 sm:-bottom-20 sm:-left-6 md:-bottom-12 md:-left-16 lg:-left-24 lg:-bottom-10 bg-white text-stone-800 px-4 py-3 rounded-2xl shadow-[0_15px_30px_rgba(219,101,162,0.08)] hover:shadow-[0_20px_40px_rgba(219,101,162,0.14)] border border-pink-100/80 text-[10.5px] max-w-[170px] sm:max-w-[185px] space-y-0.5 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-1"
               >
                 <div className="flex items-center gap-1.5">
@@ -433,7 +433,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY2 }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -top-8 right-2 sm:-top-10 sm:right-4 md:-top-4 md:-right-12 lg:-right-16 lg:-top-8 bg-white shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-pink-100/80 max-w-[155px] p-3 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -top-12 -right-4 sm:-top-16 sm:-right-6 md:-top-10 md:-right-16 lg:-right-24 lg:-top-12 bg-white shadow-[0_15px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-pink-100/80 max-w-[155px] p-3 rounded-2xl space-y-1 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-2"
               >
                 <div className="flex items-center gap-1.5">
@@ -463,13 +463,8 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
 
           {/* Centered elegant quote in serif font */}
           <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
-            "Att skifta fokus till att lyssna på kroppen istället för pulsklockan har förändrat allt. Att träna på kroppens villkor ger så mycket mer energi och träningsglädje i vardagen!"
+            "Att skifta fokus till att <span className="text-[#fd80ff] font-medium">lyssna på kroppen</span> istället för pulsklockan har förändrat allt. Att <span className="text-[#fd80ff] font-medium">träna på kroppens villkor</span> ger så mycket mer energi och träningsglädje i vardagen!"
           </blockquote>
-
-          {/* Centered author attribution */}
-          <p className="text-xs font-sans font-bold uppercase tracking-[0.25em] text-white/50 mt-8">
-            Feedback från en av mina medlemmar
-          </p>
         </div>
       </section>
 
@@ -566,7 +561,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             whileInView="visible"
             viewport={{ once: true }}
             variants={fUpVariants}
-            className="glass-panel rounded-4xl p-6 sm:p-10 max-w-3xl mx-auto shadow-2xl space-y-8 relative overflow-hidden"
+            className="glass-panel rounded-4xl p-6 sm:p-10 max-w-5xl mx-auto shadow-2xl space-y-8 relative overflow-hidden"
           >
             {/* Elegant warm satin top line */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#230c1e] via-[#fd80ff] to-[#f5c7fa]" />
@@ -1321,12 +1316,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               </h2>
               
               {/* Description */}
-              <p className="font-sans text-sm sm:text-[15px] text-stone-700 max-w-2xl mx-auto leading-relaxed">
+              <p className="font-sans text-base sm:text-lg lg:text-xl text-stone-700 max-w-3xl mx-auto leading-relaxed">
                 Varje kvartal ger jag bort en plats i <strong className="font-bold text-[#230c1e]">Stark med Torun</strong> till en ung tjej som behöver stöd, trygghet och någon som tror på henne.
               </p>
               
               {/* Monospace Quote Box */}
-              <div className="bg-stone-100/50 border border-stone-200/40 p-5 rounded-2xl max-w-xl mx-auto font-mono text-[11px] sm:text-xs text-stone-600 shadow-2xs leading-relaxed">
+              <div className="bg-stone-100/50 border border-stone-200/40 p-5 rounded-2xl max-w-2xl mx-auto font-mono text-xs sm:text-sm text-stone-600 shadow-2xs leading-relaxed">
                 Ingen prestation. Ingen press att vara duktig. Bara ett varmt rum att börja om i.
               </div>
 
