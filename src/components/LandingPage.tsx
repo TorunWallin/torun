@@ -463,12 +463,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
 
           {/* Centered elegant quote in serif font */}
           <blockquote className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
-            "Hoppade av min pulsklocka, tog ett djupt andetag och började lyfta på kroppens villkor. PMS-ledvärken och sömnsvårigheterna är <span className="italic font-medium text-[#fd80ff]">äntligen borta!</span>"
+            "Att skifta fokus till att lyssna på kroppen istället för pulsklockan har förändrat allt. Att träna på kroppens villkor ger så mycket mer energi och träningsglädje i vardagen!"
           </blockquote>
 
           {/* Centered author attribution */}
-          <p className="text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[0.25em] text-white/50 mt-8">
-            Hanna, varm medlem sedan 2024
+          <p className="text-xs font-sans font-bold uppercase tracking-[0.25em] text-white/50 mt-8">
+            Feedback från en av mina medlemmar
           </p>
         </div>
       </section>
@@ -645,7 +645,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                   variants={fUpVariants}
                   key={pkg.id}
                   id={`package-card-${pkg.id}`}
-                  className={`relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 border ${
+                  onClick={() => {
+                    onNavigate("programs");
+                    localStorage.setItem("torun_scroll_to_program", pkg.id);
+                    window.dispatchEvent(new Event("torun-scroll-to-program-updated"));
+                  }}
+                  className={`relative rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 border cursor-pointer hover:scale-[1.01] ${
                     pkg.recommended 
                       ? "border-[#fd80ff]/60 bg-white/55 backdrop-blur-xl shadow-[0_10px_35px_rgba(253,128,255,0.08)] scale-[1.02]" 
                       : "border-white/50 bg-white/25 backdrop-blur-xl shadow-sm hover:border-white/70 hover:bg-white/40"
@@ -684,12 +689,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       </div>
                     </div>
 
-                    <p className="text-xs text-stone-500 leading-relaxed h-[80px] overflow-hidden">
+                    <p className="text-xs text-stone-500 leading-relaxed h-auto">
                       {pkg.description}
                     </p>
 
                     {pkg.outputGoal && (
-                      <p className="text-[10px] font-sans font-bold text-[#230c1e] leading-snug bg-[#fff5fc] p-3 rounded-2xl border border-[#fd80ff]/10">
+                      <p className="text-xs font-sans font-bold text-[#230c1e] leading-snug bg-[#fff5fc] p-3 rounded-2xl border border-[#fd80ff]/10">
                         {pkg.outputGoal}
                       </p>
                     )}
@@ -718,8 +723,11 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       return (
                         <div className="space-y-3 w-full">
                           <button
-                            onClick={() => onSelectPackage(pkg.id)}
-                            className={`group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer hover:-translate-y-0.5 active:scale-[0.98] select-none w-full overflow-hidden ${buttonBgClass}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onSelectPackage(pkg.id);
+                            }}
+                            className={`group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer hover:-translate-y-0.5 active:scale-[0.98] select-none w-full overflow-hidden ${buttonBgClass}`}
                           >
                             <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                               {pkg.buttonText || "Påbörja din resa"}
@@ -738,16 +746,13 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                           </button>
                           
                           <button
-                            onClick={() => {
+                            onClick={(e) => {
+                              e.stopPropagation();
                               onNavigate("programs");
-                              setTimeout(() => {
-                                const el = document.getElementById(pkg.id);
-                                if (el) {
-                                  el.scrollIntoView({ behavior: "smooth", block: "center" });
-                                }
-                              }, 300);
+                              localStorage.setItem("torun_scroll_to_program", pkg.id);
+                              window.dispatchEvent(new Event("torun-scroll-to-program-updated"));
                             }}
-                            className="w-full text-center text-[9px] font-sans font-black uppercase tracking-widest text-[#230c1e]/60 hover:text-[#fd80ff] transition-colors cursor-pointer block mt-1 hover:underline outline-none"
+                            className="w-full text-center text-xs font-sans font-extrabold uppercase tracking-widest text-[#230c1e]/60 hover:text-[#fd80ff] transition-colors cursor-pointer block mt-2 hover:underline outline-none"
                           >
                             Läs fullständiga detaljer ➔
                           </button>
@@ -1037,7 +1042,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               Testa din biologi redan idag
             </h2>
             <p className="text-[#230c1e]/80 text-sm sm:text-base font-sans leading-relaxed max-w-xl mx-auto font-light font-sans">
-              Här kan du utforska hur din menscykel, din stress och din kost samspelar med din träning. Prova mina skräddarsydda, vetenskapliga miniräknare och receptkort helt kostnadsfritt.
+              Här kan du utforska hur din menscykel, din stress och din kost samspelar med din träning. Prova mina skräddarsydda miniräknare och receptkort helt kostnadsfritt.
             </p>
           </motion.div>
 

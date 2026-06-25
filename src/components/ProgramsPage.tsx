@@ -11,6 +11,27 @@ interface ProgramsPageProps {
 }
 
 export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPageProps) {
+  React.useEffect(() => {
+    const handleScrollToProgram = () => {
+      const targetId = localStorage.getItem("torun_scroll_to_program");
+      if (targetId) {
+        localStorage.removeItem("torun_scroll_to_program");
+        setTimeout(() => {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 150);
+      }
+    };
+
+    handleScrollToProgram();
+    window.addEventListener("torun-scroll-to-program-updated", handleScrollToProgram);
+    return () => {
+      window.removeEventListener("torun-scroll-to-program-updated", handleScrollToProgram);
+    };
+  }, []);
+
   // Framer motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
