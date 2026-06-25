@@ -1,0 +1,6 @@
+{
+  "name": "Torun.se",
+  "description": "En varm, trygg och hetsfri samlingsplats för kvinnors hälsa, styrka och hormonella balans skapad av Torun Wallin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -24,7 +24,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
   
   // Parallax ranges for Hero section
   const heroBgY = useTransform(scrollY, [0, 800], [0, 180]);
-  const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  const heroOpacity = useTransform(scrollY, [0, 1400], [1, 0]);
   const floatingY1 = useTransform(scrollY, [0, 800], [0, -100]);
   const floatingY2 = useTransform(scrollY, [0, 800], [0, 80]);
   const textParallaxY = useTransform(scrollY, [0, 800], [0, 35]);
@@ -276,7 +276,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               className="font-display text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-[#230c1e] leading-[1.15] sm:leading-[1.05]"
             >
               Du behöver inte{" "}
-              <span className="font-script text-[#fd80ff]/95 text-5xl sm:text-6xl lg:text-[68px] inline-block mx-1 tracking-normal lowercase align-middle">förtjäna</span> <br />
+              <span className="font-script text-[#fd80ff]/95 text-[30px] sm:text-[38px] lg:text-[44px] inline-block mx-1 tracking-normal lowercase align-middle">förtjäna</span> <br />
               din egen kropp.
             </motion.h1>
             
@@ -421,7 +421,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 style={{ y: floatingY1 }}
                 whileHover={{ scale: 1.05, rotate: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="absolute -bottom-16 -left-4 sm:-bottom-20 sm:-left-6 md:-bottom-12 md:-left-16 lg:-left-24 lg:-bottom-10 bg-white text-stone-800 px-4 py-3 rounded-2xl shadow-[0_15px_30px_rgba(219,101,162,0.08)] hover:shadow-[0_20px_40px_rgba(219,101,162,0.14)] border border-pink-100/80 text-[10.5px] max-w-[170px] sm:max-w-[185px] space-y-0.5 z-15 transition-shadow duration-300 cursor-default"
+                className="absolute -bottom-16 -left-4 sm:-bottom-20 sm:-left-6 md:-bottom-12 md:-left-16 lg:-left-24 lg:-bottom-10 bg-white/20 backdrop-blur-xl border border-white/30 shadow-[0_15px_35px_rgba(219,101,162,0.03)] hover:shadow-[0_20px_45px_rgba(219,101,162,0.12)] p-4 rounded-2xl text-[10.5px] max-w-[170px] sm:max-w-[185px] space-y-0.5 z-15 transition-shadow duration-300 cursor-default"
                 id="hero-floating-capsule-1"
               >
                 <div className="flex items-center gap-1.5">
@@ -468,7 +468,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
           </div>
 
           {/* Centered elegant quote in serif font */}
-          <blockquote className="font-serif text-xl sm:text-[22px] lg:text-[24px] text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
+          <blockquote className="font-serif text-2xl sm:text-[28px] lg:text-[33px] text-white/90 leading-relaxed tracking-tight max-w-4xl font-light">
             "Att skifta fokus till att <span className="text-[#fd80ff] font-medium">lyssna på kroppen</span> istället för pulsklockan har förändrat allt. Att <span className="text-[#fd80ff] font-medium">träna på kroppens villkor</span> ger så mycket mer energi och träningsglädje i vardagen!"
           </blockquote>
         </div>
