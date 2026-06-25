@@ -367,7 +367,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             className="lg:col-span-5 flex justify-center"
           >
             {/* Centered relative wrapper to anchor floating capsules to the card edge */}
-            <div className="relative w-full max-w-[330px]" id="hero-interactive-stage">
+            <div className="relative w-full max-w-[360px]" id="hero-interactive-stage">
               {/* Extremely luxurious Solid White Card containing Torun's philosophy to prevent overlapping silhouettes */}
               <motion.div 
                 whileHover={{ y: -5, scale: 1.015, rotate: 0.5 }}
@@ -385,7 +385,8 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                     </div>
                     <span className="text-[10px] font-sans text-[#fd80ff] bg-white border border-pink-100 px-3.5 py-1 rounded-full uppercase tracking-widest font-extrabold flex items-center gap-1.5 shadow-xs">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#fd80ff] animate-ping" />
-                      Personligt & Tryggt ♡
+                      <span>Personligt & Tryggt</span>
+                      <Heart className="w-2.5 h-2.5 text-[#fd80ff] fill-[#fd80ff] inline-block ml-0.5" />
                     </span>
                   </div>
 
