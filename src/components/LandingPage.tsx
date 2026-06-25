@@ -530,7 +530,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                 <h3 className="font-serif text-2xl text-[#230c1e] font-normal leading-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-700 leading-relaxed font-sans font-light">
+                <p className="text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
                   {item.desc}
                 </p>
               </motion.div>
@@ -690,12 +690,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       </div>
                     </div>
 
-                    <p className="text-xs text-stone-500 leading-relaxed h-auto">
+                    <p className="text-sm text-stone-600 leading-relaxed h-auto">
                       {pkg.description}
                     </p>
 
                     {pkg.outputGoal && (
-                      <p className="text-xs font-sans font-bold text-[#230c1e] leading-snug bg-[#fff5fc] p-3 rounded-2xl border border-[#fd80ff]/10">
+                      <p className="text-[12px] font-sans font-bold text-[#230c1e] leading-snug bg-[#fff5fc] p-3.5 rounded-2xl border border-[#fd80ff]/10 shadow-3xs">
                         {pkg.outputGoal}
                       </p>
                     )}
@@ -704,7 +704,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       <p className="text-[10px] font-sans uppercase tracking-widest font-extrabold text-[#fd80ff] mb-3 block">
                         VAD SOM INGÅR:
                       </p>
-                      <ul className="space-y-2.5 text-xs text-stone-600">
+                      <ul className="space-y-2.5 text-sm text-stone-600">
                         {pkg.features.map((feat, i) => (
                            <li key={i} className="flex items-start gap-2">
                             <Check className="w-3.5 h-3.5 text-[#fd80ff] flex-shrink-0 mt-0.5" />
@@ -807,12 +807,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       </div>
                     </div>
 
-                    <div className="space-y-4 text-sm sm:text-base text-stone-600 leading-relaxed font-light font-sans">
+                    <div className="space-y-4 text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
                       <p>
                         {appPkg.description}
                       </p>
                       {appPkg.outputGoal && (
-                        <div className="text-xs font-sans font-bold text-[#230c1e] leading-relaxed bg-[#fff5fc] p-4.5 rounded-2.5xl border border-[#fd80ff]/15 shadow-2xs relative">
+                        <div className="text-sm font-sans font-bold text-[#230c1e] leading-relaxed bg-[#fff5fc] p-4.5 rounded-2.5xl border border-[#fd80ff]/15 shadow-2xs relative">
                           <span className="absolute -top-2.5 left-5 bg-white border border-[#fd80ff]/20 text-[#fd80ff] text-[8px] uppercase tracking-widest px-2.5 py-0.5 rounded-full font-sans font-black">Din digitala friszon</span>
                           {appPkg.outputGoal.replace("Du kommer få: ", "")}
                         </div>
@@ -823,7 +823,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
                       <span className="text-[10px] font-sans uppercase tracking-widest font-extrabold text-[#fd80ff] block">
                         VAD SOM INGÅR I VERKTYGSTLÅDAN:
                       </span>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-xs sm:text-sm text-stone-600 font-sans">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm sm:text-base text-stone-600 font-sans">
                         {appPkg.features.map((feat, i) => (
                           <li key={i} className="flex items-start gap-2.5">
                             <span className="w-5 h-5 rounded-full bg-[#FFF5FC] border border-pink-100 flex items-center justify-center text-[#fd80ff] shrink-0 mt-0.5 shadow-3xs">
@@ -1327,12 +1327,12 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               </p>
               
               {/* Monospace Quote Box */}
-              <div className="bg-stone-100/50 border border-stone-200/40 p-5 rounded-2xl max-w-2xl mx-auto font-mono text-xs sm:text-sm text-stone-600 shadow-2xs leading-relaxed">
+              <div className="bg-stone-100/50 border border-stone-200/40 p-5.5 rounded-2xl max-w-2xl mx-auto font-mono text-sm sm:text-base text-stone-700 shadow-2xs leading-relaxed">
                 Ingen prestation. Ingen press att vara duktig. Bara ett varmt rum att börja om i.
               </div>
 
               {/* Minor text with pink range */}
-              <p className="text-[11px] sm:text-xs text-stone-500 font-sans leading-relaxed">
+              <p className="text-sm sm:text-base text-stone-600 font-sans leading-relaxed">
                 För dig mellan <span className="text-[#fd80ff] font-bold">16–22 år</span> som vill bygga styrka, självkänsla och en snällare relation till kroppen.
               </p>
 

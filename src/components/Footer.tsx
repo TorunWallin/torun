@@ -34,7 +34,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             <span className="font-display font-light tracking-wide text-white">Torun</span>
             <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]" />
           </div>
-          <p className="text-[10px] text-white/50 leading-relaxed font-sans font-light tracking-wider uppercase">
+          <p className="text-[12px] text-white/50 leading-relaxed font-sans font-light tracking-wider uppercase">
             Vägen till ett <br /> hälsosammare liv
           </p>
         </div>

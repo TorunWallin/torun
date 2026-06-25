@@ -194,7 +194,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
               TORUN
             </span>
             {!isScrolled && (
-              <span className="text-[7px] font-sans font-bold tracking-[0.14em] text-[#230c1e]/70 uppercase leading-none mt-1.5 transition-colors group-hover:text-[#fd80ff] whitespace-nowrap">
+              <span className="text-[9.5px] sm:text-[10.5px] font-sans font-bold tracking-[0.14em] text-[#230c1e]/70 uppercase leading-none mt-1.5 transition-colors group-hover:text-[#fd80ff] whitespace-nowrap">
                 Vägen till ett hälsosammare liv
               </span>
             )}
