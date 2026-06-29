@@ -164,29 +164,44 @@ app.post("/api/subscribe", async (req, res) => {
         to: email,
         subject: "Här är din Stark & Trygg Startguide! 🌸",
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #230c1e; line-height: 1.6; padding: 25px; background-color: #fffafb; border-radius: 20px; border: 1px solid rgba(253, 128, 255, 0.15);">
-            <h2 style="font-family: serif; color: #230c1e; font-weight: normal; font-size: 24px; margin-bottom: 20px;">Välkommen hem, fina ${name}! ♡</h2>
-            <p>Vad glad jag är att du är här. Din resa mot styrka, energi & en sund relation till träning börjar här! 🌸</p>
-            <p>Den här startguiden är skapad för dig som vill bli stark, må bra och hitta en sund relation till både träning och mat – helt utan dietkultur, vågfixering eller "shred"-snack.</p>
-            <p style="background-color: rgba(253, 128, 255, 0.05); padding: 15px; border-left: 3px solid #fd80ff; border-radius: 4px; font-style: italic; margin: 20px 0;">
-              Du behöver inte förtjäna din mat.<br>
-              Du behöver inte göra träning till ett straff.<br>
-              Du behöver inte bli mindre för att vara värdefull.
-            </p>
-            <p>Häftet innehåller 7 dagar med tankar & små, mjuka steg för att hjälpa dig att bygga din egen styrka och ta hand om din unika kropp på dess biologiska villkor.</p>
-            
-            <div style="margin: 35px 0; text-align: center;">
-              <a href="${GUIDE_URL}" style="background-color: #230c1e; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 13px; letter-spacing: 0.08em; display: inline-block; box-shadow: 0 4px 12px rgba(35, 12, 30, 0.15);">HÄMTA DIN PDF-GUIDE HÄR 🌸</a>
-            </div>
-            
-            <p>Ta allt helt i din egen takt. Jag hoppas att häftet kommer ge dig precis den ork och omtanke som din kropp längtar efter.</p>
-            
-            <p style="margin-top: 40px; border-top: 1px solid rgba(35, 12, 30, 0.08); padding-top: 20px; font-size: 13px; color: #5c4b57;">
-              Varma och hjärtliga hälsningar,<br>
-              <strong>Torun Wallin</strong><br>
-              Lic. PT & Kostrådgivare
-            </p>
-          </div>
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="utf-8">
+              <link rel="preconnect" href="https://fonts.googleapis.com">
+              <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+              <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+            </head>
+            <body style="margin: 0; padding: 0; background-color: #fffafb; -webkit-text-size-adjust: 100%;">
+              <div style="font-family: 'Google Sans Flex', 'Plus Jakarta Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #230c1e; line-height: 1.6; padding: 30px; background-color: #fffafb; border-radius: 24px; border: 1px solid rgba(253, 128, 255, 0.12); box-sizing: border-box;">
+                <h2 style="font-family: 'Playfair Display', 'Georgia', serif; font-weight: normal; font-size: 26px; color: #230c1e; margin-top: 0; margin-bottom: 20px; letter-spacing: -0.02em;">Välkommen hem, fina ${name}! ♡</h2>
+                
+                <p style="font-size: 14px; font-weight: 300;">Vad glad jag är att du är här. Din resa mot styrka, energi & en sund relation till träning börjar här! 🌸</p>
+                
+                <p style="font-size: 14px; font-weight: 300;">Den här startguiden är skapad för dig som vill bli stark, må bra och hitta en sund relation till både träning och mat – helt utan dietkultur, vågfixering eller "shred"-snack.</p>
+                
+                <div style="background-color: rgba(253, 128, 255, 0.04); padding: 20px; border-left: 3px solid #fd80ff; border-radius: 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; font-style: italic; color: #230c1e; margin: 25px 0; line-height: 1.5;">
+                  Du behöver inte förtjäna din mat.<br>
+                  Du behöver inte göra träning till ett straff.<br>
+                  Du behöver inte bli mindre för att vara värdefull.
+                </div>
+                
+                <p style="font-size: 14px; font-weight: 300;">Häftet innehåller 7 dagar med tankar & små, mjuka steg för att hjälpa dig att bygga din egen styrka och ta hand om din unika kropp på dess biologiska villkor.</p>
+                
+                <div style="margin: 35px 0; text-align: center;">
+                  <a href="${GUIDE_URL}" style="background-color: #230c1e; color: #ffffff; padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; display: inline-block; box-shadow: 0 4px 12px rgba(35, 12, 30, 0.15);">HÄMTA DIN PDF-GUIDE HÄR 🌸</a>
+                </div>
+                
+                <p style="font-size: 14px; font-weight: 300; margin-bottom: 30px;">Ta allt helt i din egen takt. Jag hoppas att häftet kommer ge dig precis den ork och omtanke som din kropp längtar efter.</p>
+                
+                <div style="margin-top: 40px; border-top: 1px solid rgba(35, 12, 30, 0.08); padding-top: 25px; font-size: 13px; color: #5c4b57; font-weight: 300;">
+                  Varma och hjärtliga hälsningar,<br>
+                  <strong style="color: #230c1e; font-weight: 600;">Torun Wallin</strong><br>
+                  Lic. PT & Kostrådgivare
+                </div>
+              </div>
+            </body>
+          </html>
         `,
       }),
     });

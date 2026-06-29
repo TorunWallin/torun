@@ -115,12 +115,12 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                   </span>
                 </div>
                 
-                <h2 className="font-sans text-3xl font-semibold tracking-tight leading-tight text-white">
-                  7 dagar till biologisk insikt
+                <h2 className="font-serif text-3xl font-normal tracking-tight leading-tight text-white">
+                  Stark & Trygg Startguide
                 </h2>
                 
                 <p className="text-xs text-stone-300/85 leading-relaxed font-sans font-light">
-                  En genuint stöttande, vetenskaplig startguide för dig som vill sluta bråka med heroisk kaloristress och istället synkronisera din rörelseglädje med kroppens hormoner och livskraft.
+                  Din resa mot styrka, energi & en sund relation till träning börjar här. För dig som vill bli stark, må bra & hitta en sund relation till träning och mat – helt utan dietkultur, vågfixering eller "shred"-snack 🤍
                 </p>
               </div>
 
@@ -129,15 +129,15 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
               <div className="space-y-4 font-sans text-[10px] uppercase tracking-[0.16em] text-stone-200 relative z-10">
                 <div className="flex items-center gap-3">
                   <Check className="w-4 h-4 text-[#fd80ff] stroke-[2.5] flex-shrink-0" />
-                  <span>Introduktion till cykelträning</span>
+                  <span>Styrka & energi utan dietkultur</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-4 h-4 text-[#fd80ff] stroke-[2.5] flex-shrink-0" />
-                  <span>Nervsystemsreglering (Stresshjälp)</span>
+                  <span>Hållbara vanor & gymångest-hjälp</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Check className="w-4 h-4 text-[#fd80ff] stroke-[2.5] flex-shrink-0" />
-                  <span>Hormonstöttande livsmedel</span>
+                  <span>Snälla, hormonstöttande råd & mat</span>
                 </div>
               </div>
             </div>
