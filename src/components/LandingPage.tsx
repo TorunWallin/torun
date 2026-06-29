@@ -266,7 +266,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
               className="inline-flex items-center gap-2 bg-[#fff5fa]/90 hover:bg-white text-[#230c1e] border border-pink-200/80 px-4.5 py-1.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase backdrop-blur-md transition-all shadow-[0_4px_20px_rgba(219,101,162,0.03)] cursor-default"
             >
               <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
-              <span className="font-sans text-xs tracking-[0.12em] font-extrabold text-[#fd80ff]">✦ FITNESSCOACH För tjejer & kvinnor</span>
+              <span className="font-sans text-xs tracking-[0.12em] font-extrabold text-[#fd80ff]">✦ FITNESSCOACH FÖR TJEJER & KVINNOR</span>
               <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
             </motion.div>
             
@@ -337,22 +337,26 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
             </motion.div>
 
             {/* Soft grid of kind philosophy notes (Polished, centered layout) */}
-            <div className="pt-6 sm:pt-10 w-full max-w-md">
+            <div className="pt-6 sm:pt-10 w-full max-w-lg">
               <motion.div 
                 variants={fUpVariants}
-                className="grid grid-cols-3 divide-x divide-pink-100 p-3.5 sm:p-4 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full font-sans"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-y-3 sm:gap-y-0 p-3.5 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full font-sans"
               >
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 border-r border-pink-100/30">
                   <span className="text-2xl sm:text-3xl font-serif font-bold text-[#fd80ff] leading-none">0%</span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Krav & Hets</span>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Krav & Hets</span>
                 </div>
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 sm:border-r border-pink-100/30">
                   <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">Synkad</span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Efter menscykel</span>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Efter menscykel</span>
                 </div>
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5">
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 border-r border-pink-100/30 pt-1 sm:pt-0">
                   <span className="text-xl sm:text-2xl font-serif font-bold text-[#230c1e] leading-none">Mjuk</span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Återhämtning</span>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Återhämtning</span>
+                </div>
+                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 pt-1 sm:pt-0">
+                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">Tryggt</span>
+                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">Personligt & Tryggt</span>
                 </div>
               </motion.div>
             </div>
@@ -1049,7 +1053,7 @@ export default function LandingPage({ onNavigate, onSelectPackage }: LandingPage
           <div className="flex justify-center mb-8 relative z-20">
             <div className="bg-white/45 backdrop-blur-md border border-[#fd80ff]/20 p-1.5 rounded-full inline-flex gap-1.5 shadow-[0_8px_30px_rgba(219,101,162,0.03)] max-w-full overflow-x-auto no-scrollbar">
               {[
-                { id: "compass", label: "Hormonkompassen", icon: Calendar, targetId: "cycle-sync-compass" },
+                { id: "compass", label: "Hormon- & Träningskompassen", icon: Calendar, targetId: "cycle-sync-compass" },
                 { id: "wheel", label: "Dagsformshjulet", icon: Activity, targetId: "dagsforms-hjul" },
                 { id: "vault", label: "Kostrecepten", icon: Soup, targetId: "recept-valv" }
               ].map((t) => {

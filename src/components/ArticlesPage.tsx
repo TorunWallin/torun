@@ -101,13 +101,13 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
               {/* Header Introduction */}
               <div className="text-center max-w-3xl mx-auto space-y-4">
                 <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-[#fd80ff] uppercase block">
-                  KUNSKAPSBIBLIOTEK
+                  HÄLSA PÅ DINA VILLKOR
                 </span>
                 <h1 className="font-serif text-4xl sm:text-[54px] font-normal text-[#230c1e] tracking-wide leading-tight">
-                  Klok vetenskap för din kropp
+                  Kunskapsbank & Läslista 🌸
                 </h1>
                 <p className="text-[#230c1e]/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-sans">
-                  Här delar jag med mig av kunskap, tankar och vetenskap kring menscykeln, styrketräning för kvinnor och konsten att bygga en hållbar livsstil utan hets.
+                  Här samlar jag klok vetenskap, artiklar och tankar kring menscykeln, styrketräning för kvinnor, klimakteriet och konsten att bygga en stark, trygg kropp helt utan press och hets.
                 </p>
               </div>
 
@@ -222,12 +222,16 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
               </div>
 
               {/* Conversion Box at the bottom */}
-              <div className="bg-[#02473E] rounded-[2.5rem] p-8 text-white flex flex-col sm:flex-row justify-between items-center gap-6 border border-white/10 shadow-2xl relative overflow-hidden mt-12">
-                <div className="absolute top-0 right-0 w-36 h-36 bg-[#fd80ff]/8 rounded-full filter blur-2xl pointer-events-none" />
-                <div className="space-y-1 text-center sm:text-left z-10">
-                  <h4 className="font-serif text-lg font-normal uppercase text-white leading-none">Vill du ta nästa steg med mig?</h4>
-                  <p className="text-xs text-stone-200 font-sans font-light max-w-md">
-                    Genom personlig coaching får du träningsprogram anpassade för just din kropp, din stress och din vardag.
+              <div className="bg-[#230c1e] rounded-[2.5rem] p-8 sm:p-10 text-white flex flex-col sm:flex-row justify-between items-center gap-6 border border-[#fd80ff]/20 shadow-2xl relative overflow-hidden mt-12">
+                <div className="absolute top-0 right-0 w-44 h-44 bg-[#fd80ff]/15 rounded-full filter blur-3xl pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#fd80ff]/10 rounded-full filter blur-3xl pointer-events-none" />
+                <div className="space-y-2.5 text-center sm:text-left z-10">
+                  <span className="text-[10px] font-sans font-bold tracking-widest text-[#fd80ff] uppercase block">
+                    Personlig Coaching
+                  </span>
+                  <h4 className="font-serif text-2xl font-normal text-white leading-tight">Vill du ta nästa steg med mig? 🤍</h4>
+                  <p className="text-xs text-white/80 font-sans font-light max-w-md leading-relaxed">
+                    Genom mina program får du träningsupplägg anpassade efter din kropp, menscykel och ditt livspussel. Låt oss bygga din styrka inifrån och ut – helt utan stress eller diethets.
                   </p>
                 </div>
                 <button 
@@ -235,21 +239,13 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                     setSelectedArticle(null);
                     onNavigate("programs");
                   }}
-                  className="group relative inline-flex items-center justify-center text-[12px] font-sans font-extrabold uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none z-10 overflow-hidden"
+                  className="group relative inline-flex items-center justify-center text-[11px] font-sans font-extrabold uppercase tracking-widest px-8 py-4 rounded-xl transition-all duration-300 cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white border border-[#fd80ff]/25 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] select-none z-10 overflow-hidden"
                 >
                   <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                     Utforska mina program
                   </span>
                   <span className="absolute right-5 opacity-0 scale-50 translate-x-2 transition-all duration-300 ease-[0.16,1,0.3,1] group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 flex items-center justify-center">
-                    <svg 
-                      viewBox="0 0 24 24" 
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      className="w-3.5 h-3.5 text-white flex-shrink-0"
-                    >
-                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                    </svg>
+                    <ArrowRight className="w-4 h-4 text-white flex-shrink-0" />
                   </span>
                 </button>
               </div>

@@ -157,7 +157,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
     { id: "home", label: "Hem & Filosofi", hasDropdown: true },
     { id: "startguide", label: "Gratis Startguide", hasDropdown: true },
     { id: "programs", label: "Program", hasDropdown: false },
-    { id: "articles", label: "Artiklar", hasDropdown: false },
+    { id: "articles", label: "Kunskapsbank", hasDropdown: false },
   ];
 
   return (
