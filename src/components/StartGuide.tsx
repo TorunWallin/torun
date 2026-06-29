@@ -15,52 +15,52 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
   const guideDays = [
     {
       day: 1,
-      title: "Dag 1: Lyssna på nervsystemet",
-      focus: "Lugn & Trygghet",
-      description: "När det sympatiska nervsystemet (fight or flight) är påslaget är det biologiskt svårt att läka och bygga styrka. Idag lutar du dig tillbaka, reglerar andetaget med medveten saktfärdighet och dämpar kortisoldepåerna.",
-      exercise: "10 minuters andningsbox-övning innan sängdags för att sänka din kropps stressförsvar."
+      title: "Dag 1: Du är redan tillräcklig",
+      focus: "Stark > smal",
+      description: "Du behöver inte fixa dig själv. Du behöver stöd. Den här veckan handlar inte om att förändra hela ditt liv. Det handlar om att börja bygga en mjukare, starkare relation till dig själv, fylld av energi och självrespekt.",
+      exercise: "Skriv ner VARFÖR du vill bli stark, hur du vill känna dig i din kropp och vad ordet 'stark' betyder för just dig. Det finns inga rätt eller fel svar."
     },
     {
       day: 2,
-      title: "Dag 2: Äta för ren energi",
-      focus: "Nourishment",
-      description: "Glöm förbud och svält. Idag fokuserar du på hur du tankar kvinnokroppen med hormonstöttande fetter och bra proteiner som motverkar blodsockerfall och sötsug.",
-      exercise: "Lägg till en näringsrik fettkälla (t.ex. avokado, olivolja eller frön) i varje måltid idag."
+      title: "Dag 2: Träning är aldrig ett straff",
+      focus: "Rörelse för energi",
+      description: "Träning ska inte vara något du är rädd för att missa, något du straffar dig med, eller något du måste 'förtjäna' mat efter. Det ska ge dig energi, bygga självförtroende och få dig att känna dig kapabel.",
+      exercise: "Hitta en rörelse idag som ger dig energi istället för att ta ifrån dig den. Rörelse ska lägga till i ditt liv, inte ta ifrån det."
     },
     {
       day: 3,
-      title: "Dag 3: Ditt första hängivna lyftpass",
-      focus: "Mjuk Styrka",
-      description: "Styrketräning stöttar din bentäthet och dämpar ledvärk på ålderns höst. Det handlar inte om att bestraffa kroppen, utan om att känna tyngd, kraft och djup jordning.",
-      exercise: "30 minuters kravlös rörlighet och tunga men säkra basövningar helt i din egen takt."
+      title: "Dag 3: Mat är bränsle 🍓",
+      focus: "Stötta kroppen",
+      description: "Sluta försöka förtjäna mat. När du underäter och stressar går kroppen in i stressläge vilket kan ge låg energi, sötsug och trötthet. Att äta ordentligt hjälper dig att bygga muskler, orka träna och få bättre hormonell balans.",
+      exercise: "Ät en ordentlig frukost du gillar, lägg till protein till minst två måltider, drick mer vatten och ät utan skuld eller stress."
     },
     {
       day: 4,
-      title: "Dag 4: Cykelparning",
-      focus: "Cykelsynkronisering",
-      description: "Idag kartlägger du din position i menscykeln och anpassar vikterna och energin därefter så att du jobbar med din biologi – inte mot den.",
-      exercise: "Skriv ner var i cykeln du tror att du befinner dig och reflektera över dagsformen."
+      title: "Dag 4: Bygg vanor som håller ✨",
+      focus: "Kontinuitet & tålamod",
+      description: "Undvik 'allt eller inget'-tänket. Din rutin måste fungera även under stressiga veckor, mens eller resor. De små stegen räknas mer än du tror, och kontinuitet är det som faktiskt bygger resultat over tid.",
+      exercise: "Skriv ner 3 vanor du vill bygga långsiktigt. Fråga dig själv: 'Vad är det minsta jag kan göra idag för att ta hand om mig själv?' (Minimum days mindset)."
     },
     {
       day: 5,
-      title: "Dag 5: Vila som bärande block",
-      focus: "Återhämtning",
-      description: "Att bygga muskler och reglera hormoner sker när du sover och vilar, inte under träningen. Idag eliminerar du alla krav på rörelse.",
-      exercise: "20 minuter guidad yoga-nidra eller vila helt ostört i ett svalt mörkt rum."
+      title: "Dag 5: Styrka & gymångest 🩷💪",
+      focus: "Ta din plats",
+      description: "Känns gymmet läskigt? Du är inte ensam. Du behöver inte kunna allt eller känna dig redo för att börja. Gymmet är för alla, men du kan också börja bygga styrka hemma, precis där du är idag.",
+      exercise: "Testa de tre enkla hemmaövningarna: Squats (knäböj), Glute bridges och Wall push-ups. Spela en låt som får dig att känna dig stark!"
     },
     {
       day: 6,
-      title: "Dag 6: Möt förändringen med värme",
-      focus: "Självkänsla & Mindset",
-      description: "PMS eller klimakteriebesvär kan göra själen sårbar. Du lär dig möta kroppens tillstånd med nyfikenhet istället för dömande piskor.",
-      exercise: "Ställ dig framför spegeln och säg högt: 'Du behöver inte förtjäna din egen kropp' ♡"
+      title: "Dag 6: Din starkaste version",
+      focus: "Trygghet & återhämtning",
+      description: "Din hälsosammaste version behöver inte vara din minsta version. Vila är inte lathet – återhämtning är en del av träningen som hjälper kroppen att bygga muskler, minska stress och återställa hormoner.",
+      exercise: "Gör något återhämtande idag. Skriv ner 3 saker som din fantastiska kropp hjälper dig med varje dag, och möt den med omtanke istället för kritik."
     },
     {
       day: 7,
-      title: "Dag 7: Skapa din heliga, varma vana",
-      focus: "Hållbar Framtid",
-      description: "Nu sammanfattar du veckan och väljer en hållbar riktning framåt. Inte baserat på kortsiktiga resultat eller kaloristress, utan på din inre bärande ork.",
-      exercise: "Formulera en personlig avsikt till din kropp om en långsiktig och sund framtid."
+      title: "Dag 7: Du är redan på väg 🎀",
+      focus: "Look how far you've come",
+      description: "Livet förändras genom de små stegen du fortsätter göra: promenaderna, passen, frukostarna och gångerna du väljer att börja om istället för att ge upp. Det är så hållbar förändring byggs.",
+      exercise: "Skriv ner en sak du säger ja till från och med nu, och en sak du säger nej till för att värna om din egen energi och tid."
     }
   ];
 
