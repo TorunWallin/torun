@@ -682,6 +682,13 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                   </p>
                 </div>
 
+                <div className="bg-amber-50/10 border border-amber-300/20 p-4 rounded-2xl max-w-sm mx-auto text-left space-y-1 font-sans backdrop-blur-xs mb-3">
+                  <span className="text-[9px] font-sans uppercase font-black text-[#fd80ff] tracking-wider block">💳 Direktbetalning lanseras snart</span>
+                  <p className="text-[10.5px] text-[#230c1e]/85 font-light leading-relaxed">
+                    Ingen betalning sker i detta steg. Vi stämmer av ditt upplägg och betalningsdetaljer först under vårt personliga samtal.
+                  </p>
+                </div>
+
                 <div className="bg-white/20 border border-white/40 p-5 rounded-2xl max-w-sm mx-auto text-left space-y-2.5 font-sans backdrop-blur-xs">
                   <span className="text-[10px] font-sans uppercase font-black text-[#fd80ff] tracking-wider block">NÄSTA MJUKA FAS:</span>
                   <ol className="text-xs text-[#230c1e]/90 space-y-2 px-4 list-decimal font-light">

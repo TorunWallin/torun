@@ -331,12 +331,13 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                   Klicka på knappen nedan för att spara den kompletta 45-sidiga digitala utgåvan på din lokala enhet.
                 </p>
               </div>
-              <button 
-                onClick={() => alert("Simulering av full digital PDF hämtning lyckad! Ditt kompletta exemplar laddas ner på din enhet.")}
-                className="bg-white hover:bg-[#fff5fc] text-stone-900 border border-white/10 hover:text-[#fd80ff] text-[10px] font-sans font-extrabold uppercase tracking-widest py-3.5 px-6 rounded-full flex items-center gap-2 shadow-lg transition-all flex-shrink-0 cursor-pointer"
+              <a 
+                href="/stark-och-trygg-startguide.pdf"
+                download="STARK_TRYGG_startguide.pdf"
+                className="bg-white hover:bg-[#fff5fc] text-[#230c1e] border border-white/10 hover:text-[#fd80ff] text-[10px] font-sans font-extrabold uppercase tracking-widest py-3.5 px-6 rounded-full flex items-center gap-2 shadow-lg transition-all flex-shrink-0 cursor-pointer no-underline"
               >
                 <Download className="w-4 h-4 text-[#fd80ff]" /> Spara PDF-versionen
-              </button>
+              </a>
             </div>
           </div>
         )}
