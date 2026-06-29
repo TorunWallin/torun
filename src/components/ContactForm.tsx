@@ -9,6 +9,8 @@ interface ContactFormProps {
 
 export default function ContactForm({ onNavigate }: ContactFormProps) {
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,11 +18,37 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 450);
+    setIsSending(true);
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          type: "contact-page",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
+      
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.error || "Det gick inte att skicka meddelandet just nu. Försök igen.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Ett nätverksfel uppstod. Kontrollera din anslutning och försök igen.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -134,12 +162,19 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
                     </div>
                   </div>
 
+                  {errorMessage && (
+                    <div className="text-red-500 text-[11px] font-sans font-medium text-center bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-4 bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[10px] uppercase tracking-widest font-black rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:-translate-y-0.5 active:scale-98"
+                      disabled={isSending}
+                      className="w-full py-4 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-black rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:-translate-y-0.5 active:scale-98"
                     >
-                      SKICKA MEDDELANDE <ArrowRight className="w-4 h-4 text-white" />
+                      {isSending ? "SKICKAR..." : "SKICKA MEDDELANDE"} <ArrowRight className="w-4 h-4 text-white" />
                     </button>
                   </div>
                 </form>

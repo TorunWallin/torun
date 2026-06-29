@@ -262,6 +262,177 @@ app.post("/api/subscribe", async (req, res) => {
   }
 });
 
+app.post("/api/contact", async (req, res) => {
+  try {
+    const { 
+      type, 
+      name, 
+      email, 
+      phone, 
+      message, 
+      notes, 
+      history, 
+      phase, 
+      intention, 
+      selectedPackage 
+    } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ error: "E-postadress krävs." });
+    }
+
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    const RESEND_FROM = process.env.RESEND_FROM || "Torun Coaching <hej@torun.se>";
+    const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "itorun@me.com";
+
+    if (!RESEND_API_KEY || RESEND_API_KEY === "re_..." || RESEND_API_KEY === "MY_RESEND_API_KEY" || RESEND_API_KEY === "") {
+      console.warn("⚠️ RESEND_API_KEY is not defined. Running in mock mode.");
+      return res.json({ success: true, message: "Mock submit success." });
+    }
+
+    // Map selected packages to friendly names
+    const packageMap: Record<string, string> = {
+      "stark-med-torun": "Stark med Torun (3 månaders personlig coaching)",
+      "mammatraning": "Hormon- & Mammaträning (Gravid / Postpartum)",
+      "medlemsportal-app": "TORUN Medlemsportal (Tränings-app väntelista)",
+    };
+
+    const friendlyPackage = packageMap[selectedPackage] || selectedPackage || "Inget paket valt";
+
+    // Map phases and intentions to friendly Swedish names
+    const phaseMap: Record<string, string> = {
+      gravid: "Gravid / Väntar barn",
+      postpartum: "Postpartum / Nybliven mamma (återhämtning)",
+      regular: "Bli stark & hitta sund relation till träning",
+      therapist: "Söker samtalsterapeut / Mentalt stöd",
+    };
+
+    const intentionMap: Record<string, string> = {
+      styrka: "Bygga fysisk styrka",
+      energi: "Få mer energi i vardagen",
+      rehab: "Rehab / Slippa smärta eller skador",
+      mindset: "Sunt mindset till träning & mat",
+      habits: "Skapa hållbara vanor som håller",
+    };
+
+    const friendlyPhases = Array.isArray(phase) 
+      ? phase.map(p => phaseMap[p] || p).join(", ") 
+      : "";
+    const friendlyIntentions = Array.isArray(intention) 
+      ? intention.map(i => intentionMap[i] || i).join(", ") 
+      : "";
+
+    // Build the email subject and HTML based on form type
+    let subject = "";
+    let htmlContent = "";
+
+    if (type === "coaching-apply") {
+      subject = `Ansökan till Coaching: ${name} 🌟`;
+      htmlContent = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #230c1e; margin-top: 0;">Ny ansökan till Personlig Coaching! 🌟</h2>
+          <p>Fina Torun, en person har skickat in en ansökan om coaching via hemsidan.</p>
+          
+          <div style="background-color: #fafafa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #230c1e; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 14px;">Kontaktuppgifter</h3>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Namn:</strong> ${name}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Telefon:</strong> ${phone || "Inte angivet"}</p>
+            
+            <h3 style="margin-top: 15px; color: #230c1e; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 14px;">Coachingdetaljer</h3>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Valt program:</strong> ${friendlyPackage}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Livsfas:</strong> ${friendlyPhases || "Inget valt"}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Huvudsakligt mål:</strong> ${friendlyIntentions || "Inget valt"}</p>
+            
+            <h3 style="margin-top: 15px; color: #230c1e; border-bottom: 1px solid #eee; padding-bottom: 5px; font-size: 14px;">Bakgrund & Funderingar</h3>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Träningshistorik:</strong></p>
+            <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${history || "Ingen historik skriven"}</p>
+            
+            <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px; font-size: 13px;"><strong>Egna tankar / anteckningar:</strong></p>
+            <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${notes || "Inga anteckningar"}</p>
+          </div>
+          <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
+        </div>
+      `;
+    } else if (type === "waitlist") {
+      subject = `Väntelista Medlemsportal: ${name} 📲`;
+      htmlContent = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #230c1e; margin-top: 0;">Ny registrering till medlemsportalen! 📲</h2>
+          <p>Någon har anmält sig till väntelistan för medlemsportalen / tränings-appen.</p>
+          
+          <div style="background-color: #fafafa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Namn:</strong> ${name}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Telefon:</strong> ${phone || "Inte angivet"}</p>
+            <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px; font-size: 13px;"><strong>Meddelande / anteckning:</strong></p>
+            <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${notes || "Inga anteckningar"}</p>
+          </div>
+          <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
+        </div>
+      `;
+    } else if (type === "coaching-contact") {
+      subject = `Snabbfråga Coaching: ${name} 💬`;
+      htmlContent = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #230c1e; margin-top: 0;">Ny snabbfråga angående coaching! 💬</h2>
+          
+          <div style="background-color: #fafafa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Namn:</strong> ${name}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Telefon:</strong> ${phone || "Inte angivet"}</p>
+            <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px; font-size: 13px;"><strong>Fråga / meddelande:</strong></p>
+            <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${notes || "Inget meddelande"}</p>
+          </div>
+          <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
+        </div>
+      `;
+    } else {
+      // General contact page
+      subject = `Kontaktformulär: ${name} ✉️`;
+      htmlContent = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+          <h2 style="color: #230c1e; margin-top: 0;">Nytt meddelande från kontaktformuläret! ✉️</h2>
+          
+          <div style="background-color: #fafafa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Namn:</strong> ${name}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Telefon:</strong> ${phone || "Inte angivet"}</p>
+            <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px; font-size: 13px;"><strong>Meddelande:</strong></p>
+            <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${message || "Inget meddelande"}</p>
+          </div>
+          <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
+        </div>
+      `;
+    }
+
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: RESEND_FROM,
+        to: NOTIFY_EMAIL,
+        subject: subject,
+        html: htmlContent,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Resend API Error inside /api/contact:", errorText);
+      return res.status(500).json({ error: "Kunde inte skicka kontaktmejlet." });
+    }
+
+    return res.json({ success: true });
+  } catch (error: any) {
+    console.error("Error in /api/contact:", error);
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // Configure Vite middleware or production build output serving
 async function start() {
   if (process.env.NODE_ENV !== "production") {

@@ -15,6 +15,8 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
   );
   const [step, setStep] = useState<number>(1);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -70,9 +72,46 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSending(true);
+    setErrorMessage("");
+    try {
+      const payload: any = {
+        type: formType === "apply" ? "coaching-apply" : formType === "waitlist" ? "waitlist" : "coaching-contact",
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        notes: formData.notes
+      };
+
+      if (formType === "apply") {
+        payload.phase = formData.phase;
+        payload.intention = formData.intention;
+        payload.history = formData.history;
+        payload.selectedPackage = formData.selectedPackage;
+      }
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.error || "Det gick inte att skicka in din förfrågan just nu. Försök igen.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("Ett nätverksfel uppstod. Kontrollera din anslutning och försök igen.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const stepsInfo = [
@@ -275,12 +314,19 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     </div>
                   </div>
 
+                  {errorMessage && (
+                    <div className="text-red-500 text-[11px] font-sans font-medium text-center bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl my-4">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="pt-6 border-t border-white/40 flex justify-end font-sans">
                     <button
                       type="submit"
-                      className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
+                      disabled={isSending}
+                      className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
                     >
-                      BEVAKA LANSERING <ArrowRight className="w-4 h-4 text-white" />
+                      {isSending ? "SKICKAR..." : "BEVAKA LANSERING"} <ArrowRight className="w-4 h-4 text-white" />
                     </button>
                   </div>
                 </form>
@@ -362,12 +408,19 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     </div>
                   </div>
 
+                  {errorMessage && (
+                    <div className="text-red-500 text-[11px] font-sans font-medium text-center bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl my-4">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <div className="pt-6 border-t border-white/40 flex justify-end font-sans">
                     <button
                       type="submit"
-                      className="px-8 py-3.5 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
+                      disabled={isSending}
+                      className="px-8 py-3.5 bg-[#230c1e] hover:bg-[#3d1534] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
                     >
-                      SKICKA MEDDELANDE <ArrowRight className="w-4 h-4 text-[#fd80ff]" />
+                      {isSending ? "SKICKAR..." : "SKICKA MEDDELANDE"} <ArrowRight className="w-4 h-4 text-[#fd80ff]" />
                     </button>
                   </div>
                 </form>
@@ -626,6 +679,12 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     </div>
                   )}
 
+                  {errorMessage && (
+                    <div className="text-red-500 text-[11px] font-sans font-medium text-center bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl my-4">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Navigation buttons */}
                   <div className="pt-6 border-t border-white/40 flex justify-between font-sans">
                     {step > 1 ? (
@@ -652,9 +711,10 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                     ) : (
                       <button
                         type="submit"
-                        className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                        disabled={isSending}
+                        className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
                       >
-                        SKICKA ANSÖKAN <ClipboardCheck className="w-4 h-4 text-white" />
+                        {isSending ? "SKICKAR..." : "SKICKA ANSÖKAN"} <ClipboardCheck className="w-4 h-4 text-white" />
                       </button>
                     )}
                   </div>
