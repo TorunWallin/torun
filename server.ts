@@ -140,7 +140,7 @@ app.post("/api/subscribe", async (req, res) => {
     }
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const RESEND_FROM = process.env.RESEND_FROM || "TORUN. <onboarding@resend.dev>";
+    const RESEND_FROM = process.env.RESEND_FROM || "Torun Coaching <hej@torun.se>";
     // Default URL pointing to the stark-och-trygg-startguide.pdf
     const GUIDE_URL = process.env.NEXT_PUBLIC_SITE_URL 
       ? `${process.env.NEXT_PUBLIC_SITE_URL}/stark-och-trygg-startguide.pdf`
