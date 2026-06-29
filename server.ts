@@ -214,6 +214,16 @@ app.post("/api/subscribe", async (req, res) => {
     // Skicka notifiering till Torun (tyst i bakgrunden så att det inte stör registreringen om det mot förmodan skulle strula)
     try {
       const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "itorun@me.com";
+      const challengeMap: Record<string, string> = {
+        general: "Vill bara hitta en stark och snäll relation till min kropp",
+        stress: "Hög stress, utmattad eller svårt att sova",
+        hormone: "Hormonellt svängig (PMS, menscykeln eller klimakteriet)",
+        relationship: "Svårt att behålla en bra träningsvana utan hets",
+        strength: "Vill börja lyfta men rädd för skador eller dömande miljöer",
+        inspiration: "Är nyfiken och vill bara ha varm träningspepp & inspiration",
+      };
+      const friendlyChallenge = challengeMap[challenge] || challenge || "Inget val gjort";
+
       await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -233,7 +243,7 @@ app.post("/api/subscribe", async (req, res) => {
                 <p style="margin: 5px 0;"><strong>Förnamn:</strong> ${name}</p>
                 <p style="margin: 5px 0;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
                 <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px;"><strong>Vald utmaning/intresse:</strong></p>
-                <p style="margin: 5px 0; font-style: italic; color: #555;">"${challenge || "Inget val gjort"}"</p>
+                <p style="margin: 5px 0; font-style: italic; color: #555;">"${friendlyChallenge}"</p>
               </div>
               
               <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
