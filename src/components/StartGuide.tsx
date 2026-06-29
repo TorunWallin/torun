@@ -8,7 +8,7 @@ interface StartGuideProps {
 
 export default function StartGuide({ onNavigate }: StartGuideProps) {
   const [submitted, setSubmitted] = useState(false);
-  const [lead, setLead] = useState({ name: "", email: "", challenge: "stress" });
+  const [lead, setLead] = useState({ name: "", email: "", challenge: "general" });
   const [activeDay, setActiveDay] = useState<number>(1);
   const [loading, setLoading] = useState(false);
 
@@ -182,10 +182,12 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                       onChange={(e) => setLead({...lead, challenge: e.target.value})}
                       className="w-full bg-[#fbf9fa] border border-[#ecdfe5] focus:bg-white focus:border-[#fd80ff]/70 focus:ring-4 focus:ring-[#fd80ff]/8 rounded-2xl px-5 py-3.5 pr-12 text-xs text-[#230c1e] appearance-none cursor-pointer transition-all outline-none"
                     >
-                      <option value="stress">Hög stress, utmattad, svårt att sova</option>
-                      <option value="hormone">Hormonellt svängig (PMS / Klimakteriet)</option>
-                      <option value="relationship">Svårt att behålla god träningsvana utan hets</option>
+                      <option value="general">Vill bara hitta en stark och snäll relation till min kropp</option>
+                      <option value="stress">Hög stress, utmattad eller svårt att sova</option>
+                      <option value="hormone">Hormonellt svängig (PMS, menscykeln eller klimakteriet)</option>
+                      <option value="relationship">Svårt att behålla en bra träningsvana utan hets</option>
                       <option value="strength">Vill börja lyfta men rädd för skador eller dömande miljöer</option>
+                      <option value="inspiration">Är nyfiken och vill bara ha varm träningspepp & inspiration</option>
                     </select>
                     <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#230c1e]/40">
                       <ChevronDown className="w-4 h-4" />
