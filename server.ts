@@ -240,4 +240,8 @@ async function start() {
   });
 }
 
-start();
+if (process.env.VERCEL !== "1") {
+  start();
+}
+
+export default app;
