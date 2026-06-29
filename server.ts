@@ -389,6 +389,15 @@ app.post("/api/contact", async (req, res) => {
       `;
     } else {
       // General contact page
+      const { packageOfInterest } = req.body;
+      const packageMap: Record<string, string> = {
+        "general-inquiry": "Allmän fråga / Vill bara bolla",
+        "stark-med-torun": "Personlig Coaching (Stark med Torun)",
+        "mammatraning": "Hormon- & Mammaträning (Gravid/Postpartum)",
+        "medlemsportal-app": "Medlemsportalen (Tränings-appen)",
+      };
+      const friendlyInterest = packageMap[packageOfInterest] || packageOfInterest || "Allmän fråga / Vill bara bolla";
+
       subject = `Kontaktformulär: ${name} ✉️`;
       htmlContent = `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
@@ -398,6 +407,7 @@ app.post("/api/contact", async (req, res) => {
             <p style="margin: 5px 0; font-size: 13px;"><strong>Namn:</strong> ${name}</p>
             <p style="margin: 5px 0; font-size: 13px;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
             <p style="margin: 5px 0; font-size: 13px;"><strong>Telefon:</strong> ${phone || "Inte angivet"}</p>
+            <p style="margin: 5px 0; font-size: 13px;"><strong>Intresserad av:</strong> ${friendlyInterest}</p>
             <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px; font-size: 13px;"><strong>Meddelande:</strong></p>
             <p style="margin: 5px 0; font-style: italic; font-size: 13px; white-space: pre-wrap; color: #444;">${message || "Inget meddelande"}</p>
           </div>

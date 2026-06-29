@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Check, ArrowRight, Instagram, MapPin, Clock } from "lucide-react";
+import { Mail, Check, ArrowRight, Instagram, MapPin, Clock, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import torunDock from "../../assets/torun_dock.jpg";
 
@@ -15,6 +15,7 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
     name: "",
     email: "",
     phone: "",
+    packageOfInterest: "general-inquiry",
     message: ""
   });
 
@@ -33,6 +34,7 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          packageOfInterest: formData.packageOfInterest,
           message: formData.message
         })
       });
@@ -102,51 +104,72 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
               <div className="md:col-span-7 glass-panel border border-white/65 rounded-[2.5rem] shadow-2xl p-6 sm:p-10 space-y-6 flex flex-col justify-between">
                 <div className="space-y-3">
                   <span className="text-[10px] font-sans font-bold tracking-widest text-[#fd80ff] uppercase block">
-                    HÖR AV DIG
+                    KONTAKT
                   </span>
                   <h1 className="font-serif text-2xl sm:text-3xl font-normal text-[#230c1e] tracking-tight">
-                    Skicka ett meddelande
+                    Hör av dig till mig 🤍
                   </h1>
                   <p className="text-xs text-stone-500 leading-relaxed font-sans font-light">
-                    Skriv dina funderingar eller frågor nedan så återkommer jag till dig personligen så fort jag kan.
+                    Skriv dina frågor, tankar eller funderingar nedan. Berätta gärna om du är nyfiken på ett specifikt träningsprogram eller om du bara vill bolla vad som passar din kropp bäst just nu. Jag svarar dig personligen så snart jag kan!
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-4 font-sans">
-                    <div>
-                      <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Ditt namn</label>
-                      <input 
-                        type="text" 
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Skriv ditt förnamn och efternamn..."
-                        className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 transition-all"
-                      />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Ditt förnamn</label>
+                        <input 
+                          type="text" 
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({...formData, name: e.target.value})}
+                          placeholder="Ditt förnamn..."
+                          className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Telefonnummer (valfritt)</label>
+                        <input 
+                          type="tel" 
+                          value={formData.phone}
+                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          placeholder="Ditt telefonnummer..."
+                          className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 transition-all"
+                        />
+                      </div>
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">E-postadress</label>
+                      <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Din e-postadress</label>
                       <input 
                         type="email" 
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder="Skriv din e-postadress..."
+                        placeholder="Din e-postadress..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Telefonnummer (valfritt)</label>
-                      <input 
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        placeholder="Skriv ditt telefonnummer..."
-                        className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 transition-all"
-                      />
+                      <label className="block text-[10px] font-sans uppercase tracking-wider text-stone-500 mb-1.5 font-bold">Vad är du intresserad av?</label>
+                      <div className="relative">
+                        <select 
+                          value={formData.packageOfInterest}
+                          onChange={(e) => setFormData({...formData, packageOfInterest: e.target.value})}
+                          className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] appearance-none cursor-pointer transition-all outline-none"
+                        >
+                          <option value="general-inquiry">Allmän fråga / Vill bara bolla</option>
+                          <option value="stark-med-torun">Personlig Coaching (Stark med Torun)</option>
+                          <option value="mammatraning">Hormon- & Mammaträning (Gravid/Postpartum)</option>
+                          <option value="medlemsportal-app">Medlemsportalen (Tränings-appen)</option>
+                        </select>
+                        <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[#230c1e]/40">
+                          <ChevronDown className="w-4 h-4" />
+                        </div>
+                      </div>
                     </div>
 
                     <div>
@@ -156,7 +179,7 @@ export default function ContactForm({ onNavigate }: ContactFormProps) {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
-                        placeholder="Vad funderar du på? Skriv ditt meddelande här..."
+                        placeholder="Skriv dina tankar här..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-stone-400/80 font-sans transition-all"
                       />
                     </div>
