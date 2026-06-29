@@ -211,6 +211,40 @@ app.post("/api/subscribe", async (req, res) => {
       return res.status(500).json({ error: "Kunde inte skicka mejl via Resend." });
     }
 
+    // Skicka notifiering till Torun (tyst i bakgrunden så att det inte stör registreringen om det mot förmodan skulle strula)
+    try {
+      const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "itorun@me.com";
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: RESEND_FROM,
+          to: NOTIFY_EMAIL,
+          subject: `Ny startguide-anmälan: ${name} 🎉`,
+          html: `
+            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+              <h2 style="color: #230c1e; margin-top: 0;">Ny startguide-anmälan! 🌸</h2>
+              <p>Fina Torun, en ny person har precis registrerat sig för att ladda ner din startguide på hemsidan.</p>
+              
+              <div style="background-color: #fafafa; padding: 15px; border-radius: 6px; margin: 20px 0;">
+                <p style="margin: 5px 0;"><strong>Förnamn:</strong> ${name}</p>
+                <p style="margin: 5px 0;"><strong>E-post:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p style="margin: 15px 0 5px 0; border-top: 1px solid #eee; padding-top: 10px;"><strong>Vald utmaning/intresse:</strong></p>
+                <p style="margin: 5px 0; font-style: italic; color: #555;">"${challenge || "Inget val gjort"}"</p>
+              </div>
+              
+              <p style="font-size: 12px; color: #999;">Detta mejl skickades automatiskt från torun.se via Resend.</p>
+            </div>
+          `,
+        }),
+      });
+    } catch (notifyError) {
+      console.error("Kunde inte skicka notifieringsmejl till Torun:", notifyError);
+    }
+
     return res.json({ success: true });
   } catch (error: any) {
     console.error("Error in /api/subscribe:", error);
