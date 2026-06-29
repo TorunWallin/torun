@@ -5,6 +5,7 @@ import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 
 dotenv.config();
+dotenv.config({ path: ".env.local", override: true });
 
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3001;
@@ -128,6 +129,73 @@ Ge henne ditt svar nu. Kom ihåg att svara direkt till henne, hålla din filosof
       error: error.message,
       offline: true
     });
+  }
+});
+
+// API subscription/startguide route using Resend email delivery
+app.post("/api/subscribe", async (req, res) => {
+  try {
+    const { name, email, challenge } = req.body;
+    if (!email) {
+      return res.status(400).json({ error: "E-postadress krävs." });
+    }
+
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    const RESEND_FROM = process.env.RESEND_FROM || "TORUN. <onboarding@resend.dev>";
+    // Default URL pointing to the stark-och-trygg-startguide.pdf
+    const GUIDE_URL = process.env.NEXT_PUBLIC_SITE_URL 
+      ? `${process.env.NEXT_PUBLIC_SITE_URL}/stark-och-trygg-startguide.pdf`
+      : "https://torun.se/stark-och-trygg-startguide.pdf";
+
+    if (!RESEND_API_KEY || RESEND_API_KEY === "re_..." || RESEND_API_KEY === "MY_RESEND_API_KEY" || RESEND_API_KEY === "") {
+      console.warn("⚠️ RESEND_API_KEY is not defined or is placeholder. Subscription email will run in mock demo mode.");
+      return res.json({ success: true, message: "Mock signup success (offline)." });
+    }
+
+    // Call Resend API using node fetch
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: RESEND_FROM,
+        to: email,
+        subject: "Här är din Stark & Trygg Startguide! 🌸",
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #230c1e; line-height: 1.6; padding: 20px; background-color: #fffafb; border-radius: 20px;">
+            <h2 style="font-family: serif; color: #230c1e; font-weight: normal;">Hej fina ${name}! ♡</h2>
+            <p>Vad glad jag blir att du har valt att ladda ner min 7-dagars startguide. Det här är ditt första steg mot att lyssna på din kropp, träna i samarbete med dina hormoner och bygga en stark, trygg grund.</p>
+            <p>I guiden får du övningar och biologiska råd för hur du stöttar din kropp i din vardag – helt utan kaloristress eller kortsiktig press.</p>
+            
+            <div style="margin: 35px 0; text-align: center;">
+              <a href="${GUIDE_URL}" style="background-color: #230c1e; color: #ffffff; padding: 14px 28px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 14px; letter-spacing: 0.05em; display: inline-block; box-shadow: 0 4px 12px rgba(35, 12, 30, 0.15);">HÄMTA DIN PDF-GUIDE HÄR 🌸</a>
+            </div>
+            
+            <p>Öppna den gärna när du har en lugn stund för dig själv och börja i din egen mjuka takt.</p>
+            <p>Jag önskar dig en underbar vecka!</p>
+            
+            <p style="margin-top: 40px; border-top: 1px solid rgba(35, 12, 30, 0.08); padding-top: 20px; font-size: 13px; color: #5c4b57;">
+              Varma hälsningar,<br>
+              <strong>Torun Wallin</strong><br>
+              Lic. PT & Kostrådgivare
+            </p>
+          </div>
+        `,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Resend API Error details:", errorText);
+      return res.status(500).json({ error: "Kunde inte skicka mejl via Resend." });
+    }
+
+    return res.json({ success: true });
+  } catch (error: any) {
+    console.error("Error in /api/subscribe:", error);
+    return res.status(500).json({ error: error.message });
   }
 });
 

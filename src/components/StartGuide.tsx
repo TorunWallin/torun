@@ -10,6 +10,7 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
   const [submitted, setSubmitted] = useState(false);
   const [lead, setLead] = useState({ name: "", email: "", challenge: "stress" });
   const [activeDay, setActiveDay] = useState<number>(1);
+  const [loading, setLoading] = useState(false);
 
   const guideDays = [
     {
@@ -63,10 +64,22 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (lead.name.trim() && lead.email.trim()) {
+    if (!lead.name.trim() || !lead.email.trim()) return;
+
+    setLoading(true);
+    try {
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(lead),
+      });
+    } catch (err) {
+      console.warn("Subscription fetch failed (offline fallback):", err);
+    } finally {
       setSubmitted(true);
+      setLoading(false);
     }
   };
 
@@ -183,10 +196,11 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                 <div className="pt-3">
                   <button 
                     type="submit"
-                    className="w-full bg-[#230c1e] hover:bg-[#34182d] text-white font-sans text-[10px] tracking-[0.18em] font-black uppercase py-4.5 rounded-2xl shadow-lg hover:shadow-xl active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2.5 group"
+                    disabled={loading}
+                    className="w-full bg-[#230c1e] hover:bg-[#34182d] text-white font-sans text-[10px] tracking-[0.18em] font-black uppercase py-4.5 rounded-2xl shadow-lg hover:shadow-xl active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2.5 group disabled:opacity-60"
                   >
                     <Mail className="w-4.5 h-4.5 text-[#fd80ff] group-hover:scale-105 transition-transform" />
-                    SKICKA MIN 7-DAGARS GUIDE NU
+                    {loading ? "SKICKAR..." : "SKICKA MIN 7-DAGARS GUIDE NU"}
                   </button>
                 </div>
               </form>
