@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Sparkles, Check, Download, BookOpen, Clock, Heart, Calendar, ArrowRight, ArrowLeft, ChevronDown } from "lucide-react";
+import { Mail, Sparkles, Check, BookOpen, Clock, Heart, Calendar, ArrowRight, ArrowLeft, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface StartGuideProps {
@@ -157,7 +157,7 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                     required
                     value={lead.name}
                     onChange={(e) => setLead({...lead, name: e.target.value})}
-                    placeholder="T.ex. Hanna..."
+                    placeholder="Ditt förnamn..."
                     className="w-full bg-[#fbf9fa] border border-[#ecdfe5] focus:bg-white focus:border-[#fd80ff]/70 focus:ring-4 focus:ring-[#fd80ff]/8 rounded-2xl px-5 py-3.5 text-xs text-[#230c1e] placeholder-[#230c1e]/35 transition-all outline-none"
                   />
                 </div>
@@ -169,7 +169,7 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                     required
                     value={lead.email}
                     onChange={(e) => setLead({...lead, email: e.target.value})}
-                    placeholder="hanna.andersson@epost.se"
+                    placeholder="Din e-postadress..."
                     className="w-full bg-[#fbf9fa] border border-[#ecdfe5] focus:bg-white focus:border-[#fd80ff]/70 focus:ring-4 focus:ring-[#fd80ff]/8 rounded-2xl px-5 py-3.5 text-xs text-[#230c1e] placeholder-[#230c1e]/35 transition-all outline-none"
                   />
                 </div>
@@ -224,7 +224,7 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
                 Stort tack, finaste {lead.name}! ♡
               </h2>
               <p className="text-[#230c1e]/75 text-xs sm:text-sm max-w-xl mx-auto font-sans font-light">
-                E-boken har skickats till din adress. Du kan börja ta del av guiden direkt här i det digitala läshäftet nedan under tiden.
+                Startguiden har skickats till din e-postadress. Du kan börja ta del av häftet direkt här nedan under tiden.
               </p>
             </div>
 
@@ -337,22 +337,7 @@ export default function StartGuide({ onNavigate }: StartGuideProps) {
               </div>
             </div>
 
-            {/* Interactive Download Action Bottom Box */}
-            <div className="bg-[#1C1714]/90 rounded-[2.5rem] p-8 text-white flex flex-col sm:flex-row justify-between items-center gap-6 border border-white/10 shadow-2xl backdrop-blur-md">
-              <div className="space-y-1 text-center sm:text-left">
-                <h4 className="font-display text-base font-normal uppercase text-white leading-none">Vill du ladda ner hela häftet?</h4>
-                <p className="text-xs text-stone-300 font-sans font-light">
-                  Klicka på knappen nedan för att spara den kompletta 45-sidiga digitala utgåvan på din lokala enhet.
-                </p>
-              </div>
-              <a 
-                href="/stark-och-trygg-startguide.pdf"
-                download="STARK_TRYGG_startguide.pdf"
-                className="bg-white hover:bg-[#fff5fc] text-[#230c1e] border border-white/10 hover:text-[#fd80ff] text-[10px] font-sans font-extrabold uppercase tracking-widest py-3.5 px-6 rounded-full flex items-center gap-2 shadow-lg transition-all flex-shrink-0 cursor-pointer no-underline"
-              >
-                <Download className="w-4 h-4 text-[#fd80ff]" /> Spara PDF-versionen
-              </a>
-            </div>
+
           </div>
         )}
 

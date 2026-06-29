@@ -240,13 +240,13 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-4 font-sans">
                     <div>
-                      <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt fullständiga namn</label>
+                      <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt förnamn</label>
                       <input 
                         type="text" 
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Förnamn och efternamn..."
+                        placeholder="Ditt förnamn..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                       />
                     </div>
@@ -258,7 +258,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder="hanna.lindqvist@epost.se"
+                        placeholder="Din e-postadress..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                       />
                     </div>
@@ -314,13 +314,13 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-4 font-sans">
                     <div>
-                      <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt fullständiga namn</label>
+                      <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt förnamn</label>
                       <input 
                         type="text" 
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder="Förnamn och efternamn..."
+                        placeholder="Ditt förnamn..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                       />
                     </div>
@@ -332,7 +332,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder="hanna.lindqvist@epost.se"
+                        placeholder="Din e-postadress..."
                         className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                       />
                     </div>
@@ -433,13 +433,13 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                       </h3>
                       
                       <div>
-                        <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt fullständiga namn</label>
+                        <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">Ditt förnamn</label>
                         <input 
                           type="text" 
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          placeholder="Förnamn och efternamn..."
+                          placeholder="Ditt förnamn..."
                           className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                         />
                       </div>
@@ -451,7 +451,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate }: Appli
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          placeholder="hanna.lindqvist@epost.se"
+                          placeholder="Din e-postadress..."
                           className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
                         />
                       </div>
