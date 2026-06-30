@@ -585,7 +585,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat2Text}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 border-r border-pink-100/30 pt-1 sm:pt-0 font-sans">
-                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#230c1e] leading-none">{t.stat3Num}</span>
+                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">{t.stat3Num}</span>
                   <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat3Text}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 pt-1 sm:pt-0 font-sans">
@@ -869,7 +869,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
               </div>
               <button
                 onClick={() => onSelectPackage(currentRecommendationId)}
-                className="w-full sm:w-auto bg-[#230c1e] hover:bg-[#3d1534] text-white font-sans text-[11px] tracking-widest font-semibold uppercase px-8 py-3.5 rounded-full shadow-sm transition-all cursor-pointer"
+                className="w-full sm:w-auto bg-[#230c1e] hover:bg-[#3d1534] text-white font-sans text-[12px] tracking-widest font-extrabold uppercase px-11 py-4.5 rounded-full shadow-md transition-all cursor-pointer hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 {t.s3MatchmakerChoose}
               </button>
@@ -973,7 +973,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                               e.stopPropagation();
                               onSelectPackage(pkg.id);
                             }}
-                            className={`group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer hover:-translate-y-0.5 active:scale-[0.98] select-none w-full overflow-hidden ${buttonBgClass}`}
+                            className={`group relative inline-flex items-center justify-center text-sm font-sans font-black uppercase tracking-widest px-12 py-4.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer hover:-translate-y-0.5 active:scale-[0.98] select-none w-full overflow-hidden ${buttonBgClass}`}
                           >
                             <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                               {pkg.buttonText || t.s3BtnText}
@@ -1081,7 +1081,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                     <div className="pt-4">
                       <button
                         onClick={() => onSelectPackage(appPkg.id)}
-                        className="group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-4 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-transparent shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none w-full sm:w-auto overflow-hidden"
+                        className="group relative inline-flex items-center justify-center text-sm font-sans font-black uppercase tracking-widest px-12 py-4.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-transparent shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none w-full sm:w-auto overflow-hidden"
                       >
                         <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                           {appPkg.buttonText}

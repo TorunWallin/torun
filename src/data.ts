@@ -50,7 +50,7 @@ export const packagesSv: Package[] = [
     originalPrice: "3 495 kr",
     period: "/mån · löpande, minst 3 mån",
     badge: "LANSERINGSPRIS · T.O.M. 10 JULI",
-    description: "Den ultimata omfamningen. Detta är mitt djupaste stöd för dig som är redo å göra arbetet på riktigt. Vi ses varje vecka i 1:1-videosamtal och hörs dagligen via chatten. Vi jobbar parallellt med träning, kost, hormonbalans, nervsystemsreglering och mental självkänsla.",
+    description: "Den ultimata omfamningen. Detta är mitt djupaste stöd för dig som är redo att göra arbetet på riktigt. Vi ses varje vecka i 1:1-videosamtal och hörs dagligen via chatten. Vi jobbar parallellt med träning, kost, hormonbalans, nervsystemsreglering och mental självkänsla.",
     outputGoal: "Du kommer få: Personligt stöd varje vardag, veckovisa djupsamtal och ett helt skräddarsytt upplägg för hela ditt välbefinnande.",
     features: [
       "Dagliga avstämningar och support via chatten varje vardag",
@@ -79,12 +79,6 @@ export const packagesSv: Package[] = [
       "Interaktiva verktyg som Hormonkompassen och Dagsformshjulet direkt i mobilen",
       "Toruns egna mobilapp (under utveckling, lanseras inom kort!)",
       "Möjlighet att uppgradera till personlig coaching när du vill"
-    ],
-    buttonText: "Bevaka lansering",
-    recommended: false,
-    colorTheme: "sage"
-  }
-];     "Torun-appen i mobilen (Lanseras inom kort!)"
     ],
     buttonText: "Bevaka lansering",
     recommended: false,
@@ -299,7 +293,7 @@ export const articlesSv: Article[] = [
     excerpt: "När östrogenet sjunker förändras benstommen och muskelmassan. Att lyfta tungt är inte farligt – det är din bästa medicin.",
     content: [
       "Klimakteriet är inte slutet på din kraft – det är början på ett nytt kapitel där din kropp behöver dig mer än någonsin. När östrogenet gradvis minskar under perimenopauser och menopausen förändras förutsättningarna för vår benhälsa och muskelmassa.",
-      "Många kvinnor blir rekommenderade att enbart göra jagugn yoga eller lätt rörlighet när de blir äldre. Även om rörlighet är fantastisk, är det de tunga, kontrollerade lyften som ger den bärande signalen till din benstomme att hålla sig tät, stark och frisk.",
+      "Många kvinnor blir rekommenderade att enbart göra lugn yoga eller lätt rörlighet när de blir äldre. Även om rörlighet är fantastisk, är det de tunga, kontrollerade lyften som ger den bärande signalen till din benstomme att hålla sig tät, stark och frisk.",
       "Styrketräning förbättrar dessutom insulinkänsligheten (vilket naturligt minskar under klimakteriet), stöttar din mentala skärpa och hjälper till att reglera stress. Det handlar inte om att göra komplicerade akrobatiska rörelser, utan om att bygga trygg styrka i de stora muskelgrupperna.",
       "I min coaching möter jag klimakteriet med djup respekt och nyfikenhet. Jag ser till att ladda kroppen med rätt protein, ge utrymme för återhämtning och anpassa vikterna efter din dagsform. Du är värd att känna dig ostoppbar, oavsett ålder ♡"
     ]

@@ -444,6 +444,41 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
+import Stripe from "stripe";
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+  apiVersion: "2023-10-16" as any,
+});
+
+app.post("/api/stripe/checkout", async (req, res) => {
+  try {
+    const priceId = process.env.STRIPE_PRICE_KICKSTART;
+    if (!priceId) {
+      console.error("STRIPE_PRICE_KICKSTART is not set in env");
+      return res.status(500).json({ error: "Stripe Price ID saknas i konfigurationen." });
+    }
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      mode: "payment",
+      success_url: `${siteUrl}?session_id={CHECKOUT_SESSION_ID}&kickstart_success=true`,
+      cancel_url: `${siteUrl}?kickstart_cancel=true`,
+    });
+
+    return res.json({ url: session.url });
+  } catch (error: any) {
+    console.error("Stripe error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 // Configure Vite middleware or production build output serving
 async function start() {
   if (process.env.NODE_ENV !== "production") {

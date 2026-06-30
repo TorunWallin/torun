@@ -69,7 +69,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
       networkError: "Ett nätverksfel uppstod. Kontrollera din anslutning och försök igen.",
       submitError: "Det gick inte att skicka in din förfrågan just nu. Försök igen.",
       
-      tagApply: "ANSTÄNDIG ANSÖKAN TILL COACHING",
+      tagApply: "ALLMÄN ANSÖKAN TILL COACHING",
       titleApply: "Ett första fritt steg",
       introApply: "Här finns inga krav på prestation, före- och efterbilder eller kaloripiskor. Berätta om din vardag så möter jag dig där du är.",
       step1: "Kontakt",
@@ -227,6 +227,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
         setFormType("apply");
       }
       setFormData((prev) => ({ ...prev, selectedPackage: selectedPackageId }));
+      setStep(1);
     } else {
       setFormType(null);
     }
@@ -262,8 +263,15 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    
+    // Prevent premature submissions (e.g. pressing Enter in inputs before the final step)
+    if (!selectedPackageId && step < 5) {
+      handleNext();
+      return;
+    }
+
     setIsSending(true);
     setErrorMessage("");
     try {
@@ -619,104 +627,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
 
             {formType === "apply" && (
               <div className="glass-panel border border-white/65 rounded-[2.5rem] shadow-2xl p-6 sm:p-10 space-y-8 animate-in-fade-slide text-left">
-                {selectedPackageId && selectedPackageId !== "medlemsportal-app" ? (
-                  <div className="space-y-6">
-                    <div className="border-b border-white/40 pb-6 space-y-2 relative">
-                      <button
-                        type="button"
-                        onClick={() => onNavigate("programs")}
-                        className="absolute right-0 top-0 text-[9px] font-sans font-bold uppercase tracking-wider text-[#230c1e]/60 hover:text-[#230c1e] flex items-center gap-1 cursor-pointer transition-colors"
-                      >
-                        <ArrowLeft className="w-3 h-3 text-[#fd80ff]" /> {t.backLink}
-                      </button>
-                      <span className="text-[10px] font-sans font-bold tracking-widest text-[#fd80ff] uppercase block">
-                        COACHINGANSÖKAN
-                      </span>
-                      <h1 className="font-display text-xl sm:text-3xl font-normal tracking-tight text-[#230c1e]">
-                        {packages.find(p => p.id === selectedPackageId)?.name} 🎀
-                      </h1>
-                      <p className="text-xs text-[#230c1e]/75 font-sans leading-relaxed font-light">
-                        {selectedPackageId === "kickstart" 
-                          ? "Fyll i dina uppgifter nedan för att påbörja Kickstart. Vi hörs på mejl/sms och sätter igång i Everfit!"
-                          : selectedPackageId === "stark-med-torun"
-                          ? "Fyll i uppgifterna nedan så kontaktar jag dig personligen för att boka ett fritt samtal där vi stämmer av din cykel-synk och dina mål."
-                          : "Detta är mitt djupaste och mest exklusiva coachingprogram. Berätta kort om dig själv och vad du vill bjuda in i livet, så hörs vi för ett inledande samtal."
-                        }
-                      </p>
-                    </div>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div className="space-y-4 font-sans">
-                        <div>
-                          <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">{t.labelName}</label>
-                          <input 
-                            type="text" 
-                            required
-                            value={formData.name}
-                            onChange={(e) => setFormData({...formData, name: e.target.value})}
-                            placeholder={t.placeholderName}
-                            className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">{t.labelEmail}</label>
-                          <input 
-                            type="email" 
-                            required
-                            value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            placeholder={t.placeholderEmail}
-                            className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">{t.labelPhoneRequired}</label>
-                          <input 
-                            type="tel" 
-                            required
-                            value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                            placeholder={t.placeholderPhoneRequired}
-                            className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-[10px] font-sans uppercase tracking-wider text-[#230c1e]/70 mb-1.5 font-bold">
-                            Berätta kort om din vardag, din träningsbakgrund eller dina funderingar
-                          </label>
-                          <textarea 
-                            rows={5}
-                            required
-                            value={formData.notes}
-                            onChange={(e) => setFormData({...formData, notes: e.target.value})}
-                            placeholder="Skriv dina funderingar här, t.ex. vad du önskar uppnå och vad som känns viktigt för dig just nu..."
-                            className="w-full bg-white/40 border border-white/65 rounded-xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:bg-white/60 text-[#230c1e] placeholder-[#230c1e]/40 font-sans"
-                          />
-                        </div>
-                      </div>
-
-                      {errorMessage && (
-                        <div className="text-red-500 text-[11px] font-sans font-medium text-center bg-red-500/10 border border-red-500/25 px-4 py-2.5 rounded-xl my-4">
-                          {errorMessage}
-                        </div>
-                      )}
-
-                      <div className="pt-6 border-t border-white/40 flex justify-end font-sans">
-                        <button
-                          type="submit"
-                          disabled={isSending}
-                          className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-lg transition-all flex items-center gap-1.5 cursor-pointer"
-                        >
-                          {isSending ? t.sending : t.submitBtn} <ClipboardCheck className="w-4 h-4 text-white" />
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                ) : (
-                  <>
+<>
                     <div className="border-b border-white/40 pb-6 space-y-2 relative">
                       {!selectedPackageId && (
                         <button
@@ -731,7 +642,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                         {t.tagApply}
                       </span>
                       <h1 className="font-display text-xl sm:text-3xl font-normal tracking-tight text-[#230c1e]">
-                        {t.titleApply}
+                        {selectedPackageId ? `Ansökan till ${packages.find(p => p.id === selectedPackageId)?.name || "coaching"}` : t.titleApply}
                       </h1>
                       <p className="text-xs text-[#230c1e]/75 font-sans leading-relaxed font-light">
                         {t.introApply}
@@ -759,7 +670,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                       })}
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-6">
                       
                       {step === 1 && (
                         <div className="space-y-4 animate-in-fade-slide">
@@ -834,8 +745,8 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                                 key={opt.value}
                                 className={`p-4 rounded-xl border cursor-pointer transition-all flex gap-3.5 items-start ${
                                   formData.phase.includes(opt.value) 
-                                    ? "bg-white/50 border-[#fd80ff]/42 shadow-sm" 
-                                    : "bg-white/10 hover:bg-white/20 border-white/40"
+                                    ? "bg-white border-[#fd80ff] shadow-sm ring-2 ring-[#fd80ff]/20" 
+                                    : "bg-white/60 hover:bg-white/85 border-white/75"
                                 }`}
                               >
                                 <input 
@@ -886,8 +797,8 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                                 key={opt.value}
                                 className={`p-4 rounded-xl border cursor-pointer transition-all flex gap-3.5 items-start ${
                                   formData.intention.includes(opt.value) 
-                                    ? "bg-white/50 border-[#fd80ff]/42 shadow-sm" 
-                                    : "bg-white/10 hover:bg-white/20 border-white/40"
+                                    ? "bg-white border-[#fd80ff] shadow-sm ring-2 ring-[#fd80ff]/20" 
+                                    : "bg-white/60 hover:bg-white/85 border-white/75"
                                 }`}
                               >
                                 <input 
@@ -941,13 +852,13 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                           <p className="text-xs text-[#230c1e]/75 font-sans leading-relaxed">{t.step5Desc}</p>
                           
                           <div className="grid grid-cols-1 gap-2.5">
-                            {packages.filter(p => p.id !== "medlemsportal-app").map((pkg) => (
+                            {packages.filter(p => p.id !== "medlemsportal-app" && p.id !== "kickstart").map((pkg) => (
                               <label 
                                 key={pkg.id}
                                 className={`p-4 rounded-xl border cursor-pointer transition-all flex gap-3.5 items-center ${
                                   formData.selectedPackage === pkg.id 
-                                    ? "bg-white/50 border-[#fd80ff]/42 shadow-sm" 
-                                    : "bg-white/10 hover:bg-white/20 border-white/40"
+                                    ? "bg-white border-[#fd80ff] shadow-sm ring-2 ring-[#fd80ff]/20" 
+                                    : "bg-white/60 hover:bg-white/85 border-white/75"
                                 }`}
                               >
                                 <input 
@@ -1018,7 +929,8 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                           </button>
                         ) : (
                           <button
-                            type="submit"
+                            type="button"
+                            onClick={() => handleSubmit()}
                             disabled={isSending}
                             className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
                           >
@@ -1026,9 +938,8 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                           </button>
                         )}
                       </div>
-                    </form>
+                    </div>
                   </>
-                )}
               </div>
             )}
           </>

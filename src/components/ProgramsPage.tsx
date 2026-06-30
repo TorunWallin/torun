@@ -394,7 +394,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage, language }: 
                     <div className="pt-6 border-t border-stone-100 flex justify-end">
                       <button 
                         onClick={() => onSelectPackage(pkg.id)}
-                        className={`group relative inline-flex items-center justify-center text-[14.5px] sm:text-[16px] font-serif font-normal tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer ${buttonBgClass} text-white border border-white/20 hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden`}
+                        className={`group relative inline-flex items-center justify-center text-[16.5px] sm:text-[18.5px] font-serif font-normal tracking-wide px-12 py-4.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer ${buttonBgClass} text-white border border-white/20 hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden`}
                       >
                         <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                           {pkg.buttonText}
@@ -502,7 +502,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage, language }: 
                     <div className="pt-6 border-t border-stone-100 flex justify-end">
                       <button 
                         onClick={() => onSelectPackage(appPkg.id)}
-                        className="group relative inline-flex items-center justify-center text-[14.5px] sm:text-[16px] font-serif font-normal tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden"
+                        className="group relative inline-flex items-center justify-center text-[16.5px] sm:text-[18.5px] font-serif font-normal tracking-wide px-12 py-4.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden"
                       >
                         <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                           {appPkg.buttonText}
