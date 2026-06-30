@@ -436,6 +436,20 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       {/* 1. HERO SECTION (Boutique cozy wellness) */}
       <section className="relative min-h-[92vh] sm:min-h-[96vh] flex items-center justify-center pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden select-none bg-gradient-to-b from-[#FFF5FC] via-[#FAF8F5] to-[#ffffff]" id="hero-section">
         
+        {/* Large Scale Full-bleed Premium Background Image with Parallax Depth */}
+        <motion.div style={{ y: heroBgY }} className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80" 
+            alt="Soft morning yoga stretching in warm light" 
+            className="w-full h-full object-cover object-center lg:object-[72%_center] scale-102 select-none pointer-events-none opacity-15 mix-blend-multiply"
+            referrerPolicy="no-referrer"
+          />
+          {/* Glassmorphic & Warm Aesthetic Color Grading Filters */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FFF5FB]/40 to-[#FFF5FB]/80 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#fd80ff]/5 via-transparent to-[#f5c7fa]/5 z-15 mix-blend-overlay" />
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#FFF5FB]/40 via-transparent to-transparent z-10" />
+        </motion.div>
+
         {/* Organic Morphing Background Shapes */}
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
           <motion.div 
@@ -579,40 +593,40 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                 {/* Stat 1 */}
                 <div className="flex flex-col items-center justify-start px-1 text-center border-r border-pink-100/30">
                   <div className="h-8 sm:h-9 flex items-end justify-center">
-                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat1Num}</span>
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#02473E] leading-none">{t.stat1Num}</span>
                   </div>
-                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat1Text}</span>
+                  <div className="mt-1 h-4 sm:h-5 flex items-start justify-center">
+                    <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-none whitespace-nowrap">{t.stat1Text}</span>
                   </div>
                 </div>
 
                 {/* Stat 2 */}
                 <div className="flex flex-col items-center justify-start px-1 text-center sm:border-r border-pink-100/30">
                   <div className="h-8 sm:h-9 flex items-end justify-center">
-                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat2Num}</span>
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#02473E] leading-none">{t.stat2Num}</span>
                   </div>
-                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat2Text}</span>
+                  <div className="mt-1 h-4 sm:h-5 flex items-start justify-center">
+                    <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-none whitespace-nowrap">{t.stat2Text}</span>
                   </div>
                 </div>
 
                 {/* Stat 3 */}
                 <div className="flex flex-col items-center justify-start px-1 text-center border-r border-pink-100/30 pt-2 sm:pt-0">
                   <div className="h-8 sm:h-9 flex items-end justify-center">
-                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat3Num}</span>
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#02473E] leading-none">{t.stat3Num}</span>
                   </div>
-                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat3Text}</span>
+                  <div className="mt-1 h-4 sm:h-5 flex items-start justify-center">
+                    <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-none whitespace-nowrap">{t.stat3Text}</span>
                   </div>
                 </div>
 
                 {/* Stat 4 */}
                 <div className="flex flex-col items-center justify-start px-1 text-center pt-2 sm:pt-0">
                   <div className="h-8 sm:h-9 flex items-end justify-center">
-                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat4Num}</span>
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#02473E] leading-none">{t.stat4Num}</span>
                   </div>
-                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat4Text}</span>
+                  <div className="mt-1 h-4 sm:h-5 flex items-start justify-center">
+                    <span className="text-[8.5px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-none whitespace-nowrap">{t.stat4Text}</span>
                   </div>
                 </div>
               </motion.div>
