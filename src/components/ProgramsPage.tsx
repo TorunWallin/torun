@@ -2,15 +2,18 @@ import React from "react";
 import { ArrowLeft, ArrowRight, Play, Check, Heart, Sparkles, Activity } from "lucide-react";
 import { motion } from "motion/react";
 import { Package } from "../types";
-import { packages } from "../data";
+import { getPackages } from "../data";
 import torunDock from "../../assets/torun_dock.jpg";
 
 interface ProgramsPageProps {
   onNavigate: (tabId: string) => void;
   onSelectPackage: (packageId: string) => void;
+  language: "sv" | "en";
 }
 
-export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPageProps) {
+export default function ProgramsPage({ onNavigate, onSelectPackage, language }: ProgramsPageProps) {
+  const packages = getPackages(language);
+
   React.useEffect(() => {
     const handleScrollToProgram = () => {
       const targetId = localStorage.getItem("torun_scroll_to_program");
@@ -55,7 +58,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
     targetGroup: string;
     philosophy: string;
     details: string[];
-  }> = {
+  }> = language === "sv" ? {
     kickstart: {
       targetGroup: "För dig som vill komma igång med träning på ett kravlöst, mjukt sätt efter ett uppehåll, eller som känner dig vilsen bland alla dieter och träningshets.",
       philosophy: "Här kastar vi ut all stress. Fokus ligger på att bygga en enkel vardagsrutin som känns rolig och hållbar, utan att hela ditt liv måste vändas upp och ner på en gång. Du får enkla, trygga baslyft och stöd att hitta tillbaka till rörelseglädje.",
@@ -63,7 +66,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
         "Kravlöst 4-veckors träningsprogram (anpassat för hemmet eller gymmet)",
         "Tydliga videoinstruktioner till varje enskild rörelse för full trygghet",
         "Enkla rutiner för sömn, andning och näringsrik mat utan förbud",
-        "Full tillgång till ditt program i Torun-appen (Everfit) under en hel månad",
+        "Full tillgång till ditt program i Everfit-appen under en hel månad",
         "Support via chatt där du kan ställa frågor och få stöd när du kör fast"
       ]
     },
@@ -102,7 +105,89 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
         "Möjlighet att uppgradera till personlig coaching när du vill"
       ]
     }
+  } : {
+    kickstart: {
+      targetGroup: "For those who want to get started with exercise in a gentle, stress-free way after a break, or feel lost among all diets and fitness trends.",
+      philosophy: "Here we discard all stress. The focus is on building a simple daily routine that feels fun and sustainable, without turning your entire life upside down at once. You get simple, safe compound lifts and support to find your way back to the joy of movement.",
+      details: [
+        "Stress-free 4-week training program (adapted for home or gym)",
+        "Clear video instructions for every movement for full safety",
+        "Simple routines for sleep, breathing, and nutritious food without restriction",
+        "Full access to your program in the Torun app (Everfit) for a whole month",
+        "Support via chat where you can ask questions and get help when stuck"
+      ]
+    },
+    "stark-med-torun": {
+      targetGroup: "For those who want to build a strong, safe, and functional body long-term, and learn to adapt training to the menstrual cycle, stress, and hormonal life phases.",
+      philosophy: "This is my most popular membership program. We cooperate with your female biology instead of fighting it. I adjust your training and nutrition week by week based on your stress, sleep, and where you are in your hormonal cycle.",
+      details: [
+        "Tailored training program that is adapted and adjusted weekly",
+        "Monthly check-ins and calls via video or phone for deeper evaluation",
+        "Weekly written check-ins where I personally give feedback on your week",
+        "Nutrition guidance that supports your thyroid and muscles (no calorie counting)",
+        "Adaptation for menstrual cycle phases, perimenopause, menopause, or high stress",
+        "Ongoing daily support via chat in the Everfit app for questions and pep talk"
+      ]
+    },
+    "coaching-oneonone": {
+      targetGroup: "For those who want to make a deep and life-changing shift in their relationship with their body, diet, and mental health with daily support by their side.",
+      philosophy: "The ultimate embrace. This is my deepest support for those ready to do the work for real. We meet weekly in 1:1 video calls and connect daily via chat. We work in parallel with training, nutrition, hormonal balance, nervous system regulation, and mental self-esteem.",
+      details: [
+        "Daily check-ins and support via chat every weekday",
+        "Weekly 1:1 coaching calls live via video (just you and me, 30-45 min)",
+        "Completely individual meal plan and recipes adapted to your body's needs",
+        "Mental coaching and counseling support around stress, body image, and performance",
+        "Prioritized help, real-time adjustments of training programs and schedule",
+        "Unlimited access to all my interactive tools and guides"
+      ]
+    },
+    "medlemsportal-app": {
+      targetGroup: "For those who want to train independently on their own terms, but want full access to cycle-synced tools, exercise libraries, and supporting recipes in daily life.",
+      philosophy: "Here you get my entire digital toolbox right in your pocket. No expensive coaching calls – just pure inspiration, knowledge, and tools to cooperate with your body when it suits you.",
+      details: [
+        "Full access to the recipe database (Nourishment Vault) for all phases of the cycle",
+        "Training programs for both home and gym (self-study)",
+        "Interactive tools like the Hormone Compass and Daily Form Wheel directly in your phone",
+        "Torun's own mobile app (under development, launching soon!)",
+        "Opportunity to upgrade to personal coaching whenever you want"
+      ]
+    }
   };
+
+  const t = {
+    sv: {
+      backBtn: "Gå tillbaka till startsidan",
+      tag: "COACHING & TRÄNINGSPROGRAM",
+      title: "Mina program & vägar",
+      subtitle: "Här hittar du mina coachingpaket och medlemskap. Jag stöttar dig att bygga en stark, trygg kropp som bär dig genom livet — helt utan hets, förbud eller kaloripiskor.",
+      greetingTag: "En personlig hälsning",
+      greetingQuote: '"Låt oss hitta den väg som stöttar ditt nervsystem bäst just nu."',
+      greetingPara1: "I den här korta videon förklarar jag tanken bakom mina vägar. Styrketräning handlar inte om att straffa kroppen eller kompensera för vad du åt igår. Det handlar om att bygga en trygg boning att trivas och leva i.",
+      greetingPara2: "Oavsett om du vill ha en snabb och enkel kickstart eller ett dagligt, djupgående samtals- och träningsstöd, så finns det en mjukare väg framåt för dig.",
+      greetingSign: "Hjärtliga hälsningar,",
+      popularBadge: "MEST POPULÄR 🎀",
+      whoIsItFor: "Vem är det för?",
+      philosophyHeader: "Filosofi",
+      whatIncludes: "Vad som ingår i detalj:",
+      videoNote: "Hör mig berätta om programmen ♡"
+    },
+    en: {
+      backBtn: "Return to home page",
+      tag: "COACHING & TRAINING PROGRAMS",
+      title: "My Programs & Packages",
+      subtitle: "Here you find my coaching packages and memberships. I support you to build a strong, secure body that carries you through life — completely without stress, prohibitions, or calorie starvation.",
+      greetingTag: "A personal message",
+      greetingQuote: '"Let us find the path that supports your nervous system best right now."',
+      greetingPara1: "In this short video I explain the idea behind my programs. Strength training is not about punishing your body or compensating for what you ate yesterday. It is about building a secure place to live and thrive in.",
+      greetingPara2: "Whether you want a quick and simple kickstart or a daily, in-depth coaching and training support, there is a gentler path forward for you.",
+      greetingSign: "Warmest wishes,",
+      popularBadge: "MOST POPULAR 🎀",
+      whoIsItFor: "Who is it for?",
+      philosophyHeader: "Philosophy",
+      whatIncludes: "What is included in detail:",
+      videoNote: "Hear me talk about the programs ♡"
+    }
+  }[language];
 
   return (
     <div className="bg-[#FAF8F5] min-h-screen pt-32 pb-16 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
@@ -118,7 +203,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
             onClick={() => onNavigate("home")}
             className="flex items-center gap-2.5 text-[10px] font-sans font-bold uppercase tracking-[0.16em] text-[#230c1e]/75 bg-white/70 backdrop-blur-md border border-white/85 shadow-xs px-4 py-2.5 rounded-full hover:bg-white hover:text-[#230c1e] hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer select-none"
           >
-            <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> Gå tillbaka till startsidan
+            <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> {t.backBtn}
           </button>
         </div>
 
@@ -131,13 +216,13 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
           {/* Header Introduction */}
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-[#fd80ff] uppercase block">
-              COACHING & TRÄNINGSPROGRAM
+              {t.tag}
             </span>
             <h1 className="font-serif text-4xl sm:text-[54px] font-normal text-[#230c1e] tracking-wide leading-tight">
-              Mina program & vägar
+              {t.title}
             </h1>
             <p className="text-[#230c1e]/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-sans">
-              Här hittar du mina coachingpaket och medlemskap. Jag stöttar dig att bygga en stark, trygg kropp som bär dig genom livet — helt utan hets, förbud eller kaloripiskor.
+              {t.subtitle}
             </p>
           </motion.div>
 
@@ -176,7 +261,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                       >
                         <Play className="w-4.5 h-4.5 text-[#fd80ff] fill-[#fd80ff] translate-x-0.5" />
                       </div>
-                      <span className="text-[9px] text-white/95 uppercase font-sans font-bold tracking-widest mt-3">Hör mig berätta om programmen ♡</span>
+                      <span className="text-[9px] text-white/95 uppercase font-sans font-bold tracking-widest mt-3">{t.videoNote}</span>
                     </div>
                   </div>
                 </div>
@@ -185,21 +270,21 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
               {/* Video Text Copy */}
               <div className="lg:col-span-7 space-y-5 text-left">
                 <div className="inline-flex items-center gap-1.5 bg-[#FFF5FC] border border-[#fd80ff]/20 px-3 py-1.5 rounded-xl text-[#fd80ff] font-sans font-bold text-[9px] uppercase tracking-wider">
-                  <Sparkles className="w-3.5 h-3.5" /> En personlig hälsning
+                  <Sparkles className="w-3.5 h-3.5" /> {t.greetingTag}
                 </div>
                 <h3 className="font-serif text-2xl sm:text-[28px] font-normal text-[#230c1e] tracking-wide leading-tight">
-                  "Låt oss hitta den väg som stöttar ditt nervsystem bäst just nu."
+                  {t.greetingQuote}
                 </h3>
                 <div className="space-y-3 text-sm sm:text-base text-stone-600 leading-relaxed font-sans">
                   <p>
-                    I den här korta videon förklarar jag tanken bakom mina vägar. Styrketräning handlar inte om att straffa kroppen eller kompensera för vad du åt igår. Det handlar om att bygga en trygg boning att trivas och leva i.
+                    {t.greetingPara1}
                   </p>
                   <p>
-                    Oavsett om du vill ha en snabb och enkel kickstart eller ett dagligt, djupgående samtals- och träningsstöd, så finns det en mjukare väg framåt för dig.
+                    {t.greetingPara2}
                   </p>
                 </div>
                 <div className="pt-2 flex items-center gap-2 italic font-serif text-[#230c1e] text-sm">
-                  <span>Hjärtliga hälsningar,</span>
+                  <span>{t.greetingSign}</span>
                   <span className="font-signature text-[#fd80ff] text-[17px] sm:text-xl tracking-normal">Torun 🤍</span>
                 </div>
               </div>
@@ -229,7 +314,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                   {/* Top Badge for Recommended Package */}
                   {isRecommended && (
                     <div className="absolute top-6 right-6 inline-flex items-center gap-1.5 bg-white/45 backdrop-blur-md text-[#fd80ff] border border-[#fd80ff]/55 px-3.5 py-1.5 rounded-full text-[9px] font-sans font-extrabold uppercase tracking-[0.16em] shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
-                      <Sparkles className="w-3 h-3 text-[#fd80ff] stroke-[2]" /> MEST POPULÄR 🎀
+                      <Sparkles className="w-3 h-3 text-[#fd80ff] stroke-[2]" /> {t.popularBadge}
                     </div>
                   )}
 
@@ -272,7 +357,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-sm sm:text-base leading-relaxed border-t border-stone-100">
                       <div className="space-y-2.5">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
-                          <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> Vem är det för?
+                          <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> {t.whoIsItFor}
                         </h4>
                         <p className="text-stone-600 leading-relaxed">
                           {details.targetGroup}
@@ -280,7 +365,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                       </div>
                       <div className="space-y-2.5">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
-                          <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> Filosofi
+                          <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> {t.philosophyHeader}
                         </h4>
                         <p className="text-stone-600 leading-relaxed">
                           {details.philosophy}
@@ -291,7 +376,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     {/* Feature Details List */}
                     <div className="space-y-4 font-sans pt-6 border-t border-stone-100">
                       <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50">
-                        Vad som ingår i detalj:
+                        {t.whatIncludes}
                       </h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-sm sm:text-base text-stone-700">
                         {details.details.map((feat, idx) => (
@@ -305,7 +390,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                       </ul>
                     </div>
 
-                    {/* CTA Button */}
+                    {/* Button */}
                     <div className="pt-6 border-t border-stone-100 flex justify-end">
                       <button 
                         onClick={() => onSelectPackage(pkg.id)}
@@ -380,7 +465,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 font-sans text-sm sm:text-base leading-relaxed border-t border-stone-100">
                       <div className="space-y-2.5">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
-                          <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> Vem är det för?
+                          <Activity className="w-3.5 h-3.5 text-[#fd80ff]" /> {t.whoIsItFor}
                         </h4>
                         <p className="text-stone-600 leading-relaxed">
                           {details.targetGroup}
@@ -388,7 +473,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                       </div>
                       <div className="space-y-2.5">
                         <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 flex items-center gap-2">
-                          <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> Filosofi
+                          <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]/10" /> {t.philosophyHeader}
                         </h4>
                         <p className="text-stone-600 leading-relaxed">
                           {details.philosophy}
@@ -399,7 +484,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                     {/* Feature Details List */}
                     <div className="space-y-4 font-sans pt-6 border-t border-stone-100">
                       <h4 className="text-[10px] font-black uppercase tracking-[0.18em] text-[#230c1e]/50 font-sans">
-                        Vad som ingår i detalj:
+                        {t.whatIncludes}
                       </h4>
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 text-sm sm:text-base text-stone-700">
                         {details.details.map((feat, idx) => (
@@ -413,7 +498,7 @@ export default function ProgramsPage({ onNavigate, onSelectPackage }: ProgramsPa
                       </ul>
                     </div>
 
-                    {/* CTA Button */}
+                    {/* Button */}
                     <div className="pt-6 border-t border-stone-100 flex justify-end">
                       <button 
                         onClick={() => onSelectPackage(appPkg.id)}

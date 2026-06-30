@@ -3,9 +3,45 @@ import { Heart } from "lucide-react";
 
 interface FooterProps {
   onNavigate: (tabId: string) => void;
+  language: "sv" | "en";
 }
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer({ onNavigate, language }: FooterProps) {
+  const t = {
+    sv: {
+      heading: "hälsa på dina villkor",
+      desc: "Online-PT för tjejer och kvinnor som vill bli starka, må bra och bygga vanor som faktiskt håller.",
+      logoSub: "Vägen till ett hälsosammare liv",
+      colExplore: "UTFORSKA",
+      colContact: "KONTAKT",
+      colFollow: "FÖLJ MED",
+      menuPrograms: "Program & paket",
+      menuPhilosophy: "Filosofi",
+      menuAbout: "Om mig",
+      menuGuide: "Startguide",
+      menuContact: "Kontakta mig →",
+      menuPrivacy: "Integritetspolicy",
+      copyright: "© 2026 TORUN WALLIN · ALLA RÄTTIGHETER FÖRBEHÅLLNA",
+      builtWithLove: "Byggt med omtanke"
+    },
+    en: {
+      heading: "health on your terms",
+      desc: "Online personal training for girls and women who want to get strong, feel good, and build habits that actually last.",
+      logoSub: "The path to a healthier life",
+      colExplore: "EXPLORE",
+      colContact: "CONTACT",
+      colFollow: "FOLLOW ALONG",
+      menuPrograms: "Programs & packages",
+      menuPhilosophy: "Philosophy",
+      menuAbout: "About me",
+      menuGuide: "Start guide",
+      menuContact: "Contact me →",
+      menuPrivacy: "Privacy policy",
+      copyright: "© 2026 TORUN WALLIN · ALL RIGHTS RESERVED",
+      builtWithLove: "Built with care"
+    }
+  }[language];
+
   return (
     <footer className="bg-[#02473E] text-white/70 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden w-full mt-auto" id="footer">
       {/* Luminous spot */}
@@ -15,14 +51,14 @@ export default function Footer({ onNavigate }: FooterProps) {
         {/* Centered header "hälsa på dina villkor" with heart circle on the right */}
         <div className="flex items-center justify-center gap-3 md:gap-4 mb-4">
           <h2 className="font-script text-2xl sm:text-3xl lg:text-4xl font-light tracking-normal text-white lowercase">
-            hälsa på dina villkor
+            {t.heading}
           </h2>
           <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/15">
             <Heart className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-[#fd80ff] fill-[#fd80ff]" />
           </div>
         </div>
-        <p className="text-xs sm:text-sm font-sans font-light tracking-wider text-white/90 max-w-xl">
-          Online-PT för tjejer och kvinnor som vill bli <span className="font-semibold">starka</span>, <span className="italic">må bra</span> och bygga vanor som faktiskt håller.
+        <p className="text-xs sm:text-sm font-sans font-light tracking-wider text-white/90 max-w-xl leading-relaxed">
+          {t.desc}
         </p>
       </div>
 
@@ -35,20 +71,20 @@ export default function Footer({ onNavigate }: FooterProps) {
             <Heart className="w-3.5 h-3.5 text-[#fd80ff] fill-[#fd80ff]" />
           </div>
           <p className="text-[12px] text-white/50 leading-relaxed font-sans font-light tracking-wider uppercase">
-            Vägen till ett <br /> hälsosammare liv
+            {t.logoSub}
           </p>
         </div>
 
         {/* Column 2: UTFORSKA */}
         <div className="space-y-3 font-sans">
-          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">UTFORSKA</h4>
+          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">{t.colExplore}</h4>
           <ul className="space-y-2 text-xs font-light text-white/80 font-sans tracking-wide">
             <li>
               <button 
                 onClick={() => onNavigate("programs")} 
                 className="hover:text-white transition-colors cursor-pointer text-left outline-none"
               >
-                Program & paket
+                {t.menuPrograms}
               </button>
             </li>
             <li>
@@ -62,7 +98,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 }} 
                 className="hover:text-white transition-colors cursor-pointer text-left outline-none"
               >
-                Filosofi
+                {t.menuPhilosophy}
               </button>
             </li>
             <li>
@@ -76,7 +112,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 }} 
                 className="hover:text-white transition-colors cursor-pointer text-left outline-none"
               >
-                Om mig
+                {t.menuAbout}
               </button>
             </li>
             <li>
@@ -84,7 +120,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 onClick={() => onNavigate("startguide")} 
                 className="hover:text-white transition-colors cursor-pointer text-left outline-none"
               >
-                Startguide
+                {t.menuGuide}
               </button>
             </li>
           </ul>
@@ -92,7 +128,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Column 3: KONTAKT */}
         <div className="space-y-3 font-sans">
-          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">KONTAKT</h4>
+          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">{t.colContact}</h4>
           <ul className="space-y-2 text-xs font-light text-white/80 font-sans tracking-wide">
             <li>
               <a href="mailto:hej@torun.se" className="hover:text-white transition-colors block">
@@ -104,12 +140,12 @@ export default function Footer({ onNavigate }: FooterProps) {
                 onClick={() => onNavigate("contact")} 
                 className="hover:text-white transition-colors cursor-pointer text-left outline-none"
               >
-                Kontakta mig →
+                {t.menuContact}
               </button>
             </li>
             <li>
               <a href="#privacy" className="hover:text-white transition-colors block">
-                Integritetspolicy
+                {t.menuPrivacy}
               </a>
             </li>
           </ul>
@@ -117,7 +153,7 @@ export default function Footer({ onNavigate }: FooterProps) {
 
         {/* Column 4: FÖLJ MED */}
         <div className="space-y-3 font-sans">
-          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">FÖLJ MED</h4>
+          <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#fd80ff]">{t.colFollow}</h4>
           <div className="flex gap-4">
             <a 
               href="https://instagram.com/torunwallin" 
@@ -148,9 +184,9 @@ export default function Footer({ onNavigate }: FooterProps) {
 
       {/* Bottom bar */}
       <div className="max-w-7xl mx-auto pt-8 mt-12 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-sans font-bold uppercase tracking-wider text-white/40 relative z-10">
-        <p>© 2026 TORUN WALLIN · ALLA RÄTTIGHETER FÖRBEHÅLLNA</p>
+        <p>{t.copyright}</p>
         <div className="flex items-center gap-1 select-none">
-          <span>Byggt med omtanke</span>
+          <span>{t.builtWithLove}</span>
           <Heart className="w-3 h-3 text-[#fd80ff] fill-[#fd80ff]" />
         </div>
       </div>

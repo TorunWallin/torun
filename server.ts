@@ -292,9 +292,10 @@ app.post("/api/contact", async (req, res) => {
 
     // Map selected packages to friendly names
     const packageMap: Record<string, string> = {
-      "stark-med-torun": "Stark med Torun (3 månaders personlig coaching)",
-      "mammatraning": "Hormon- & Mammaträning (Gravid / Postpartum)",
-      "medlemsportal-app": "TORUN Medlemsportal (Tränings-app väntelista)",
+      "kickstart": "Kickstart (Dina första steg – utan press)",
+      "stark-med-torun": "Stark med Torun (Starkare, vecka för vecka)",
+      "coaching-oneonone": "1:1 Coaching (Full omfamning, hela vägen)",
+      "medlemsportal-app": "Medlemsportal & App (Hela verktygslådan – på dina villkor)",
     };
 
     const friendlyPackage = packageMap[selectedPackage] || selectedPackage || "Inget paket valt";

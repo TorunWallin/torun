@@ -26,7 +26,7 @@ export interface Testimonial {
 export interface Article {
   id: string;
   title: string;
-  category: "Menscykel" | "Styrketräning" | "Återhämtning" | "Mindset";
+  category: string;
   readTime: string;
   excerpt: string;
   content: string[];

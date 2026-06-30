@@ -15,6 +15,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<string>("home");
   const [selectedPackageId, setSelectedPackageId] = useState<string>("");
   const [showScrollTop, setShowScrollTop] = useState<boolean>(false);
+  const [language, setLanguage] = useState<"sv" | "en">("sv");
 
   // Listen to window scroll to toggle scroll-to-top button visibility
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen flex flex-col bg-[#ffffff] text-[#09090b] selection:bg-[#a855f7]/20 selection:text-[#09090b]" id="torun-app-orchestrator">
       {/* Floating Top Navigation Header */}
-      <Navigation activeTab={activeTab} setActiveTab={handleNavigateToTab} />
+      <Navigation activeTab={activeTab} setActiveTab={handleNavigateToTab} language={language} setLanguage={setLanguage} />
 
       {/* Main Panel views */}
       <main className="flex-grow">
@@ -64,37 +65,40 @@ export default function App() {
               <LandingPage 
                 onNavigate={handleNavigateToTab} 
                 onSelectPackage={handleSelectPackage} 
+                language={language}
               />
             )}
             {activeTab === "programs" && (
               <ProgramsPage 
                 onNavigate={handleNavigateToTab}
                 onSelectPackage={handleSelectPackage}
+                language={language}
               />
             )}
             {activeTab === "startguide" && (
-              <StartGuide onNavigate={handleNavigateToTab} />
+              <StartGuide onNavigate={handleNavigateToTab} language={language} />
             )}
             {activeTab === "apply" && (
               <ApplicationForm 
                 selectedPackageId={selectedPackageId} 
                 onNavigate={handleNavigateToTab}
+                language={language}
               />
             )}
             {activeTab === "contact" && (
-              <ContactForm onNavigate={handleNavigateToTab} />
+              <ContactForm onNavigate={handleNavigateToTab} language={language} />
             )}
             {activeTab === "chat" && (
               <TorunAiChat />
             )}
             {activeTab === "articles" && (
-              <ArticlesPage onNavigate={handleNavigateToTab} />
+              <ArticlesPage onNavigate={handleNavigateToTab} language={language} />
             )}
           </motion.div>
         </AnimatePresence>
       </main>
 
-      <Footer onNavigate={handleNavigateToTab} />
+      <Footer onNavigate={handleNavigateToTab} language={language} />
 
       {/* Elegantly floating scroll-to-top button (Active globally across all pages, with highest z-index) */}
       <AnimatePresence>

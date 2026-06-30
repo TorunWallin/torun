@@ -8,13 +8,91 @@ import { motion, AnimatePresence } from "motion/react";
 interface NavigationProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
+  language: "sv" | "en";
+  setLanguage: (lang: "sv" | "en") => void;
 }
 
-export default function Navigation({ activeTab, setActiveTab }: NavigationProps) {
+export default function Navigation({ activeTab, setActiveTab, language, setLanguage }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   
+  // Translation dictionary
+  const t = {
+    sv: {
+      philosophyTitle: "Filosofi & Träningslära",
+      trainingPhilosophy: "Träningsfilosofi",
+      trainingPhilosophyDesc: "Basstyrka anpassad för kvinnans anatomi, graviditet och återhämtning.",
+      aboutCoach: "Om Coach Torun",
+      aboutCoachDesc: "Lic. PT & Kostrådgivare under samtalsterapeututbildning.",
+      interactiveModules: "Interaktiva Moduler",
+      hormoneCompass: "Hormon- & Träningskompassen",
+      hormoneCompassDesc: "Synka dina träningspass, råvaror och återhämtning efter din menscykel.",
+      dagsformWheel: "Dagsformshjulet",
+      dagsformWheelDesc: "Mät stress, sömn & kramper för att justera intensiteten idag.",
+      nourishmentVault: "Kostrecepten",
+      nourishmentVaultDesc: "Hitta hormonstöttande recept för PMS, trötthet, energi eller stress.",
+      showcaseTag: "Medlemsportal",
+      showcaseTitle: "Ta din träning till nästa nivå",
+      showcaseDesc: "Få tillgång till fulla träningsprogram, videobibliotek med säkra gravidövningar, symptom-loggbok och gemenskap.",
+      exploreBtn: "Utforska mina program",
+      noCommitment: "Ingen bindningstid • Starta idag",
+      startguideTitle: "Stark & Trygg: Startguide",
+      startguideDesc: "En kostnadsfri PDF-guide med de 3 absolut viktigaste nycklarna till trygg styrketräning vid graviditet och smart uppbyggnad efter födsel.",
+      downloadGuide: "Hämta PDF-guide gratis",
+      popularArticles: "Populärt i Kunskapsarkivet",
+      art1Title: "Träning & Foglossning",
+      art1Desc: "3 min läsning • Graviditet",
+      art2Title: "Återhämta nervsystemet efter förlossning",
+      art2Desc: "5 min läsning • Postpartum",
+      art3Title: "Magmuskeldelning (Diastas): Sanning & Myt",
+      art3Desc: "4 min läsning • Smart Uppbyggnad",
+      viewAllArticles: "Visa alla artiklar",
+      applyBtn: "Ansök om coaching",
+      contactBtn: "Kontakta mig",
+      backHome: "Hem",
+      ctaBtn: "Starta nu",
+      wellnessLabel: "Min Wellness status",
+      logoSub: "Vägen till ett hälsosammare liv"
+    },
+    en: {
+      philosophyTitle: "Philosophy & Training",
+      trainingPhilosophy: "Training Philosophy",
+      trainingPhilosophyDesc: "Core strength adapted for women's anatomy, pregnancy, and postpartum recovery.",
+      aboutCoach: "About Coach Torun",
+      aboutCoachDesc: "Lic. PT & Nutritionist currently in training to become a therapist.",
+      interactiveModules: "Interactive Tools",
+      hormoneCompass: "Hormone & Training Compass",
+      hormoneCompassDesc: "Sync your workouts, nutrition, and recovery with your menstrual cycle.",
+      dagsformWheel: "Daily Form Wheel",
+      dagsformWheelDesc: "Measure stress, sleep & cramps to adjust today's workout intensity.",
+      nourishmentVault: "Nourishment Vault",
+      nourishmentVaultDesc: "Find hormone-supporting recipes for PMS, fatigue, energy, or stress.",
+      showcaseTag: "Member Portal",
+      showcaseTitle: "Take your training to the next level",
+      showcaseDesc: "Get access to full training programs, video libraries with safe pregnancy exercises, symptom logbooks, and community support.",
+      exploreBtn: "Explore my programs",
+      noCommitment: "No commitment period • Start today",
+      startguideTitle: "Strong & Safe: Start Guide",
+      startguideDesc: "A free PDF guide with the 3 absolute most important keys to safe strength training during pregnancy and postpartum rebuilding.",
+      downloadGuide: "Download free PDF guide",
+      popularArticles: "Popular in the Knowledge Vault",
+      art1Title: "Training & Pelvic Girdle Pain",
+      art1Desc: "3 min read • Pregnancy",
+      art2Title: "Recovering the nervous system after childbirth",
+      art2Desc: "5 min read • Postpartum",
+      art3Title: "Abdominal separation (Diastasis): Fact vs Myth",
+      art3Desc: "4 min read • Smart Rebuilding",
+      viewAllArticles: "View all articles",
+      applyBtn: "Apply for coaching",
+      contactBtn: "Contact me",
+      backHome: "Home",
+      ctaBtn: "Start now",
+      wellnessLabel: "My Wellness status",
+      logoSub: "The path to a healthier life"
+    }
+  }[language];
+
   // Dropdown states
   const [activeDropdown, setActiveDropdown] = useState<"home" | "startguide" | "status" | null>(null);
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -153,11 +231,14 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
 
   const currentWellness = getWellnessDetails();
 
-  const menuItems = [
+  const menuItems = language === "sv" ? [
     { id: "home", label: "Hem & Filosofi", hasDropdown: true },
     { id: "startguide", label: "Gratis Startguide", hasDropdown: true },
     { id: "programs", label: "Program", hasDropdown: false },
-    { id: "articles", label: "Kunskapsbank", hasDropdown: false },
+  ] : [
+    { id: "home", label: "Home & Philosophy", hasDropdown: true },
+    { id: "startguide", label: "Free Guide", hasDropdown: true },
+    { id: "programs", label: "Programs", hasDropdown: false },
   ];
 
   return (
@@ -195,7 +276,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
             </span>
             {!isScrolled && (
               <span className="text-[9.5px] sm:text-[10.5px] font-sans font-bold tracking-[0.14em] text-[#230c1e]/70 uppercase leading-none mt-1.5 transition-colors group-hover:text-[#fd80ff] whitespace-nowrap">
-                Vägen till ett hälsosammare liv
+                {t.logoSub}
               </span>
             )}
           </div>
@@ -260,13 +341,15 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
               );
             })}
           </div>
+
+          {/* Premium Language Toggle Switch removed to only support Swedish */}
           
           {/* Member Login */}
           <button
             onClick={() => handleTabClick("contact")}
             className="relative px-3.5 py-2 text-xs font-sans font-extrabold uppercase tracking-[0.14em] text-[#230c1e]/70 hover:text-[#230c1e] transition-all cursor-pointer mr-0.5 group whitespace-nowrap"
           >
-            Kontakta mig
+            {t.contactBtn}
             <span className="absolute bottom-1.5 left-3.5 right-3.5 h-0.5 bg-[#fd80ff]/40 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
           </button>
 
@@ -280,7 +363,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
               <Heart className="w-3.5 h-3.5 text-[#230c1e] group-hover:text-[#fd80ff] fill-none group-hover:fill-[#fd80ff]/10 animate-heartbeat-hover transition-all duration-300" />
             </div>
             <span className="font-sans text-xs font-black tracking-[0.14em] text-[#230c1e] group-hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">
-              Starta nu
+              {t.ctaBtn}
             </span>
           </button>
         </div>
@@ -538,6 +621,8 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
             id="mobile-drawer"
           >
             <div className="p-4 space-y-3">
+              {/* Mobile Language Switcher removed to only support Swedish */}
+
               {/* Menu Options */}
               <div className="space-y-1">
                 {menuItems.map((item) => {
@@ -566,8 +651,6 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                 })}
               </div>
 
-
-              
               {/* CTAs */}
               <div className="pt-1 flex flex-col gap-2">
                 <button
@@ -575,7 +658,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                   className="w-full flex items-center justify-center gap-2 bg-white/70 text-[#230c1e] border border-stone-200 font-extrabold text-xs uppercase tracking-[0.14em] py-3.5 rounded-xl transition-all active:scale-98 cursor-pointer"
                 >
                   <Mail className="w-3.5 h-3.5 text-[#fd80ff]" />
-                  Kontakta mig
+                  {t.contactBtn}
                 </button>
                 <button
                   onClick={() => handleTabClick("apply")}
@@ -583,7 +666,7 @@ export default function Navigation({ activeTab, setActiveTab }: NavigationProps)
                   className="w-full flex items-center justify-center gap-2 bg-[#230c1e] text-white font-extrabold text-xs uppercase tracking-[0.14em] py-3.5 rounded-xl transition-all shadow-md active:scale-98 cursor-pointer"
                 >
                   <ClipboardCheck className="w-3.5 h-3.5 text-pink-200" />
-                  Ansök om coachning nu
+                  {t.applyBtn}
                 </button>
               </div>
             </div>

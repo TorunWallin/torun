@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import { ArrowLeft, ArrowRight, BookOpen, Clock, Tag, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Article } from "../types";
-import { articles } from "../data";
+import { getArticles } from "../data";
 
 interface ArticlesPageProps {
   onNavigate: (tabId: string) => void;
+  language: "sv" | "en";
 }
 
-export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("Alla");
+export default function ArticlesPage({ onNavigate, language }: ArticlesPageProps) {
+  const articles = getArticles(language);
+  const defaultCategory = language === "sv" ? "Alla" : "All";
+  const [selectedCategory, setSelectedCategory] = useState<string>(defaultCategory);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+  // Reset category filter when language changes
+  React.useEffect(() => {
+    setSelectedCategory(language === "sv" ? "Alla" : "All");
+  }, [language]);
 
   // Sync selected article from landing page
   React.useEffect(() => {
@@ -32,7 +40,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
     return () => {
       window.removeEventListener("torun-article-selected", handleArticleSelected);
     };
-  }, []);
+  }, [articles]);
 
   // Framer motion variants
   const containerVariants = {
@@ -52,11 +60,49 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
     }
   };
 
+  // Translation dictionary
+  const text = {
+    sv: {
+      viewAll: "Visa alla artiklar",
+      backHome: "Gå tillbaka till startsidan",
+      tag: "HÄLSA PÅ DINA VILLKOR",
+      title: "Kunskapsbank & Läslista 🌸",
+      subtitle: "Här samlar jag klok vetenskap, artiklar och tankar kring menscykeln, styrketräning för kvinnor, klimakteriet och konsten att bygga en stark, trygg kropp helt utan press och hets.",
+      writtenBy: "Skrivet av",
+      readMore: "Läs hela artikeln",
+      readTimeText: "i lästid",
+      writtenWithWarmth: "Skrivet med värme av",
+      pullQuote: '"Att leva i harmoni med sin egen biologi och menscykel är inte en begränsning – det är nyckeln till hållbar kraft och genuin rörelseglädje." ♡',
+      ctaTag: "Personlig Coaching",
+      ctaTitle: "Vill du ta nästa steg med mig? 🤍",
+      ctaDesc: "Genom mina program får du träningsupplägg anpassade efter din kropp, menscykel och ditt livspussel. Låt oss bygga din styrka inifrån och ut – helt utan stress eller diethets.",
+      ctaBtn: "Utforska mina program",
+      backToList: "Tillbaka till alla artiklar"
+    },
+    en: {
+      viewAll: "View all articles",
+      backHome: "Return to home page",
+      tag: "HEALTH ON YOUR TERMS",
+      title: "Knowledge Hub & Reading List 🌸",
+      subtitle: "Here I collect sound science, articles, and thoughts around the menstrual cycle, strength training for women, menopause, and the art of building a strong, secure body completely without pressure and stress.",
+      writtenBy: "Written by",
+      readMore: "Read full article",
+      readTimeText: "read time",
+      writtenWithWarmth: "Written with warmth by",
+      pullQuote: '"Living in harmony with your own biology and menstrual cycle is not a limitation – it is the key to sustainable strength and genuine joy of movement." ♡',
+      ctaTag: "Personal Coaching",
+      ctaTitle: "Want to take the next step with me? 🤍",
+      ctaDesc: "Through my programs, you get workout setups adapted to your body, menstrual cycle, and daily puzzle. Let's build your strength from the inside out – completely without stress or diet pressure.",
+      ctaBtn: "Explore my programs",
+      backToList: "Back to all articles"
+    }
+  }[language];
+
   // Get unique categories
-  const categories = ["Alla", ...Array.from(new Set(articles.map(a => a.category)))];
+  const categories = [defaultCategory, ...Array.from(new Set(articles.map(a => a.category)))];
 
   // Filter articles
-  const filteredArticles = selectedCategory === "Alla" 
+  const filteredArticles = selectedCategory === defaultCategory 
     ? articles 
     : articles.filter(a => a.category === selectedCategory);
 
@@ -75,14 +121,14 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
               onClick={() => setSelectedArticle(null)}
               className="flex items-center gap-2.5 text-[10px] font-sans font-bold uppercase tracking-[0.16em] text-[#230c1e]/75 bg-white/70 backdrop-blur-md border border-white/85 shadow-xs px-4 py-2.5 rounded-full hover:bg-white hover:text-[#230c1e] hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer select-none"
             >
-              <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> Visa alla artiklar
+              <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> {text.viewAll}
             </button>
           ) : (
             <button 
               onClick={() => onNavigate("home")}
               className="flex items-center gap-2.5 text-[10px] font-sans font-bold uppercase tracking-[0.16em] text-[#230c1e]/75 bg-white/70 backdrop-blur-md border border-white/85 shadow-xs px-4 py-2.5 rounded-full hover:bg-white hover:text-[#230c1e] hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] transition-all cursor-pointer select-none"
             >
-              <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> Gå tillbaka till startsidan
+              <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff] stroke-[2.5]" /> {text.backHome}
             </button>
           )}
         </div>
@@ -101,13 +147,13 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
               {/* Header Introduction */}
               <div className="text-center max-w-3xl mx-auto space-y-4">
                 <span className="text-[10px] font-sans font-bold tracking-[0.25em] text-[#fd80ff] uppercase block">
-                  HÄLSA PÅ DINA VILLKOR
+                  {text.tag}
                 </span>
                 <h1 className="font-serif text-4xl sm:text-[54px] font-normal text-[#230c1e] tracking-wide leading-tight">
-                  Kunskapsbank & Läslista 🌸
+                  {text.title}
                 </h1>
                 <p className="text-[#230c1e]/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-sans">
-                  Här samlar jag klok vetenskap, artiklar och tankar kring menscykeln, styrketräning för kvinnor, klimakteriet och konsten att bygga en stark, trygg kropp helt utan press och hets.
+                  {text.subtitle}
                 </p>
               </div>
 
@@ -161,13 +207,13 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
 
                       <div className="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
                         <span className="text-[10.5px] text-stone-400 font-sans">
-                          Skrivet av <span className="font-signature text-xs text-[#fd80ff] ml-1 tracking-normal align-middle inline-block transform translate-y-[-1px]">Torun</span>
+                          {text.writtenBy} <span className="font-signature text-xs text-[#fd80ff] ml-1 tracking-normal align-middle inline-block transform translate-y-[-1px]">Torun</span>
                         </span>
                         <button
                           onClick={() => setSelectedArticle(article)}
                           className="inline-flex items-center gap-1.5 text-[10px] font-sans font-black uppercase tracking-widest text-[#fd80ff] hover:text-[#eb5cf0] transition-colors cursor-pointer"
                         >
-                          Läs hela artikeln
+                          {text.readMore}
                           <ArrowRight className="w-4 h-4" />
                         </button>
                       </div>
@@ -187,7 +233,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                     <Tag className="w-3.5 h-3.5 text-[#fd80ff]" /> {selectedArticle.category}
                   </span>
                   <span className="inline-flex items-center gap-1 text-[10px] text-stone-400 font-sans tracking-widest uppercase font-bold">
-                    <Clock className="w-3.5 h-3.5" /> {selectedArticle.readTime} i lästid
+                    <Clock className="w-3.5 h-3.5" /> {selectedArticle.readTime} {text.readTimeText}
                   </span>
                 </div>
 
@@ -196,7 +242,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                 </h1>
 
                 <div className="flex items-center gap-2 font-sans text-stone-400 text-xs pb-4 border-b border-stone-200/40">
-                  <span>Skrivet med värme av <span className="font-signature text-base text-[#fd80ff] ml-1 tracking-normal align-middle inline-block transform translate-y-[-1px]">Torun Wallin</span></span>
+                  <span>{text.writtenWithWarmth} <span className="font-signature text-base text-[#fd80ff] ml-1 tracking-normal align-middle inline-block transform translate-y-[-1px]">Torun Wallin</span></span>
                   <Sparkles className="w-3.5 h-3.5 text-[#fd80ff] align-middle" />
                 </div>
               </div>
@@ -211,7 +257,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                 {/* Pull-quote decoration */}
                 <div className="bg-[#fcf7fa] border-l-4 border-[#fd80ff] p-6 my-6 rounded-r-2xl">
                   <p className="text-sm sm:text-base text-[#230c1e]/90 leading-relaxed italic font-serif">
-                    "Att leva i harmoni med sin egen biologi och menscykel är inte en begränsning – det är nyckeln till hållbar kraft och genuin rörelseglädje." ♡
+                    {text.pullQuote}
                   </p>
                 </div>
 
@@ -227,11 +273,11 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#fd80ff]/10 rounded-full filter blur-3xl pointer-events-none" />
                 <div className="space-y-2.5 text-center sm:text-left z-10">
                   <span className="text-[10px] font-sans font-bold tracking-widest text-[#fd80ff] uppercase block">
-                    Personlig Coaching
+                    {text.ctaTag}
                   </span>
-                  <h4 className="font-serif text-2xl font-normal text-white leading-tight">Vill du ta nästa steg med mig? 🤍</h4>
+                  <h4 className="font-serif text-2xl font-normal text-white leading-tight">{text.ctaTitle}</h4>
                   <p className="text-xs text-white/80 font-sans font-light max-w-md leading-relaxed">
-                    Genom mina program får du träningsupplägg anpassade efter din kropp, menscykel och ditt livspussel. Låt oss bygga din styrka inifrån och ut – helt utan stress eller diethets.
+                    {text.ctaDesc}
                   </p>
                 </div>
                 <button 
@@ -242,7 +288,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                   className="group relative inline-flex items-center justify-center text-[11px] font-sans font-extrabold uppercase tracking-widest px-8 py-4 rounded-xl transition-all duration-300 cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white border border-[#fd80ff]/25 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] select-none z-10 overflow-hidden"
                 >
                   <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
-                    Utforska mina program
+                    {text.ctaBtn}
                   </span>
                   <span className="absolute right-5 opacity-0 scale-50 translate-x-2 transition-all duration-300 ease-[0.16,1,0.3,1] group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 flex items-center justify-center">
                     <ArrowRight className="w-4 h-4 text-white flex-shrink-0" />
@@ -256,7 +302,7 @@ export default function ArticlesPage({ onNavigate }: ArticlesPageProps) {
                   onClick={() => setSelectedArticle(null)}
                   className="bg-[#230c1e] hover:bg-[#34182d] text-white text-[10px] font-sans font-extrabold uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer transition-all shadow-md hover:shadow-lg active:scale-[0.98]"
                 >
-                  Tillbaka till alla artiklar
+                  {text.backToList}
                 </button>
               </div>
 
