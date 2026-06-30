@@ -574,23 +574,46 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
             <div className="pt-6 sm:pt-10 w-full max-w-lg">
               <motion.div 
                 variants={fUpVariants}
-                className="grid grid-cols-2 sm:grid-cols-4 gap-y-3 sm:gap-y-0 p-3.5 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full font-sans"
+                className="grid grid-cols-2 sm:grid-cols-4 gap-y-4 sm:gap-y-0 p-3.5 sm:p-4 rounded-xl bg-white border border-pink-100/50 shadow-[0_12px_30px_rgba(35,12,30,0.02)] w-full font-sans items-stretch"
               >
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 border-r border-pink-100/30">
-                  <span className="text-2xl sm:text-3xl font-serif font-bold text-[#fd80ff] leading-none">{t.stat1Num}</span>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat1Text}</span>
+                {/* Stat 1 */}
+                <div className="flex flex-col items-center justify-start px-1 text-center border-r border-pink-100/30">
+                  <div className="h-8 sm:h-9 flex items-end justify-center">
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat1Num}</span>
+                  </div>
+                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat1Text}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 sm:border-r border-pink-100/30 font-sans">
-                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">{t.stat2Num}</span>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat2Text}</span>
+
+                {/* Stat 2 */}
+                <div className="flex flex-col items-center justify-start px-1 text-center sm:border-r border-pink-100/30">
+                  <div className="h-8 sm:h-9 flex items-end justify-center">
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat2Num}</span>
+                  </div>
+                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat2Text}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 border-r border-pink-100/30 pt-1 sm:pt-0 font-sans">
-                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">{t.stat3Num}</span>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat3Text}</span>
+
+                {/* Stat 3 */}
+                <div className="flex flex-col items-center justify-start px-1 text-center border-r border-pink-100/30 pt-2 sm:pt-0">
+                  <div className="h-8 sm:h-9 flex items-end justify-center">
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat3Num}</span>
+                  </div>
+                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat3Text}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center justify-center px-1 text-center space-y-0.5 pt-1 sm:pt-0 font-sans">
-                  <span className="text-xl sm:text-2xl font-serif font-bold text-[#fd80ff] leading-none">{t.stat4Num}</span>
-                  <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-normal">{t.stat4Text}</span>
+
+                {/* Stat 4 */}
+                <div className="flex flex-col items-center justify-start px-1 text-center pt-2 sm:pt-0">
+                  <div className="h-8 sm:h-9 flex items-end justify-center">
+                    <span className="text-[20px] sm:text-[23px] font-serif font-bold text-[#fd80ff] leading-none">{t.stat4Num}</span>
+                  </div>
+                  <div className="mt-1.5 h-8 sm:h-9 flex items-start justify-center">
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-stone-500 font-extrabold block leading-tight">{t.stat4Text}</span>
+                  </div>
                 </div>
               </motion.div>
             </div>
