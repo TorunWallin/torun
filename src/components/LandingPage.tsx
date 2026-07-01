@@ -511,11 +511,14 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
             {/* Elegant luxury badge */}
             <motion.div 
               variants={fUpVariants}
-              className="inline-flex items-center gap-2 bg-[#fff5fc]/90 hover:bg-white text-[#230c1e] border border-pink-200/80 px-4.5 py-1.5 rounded-full text-xs font-semibold tracking-[0.16em] uppercase backdrop-blur-md transition-all shadow-[0_4px_20px_rgba(219,101,162,0.03)] cursor-default"
+              className="inline-flex items-center bg-white/20 border border-[#fd80ff]/25 px-5 py-2 rounded-full backdrop-blur-xl shadow-sm transition-all cursor-default"
             >
-              <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
-              <span className="font-sans text-xs tracking-[0.12em] font-extrabold text-[#fd80ff]">{t.fitnesscoachTag}</span>
-              <span className="w-1 h-1 rounded-full bg-[#fd80ff]" />
+              <span className="font-mono text-[11px] sm:text-xs tracking-wider flex items-center gap-1.5 cursor-default select-none">
+                <span className="text-[#fd80ff] font-bold">✦ FITNESSCOACH</span>
+                <span className="text-[#230c1e]/70 font-normal ml-0.5">
+                  {language === "en" ? "For girls & women" : "För tjejer & kvinnor"}
+                </span>
+              </span>
             </motion.div>
             
             {/* Elegant Boutique Typography */}
