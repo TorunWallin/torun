@@ -22,12 +22,6 @@ export default function App() {
     const params = new URLSearchParams(window.location.search);
     if (params.get("kickstart_success") === "true") {
       setShowKickstartSuccess(true);
-      if (typeof window !== "undefined" && (window as any).pintrk) {
-        (window as any).pintrk('track', 'checkout', {
-          value: 795,
-          currency: 'SEK'
-        });
-      }
       window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
