@@ -110,6 +110,9 @@ export default function ContactForm({ onNavigate, language }: ContactFormProps) 
       const data = await res.json();
       if (res.ok && data.success) {
         setSubmitted(true);
+        if (typeof window !== "undefined" && (window as any).pintrk) {
+          (window as any).pintrk('track', 'lead', { lead_type: 'GeneralContact' });
+        }
       } else {
         setErrorMessage(data.error || t.errorGeneric);
       }

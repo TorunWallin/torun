@@ -213,6 +213,9 @@ export default function StartGuide({ onNavigate, language }: StartGuideProps) {
       console.warn("Subscription fetch failed (offline fallback):", err);
     } finally {
       setSubmitted(true);
+      if (typeof window !== "undefined" && (window as any).pintrk) {
+        (window as any).pintrk('track', 'lead', { lead_type: 'StartGuideDownload' });
+      }
       setLoading(false);
     }
   };

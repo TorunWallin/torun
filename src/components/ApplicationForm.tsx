@@ -301,6 +301,10 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
       const data = await res.json();
       if (res.ok && data.success) {
         setSubmitted(true);
+        if (typeof window !== "undefined" && (window as any).pintrk) {
+          const leadType = formType === "apply" ? "CoachingApplication" : formType === "waitlist" ? "Waitlist" : "CoachingContact";
+          (window as any).pintrk('track', 'lead', { lead_type: leadType });
+        }
       } else {
         setErrorMessage(data.error || t.submitError);
       }
