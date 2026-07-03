@@ -464,7 +464,7 @@ export default function StartGuide({ onNavigate, language }: StartGuideProps) {
                 <div className="pt-2">
                   <button 
                     onClick={() => onNavigate("apply")}
-                    className="bg-[#230c1e] hover:bg-[#3d1534] text-white font-sans text-[10px] tracking-widest font-extrabold uppercase py-4 px-8 rounded-full shadow-lg hover:shadow-[#fd80ff]/15 transition-all cursor-pointer inline-flex items-center gap-2"
+                    className="bg-[#230c1e] hover:bg-[#3d1534] text-white font-sans text-[10px] tracking-widest font-extrabold uppercase py-4 px-8 rounded-full shadow-lg hover:shadow-[#fd80ff]/15 transition-all cursor-pointer w-full sm:w-auto inline-flex items-center justify-center gap-2"
                   >
                     {t.applyBtn}
                     <ArrowRight className="w-3.5 h-3.5 text-[#fd80ff]" />

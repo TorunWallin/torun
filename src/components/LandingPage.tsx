@@ -502,7 +502,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-20">
           
           <motion.div 
-            style={{ y: textParallaxY, opacity: heroOpacity }}
+            style={{ y: textParallaxY }}
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
@@ -554,7 +554,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
             >
               <button
                 onClick={() => onNavigate("startguide")}
-                className="group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:scale-[1.01] cursor-pointer overflow-hidden"
+                className="group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:scale-[1.01] cursor-pointer overflow-hidden w-full sm:w-auto"
                 id="hero-cta-primary"
               >
                 <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
@@ -575,7 +575,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
               
               <button
                 onClick={() => onNavigate("programs")}
-                className="group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] backdrop-blur-md bg-[#230c1e]/5 hover:bg-[#230c1e]/10 border border-[#230c1e]/10 shadow-[0_6px_15px_-8px_rgba(0,0,0,0.05)] text-[#230c1e] hover:-translate-y-0.5 cursor-pointer overflow-hidden"
+                className="group relative inline-flex items-center justify-center text-xs font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] backdrop-blur-md bg-[#230c1e]/5 hover:bg-[#230c1e]/10 border border-[#230c1e]/10 shadow-[0_6px_15px_-8px_rgba(0,0,0,0.05)] text-[#230c1e] hover:-translate-y-0.5 cursor-pointer overflow-hidden w-full sm:w-auto"
                 id="hero-cta-secondary"
               >
                 <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2">
@@ -638,7 +638,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
 
           {/* Majestic Interactive Visual Stage */}
           <motion.div 
-            style={{ y: cardParallaxY, opacity: heroOpacity }}
+            style={{ y: cardParallaxY }}
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -1438,7 +1438,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                 <div className="pt-4">
                   <button 
                     onClick={() => onNavigate("programs")}
-                    className="group bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[11px] font-sans font-black uppercase tracking-widest px-8 py-4 rounded-full transition-all cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-98"
+                    className="group bg-[#fd80ff] hover:bg-[#eb5cf0] text-white text-[11px] font-sans font-black uppercase tracking-widest px-8 py-4 rounded-full transition-all cursor-pointer shadow-md hover:-translate-y-0.5 active:scale-98 w-full sm:w-auto inline-flex items-center justify-center"
                   >
                     {t.s5CalloutBtn}
                   </button>
@@ -1549,10 +1549,10 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
             </div>
 
             {/* Buttons */}
-            <div className="pt-4 flex flex-wrap gap-4 items-center">
+            <div className="pt-4 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
               <button 
                 onClick={() => onNavigate("programs")}
-                className="group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-98 select-none overflow-hidden transition-all duration-300"
+                className="group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-98 select-none overflow-hidden transition-all duration-300 w-full sm:w-auto"
               >
                 <span className="inline-block transition-transform duration-300 group-hover:-translate-x-2.5">
                   {t.s6BtnPrograms}
@@ -1565,7 +1565,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                 href="https://www.tiktok.com/@torunwallin" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer bg-white hover:bg-stone-50 border border-stone-200 text-[#230c1e] shadow-xs hover:shadow-md hover:-translate-y-0.5 active:scale-98 select-none overflow-hidden transition-all duration-300"
+                className="group relative inline-flex items-center justify-center text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full cursor-pointer bg-white hover:bg-stone-50 border border-stone-200 text-[#230c1e] shadow-xs hover:shadow-md hover:-translate-y-0.5 active:scale-98 select-none overflow-hidden transition-all duration-300 w-full sm:w-auto"
               >
                 <span className="absolute left-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 w-4 h-4 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#230c1e]">
@@ -1620,7 +1620,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
               <div className="pt-4">
                 <button
                   onClick={() => onNavigate("apply")}
-                  className="group relative inline-flex items-center justify-center text-[14.5px] sm:text-[16px] font-serif font-normal tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden"
+                  className="group relative inline-flex items-center justify-center text-[14.5px] sm:text-[16px] font-serif font-normal tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden w-full sm:w-auto"
                 >
                   <span className="transition-transform duration-300 ease-[0.16,1,0.3,1] group-hover:-translate-x-2.5">
                     {t.s7ApplyBtn}
@@ -1717,7 +1717,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
           <div className="text-center pt-10">
             <button
               onClick={() => onNavigate("articles")}
-              className="group relative inline-flex items-center justify-center gap-0 hover:gap-2.5 text-[10px] font-sans font-black uppercase tracking-widest px-7 hover:px-9 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none"
+              className="group relative inline-flex items-center justify-center gap-0 hover:gap-2.5 text-[10px] font-sans font-black uppercase tracking-widest px-7 hover:px-9 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#02473E] hover:bg-[#012d27] text-white border border-white/20 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none w-full sm:w-auto"
             >
               <span>{t.s8AllBtn}</span>
               <span className="w-0 opacity-0 scale-50 transition-all duration-300 ease-[0.16,1,0.3,1] group-hover:w-4 group-hover:opacity-100 group-hover:scale-100 flex items-center justify-center overflow-hidden">
@@ -1849,7 +1849,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
                 />
                 <button 
                   type="submit"
-                  className="group relative inline-flex items-center justify-center gap-1.5 text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden"
+                  className="group relative inline-flex items-center justify-center gap-1.5 text-[10px] font-sans font-black uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 ease-[0.16,1,0.3,1] cursor-pointer bg-[#fd80ff] hover:bg-[#eb5cf0] text-white shadow-sm hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] select-none overflow-hidden w-full sm:w-auto"
                 >
                   <span className="flex items-center gap-1.5 font-sans">
                     {t.s9Submit} <Heart className="w-3 h-3 text-white fill-none stroke-[2]" />

@@ -905,25 +905,23 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                         </div>
                       )}
 
-                      <div className="pt-6 border-t border-white/40 flex justify-between font-sans">
+                      <div className="pt-6 border-t border-white/40 flex gap-3 font-sans w-full">
                         {step > 1 ? (
                           <button
                             type="button"
                             onClick={handleBack}
-                            className="px-5 py-3 border border-white/55 bg-white/45 hover:bg-white/70 rounded-xl text-[10px] font-bold uppercase tracking-wider text-[#230c1e] flex items-center gap-1 cursor-pointer transition-all"
+                            className="flex-1 py-3 border border-white/55 bg-white/45 hover:bg-white/70 rounded-xl text-[10px] font-bold uppercase tracking-wider text-[#230c1e] flex items-center justify-center gap-1 cursor-pointer transition-all"
                           >
                             <ArrowLeft className="w-3.5 h-3.5 text-[#fd80ff]" /> {t.prevBtn}
                           </button>
-                        ) : (
-                          <div />
-                        )}
+                        ) : null}
 
                         {step < 5 ? (
                           <button
                             type="button"
                             onClick={handleNext}
                             disabled={step === 1 && (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim())}
-                            className="px-6 py-3 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] uppercase tracking-widest font-extrabold rounded-xl disabled:opacity-30 flex items-center gap-1 cursor-pointer transition-all"
+                            className="flex-1 py-3 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] uppercase tracking-widest font-extrabold rounded-xl disabled:opacity-30 flex items-center justify-center gap-1 cursor-pointer transition-all"
                           >
                             {t.nextBtn} <ArrowRight className="w-3.5 h-3.5 text-[#fd80ff]" />
                           </button>
@@ -932,7 +930,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                             type="button"
                             onClick={() => handleSubmit()}
                             disabled={isSending}
-                            className="px-8 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="flex-1 py-3.5 bg-[#fd80ff] hover:bg-[#eb5cf0] disabled:opacity-50 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                           >
                             {isSending ? t.sending : t.submitBtn} <ClipboardCheck className="w-4 h-4 text-white" />
                           </button>
@@ -1041,7 +1039,7 @@ export default function ApplicationForm({ selectedPackageId, onNavigate, languag
                     notes: ""
                   });
                 }}
-                className="bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] font-sans font-extrabold uppercase tracking-widest px-6 py-3.5 rounded-full cursor-pointer transition-all"
+                className="bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] font-sans font-extrabold uppercase tracking-widest px-6 py-3.5 rounded-full cursor-pointer transition-all w-full sm:w-auto inline-flex items-center justify-center"
               >
                 {t.newChoiceBtn}
               </button>
