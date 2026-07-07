@@ -409,7 +409,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
 
             <button 
               type="submit"
-              className="w-full py-4 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[11px] font-sans font-black uppercase tracking-widest rounded-full transition-all cursor-pointer shadow-md hover:shadow-lg active:scale-[0.99] flex items-center justify-center gap-2"
+              className="w-full py-4 bg-[#02473E] hover:bg-[#035a4f] text-white text-[11px] font-sans font-black uppercase tracking-widest rounded-full transition-all cursor-pointer shadow-md hover:shadow-lg active:scale-[0.99] flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4 text-[#fd80ff]" /> {t.loginBtn}
             </button>
@@ -421,7 +421,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
             </p>
             <button
               onClick={() => onNavigate("programs")}
-              className="text-[#fd80ff] hover:text-[#230c1e] text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 transition-colors cursor-pointer mx-auto"
+              className="text-[#fd80ff] hover:text-[#02473E] text-[10px] font-extrabold uppercase tracking-widest flex items-center gap-1.5 transition-colors cursor-pointer mx-auto"
             >
               {t.readMoreBtn} <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -477,8 +477,8 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                 onClick={() => setActivePortalTab(tab.id as any)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-full text-xs font-sans font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
                   isActive 
-                    ? "bg-[#230c1e] text-white shadow-sm" 
-                    : "bg-white hover:bg-stone-50 border border-stone-200 text-[#230c1e]/75"
+                    ? "bg-[#02473E] text-white border border-[#fd80ff]/25 shadow-xs" 
+                    : "bg-white hover:bg-stone-50 border border-stone-200 text-[#02473E]/75 hover:text-[#02473E]"
                 }`}
               >
                 <Icon className={`w-4 h-4 ${isActive ? "text-[#fd80ff]" : "text-stone-400"}`} />
@@ -578,7 +578,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                       : "Program handbook is downloading to your device! ♡"
                     );
                   }}
-                  className="w-full py-4 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] font-sans font-black uppercase tracking-widest rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="w-full py-4 bg-[#02473E] hover:bg-[#035a4f] text-white text-[10px] font-sans font-black uppercase tracking-widest rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md border border-[#fd80ff]/20"
                 >
                   <Download className="w-4 h-4 text-[#fd80ff]" />
                   {t.pdfDownloadBtn}
@@ -611,8 +611,8 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                   onClick={() => setIsHomeVersion(false)}
                   className={`px-5 py-2.5 rounded-full text-[10px] font-sans font-black uppercase tracking-widest transition-all cursor-pointer ${
                     !isHomeVersion 
-                      ? "bg-[#230c1e] text-white" 
-                      : "text-[#230c1e]/70 hover:text-[#230c1e]"
+                      ? "bg-[#02473E] text-white border border-[#fd80ff]/20 shadow-xs" 
+                      : "text-[#02473E]/70 hover:text-[#02473E]"
                   }`}
                 >
                   {t.toggleGym}
@@ -621,8 +621,8 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                   onClick={() => setIsHomeVersion(true)}
                   className={`px-5 py-2.5 rounded-full text-[10px] font-sans font-black uppercase tracking-widest transition-all cursor-pointer ${
                     isHomeVersion 
-                      ? "bg-[#230c1e] text-white" 
-                      : "text-[#230c1e]/70 hover:text-[#230c1e]"
+                      ? "bg-[#02473E] text-white border border-[#fd80ff]/20 shadow-xs" 
+                      : "text-[#02473E]/70 hover:text-[#02473E]"
                   }`}
                 >
                   {t.toggleHome}
@@ -685,7 +685,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
           <div className="space-y-8 animate-in-fade" id="weekly-videos-stage">
             
             {/* Week Selection switcher */}
-            <div className="flex flex-wrap items-center justify-center gap-3 bg-white border border-stone-200/60 p-2 rounded-3xl max-w-2xl mx-auto shadow-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-white border border-stone-200/60 p-2 rounded-3xl max-w-3xl mx-auto shadow-sm">
               {[1, 2, 3, 4].map((wNum) => {
                 const isSelected = selectedWeek === wNum;
                 const svWeekTitle = wNum === 1 ? "Vecka 1: Landa" : wNum === 2 ? "Vecka 2: Lyssna" : wNum === 3 ? "Vecka 3: Bygg" : "Vecka 4: Integrera";
@@ -694,12 +694,13 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                   <button
                     key={wNum}
                     onClick={() => setSelectedWeek(wNum)}
-                    className={`px-5 py-3 rounded-2xl text-xs font-sans font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex-1 text-center ${
+                    className={`px-4 py-3 rounded-2xl text-xs font-sans font-black uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-1.5 ${
                       isSelected
-                        ? "bg-[#230c1e] text-white shadow-xs"
-                        : "hover:bg-stone-50 text-[#230c1e]/75"
+                        ? "bg-[#02473E] text-white border border-[#fd80ff]/40 shadow-xs scale-[1.01]"
+                        : "bg-white hover:bg-stone-50 border border-stone-200 text-[#02473E]/75 hover:text-[#02473E]"
                     }`}
                   >
+                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#fd80ff] animate-pulse" />}
                     {language === "sv" ? svWeekTitle : enWeekTitle}
                   </button>
                 );
