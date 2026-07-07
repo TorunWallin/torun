@@ -344,8 +344,6 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
     return { day, week, svTitle, enTitle, svPrompt, enPrompt };
   });
 
-  const activePrompt = dailyPrompts[selectedDay - 1];
-
   // Helper to compile all user reflections from localStorage
   const getSavedReflections = () => {
     const list: { day: number; week: number; prompt: string; text: string }[] = [];
