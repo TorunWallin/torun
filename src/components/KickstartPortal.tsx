@@ -22,6 +22,9 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
   // Workouts version toggle: true = hemma, false = gym
   const [isHomeVersion, setIsHomeVersion] = useState(true);
   
+  // Selected workout pass: 'pass1' | 'pass2' | 'pass3'
+  const [selectedPass, setSelectedPass] = useState<string>("pass1");
+  
   // Active week selection
   const [selectedWeek, setSelectedWeek] = useState<number>(1);
   
@@ -30,7 +33,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
   const [saveStatus, setSaveStatus] = useState<Record<number, boolean>>({});
   
   // Active exercise to show in video modal
-  const [activeExerciseVideo, setActiveExerciseVideo] = useState<{ name: string; desc: string; videoUrl?: string } | null>(null);
+  const [activeExerciseVideo, setActiveExerciseVideo] = useState<{ name: string; desc: string; trains?: string; videoUrl?: string } | null>(null);
   const [isPlayingExerciseVideo, setIsPlayingExerciseVideo] = useState(false);
   const [isPlayingCoachingVideo, setIsPlayingCoachingVideo] = useState(false);
 
@@ -216,20 +219,80 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
       title: language === "sv" ? "Pass 1: Lower & Glute Focus" : "Workout 1: Lower & Glute Focus",
       focus: language === "sv" ? "Fokus: Underkropp, säte & baksida lår" : "Focus: Lower body, glutes & hamstrings",
       gym: [
-        { name: "Pulldown / Reverse-grip Seated High Row", reps: "3 set x 8-12 reps", desc: "Sitt stabilt, dra stången mot bröstet och knip ihop skulderbladen under full kontroll." },
-        { name: "Hyperextension", reps: "2-3 set x 10-12 reps", desc: "Fokusera på sätet och baksida lår. Undvik att översträcka ländryggen i toppläget." },
-        { name: "Hip Thrust", reps: "3 set x 8-12 reps", desc: "Tryck upp höften med hälarna, knip sätet ordentligt i toppen under en sekund." },
-        { name: "Lateral Raise", reps: "2 set x 12-15 reps", desc: "Lyft hantlarna åt sidan med lätt böjd armbåge. Fokusera på utsida axel." },
-        { name: "Cable Kneeling One Arm Pulldown", reps: "2-3 set x 10-12 reps", desc: "Fokusera på kontakten med den breda ryggmuskeln under hela rörelsebanan." },
-        { name: "Side Lying Clam", reps: "2 set x 15 reps/sida", desc: "Ligg på sidan med böjda ben. Lyft det övre knäet utan att rulla höften bakåt." }
+        { 
+          name: language === "sv" ? "Barbell Hip Thrust" : "Barbell Hip Thrust", 
+          reps: "3 set x 8-12 reps", 
+          desc: language === "sv" 
+            ? "Placera skulderbladen mot en bänk, stången över höften (använd skyddskudde). Tryck upp höften genom att pressa ner hälarna, knip sätet ordentligt i toppen och håll en sekund. Sänk kontrollerat."
+            : "Place shoulder blades against a bench, barbell over hips. Push hips up by driving through your heels, squeeze glutes hard at the top for 1 second. Lower under control.",
+          trains: language === "sv" ? "Säte (stora sätesmuskeln) & baksida lår" : "Glutes & hamstrings",
+          videoUrl: "https://www.youtube.com/watch?v=LM8XHLYJoYs"
+        },
+        { 
+          name: language === "sv" ? "Goblet Squat" : "Goblet Squat", 
+          reps: "3 set x 10 reps", 
+          desc: language === "sv" 
+            ? "Håll en tung hantel eller kettlebell tätt intill bröstet. Stå axelbrett, sjunk djupt med stolt bröst och knän som pekar i samma riktning som tårna. Pressa dig upp genom hela foten."
+            : "Hold a dumbbell or kettlebell close to your chest. Stand shoulder-width apart, sit deep keeping chest proud and knees tracking over toes. Drive back up through your entire foot.",
+          trains: language === "sv" ? "Framsida lår (quads), säte & bålstabilitet" : "Quads, glutes & core stability",
+          videoUrl: "https://www.youtube.com/watch?v=MeIiGibTCIk"
+        },
+        { 
+          name: language === "sv" ? "Dumbbell Bulgarian Split Squat" : "Dumbbell Bulgarian Split Squat", 
+          reps: "2-3 set x 8-10 reps/ben", 
+          desc: language === "sv" 
+            ? "Placera ena foten bakom dig på en bänk. Ta ett stort kliv framåt med den andra. Sänk dig rakt ner tills det bakre knäet nästan rör golvet. Pressa dig upp genom främre häl."
+            : "Place back foot on a bench behind you. Take a large step forward. Lower your hips straight down until back knee almost touches the floor. Drive up through front heel.",
+          trains: language === "sv" ? "Säte (rumpa), framsida lår & balans" : "Glutes, quads & balance",
+          videoUrl: "https://www.youtube.com/watch?v=2C-uNgKw12A"
+        },
+        { 
+          name: language === "sv" ? "Lying Leg Curl" : "Lying Leg Curl", 
+          reps: "3 set x 10-12 reps", 
+          desc: language === "sv" 
+            ? "Ligg på mage i maskinen med rullen mot underbenen. Böj benen kontrollerat och dra rullen mot sätet. Håll emot långsamt på vägen tillbaka till raka ben."
+            : "Lie face down with roller pad against lower calves. Curl legs up towards glutes under full control. Lower slowly back to straight legs.",
+          trains: language === "sv" ? "Baksida lår (hamstrings)" : "Hamstrings (back of legs)",
+          videoUrl: "https://www.youtube.com/watch?v=1Tq3QdIUutg"
+        }
       ],
       home: [
-        { name: "Superman", reps: "2-3 set x 10-12 reps", desc: "Ligg på mage, lyft armar och ben kontrollerat. Styrkebyggande för hela baksidan." },
-        { name: "Bird Dog", reps: "3 set x 10 reps/sida", desc: "Stå på alla fyra, sträck ut motsatt arm och ben. Håll bålen helt stabil." },
-        { name: "Single Leg Glute Bridge", reps: "3 set x 10-12 reps/sida", desc: "Höftlyft på ett ben. Kan göras med en ryggsäck eller vattenflaska på höften för extra motstånd." },
-        { name: "Lateral Raise med vattenflaskor / böcker", reps: "2-3 set x 12-15 reps", desc: "Använd fyllda vattenflaskor för att bygga starka axlar utan tunga vikter." },
-        { name: "Prone Row", reps: "3 set x 12 reps", desc: "Ligg på mage, lyft lätt bröstet och dra armbågarna bakåt mot höften. Knip skulderbladen." },
-        { name: "Side Lying Clam", reps: "2 set x 15 reps/sida", desc: "Ligg på sidan med böjda ben. Lyft det övre knäet för att aktivera sätets utsida." }
+        { 
+          name: language === "sv" ? "Glute Bridge (med motstånd)" : "Glute Bridge (with load)", 
+          reps: "3 set x 12-15 reps", 
+          desc: language === "sv" 
+            ? "Ligg på rygg med böjda knän och fötterna i golvet. Pressa upp höften mot taket genom hälarna, spänn sätet hårt i toppläget. Lägg en fylld ryggsäck på höften för extra vikt."
+            : "Lie on back with bent knees, feet flat. Drive hips up through heels, squeezing glutes hard at the top. Place a loaded backpack on hips for weight.",
+          trains: language === "sv" ? "Säte (sätesmusklerna) & baksida lår" : "Glutes & hamstrings",
+          videoUrl: "https://www.youtube.com/watch?v=wPM8co451BE"
+        },
+        { 
+          name: language === "sv" ? "Kroppsviktsknäböj (Air Squat)" : "Bodyweight Air Squat", 
+          reps: "3 set x 12-15 reps", 
+          desc: language === "sv" 
+            ? "Stå höftbrett, fäll höften bakåt och sätt dig ner som på en stol. Håll bröstet stolt och tryck knäna utåt. Pressa dig kontrollerat upp till stående."
+            : "Stand hip-width apart, send hips back and sit down as if on a chair. Keep chest proud, press knees outward. Drive back up to standing.",
+          trains: language === "sv" ? "Framsida lår & säte" : "Quads & glutes",
+          videoUrl: "https://www.youtube.com/watch?v=aclHkVaku9U"
+        },
+        { 
+          name: language === "sv" ? "Step-ups på stol/soffa" : "Chair / Sofa Step-ups", 
+          reps: "3 set x 10 reps/ben", 
+          desc: language === "sv" 
+            ? "Placera ena foten stadigt på en stabil stol eller soffkant. Tryck dig upp med benets styrka tills du står helt rak. Sänk dig långsamt och kontrollerat ner igen."
+            : "Place one foot flat on a sturdy chair or couch. Step up using leg strength until standing straight. Lower down slowly and controlled.",
+          trains: language === "sv" ? "Framsida lår, säte & balans" : "Quads, glutes & balance",
+          videoUrl: "https://www.youtube.com/watch?v=dQqApCGd5Ss"
+        },
+        { 
+          name: language === "sv" ? "Single Leg Glute Bridge" : "Single Leg Glute Bridge", 
+          reps: "2-3 set x 10 reps/sida", 
+          desc: language === "sv" 
+            ? "Ligg på rygg med ena benet upplyft. Tryck upp höften med det andra benet genom att pressa ner hälen, spänn rumpan hårt i toppen. Håll höfterna jämna."
+            : "Lie on back, lift one leg straight up. Press hips up driving through the heel of the floor foot, squeeze glute at the top. Keep hips level.",
+          trains: language === "sv" ? "Säte, baksida lår & bålstabilitet" : "Glutes & core stability",
+          videoUrl: "https://www.youtube.com/watch?v=seM3tZ8oXlE"
+        }
       ]
     },
     {
@@ -237,20 +300,80 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
       title: language === "sv" ? "Pass 2: Kraft & Flöde" : "Workout 2: Strength & Flow",
       focus: language === "sv" ? "Fokus: Benstyrka, axelpressar & bålstabilitet" : "Focus: Leg strength, shoulder presses & core stability",
       gym: [
-        { name: "Goblet Squat eller Full Squat", reps: "3 set x 8-12 reps", desc: "Håll en hantel eller kettlebell vid bröstet, sjunk djupt med stolt bröst och knän som spårar över tårna." },
-        { name: "Dumbbell Bulgarian Split Squat", reps: "2-3 set x 8-10 reps/ben", desc: "Placera bakre foten på en bänk, sjunk ned med tyngdpunkten på främre hälen." },
-        { name: "Seated Shoulder Press / Arnold Press", reps: "3 set x 10 reps", desc: "Pressa hantlarna kontrollerat över huvudet utan att svanka ryggen." },
-        { name: "Front Raise", reps: "2 set x 12 reps", desc: "Lyft hantlarna framåt till ögonhöjd. Kontrollerad rörelse på vägen ner." },
-        { name: "Cable Hip Abduction", reps: "2-3 set x 12 reps/ben", desc: "Stå stadigt och för benet utåt sidan för att stärka sätets stabiliserande muskler." },
-        { name: "Bird Dog", reps: "2 set x 10 reps/sida", desc: "Stå på alla fyra, förläng motsatt arm och ben och håll höften helt plan." }
+        { 
+          name: language === "sv" ? "Leg Press" : "Leg Press", 
+          reps: "3 set x 8-12 reps", 
+          desc: language === "sv" 
+            ? "Sitt djupt i maskinen, placera fötterna höftbrett på plattan. Sänk plattan kontrollerat mot bröstet utan att lyfta rumpan från sätet. Pressa tillbaka utan att låsa knäna helt."
+            : "Sit in press, feet hip-width on sled. Lower sled controlled towards chest without lifting tailbone. Press back up without locking knees.",
+          trains: language === "sv" ? "Framsida lår, baksida lår & säte" : "Quads, hamstrings & glutes",
+          videoUrl: "https://www.youtube.com/watch?v=IZxyjWwJYlU"
+        },
+        { 
+          name: language === "sv" ? "Dumbbell Shoulder Press" : "Dumbbell Shoulder Press", 
+          reps: "3 set x 10 reps", 
+          desc: language === "sv" 
+            ? "Sitt på en bänk med ryggstöd. Håll hantlarna i öronhöjd, pressa dem rakt upp över huvudet under kontroll. Se till att inte svanka eller tappa nacken framåt."
+            : "Sit on a supported bench. Hold dumbbells at ear height, press straight up overhead under control. Keep core tight, do not arch your lower back.",
+          trains: language === "sv" ? "Axlar (deltoideus) & triceps" : "Shoulders & triceps",
+          videoUrl: "https://www.youtube.com/watch?v=B-aVuyhvLHU"
+        },
+        { 
+          name: language === "sv" ? "Seated Cable Row" : "Seated Cable Row", 
+          reps: "3 set x 10-12 reps", 
+          desc: language === "sv" 
+            ? "Sitt med lätt böjda knän. Dra handtaget mot nedre delen av magen. Sänk axlarna och nyp ihop skulderbladen hårt i slutet av rörelsen. Håll emot på vägen ut."
+            : "Sit with slightly bent knees. Pull handle towards lower chest/navel. Keep shoulders down, pinch shoulder blades hard at back. Resist weight returning.",
+          trains: language === "sv" ? "Breda ryggmuskeln (lats), övre rygg & biceps" : "Lats, upper back & biceps",
+          videoUrl: "https://www.youtube.com/watch?v=GZbfZ033fEs"
+        },
+        { 
+          name: language === "sv" ? "Plankan (Forearm Plank)" : "Forearm Plank", 
+          reps: "3 set x 30-45 sek", 
+          desc: language === "sv" 
+            ? "Stå på underarmar och tår. Håll kroppen i en spikrak linje. Spänn magen och sätet, tryck upp utrymmet mellan skulderbladen och andas lugnt."
+            : "Rest on forearms and toes. Keep body in a straight line. Tighten core and glutes, push up through shoulder blades and breathe slowly.",
+          trains: language === "sv" ? "Djupa bålmuskler (core) & stabilitet" : "Deep core muscles & stability",
+          videoUrl: "https://www.youtube.com/watch?v=pSHjTRCQxIw"
+        }
       ],
       home: [
-        { name: "Bodyweight Goblet Squat", reps: "3 set x 12-15 reps", desc: "Gör knäböj med en fylld vattenflaska eller tung bok hållen intill bröstet." },
-        { name: "Reverse Lunge", reps: "3 set x 10 reps/ben", desc: "Kliv bakåt kontrollerat och pressa dig upp igen genom det främre benets häl." },
-        { name: "Shoulder Press med vattenflaskor / böcker", reps: "3 set x 12 reps", desc: "Pressa uppåt med stolt hållning. Aktiverar axlar och övre rygg." },
-        { name: "Front Raise med vattenflaskor", reps: "2 set x 12 reps", desc: "Lyft flaskorna framåt med lätt böjda armar för att stärka axelns framsida." },
-        { name: "Glute Kickback på alla fyra", reps: "3 set x 12-15 reps/ben", desc: "Pressa fotsulan mot taket och knip i sätet utan att svanka ländryggen." },
-        { name: "Bird Dog", reps: "2 set x 10 reps/sida", desc: "Utmärkt övning för bålstabilitet och ryggstyrka utan redskap." }
+        { 
+          name: language === "sv" ? "Reverse Lunge (Utfallssteg bakåt)" : "Reverse Lunge", 
+          reps: "3 set x 10 reps/ben", 
+          desc: language === "sv" 
+            ? "Stå stolt. Ta ett kontrollerat kliv bakåt med ena benet, sänk höften tills det bakre knäet nästan nuddar golvet. Pressa dig framåt och upp igen med främre hälen."
+            : "Stand tall. Take a controlled step back with one leg, lower hips until back knee almost touches the floor. Drive forward and up through front heel.",
+          trains: language === "sv" ? "Framsida lår, baksida lår & säte" : "Quads, hamstrings & glutes",
+          videoUrl: "https://www.youtube.com/watch?v=wr69aWb93a0"
+        },
+        { 
+          name: language === "sv" ? "Shoulder Press med vattenflaskor" : "Water Bottle Shoulder Press", 
+          reps: "3 set x 12 reps", 
+          desc: language === "sv" 
+            ? "Stå stadigt. Håll två tunga vattenflaskor eller böcker i axelhöjd. Pressa dem rakt upp till raka armar under full kontroll. Sänk långsamt."
+            : "Stand firm. Hold loaded water bottles or books at shoulder height. Press straight up to locked arms under control. Lower slowly.",
+          trains: language === "sv" ? "Axlar & armar" : "Shoulders & arms",
+          videoUrl: "https://www.youtube.com/watch?v=qE78Ed6mH4M"
+        },
+        { 
+          name: language === "sv" ? "Superman Row" : "Superman Row", 
+          reps: "3 set x 12 reps", 
+          desc: language === "sv" 
+            ? "Ligg på mage, lyft bröstet och armarna lätt från golvet. Dra armbågarna bakåt mot höften (som ett roddrag) och knip ihop skulderbladen. Sträck fram armarna igen."
+            : "Lie face down, lift chest and arms slightly. Drive elbows back towards hips (rowing motion) pinching shoulder blades. Extend arms forward.",
+          trains: language === "sv" ? "Hela baksidan, ländrygg & övre rygg" : "Erector spinae, lower & upper back",
+          videoUrl: "https://www.youtube.com/watch?v=z6PJMT2y8GQ"
+        },
+        { 
+          name: language === "sv" ? "Död insekt (Dead Bug)" : "Dead Bug", 
+          reps: "3 set x 10 reps/sida", 
+          desc: language === "sv" 
+            ? "Ligg på rygg med armarna upp och knäna i 90 grader. Sänk långsamt motsatt arm och ben mot golvet. Pressa ländryggen hårt mot golvet under hela rörelsen!"
+            : "Lie on back, arms up, knees bent at 90. Slowly lower opposite arm and leg toward floor. Keep lower back glued to the floor at all times!",
+          trains: language === "sv" ? "Djupa bålmuskler (transversus abdominis)" : "Deep core muscles",
+          videoUrl: "https://www.youtube.com/watch?v=g_BYB0R-4Ws"
+        }
       ]
     },
     {
@@ -258,20 +381,80 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
       title: language === "sv" ? "Pass 3: Helhet & Balans" : "Workout 3: Wholeness & Balance",
       focus: language === "sv" ? "Fokus: Höftfällning (hinge), armar & core" : "Focus: Hip hinge, arms & core",
       gym: [
-        { name: "Romanian Deadlift / Barbell Bent Over Row", reps: "3 set x 8-12 reps", desc: "Skjut bak höften och fäll i ryggen med en rak stång nära benen för baksida lår och rygg." },
-        { name: "Hip Thrust", reps: "3 set x 10 reps", desc: "Klassiskt höftlyft på bänk med stång eller tung hantel över höftkammen." },
-        { name: "Dumbbell Hammer Curl", reps: "2-3 set x 12 reps", desc: "Stärk armarna genom att curla hantlarna med neutralt grepp (tummarna upp)." },
-        { name: "Triceps Pushdown / Overhead Extension", reps: "2-3 set x 12 reps", desc: "Sträck ut armen helt för att aktivera baksida överarm." },
-        { name: "Dumbbell Upright Row", reps: "2 set x 12 reps", desc: "Dra hantlarna upp mot hakan med armbågarna högre än händerna." },
-        { name: "Side Lying Diagonal Backward Leg Raise", reps: "2 set x 12 reps/ben", desc: "Ligg på sidan och för det övre benet snett bakåt-uppåt för sätets djupare muskler." }
+        { 
+          name: language === "sv" ? "Romanian Deadlift (RDL)" : "Romanian Deadlift (RDL)", 
+          reps: "3 set x 8-12 reps", 
+          desc: language === "sv" 
+            ? "Håll en stång framför höften. Skjut bak höften, böj minimalt i knäna och låt stången glida tätt längs benen till under knäna tills det sträcker i baksidan. Pressa fram höften."
+            : "Hold bar in front of hips. Push hips back, bend knees slightly, slide bar close down legs to mid-shin feeling a hamstring stretch. Drive hips forward.",
+          trains: language === "sv" ? "Baksida lår (hamstrings) & säte" : "Hamstrings & glutes",
+          videoUrl: "https://www.youtube.com/watch?v=JCXUYuzw01M"
+        },
+        { 
+          name: language === "sv" ? "Lat Pulldown" : "Lat Pulldown", 
+          reps: "3 set x 10 reps", 
+          desc: language === "sv" 
+            ? "Sitt stadigt. Håll brett grepp om stången. Dra stången ner mot övre bröstet samtidigt som du öppnar upp bröstet och drar axlarna nedåt-bakåt."
+            : "Sit comfortably, grip bar wide. Pull bar down to upper chest, opening chest and drawing shoulders down and backward.",
+          trains: language === "sv" ? "Breda ryggmuskeln (lats) & övre rygg" : "Lats & upper back",
+          videoUrl: "https://www.youtube.com/watch?v=CAwf7n6Luuc"
+        },
+        { 
+          name: language === "sv" ? "Dumbbell Bicep Curl" : "Dumbbell Bicep Curl", 
+          reps: "3 set x 12 reps", 
+          desc: language === "sv" 
+            ? "Stå axelbrett, en hantel i varje hand. Håll armbågarna låsta mot sidan av kroppen. Curla upp hantlarna kontrollerat till axelhöjd. Håll emot ner."
+            : "Stand wide, dumbbell in each hand. Keep elbows pinned to ribs. Curl weights up controlled to shoulder height. Lower under tension.",
+          trains: language === "sv" ? "Biceps (framsida armar)" : "Biceps (front of arms)",
+          videoUrl: "https://www.youtube.com/watch?v=ykJgr1hx3KQ"
+        },
+        { 
+          name: language === "sv" ? "Bird Dog (Hunden/Katten)" : "Bird Dog", 
+          reps: "3 set x 10 reps/sida", 
+          desc: language === "sv" 
+            ? "Stå på alla fyra. Sträck ut motsatt arm och ben diagonalt tills de är i linje med kroppen. Håll bålen stabil, undvik att svanka eller tilta höften."
+            : "Start on all fours. Extend opposite arm and leg straight out level with spine. Keep core solid, do not arch back or tilt hips.",
+          trains: language === "sv" ? "Ländrygg, säte & djup bål" : "Lower back, glutes & deep core",
+          videoUrl: "https://www.youtube.com/watch?v=wiF57z2sY2o"
+        }
       ],
       home: [
-        { name: "Good Morning (kroppsvikt) eller Single Leg RDL", reps: "3 set x 12 reps", desc: "Fäll fram i höften med rak rygg och mjuka knän. Känn hur det stramar lätt i baksida lår." },
-        { name: "Hip Thrust (med ryggsäck/vattenflaskor)", reps: "3 set x 12-15 reps", desc: "Gör höftlyftet liggande på golvet med skuldrorna mot en soffkant för djupare rörelsebana." },
-        { name: "Bicep Curl med vikter", reps: "3 set x 12 reps", desc: "Använd vattenflaskor, tunga böcker eller kassar för att curla under full kontroll." },
-        { name: "Triceps Extension med bok / vattenflaska", reps: "2-3 set x 12 reps", desc: "Håll en bok bakom huvudet och pressa uppåt med fixerade armbågar." },
-        { name: "Upright Row med fyllda vattenflaskor", reps: "2-3 set x 12 reps", desc: "Dra uppåt längs kroppen. Håll axlarna sänkta och led rörelsen med armbågarna." },
-        { name: "Side Lying Clam eller Diagonal Leg Raise", reps: "2 set x 12-15 reps/sida", desc: "Stärker höftens utsida och sätet på ett extremt skonsamt sätt." }
+        { 
+          name: language === "sv" ? "Single Leg Romanian Deadlift" : "Single Leg Romanian Deadlift", 
+          reps: "3 set x 10 reps/ben", 
+          desc: language === "sv" 
+            ? "Stå på ett ben. Fäll fram i höften med rak rygg samtidigt som det fria benet sträcks ut rakt bakom dig till vågrätt. Pressa dig upp genom stående benets häl."
+            : "Stand on one leg. Pivot at hips keeping spine straight, extending back leg straight behind you to parallel. Drive up through standing heel.",
+          trains: language === "sv" ? "Baksida lår, säte & fotledsstabilitet" : "Hamstrings, glutes & ankle stability",
+          videoUrl: "https://www.youtube.com/watch?v=A1-4v1Tf_iU"
+        },
+        { 
+          name: language === "sv" ? "Hängande rodd under bord" : "Inverted Table Row", 
+          reps: "3 set x 8-10 reps", 
+          desc: language === "sv" 
+            ? "Ligg under ett stabilt matbord. Ta tag i bordskanten med händerna axelbrett. Håll kroppen spikrak och dra bröstkorgen upp mot bordet. Sänk kontrollerat."
+            : "Lie under a sturdy table, grip edge shoulder-width. Keep body straight as a plank and pull chest up to the table edge. Lower controlled.",
+          trains: language === "sv" ? "Övre rygg, breda ryggmuskeln & biceps" : "Upper back, lats & biceps",
+          videoUrl: "https://www.youtube.com/watch?v=OYUxXAMVz80"
+        },
+        { 
+          name: language === "sv" ? "Bicep Curl med kassar/vikter" : "Water Bottle Bicep Curl", 
+          reps: "3 set x 12-15 reps", 
+          desc: language === "sv" 
+            ? "Håll två fyllda kassar eller vattenflaskor. Curla dem upp mot axlarna med fixerade armbågar intill revbenen. Spänn biceps i toppen."
+            : "Hold loaded bags or water bottles. Curl up to shoulders keeping elbows pinned to ribs. Contract biceps at the top.",
+          trains: language === "sv" ? "Framsida överarm (biceps)" : "Biceps",
+          videoUrl: "https://www.youtube.com/watch?v=ykJgr1hx3KQ"
+        },
+        { 
+          name: language === "sv" ? "Bird Dog (Hunden)" : "Bird Dog", 
+          reps: "3 set x 10 reps/sida", 
+          desc: language === "sv" 
+            ? "Stå på knän och händer. Sträck långsamt ut motsatt arm och ben till en rak linje. Mycket bra och skonsam stabilitetsövning för rygg och bål."
+            : "On hands and knees, slowly extend opposite arm and leg to a straight line. Excellent gentle stability work for back and core.",
+          trains: language === "sv" ? "Bål, ländrygg & säte" : "Core, lower back & glutes",
+          videoUrl: "https://www.youtube.com/watch?v=wiF57z2sY2o"
+        }
       ]
     }
   ];
@@ -592,15 +775,15 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
 
         {/* TAB 2: WORKOUTS */}
         {activePortalTab === "workouts" && (
-          <div className="space-y-6 animate-in-fade">
+          <div className="space-y-8 animate-in-fade">
             
             {/* Header controls card */}
             <div className="glass-panel border border-white/65 p-6 sm:p-8 rounded-[2rem] shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-              <div className="space-y-1 max-w-xl">
+              <div className="space-y-1 max-w-xl text-left">
                 <h3 className="font-serif text-xl font-bold text-[#230c1e]">
                   {language === "sv" ? "Dina Träningspass" : "Your Workouts"}
                 </h3>
-                <p className="text-xs text-stone-500 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
                   {t.workoutIntro}
                 </p>
               </div>
@@ -630,52 +813,128 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
               </div>
             </div>
 
-            {/* Workouts detailed blocks */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {workouts.map((w, index) => {
-                const exerciseList = isHomeVersion ? w.home : w.gym;
+            {/* Pass Switcher */}
+            <div className="grid grid-cols-3 gap-2 bg-white border border-stone-200/60 p-2 rounded-3xl max-w-3xl mx-auto shadow-sm">
+              {workouts.map((w, idx) => {
+                const isSelected = selectedPass === w.id;
                 return (
-                  <div 
+                  <button
                     key={w.id}
-                    className="glass-panel border border-white/65 rounded-[2.5rem] p-6 sm:p-8 shadow-lg space-y-6 flex flex-col justify-between"
+                    onClick={() => setSelectedPass(w.id)}
+                    className={`px-3 py-3 rounded-2xl text-[10px] sm:text-xs font-sans font-black uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-1.5 ${
+                      isSelected
+                        ? "bg-[#02473E] text-white border border-[#fd80ff]/40 shadow-xs scale-[1.01]"
+                        : "bg-white hover:bg-stone-50 border border-stone-200 text-[#02473E]/75 hover:text-[#02473E]"
+                    }`}
                   >
-                    <div className="space-y-4">
-                      <div className="space-y-1">
-                        <span className="text-[9px] uppercase font-bold tracking-widest text-[#fd80ff] block">PASS {index + 1}</span>
-                        <h4 className="font-serif text-xl font-bold text-[#230c1e]">{w.title}</h4>
-                        <span className="text-[11px] text-[#230c1e]/70 font-sans italic block">{w.focus}</span>
-                      </div>
-
-                      {/* Exercises List inside pass */}
-                      <div className="divide-y divide-stone-100 text-left">
-                        {exerciseList.map((ex, idx) => (
-                          <div key={idx} className="py-3.5 space-y-1.5">
-                            <div className="flex justify-between items-start gap-2">
-                              <span className="text-xs font-bold text-[#230c1e] font-sans pr-1">
-                                {idx + 1}. {ex.name}
-                              </span>
-                              <span className="text-[10px] font-bold text-[#fd80ff] font-mono shrink-0 whitespace-nowrap bg-[#fff5fc] px-2 py-0.5 rounded border border-[#fd80ff]/10">
-                                {ex.reps}
-                              </span>
-                            </div>
-                            <p className="text-[10.5px] text-stone-500 leading-relaxed font-light">
-                              {ex.desc}
-                            </p>
-                            
-                            <button
-                              onClick={() => setActiveExerciseVideo({ name: ex.name, desc: ex.desc })}
-                              className="inline-flex items-center gap-1 text-[9px] font-sans font-bold uppercase tracking-wider text-[#230c1e] hover:text-[#fd80ff] transition-colors cursor-pointer select-none"
-                            >
-                              <Eye className="w-3 h-3 text-[#fd80ff]" /> {t.viewVideoBtn}
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#fd80ff] animate-pulse" />}
+                    {language === "sv" ? `Pass ${idx + 1}` : `Workout ${idx + 1}`}
+                  </button>
                 );
               })}
             </div>
+
+            {/* Workout Details list */}
+            {(() => {
+              const currentPassObj = workouts.find(w => w.id === selectedPass) || workouts[0];
+              const exerciseList = isHomeVersion ? currentPassObj.home : currentPassObj.gym;
+              return (
+                <div className="space-y-6 max-w-4xl mx-auto">
+                  {/* Selected Pass Details Card */}
+                  <div className="glass-panel border border-white/65 p-6 sm:p-8 rounded-[2.5rem] shadow-xl text-left space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 border-b border-stone-100 pb-4">
+                      <div>
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff] block">
+                          {language === "sv" ? "VALT TRÄNINGSPASS" : "SELECTED WORKOUT"}
+                        </span>
+                        <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#230c1e] mt-1">
+                          {currentPassObj.title}
+                        </h4>
+                        <span className="text-sm text-[#02473E] font-medium mt-1 block">
+                          {currentPassObj.focus}
+                        </span>
+                      </div>
+                      
+                      {/* Reps/version reminder */}
+                      <div className="bg-[#fff5fc] px-4 py-2 rounded-2xl border border-[#fd80ff]/20 text-center sm:text-right shrink-0">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff] block">
+                          {language === "sv" ? "UTFÖRANDE" : "VERSION"}
+                        </span>
+                        <span className="text-xs font-black uppercase text-[#02473E] tracking-wider block">
+                          {isHomeVersion 
+                            ? (language === "sv" ? "Hemma (Inga maskiner)" : "Home version")
+                            : (language === "sv" ? "Gym (Maskiner & vikter)" : "Gym version")
+                          }
+                        </span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                      {language === "sv"
+                        ? "Värm upp med 5-10 minuters rörlighet innan du kör igång. Utför varje övning med fullt fokus på muskelkontakten – gör rörelserna långsamt och kontrollerat. ♡"
+                        : "Warm up with 5-10 minutes of dynamic mobility before starting. Perform each exercise with complete focus on muscle connection – move slowly and with control. ♡"
+                      }
+                    </p>
+                  </div>
+
+                  {/* Exercises Stack */}
+                  <div className="space-y-6">
+                    {exerciseList.map((ex, idx) => (
+                      <div 
+                        key={idx} 
+                        className="glass-panel border border-white/65 p-6 sm:p-8 rounded-[2rem] shadow-md text-left flex flex-col md:flex-row md:items-start justify-between gap-6 hover:shadow-lg transition-shadow"
+                      >
+                        {/* Left/Middle side: Exercise Info */}
+                        <div className="space-y-4 flex-1">
+                          <div className="flex flex-wrap items-center gap-3">
+                            <span className="text-sm font-black text-white bg-[#02473E] w-7 h-7 rounded-full flex items-center justify-center shrink-0">
+                              {idx + 1}
+                            </span>
+                            <h5 className="font-serif text-lg sm:text-xl font-bold text-[#230c1e]">
+                              {ex.name}
+                            </h5>
+                            <span className="text-xs font-bold text-[#fd80ff] font-mono bg-[#fff5fc] px-3 py-1 rounded-full border border-[#fd80ff]/15">
+                              {ex.reps}
+                            </span>
+                          </div>
+
+                          {/* Focus area */}
+                          <div className="bg-[#FAF8F5] border border-stone-200/40 p-4 rounded-xl space-y-1">
+                            <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff] block">
+                              {language === "sv" ? "Vad det tränar" : "Muscle focus"}
+                            </span>
+                            <p className="text-sm text-[#02473E] font-sans font-bold leading-relaxed">
+                              {ex.trains}
+                            </p>
+                          </div>
+
+                          {/* Step-by-step description */}
+                          <div className="space-y-1">
+                            <span className="text-[10px] uppercase font-bold tracking-widest text-stone-400 block">
+                              {language === "sv" ? "Hur du gör (steg-för-steg)" : "Execution"}
+                            </span>
+                            <p className="text-sm text-stone-600 leading-relaxed font-light">
+                              {ex.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Right side: Watch Video button */}
+                        <div className="md:self-center shrink-0">
+                          <button
+                            onClick={() => setActiveExerciseVideo({ name: ex.name, desc: ex.desc, trains: ex.trains, videoUrl: ex.videoUrl })}
+                            className="w-full md:w-auto px-6 py-4 bg-[#02473E] hover:bg-[#035a4f] text-white text-xs font-sans font-black uppercase tracking-wider rounded-xl transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-95 shadow-sm border border-[#fd80ff]/20"
+                          >
+                            <Play className="w-4 h-4 text-[#fd80ff] fill-current" />
+                            {language === "sv" ? "Kolla videoinstruktion" : "Watch video"}
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
 
           </div>
         )}
@@ -872,56 +1131,73 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
       {/* EXERCISE VIDEO DEMO MODAL */}
       <AnimatePresence>
         {activeExerciseVideo && (
-          <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-[#230c1e]/40 backdrop-blur-md">
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-[#02473E]/45 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white rounded-[2.5rem] border border-white/60 shadow-2xl p-6 sm:p-8 max-w-lg w-full relative text-left"
+              className="bg-[#FAF8F5] rounded-[2.5rem] border border-white/60 shadow-2xl p-6 sm:p-8 max-w-lg w-full relative text-left"
             >
               <button
                 onClick={() => {
                   setActiveExerciseVideo(null);
                   setIsPlayingExerciseVideo(false);
                 }}
-                className="absolute top-6 right-6 p-2 rounded-full border border-stone-200 hover:bg-stone-50 text-stone-400 cursor-pointer w-9 h-9 flex items-center justify-center font-bold"
+                className="absolute top-6 right-6 p-2 rounded-full border border-stone-200 hover:bg-stone-100 text-stone-400 cursor-pointer w-9 h-9 flex items-center justify-center font-bold"
               >
                 ×
               </button>
 
-              <div className="space-y-6 font-sans">
+              <div className="space-y-5 font-sans">
                 <div className="space-y-1">
-                  <span className="text-[9px] font-sans uppercase font-black text-[#fd80ff] tracking-wider block">ÖVNINGSDEMONSTRATION</span>
+                  <span className="text-[10px] font-sans uppercase font-bold text-[#fd80ff] tracking-wider block">ÖVNINGSDEMONSTRATION</span>
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-[#230c1e]">
                     {activeExerciseVideo.name}
                   </h3>
                 </div>
 
-                {/* Mock Exercise Video Loop */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center group shadow-sm">
-                  {isPlayingExerciseVideo ? (
-                    <div className="absolute inset-0 bg-[#230c1e] flex flex-col items-center justify-center p-4 text-center text-white space-y-2">
-                      <div className="w-10 h-10 rounded-full border-4 border-[#fd80ff] border-t-transparent animate-spin" />
-                      <span className="text-[9px] uppercase font-bold tracking-widest text-[#fd80ff]">Visar instruktionsvideo (loop)...</span>
-                    </div>
-                  ) : (
-                    <>
-                      <img src={torunMeadow} alt="Exercise Demo" className="absolute inset-0 w-full h-full object-cover opacity-60" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <button
-                        onClick={() => setIsPlayingExerciseVideo(true)}
-                        className="w-12 h-12 rounded-full bg-white text-[#230c1e] hover:bg-[#fd80ff] hover:text-white flex items-center justify-center shadow-lg transition-all transform hover:scale-105 active:scale-95 cursor-pointer z-10"
-                      >
-                        <Play className="w-5 h-5 fill-current ml-1" />
-                      </button>
-                    </>
-                  )}
+                {/* Real YouTube Video Embed */}
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center shadow-sm">
+                  {(() => {
+                    const videoUrl = activeExerciseVideo.videoUrl;
+                    if (videoUrl) {
+                      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                      const match = videoUrl.match(regExp);
+                      const youtubeId = (match && match[2].length === 11) ? match[2] : null;
+                      
+                      if (youtubeId) {
+                        return (
+                          <iframe 
+                            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}`}
+                            title={activeExerciseVideo.name}
+                            className="w-full h-full border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        );
+                      }
+                    }
+                    return (
+                      <div className="absolute inset-0 bg-[#02473E]/10 flex flex-col items-center justify-center p-4 text-center text-stone-500">
+                        <span className="text-xs font-sans uppercase tracking-widest text-[#fd80ff]">Ingen video tillgänglig</span>
+                      </div>
+                    );
+                  })()}
                 </div>
 
-                <div className="space-y-3">
-                  <span className="text-[10px] font-sans uppercase font-black text-[#fd80ff] tracking-wider block">Utförande & Säkerhetsinstruktioner</span>
-                  <p className="text-xs text-stone-600 leading-relaxed font-light">
-                    {activeExerciseVideo.desc} Försäkra dig om att hålla axlarna sänkta och andas lugnt under hela övningen. Kontakten i muskeln är viktigare än tunga vikter!
+                {activeExerciseVideo.trains && (
+                  <div className="bg-[#fff5fc] border border-[#fd80ff]/20 p-4 rounded-xl space-y-0.5">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff] block">Vad det tränar</span>
+                    <p className="text-sm text-[#02473E] font-sans font-bold leading-relaxed">
+                      {activeExerciseVideo.trains}
+                    </p>
+                  </div>
+                )}
+
+                <div className="space-y-1.5 bg-white border border-stone-200/50 p-4 rounded-xl">
+                  <span className="text-[10px] font-sans uppercase font-bold text-stone-400 tracking-wider block">Utförande & Säkerhetsinstruktioner</span>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                    {activeExerciseVideo.desc}
                   </p>
                 </div>
 
@@ -931,7 +1207,7 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                     setActiveExerciseVideo(null);
                     setIsPlayingExerciseVideo(false);
                   }}
-                  className="w-full py-3.5 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[11px] font-sans font-extrabold uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-md"
+                  className="w-full py-3.5 bg-[#02473E] hover:bg-[#035a4f] text-white text-[11px] font-sans font-extrabold uppercase tracking-widest rounded-xl transition-all cursor-pointer shadow-md border border-[#fd80ff]/20"
                 >
                   {language === "sv" ? "Stäng fönster" : "Close window"}
                 </button>
