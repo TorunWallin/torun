@@ -87,7 +87,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
 
   const t = {
     sv: {
-      fitnesscoachTag: "✦ FITNESSCOACH FÖR TJEJER & KVINNOR",
+      fitnesscoachTag: "ONLINECOACHING & TRÄNING FÖR KVINNOR",
       heroTitlePre: "Du behöver inte ",
       heroTitleItalic: "förtjäna",
       heroTitlePost: " din egen kropp.",
@@ -111,7 +111,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       floatCapsule1Title: "Cykel-Synk",
       floatCapsule1Desc: "Synkronisera intensiteten enkelt med alla mensens 4 faser.",
       floatCapsule2Title: "ÖPPET FÖR INTAG",
-      floatCapsule2Desc: "Hitta din plats 🎀",
+      floatCapsule2Desc: "Hitta din plats ♡",
       floatCapsule2Sub: "Börja när du känner dig ready",
       standQuote: '"Att skifta fokus till att lyssna på kroppen istället för pulsklockan har förändrat allt. Att träna på kroppens villkor ger så mycket mer energi och träningsglädje i vardagen!"',
       standQuoteBold1: "lyssna på kroppen",
@@ -122,7 +122,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3Tag: "TRE VÄGAR TILLBAKA",
       s3Title: "Välj din väg hem.",
       s3Subtitle: "Oavsett var du börjar handlar det om samma sak — att hitta tillbaka till en kropp som är trygg, stark och din.",
-      s3MatchmakerTitle: "Skapa din personliga hälsoprofil",
+      s3MatchmakerTitle: "Hitta rätt upplägg för dig",
       s3MatchmakerSub: "Utan press eller hets",
       s3MatchmakerRecommended: "REKOMMENDERAT MEDLEMSKAP",
       s3MatchmakerChoose: "Välj detta program",
@@ -134,8 +134,8 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3MatchmakerOpt3Desc: "Träningsglädje utan piska och press",
       s3MatchmakerOpt4: "Jag känner mig väldigt trött eller stressad just nu",
       s3MatchmakerOpt4Desc: "Mjuk nervsystemreglering",
-      s3RecommendedBadge: "REKOMMENDERAS ✨",
-      s3MatchBadge: "DIN MATCH 🎀",
+      s3RecommendedBadge: "REKOMMENDERAS",
+      s3MatchBadge: "REKOMMENDERAT VAL",
       s3IncludesHeader: "VAD SOM INGÅR:",
       s3BtnText: "Påbörja din resa",
       s3DetailsLink: "Läs fullständiga detaljer ➔",
@@ -144,22 +144,22 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3ContactOr: " eller skicka din ansökan direkt.",
       s3AppFriszon: "Din digitala friszon",
       s3AppIncludes: "VAD SOM INGÅR I VERKTYGSTLÅDAN:",
-      s4Tag: "BIOCENTRERAD VETENSKAP",
+      s4Tag: "TRÄNING PÅ BIOLOGISKA VILLKOR",
       s4Title: "Bärande pelare för din livskraft",
-      s4Subtitle: "Jag vägrar att klämma in din unika fysiologi i stela daterade mallar. Jag lyssnar noga och anpassar rörelserna, näringen och vilan efter ditt nervsystems biologiska röst. Välj en pelare nedan för att läsa mer:",
-      s4PillarTag: "Mjuk filosofi ♡",
-      s4PillarMore: "TORUN bjuder in dig till en långsiktigt hållbar anpassning. Du bär med dig kraften och energin genom alla menscykelns faser eller klimakteriets förändringar med absolut mjukhet och lätthet.",
+      s4Subtitle: "Vi samarbetar med din kvinnliga biologi istället för att kämpa emot den. Genom att lyssna på din kropps signaler anpassar vi träningen, näringen och återhämtningen så att den stöttar dig i vardagen.",
+      s4PillarTag: "VÅR FILOSOFI",
+      s4PillarMore: "Ett långsiktigt och hållbart upplägg där du lär dig att lyssna på kroppen genom alla menscykelns faser, under perioder av stress eller genom livets förändringar.",
       s4PillarStat1: "Starkt",
       s4PillarStat2: "Hetsfritt",
       s4PillarStat3: "Skonsamt",
       s4PillarApply: "Ansök om din plats här",
       s5Tag: "DINA INTERAKTIVA VERKTYG",
-      s5Title: "Testa din biologi redan idag",
+      s5Title: "Lär känna din dagsform",
       s5Subtitle: "Här kan du utforska hur din menscykel, din stress och din kost samspelar med din träning. Prova mina skräddarsydda miniräknare och receptkort helt kostnadsfritt.",
       s5CalloutHeader: "VILL DU HA HELA VERKTYGSTLÅDAN?",
       s5CalloutTitle: "Detta är bara ett smakprov på hur du kan börja samarbeta med din kropp.",
       s5CalloutDesc: "Som medlem får du tillgång till hela min digitala portal – där du hittar fullständiga träningsprogram, djupare hormon-analyser, obegränsad tillgång till alla dessa interaktiva verktyg och hundratals recept anpassade efter din unika cykel.",
-      s5CalloutBtn: "Bli medlem och lås upp hela din potential 🎀",
+      s5CalloutBtn: "Bli medlem & starta idag",
       s6Tag: "DIN COACH",
       s6IntroBold: "Jag tror inte att din kropp är ett problem som ska fixas. Jag tror att den är ett hem du har varit borta från ett tag.",
       s6IntroItalic: '"& jag är här för att hjälpa dig hitta tillbaka."',
@@ -180,7 +180,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s8Subtitle: "Här samlar jag artiklar och enkla tips om hur du tränar smart, lyssnar på dagsformen och hittar en stark och snäll relation till din kropp – helt utan krångel och pekpinnar.",
       s8ReadMore: "Läs artikeln",
       s8AllBtn: "Visa alla artiklar i kunskapsbiblioteket",
-      s9Tag: "NYHETSBREVET",
+      s9Tag: "NYHETBREVET",
       s9Title: "Stanna kvar",
       s9TitleCursive: "direkt i inkorgen",
       s9Sub: "Få min gratis 7-dagars startguide.",
@@ -192,7 +192,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s9Footer: "Du får också mina nyhetsbrev då och då. Avregistrera dig när du vill."
     },
     en: {
-      fitnesscoachTag: "✦ FITNESS COACH FOR GIRLS & WOMEN",
+      fitnesscoachTag: "ONLINE COACHING & TRAINING FOR WOMEN",
       heroTitlePre: "You do not have to ",
       heroTitleItalic: "earn",
       heroTitlePost: " your own body.",
@@ -216,7 +216,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       floatCapsule1Title: "Cycle Sync",
       floatCapsule1Desc: "Easily sync intensity with all 4 phases of your menstruation.",
       floatCapsule2Title: "OPEN FOR ENROLLMENT",
-      floatCapsule2Desc: "Find your spot 🎀",
+      floatCapsule2Desc: "Find your spot ♡",
       floatCapsule2Sub: "Start when you feel ready",
       standQuote: '"Shifting focus to listening to my body instead of the fitness watch changed everything. Training on the body\'s terms gives so much more energy and joy in daily life!"',
       standQuoteBold1: "listening to my body",
@@ -227,7 +227,7 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3Tag: "THREE PATHS BACK",
       s3Title: "Choose your path home.",
       s3Subtitle: "No matter where you start, it is about the same thing — finding your way back to a body that is safe, strong, and yours.",
-      s3MatchmakerTitle: "Create your personal health profile",
+      s3MatchmakerTitle: "Find the right fit for you",
       s3MatchmakerSub: "Without pressure or hype",
       s3MatchmakerRecommended: "RECOMMENDED MEMBERSHIP",
       s3MatchmakerChoose: "Select this program",
@@ -239,8 +239,8 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3MatchmakerOpt3Desc: "Joy of training without whip and pressure",
       s3MatchmakerOpt4: "I feel very tired or stressed right now",
       s3MatchmakerOpt4Desc: "Gentle nervous system regulation",
-      s3RecommendedBadge: "RECOMMENDED ✨",
-      s3MatchBadge: "YOUR MATCH 🎀",
+      s3RecommendedBadge: "RECOMMENDED",
+      s3MatchBadge: "RECOMMENDED FOR YOU",
       s3IncludesHeader: "WHAT'S INCLUDED:",
       s3BtnText: "Begin your journey",
       s3DetailsLink: "Read full details ➔",
@@ -249,22 +249,22 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
       s3ContactOr: " or send your application directly.",
       s3AppFriszon: "Your digital safe haven",
       s3AppIncludes: "WHAT'S INCLUDED IN THE TOOLBOX:",
-      s4Tag: "BIOCENTERED SCIENCE",
+      s4Tag: "TRAINING ON BIOLOGICAL TERMS",
       s4Title: "Supportive pillars for your vitality",
-      s4Subtitle: "I refuse to squeeze your unique physiology into rigid dated templates. I listen carefully and adapt movements, nutrition, and rest to the biological voice of your nervous system. Choose a pillar below to read more:",
-      s4PillarTag: "Gentle philosophy ♡",
-      s4PillarMore: "TORUN invites you to a long-term sustainable adaptation. You carry the power and energy with you through all phases of the cycle or changes of menopause with absolute softness and ease.",
+      s4Subtitle: "We cooperate with your female biology instead of fighting it. By listening to your body's signals, we adapt workouts, nutrition, and recovery to support you in daily life.",
+      s4PillarTag: "OUR PHILOSOPHY",
+      s4PillarMore: "A long-term and sustainable program where you learn to listen to your body through all menstrual phases, stress, or life changes.",
       s4PillarStat1: "Strong",
       s4PillarStat2: "Pressure-free",
       s4PillarStat3: "Gentle",
       s4PillarApply: "Apply for your spot here",
       s5Tag: "YOUR INTERACTIVE TOOLS",
-      s5Title: "Test your biology today",
+      s5Title: "Get to know your daily form",
       s5Subtitle: "Here you can explore how your menstrual cycle, your stress, and your nutrition interact with your training. Try my customized calculators and recipe cards completely free of charge.",
       s5CalloutHeader: "WANT THE WHOLE TOOLBOX?",
       s5CalloutTitle: "This is just a taste of how you can start cooperating with your body.",
       s5CalloutDesc: "As a member, you get access to my full digital portal – where you'll find full training programs, deeper hormone analysis, unlimited access to all these interactive tools, and hundreds of recipes customized to your unique cycle.",
-      s5CalloutBtn: "Become a member and unlock your full potential 🎀",
+      s5CalloutBtn: "Become a member & start today",
       s6Tag: "YOUR COACH",
       s6IntroBold: "I don't believe your body is a problem to be fixed. I believe it is a home you have been away from for a while.",
       s6IntroItalic: '"& I am here to help you find your way back."',
@@ -484,17 +484,17 @@ export default function LandingPage({ onNavigate, onSelectPackage, language }: L
             style={{ y: floatingY1 }}
             animate={{ rotate: [0, 15, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="absolute top-[20%] right-[25%] pointer-events-none text-[#fd80ff]/60 text-4xl hidden md:block"
+            className="absolute top-[20%] right-[25%] pointer-events-none hidden md:block"
           >
-            🎀
+            <Sparkles className="w-8 h-8 text-[#fd80ff]/30 stroke-[1.5]" />
           </motion.div>
           <motion.div 
             style={{ y: floatingY2 }}
             animate={{ rotate: [0, -12, 0] }}
             transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1 }}
-            className="absolute bottom-[25%] left-[8%] pointer-events-none text-[#fd80ff]/40 text-5xl hidden lg:block"
+            className="absolute bottom-[25%] left-[8%] pointer-events-none hidden lg:block"
           >
-            🌸
+            <Heart className="w-8 h-8 text-[#fd80ff]/20 stroke-[1.5] fill-[#fd80ff]/5" />
           </motion.div>
         </div>
 

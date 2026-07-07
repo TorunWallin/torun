@@ -58,7 +58,7 @@ export default function StartGuide({ onNavigate, language }: StartGuideProps) {
     },
     {
       day: 7,
-      title: "Dag 7: Du är redan på väg 🎀",
+      title: "Dag 7: Du är redan på väg ♡",
       focus: "Look how far you've come",
       description: "Livet förändras genom de små stegen du fortsätter göra: promenaderna, passen, frukostarna och gångerna du väljer att börja om istället för att ge upp. Det är så hållbar förändring byggs.",
       exercise: "Skriv ner en sak du säger ja till från och med nu, och en sak du säger nej till för att värna om din egen energi och tid."
@@ -108,7 +108,7 @@ export default function StartGuide({ onNavigate, language }: StartGuideProps) {
     },
     {
       day: 7,
-      title: "Day 7: You are already on your way 🎀",
+      title: "Day 7: You are already on your way ♡",
       focus: "Look how far you've come",
       description: "Life changes through the tiny steps you continue to take: walks, workouts, breakfasts, and the times you choose to start over instead of giving up. That is how sustainable change is built.",
       exercise: "Write down one thing you say yes to from now on, and one thing you say no to, to protect your own energy and time."

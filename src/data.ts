@@ -11,6 +11,7 @@ export const packagesSv: Package[] = [
     outputGoal: "Du kommer få: Enkel och trygg basträning som bygger upp din vardagsrutin och rörelseglädje helt utan hets eller press.",
     features: [
       "Kravlöst 4-veckors träningsprogram (anpassat för hemmet eller gymmet)",
+      "Exklusiv tillgång till medlemsportalen med 28 dagliga coachingvideor & personlig loggbok",
       "Tydliga videoinstruktioner till varje enskild rörelse för full trygghet",
       "Enkla rutiner för sömn, andning och näringsrik mat utan förbud",
       "Full tillgång till ditt program i Everfit-appen under en hel månad",
@@ -97,6 +98,7 @@ export const packagesEn: Package[] = [
     outputGoal: "You will get: Structure, momentum, and a body that finally begins to feel at home in training – without having to change your entire life.",
     features: [
       "4-week training program (gym or home – you choose)",
+      "Exclusive access to the member portal with 28 daily coaching videos & personal logbook",
       "Video instructions for every exercise",
       "Simple daily routines for sleep, movement, and food",
       "Full access to the program in Everfit, at your own pace",

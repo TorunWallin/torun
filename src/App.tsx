@@ -8,6 +8,7 @@ import TorunAiChat from "./components/TorunAiChat";
 import ArticlesPage from "./components/ArticlesPage";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
+import KickstartPortal from "./components/KickstartPortal";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowUp, Check } from "lucide-react";
 
@@ -23,6 +24,11 @@ export default function App() {
     if (params.get("kickstart_success") === "true") {
       setShowKickstartSuccess(true);
       window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
+    // Check if path is /kickstart-medlem
+    if (window.location.pathname === "/kickstart-medlem") {
+      setActiveTab("kickstart-portal");
     }
   }, []);
 
@@ -45,6 +51,16 @@ export default function App() {
       setSelectedPackageId("");
     }
     setActiveTab(tabId);
+
+    // Update URL pathname dynamically for the portal link
+    if (tabId === "kickstart-portal") {
+      window.history.pushState({}, document.title, "/kickstart-medlem");
+    } else {
+      if (window.location.pathname === "/kickstart-medlem") {
+        window.history.pushState({}, document.title, "/");
+      }
+    }
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -124,6 +140,9 @@ export default function App() {
             {activeTab === "articles" && (
               <ArticlesPage onNavigate={handleNavigateToTab} language={language} />
             )}
+            {activeTab === "kickstart-portal" && (
+              <KickstartPortal onNavigate={handleNavigateToTab} language={language} />
+            )}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -168,9 +187,9 @@ export default function App() {
               </div>
 
               <div className="space-y-2">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff]">BETALNING BEKRÄFTAD 💎</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff]">BETALNING BEKRÄFTAD ♡</span>
                 <h2 className="text-xl sm:text-2xl font-display font-light text-[#230c1e] leading-snug">
-                  Välkommen till Kickstart! 🎀
+                  Välkommen till Kickstart!
                 </h2>
                 <p className="text-[#230c1e]/80 text-xs sm:text-[13px] leading-relaxed font-light">
                   Din betalning via Stripe har genomförts och du har nu direkt tillgång! Ett bekräftelsemejl har skickats till dig med instruktioner för hur du loggar in i Everfit-appen och startar ditt program.
