@@ -22,32 +22,34 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
   // Workouts version toggle: true = hemma, false = gym
   const [isHomeVersion, setIsHomeVersion] = useState(true);
   
-  // Active day selection in daily videos calendar
-  const [selectedDay, setSelectedDay] = useState<number>(1);
+  // Active week selection
+  const [selectedWeek, setSelectedWeek] = useState<number>(1);
   
-  // Text state for daily reflection
-  const [reflectionText, setReflectionText] = useState("");
-  const [reflectionSavedMessage, setReflectionSavedMessage] = useState(false);
+  // Text states for all 28 reflections
+  const [reflectionTexts, setReflectionTexts] = useState<Record<number, string>>({});
+  const [saveStatus, setSaveStatus] = useState<Record<number, boolean>>({});
   
   // Active exercise to show in video modal
   const [activeExerciseVideo, setActiveExerciseVideo] = useState<{ name: string; desc: string; videoUrl?: string } | null>(null);
   const [isPlayingExerciseVideo, setIsPlayingExerciseVideo] = useState(false);
   const [isPlayingCoachingVideo, setIsPlayingCoachingVideo] = useState(false);
 
-  // Check authentication status on mount
+  // Check authentication status on mount & load all saved reflections
   useEffect(() => {
     const isAuth = localStorage.getItem("torun_kickstart_authorized") === "true";
     if (isAuth) {
       setIsAuthenticated(true);
     }
-  }, []);
 
-  // Fetch saved reflection whenever selectedDay changes
-  useEffect(() => {
-    const saved = localStorage.getItem(`torun_kickstart_reflection_${selectedDay}`) || "";
-    setReflectionText(saved);
-    setReflectionSavedMessage(false);
-  }, [selectedDay]);
+    const initialTexts: Record<number, string> = {};
+    for (let d = 1; d <= 28; d++) {
+      const saved = localStorage.getItem(`torun_kickstart_reflection_${d}`);
+      if (saved) {
+        initialTexts[d] = saved;
+      }
+    }
+    setReflectionTexts(initialTexts);
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,8 +60,8 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
       setAuthError("");
     } else {
       setAuthError(language === "sv" 
-        ? "Felaktig accesskod. Vänligen kontrollera koden i ditt bekräftelsemejl."
-        : "Invalid passcode. Please check the code in your confirmation email."
+         ? "Felaktig accesskod. Vänligen kontrollera koden i ditt bekräftelsemejl."
+         : "Invalid passcode. Please check the code in your confirmation email."
       );
     }
   };
@@ -70,11 +72,20 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
     setPasscode("");
   };
 
-  const handleSaveReflection = () => {
-    localStorage.setItem(`torun_kickstart_reflection_${selectedDay}`, reflectionText);
-    setReflectionSavedMessage(true);
+  const handleTextChange = (dayNum: number, text: string) => {
+    setReflectionTexts(prev => ({
+      ...prev,
+      [dayNum]: text
+    }));
+  };
+
+  const handleSaveReflection = (dayNum: number) => {
+    const text = reflectionTexts[dayNum] || "";
+    localStorage.setItem(`torun_kickstart_reflection_${dayNum}`, text);
+    
+    setSaveStatus(prev => ({ ...prev, [dayNum]: true }));
     setTimeout(() => {
-      setReflectionSavedMessage(false);
+      setSaveStatus(prev => ({ ...prev, [dayNum]: false }));
     }, 3000);
   };
 
@@ -537,31 +548,14 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
                   <Video className="w-4 h-4" /> {t.introVideoTitle}
                 </h4>
                 
-                {/* Mock Video Player */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center group shadow-sm">
-                  {isPlayingCoachingVideo ? (
-                    <div className="absolute inset-0 bg-[#230c1e] flex flex-col items-center justify-center p-4 text-center text-white space-y-3 font-sans">
-                      <div className="w-12 h-12 rounded-full border-4 border-[#fd80ff] border-t-transparent animate-spin" />
-                      <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff]">Strömmar video...</span>
-                      <button 
-                        onClick={() => setIsPlayingCoachingVideo(false)}
-                        className="text-white/60 hover:text-white text-[9px] uppercase tracking-widest border border-white/20 px-3 py-1 rounded-full"
-                      >
-                        Stoppa
-                      </button>
-                    </div>
-                  ) : (
-                    <>
-                      <img src={torunMeadow} alt="Torun Coaching Introduction" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <button 
-                        onClick={() => setIsPlayingCoachingVideo(true)}
-                        className="w-14 h-14 rounded-full bg-white text-[#230c1e] hover:bg-[#fd80ff] hover:text-white flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-95 cursor-pointer z-10"
-                      >
-                        <Play className="w-6 h-6 fill-current ml-1" />
-                      </button>
-                    </>
-                  )}
+                {/* Native Video Player */}
+                <div className="relative aspect-video rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center shadow-sm">
+                  <video 
+                    src="/welcome.mp4" 
+                    controls 
+                    className="w-full h-full object-cover font-sans"
+                    poster={torunMeadow}
+                  />
                 </div>
 
                 <p className="text-[11px] text-stone-500 leading-relaxed font-light">
@@ -688,164 +682,133 @@ export default function KickstartPortal({ onNavigate, language }: KickstartPorta
           </div>
         )}
 
-        {/* TAB 3: DAILY VIDEOS */}
+        {/* TAB 3: WEEKLY VIDEOS & REFLECTIONS */}
         {activePortalTab === "videos" && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start animate-in-fade">
+          <div className="space-y-8 animate-in-fade" id="weekly-videos-stage">
             
-            {/* Left side: Calendar Grid */}
-            <div className="lg:col-span-5 glass-panel border border-white/65 p-6 sm:p-8 rounded-[2.5rem] shadow-xl space-y-6">
-              <div className="space-y-1">
-                <h3 className="font-serif text-lg font-bold text-[#230c1e]">
-                  {language === "sv" ? "Dina 28 Dagar" : "Your 28 Days"}
-                </h3>
-                <p className="text-xs text-stone-500 leading-relaxed font-light">
-                  Klicka på en dag för att se coachingvideon och svara på veckans reflektion.
+            {/* Week Selection switcher */}
+            <div className="flex flex-wrap items-center justify-center gap-3 bg-white border border-stone-200/60 p-2 rounded-3xl max-w-2xl mx-auto shadow-sm">
+              {[1, 2, 3, 4].map((wNum) => {
+                const isSelected = selectedWeek === wNum;
+                const svWeekTitle = wNum === 1 ? "Vecka 1: Landa" : wNum === 2 ? "Vecka 2: Lyssna" : wNum === 3 ? "Vecka 3: Bygg" : "Vecka 4: Integrera";
+                const enWeekTitle = wNum === 1 ? "Week 1: Land" : wNum === 2 ? "Week 2: Listen" : wNum === 3 ? "Week 3: Build" : "Week 4: Integrate";
+                return (
+                  <button
+                    key={wNum}
+                    onClick={() => setSelectedWeek(wNum)}
+                    className={`px-5 py-3 rounded-2xl text-xs font-sans font-black uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex-1 text-center ${
+                      isSelected
+                        ? "bg-[#230c1e] text-white shadow-xs"
+                        : "hover:bg-stone-50 text-[#230c1e]/75"
+                    }`}
+                  >
+                    {language === "sv" ? svWeekTitle : enWeekTitle}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Main Weekly Content grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Left Column: Weekly Video Player */}
+              <div className="lg:col-span-5 glass-panel border border-white/65 p-6 sm:p-8 rounded-[2.5rem] shadow-xl space-y-6">
+                <div className="space-y-1.5">
+                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff] block">
+                    {language === "sv" ? "VECKANS COACHINGVIDEO" : "WEEKLY COACHING VIDEO"}
+                  </span>
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#230c1e] leading-snug">
+                    {language === "sv" 
+                      ? (selectedWeek === 1 ? "Vecka 1: Hitta ditt varför & landa" : selectedWeek === 2 ? "Vecka 2: Lyssna på kroppen" : selectedWeek === 3 ? "Vecka 3: Stärk tilliten" : "Vecka 4: Integrera rörelse")
+                      : (selectedWeek === 1 ? "Week 1: Find your why & land" : selectedWeek === 2 ? "Week 2: Listen to your body" : selectedWeek === 3 ? "Week 3: Strengthen trust" : "Week 4: Integrate movement")
+                    }
+                  </h3>
+                </div>
+
+                {/* Actual Video tag for week */}
+                <div className="relative aspect-video rounded-[1.5rem] overflow-hidden bg-stone-900 border border-stone-800 shadow-sm">
+                  <video
+                    src={`/week${selectedWeek}.mp4`}
+                    controls
+                    className="w-full h-full object-cover"
+                    poster={torunDock}
+                  />
+                </div>
+
+                <p className="text-xs sm:text-sm text-stone-500 leading-relaxed font-light">
+                  {language === "sv"
+                    ? "Titta på veckans coachingvideo först innan du startar dina träningspass och dagliga reflektioner. Den sätter tonen och temat för de kommande sju dagarna. ♡"
+                    : "Watch this week's coaching video first before you start your workouts and daily reflections. It sets the theme for the upcoming seven days. ♡"
+                  }
                 </p>
               </div>
 
-              {/* 4 Weeks calendar stack */}
-              <div className="space-y-6">
-                {[1, 2, 3, 4].map((wNum) => {
-                  let svTheme = wNum === 1 ? "Landa" : wNum === 2 ? "Lyssna" : wNum === 3 ? "Bygg" : "Integrera";
-                  let enTheme = wNum === 1 ? "Land" : wNum === 2 ? "Listen" : wNum === 3 ? "Build" : "Integrate";
-                  return (
-                    <div key={wNum} className="space-y-2">
-                      <div className="flex justify-between items-center text-[10px] font-sans font-black uppercase tracking-wider text-[#230c1e]/40 border-b border-stone-100 pb-1">
-                        <span>{t.calendarWeek} {wNum}</span>
-                        <span className="text-[#fd80ff]">{language === "sv" ? svTheme : enTheme}</span>
-                      </div>
-                      
-                      <div className="grid grid-cols-7 gap-2">
-                        {Array.from({ length: 7 }, (_, i) => {
-                          const dayVal = (wNum - 1) * 7 + (i + 1);
-                          const isSelected = selectedDay === dayVal;
-                          const hasSavedNotes = localStorage.getItem(`torun_kickstart_reflection_${dayVal}`) !== null;
-                          return (
-                            <button
-                              key={dayVal}
-                              onClick={() => setSelectedDay(dayVal)}
-                              className={`aspect-square rounded-xl text-xs font-bold cursor-pointer transition-all flex flex-col items-center justify-center relative ${
-                                isSelected
-                                  ? "bg-[#230c1e] text-white shadow-sm scale-105"
-                                  : "bg-white hover:bg-stone-50 border border-stone-200 text-[#230c1e]"
-                              }`}
-                            >
-                              <span>{dayVal}</span>
-                              {hasSavedNotes && (
-                                <span className={`absolute bottom-1 w-1 h-1 rounded-full ${isSelected ? "bg-[#fd80ff]" : "bg-[#fd80ff]"}`} />
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-            </div>
-
-            {/* Right side: Video Player & Reflection Area */}
-            <div className="lg:col-span-7 space-y-6">
-              
-              {/* Daily Coaching Card */}
-              <div className="glass-panel border border-white/65 p-8 rounded-[2.5rem] shadow-xl space-y-6">
-                
-                {/* Active day details */}
-                <div className="flex justify-between items-center border-b border-stone-100 pb-4">
-                  <div className="space-y-1">
-                    <span className="text-[9px] uppercase font-bold tracking-widest text-[#fd80ff]">
-                      {t.calendarWeek} {activePrompt.week} • {t.calendarDay} {activePrompt.day}
-                    </span>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#230c1e]">
-                      {language === "sv" ? activePrompt.svTitle : activePrompt.enTitle}
+              {/* Right Column: Daily Reflections for this Week */}
+              <div className="lg:col-span-7 space-y-6">
+                <div className="glass-panel border border-white/65 p-6 sm:p-8 rounded-[2.5rem] shadow-xl space-y-6">
+                  <div className="border-b border-stone-100 pb-4">
+                    <h3 className="font-serif text-lg font-bold text-[#230c1e]">
+                      {language === "sv" ? "Dina dagliga reflektioner" : "Your daily reflections"}
                     </h3>
-                  </div>
-                </div>
-
-                {/* Video Container block */}
-                <div className="space-y-4">
-                  <h4 className="text-xs uppercase font-extrabold tracking-wider text-[#fd80ff] flex items-center gap-1.5">
-                    <Video className="w-4 h-4" /> {t.coachingVideoTitle}
-                  </h4>
-
-                  {/* Daily Video mock */}
-                  <div className="relative aspect-video rounded-[1.5rem] overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center group shadow-sm">
-                    {isPlayingCoachingVideo ? (
-                      <div className="absolute inset-0 bg-[#230c1e] flex flex-col items-center justify-center p-6 text-center text-white space-y-4">
-                        <div className="flex items-center gap-1">
-                          <span className="w-2 h-8 bg-[#fd80ff] rounded animate-pulse" />
-                          <span className="w-2 h-12 bg-[#fd80ff] rounded animate-pulse delay-75" />
-                          <span className="w-2 h-10 bg-[#fd80ff] rounded animate-pulse delay-150" />
-                          <span className="w-2 h-14 bg-[#fd80ff] rounded animate-pulse delay-200" />
-                          <span className="w-2 h-6 bg-[#fd80ff] rounded animate-pulse delay-300" />
-                        </div>
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff]">Lyssnar på Coaching (Dag {selectedDay})</span>
-                        <button 
-                          onClick={() => setIsPlayingCoachingVideo(false)}
-                          className="text-white/60 hover:text-white text-[9px] uppercase tracking-widest border border-white/20 px-4 py-1.5 rounded-full"
-                        >
-                          Pausa
-                        </button>
-                      </div>
-                    ) : (
-                      <>
-                        <img src={torunDock} alt="Torun Coaching" className="absolute inset-0 w-full h-full object-cover opacity-60" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#230c1e]/60 to-transparent" />
-                        
-                        {/* Play overlay button */}
-                        <button
-                          onClick={() => setIsPlayingCoachingVideo(true)}
-                          className="w-14 h-14 rounded-full bg-white text-[#230c1e] hover:bg-[#fd80ff] hover:text-white flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-95 cursor-pointer z-10"
-                        >
-                          <Play className="w-6 h-6 fill-current ml-1" />
-                        </button>
-                      </>
-                    )}
-                  </div>
-                  <p className="text-[11px] text-stone-500 leading-relaxed font-light">
-                    {t.coachingVideoDesc}
-                  </p>
-                </div>
-
-                {/* Daily reflection section */}
-                <div className="pt-6 border-t border-stone-100 space-y-4">
-                  <h4 className="text-xs uppercase font-extrabold tracking-wider text-[#fd80ff] flex items-center gap-1.5">
-                    <Heart className="w-4 h-4 text-pink-400" /> {t.reflectionTitle}
-                  </h4>
-                  
-                  <div className="bg-[#FAF8F5] border border-stone-200/50 p-5 rounded-2xl">
-                    <p className="text-xs sm:text-[13px] text-[#230c1e] font-sans leading-relaxed font-medium">
-                      {language === "sv" ? activePrompt.svPrompt : activePrompt.enPrompt}
+                    <p className="text-xs sm:text-sm text-stone-500 font-light mt-1">
+                      {language === "sv"
+                        ? "Här samlar du dina tankar dag för dag. Skriv ner dina känslor och klicka på spara – dina svar sparas i din reflektionsbok."
+                        : "Collect your thoughts day by day. Write down your feelings and click save – your answers will be saved in your reflection logbook."
+                      }
                     </p>
                   </div>
 
-                  <textarea
-                    rows={4}
-                    value={reflectionText}
-                    onChange={(e) => setReflectionText(e.target.value)}
-                    placeholder={t.reflectionPlaceholder}
-                    className="w-full bg-white border border-stone-200 rounded-2xl px-4 py-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:border-transparent text-[#230c1e] placeholder-stone-400 font-sans leading-relaxed"
-                  />
+                  <div className="space-y-6 max-h-[60vh] overflow-y-auto pr-2 no-scrollbar">
+                    {dailyPrompts
+                      .filter((p) => p.week === selectedWeek)
+                      .map((prompt) => {
+                        const isSaved = saveStatus[prompt.day];
+                        const textVal = reflectionTexts[prompt.day] || "";
+                        
+                        return (
+                          <div 
+                            key={prompt.day} 
+                            className="bg-[#FAF8F5] border border-stone-200/50 p-5 rounded-2xl space-y-3 text-left"
+                          >
+                            <div className="flex justify-between items-center">
+                              <span className="text-[10px] uppercase font-bold tracking-widest text-[#fd80ff]">
+                                {language === "sv" ? "Dag" : "Day"} {prompt.day} • {language === "sv" ? prompt.svTitle : prompt.enTitle}
+                              </span>
+                            </div>
 
-                  <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-1">
-                    {reflectionSavedMessage ? (
-                      <span className="text-[10px] text-emerald-600 font-semibold flex items-center gap-1 animate-pulse">
-                        <Check className="w-3.5 h-3.5" /> {t.reflectionSaved}
-                      </span>
-                    ) : (
-                      <div />
-                    )}
-                    
-                    <button
-                      onClick={handleSaveReflection}
-                      className="px-6 py-3.5 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] font-sans font-black uppercase tracking-widest rounded-xl transition-all cursor-pointer flex items-center gap-1.5 shadow-sm active:scale-98 w-full sm:w-auto justify-center"
-                    >
-                      <Save className="w-3.5 h-3.5 text-[#fd80ff]" /> {t.reflectionSaveBtn}
-                    </button>
+                            <p className="text-sm text-[#230c1e] font-sans font-semibold leading-relaxed">
+                              {language === "sv" ? prompt.svPrompt : prompt.enPrompt}
+                            </p>
+
+                            <div className="space-y-2">
+                              <textarea
+                                value={textVal}
+                                onChange={(e) => handleTextChange(prompt.day, e.target.value)}
+                                placeholder={t.reflectionPlaceholder}
+                                className="w-full bg-white border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#fd80ff]/40 focus:border-transparent text-[#230c1e] placeholder-stone-400 font-sans leading-relaxed min-h-[70px]"
+                                rows={2}
+                              />
+
+                              <div className="flex justify-end items-center gap-3">
+                                {isSaved && (
+                                  <span className="text-[11px] text-[#fd80ff] font-sans font-semibold animate-fade-in flex items-center gap-1">
+                                    <Check className="w-3.5 h-3.5 stroke-[2.5]" /> {t.reflectionSaved}
+                                  </span>
+                                )}
+                                <button
+                                  type="button"
+                                  onClick={() => handleSaveReflection(prompt.day)}
+                                  className="px-4 py-2 bg-[#230c1e] hover:bg-[#3d1534] text-white text-[10px] font-sans font-black uppercase tracking-wider rounded-lg transition-all cursor-pointer active:scale-95 flex items-center gap-1"
+                                >
+                                  <Save className="w-3.5 h-3.5" /> {t.reflectionSaveBtn}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
-
               </div>
 
             </div>
